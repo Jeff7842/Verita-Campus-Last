@@ -1,0 +1,2110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verita Campus - Professional Short Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Base Styles */
+        body {
+            zoom: 85%;
+            background-color: #f8f9fa;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 4px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            height: 60px;
+            transition: var(--transition);
+            width: 14%;
+            margin-left: -100px;
+            margin-top: 0px;
+            margin-bottom: -5px;
+            transform: translateX(-20%);
+            cursor: pointer;
+        }
+
+        /* Hero Section with Parallax Effect */
+        .courses-hero {
+            height: 60vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(12, 107, 50, 0.9), rgba(29, 189, 101, 0.7));
+            perspective: 1000px;
+        }
+
+        .courses-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/DIRECTION.png') center/cover no-repeat;
+            z-index: -1;
+            opacity: 0.5;
+            transform: translateZ(-1px) scale(1.2);
+            animation: fadeInBottom 1.5s ease-out;
+        }
+
+        .courses-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+            transform-style: preserve-3d;
+        }
+
+        .courses-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: textGlow 3s infinite alternate;
+        }
+
+        .courses-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInBottom {
+            from {
+                opacity: 0;
+                transform: translateZ(-1px) scale(1.2) translateY(100px);
+            }
+            to {
+                opacity: 0.5;
+                transform: translateZ(-1px) scale(1.2);
+            }
+        }
+
+        @keyframes textGlow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 20px rgba(29, 189, 101, 0.4);
+            }
+        }
+
+        /* Course Search and Filter Section */
+        .course-tools {
+            background: transparent;
+            padding: 30px 0;
+            position:relative;
+            top: 20px;
+            z-index: 100;
+           
+        }
+
+        .course-search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding-left: 370px;
+        }
+
+        .course-search {
+            flex: 1;
+            position: relative;
+            max-width: 600px;
+        }
+
+        .course-search input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding-left: 50px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .course-search input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .course-search i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        .filter-toggle {
+            display: none;
+            background:none;
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 120;
+        }
+
+        .filter-toggle:hover {
+            background: var(--gradient-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Layout */
+        .course-main-container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            gap: 30px;
+        }
+
+        /* Filters Sidebar */
+        .course-filters {
+            width: 280px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            height: fit-content;
+            position: sticky;
+            top: 150px;
+            margin-left:-170px;
+
+        }
+
+        .filter-section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .filter-section:last-child {
+            border-bottom: none;
+        }
+
+        .filter-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .filter-section h3 i {
+            transition: transform 0.3s ease;
+        }
+
+        .filter-section.active h3 i {
+            transform: rotate(180deg);
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #555;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 8px 10px;
+            border-radius: 5px;
+        }
+
+        .filter-option:hover {
+            background: rgba(29, 189, 101, 0.1);
+            color: var(--dark-color);
+        }
+
+        .filter-option input {
+            margin-right: 8px;
+        }
+
+        .price-range {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .price-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .filter-apply {
+            width: 100%;
+            padding: 12px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .filter-apply:hover {
+            background: var(--gradient-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-btn-hover);
+        }
+
+        /* Course Grid */
+        .course-grid-container {
+            flex: 1;
+        }
+
+        .course-grid-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .course-grid-header h2 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+        }
+
+        .sort-options {
+            position: relative;
+        }
+
+        .sort-toggle {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .sort-toggle:hover {
+            border-color: var(--primary-color);
+        }
+
+        .sort-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            padding: 10px 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .sort-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .sort-dropdown a {
+            display: block;
+            padding: 10px 20px;
+            color: #555;
+            transition: var(--transition);
+        }
+
+        .sort-dropdown a:hover {
+            background: rgba(29, 189, 101, 0.1);
+            color: var(--dark-color);
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        /* Compact Course Card */
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            margin-top:30px;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .package-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .package-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(29, 189, 101, 0.2), rgba(248, 179, 36, 0.2));
+        }
+
+        .package-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .package-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .package-description {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .package-features {
+            margin-bottom: 20px;
+        }
+
+        .package-features h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .package-features ul {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .package-features li {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .package-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 8px;
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .course-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .course-meta i {
+            color: var(--primary-color);
+        }
+
+        .package-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .package-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .package-price span {
+            font-size: 0.9rem;
+            color: #777;
+            font-weight: normal;
+        }
+
+        .package-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .package-cta:hover {
+            background: var(--gradient-dark);
+            transform: translateX(5px);
+            box-shadow: var(--shadow-btn-hover);
+        }
+
+        .package-cta i {
+            margin-left: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .package-cta:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #d2e5f8, #e9f5ee);
+            margin-top:100px;
+            z-index: 100;
+            position: relative;
+        }
+
+        .testimonials-container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .testimonials-slider {
+            position: relative;
+            margin-top: 50px;
+
+        }
+
+        .testimonial-track {
+            display: flex;
+            gap: 30px;
+            padding: 100px 0;
+            overflow-x:auto;
+            scroll-snap-type: x mandatory;
+            -webkit-scrollbar-width: none; /* For Firefox */
+            scrollbar-width:1700px;
+            width: 200%;
+        }
+
+        .testimonial-track::-webkit-scrollbar {
+            display:none;
+        }
+
+        .testimonial-card {
+            flex: 0 0 auto;
+            width: 550px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-content {
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 3rem;
+            color: rgba(29, 189, 101, 0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #555;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .rating {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            -webkit-backdrop-filter:blur(5px);
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .stat-number::after {
+            content: '+';
+            font-size: 1.5rem;
+            vertical-align: super;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .stats-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: radial-gradient(circle, white 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            background: #f8f9fa;
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: #f1f1f1;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: white;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .course-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .course-main-container {
+                flex-direction: column;
+            }
+
+            .course-filters {
+                width: 100%;
+                position: static;
+                margin-bottom: 30px;
+                display: none;
+            }
+
+            .course-filters.active {
+                display: block;
+            }
+
+            .filter-toggle {
+                display: block;
+            }
+
+            .course-search-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .course-search {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .courses-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .courses-hero p {
+                font-size: 1.1rem;
+            }
+
+            .course-grid-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .testimonial-card {
+                width: 280px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .courses-hero {
+                height: 50vh;
+            }
+
+            .courses-hero h1 {
+                font-size: 2rem;
+            }
+
+            .package-title {
+                font-size: 1.3rem;
+            }
+
+            .package-footer {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+            </div>
+            <div class="loader-text">EXPAND YOUR HORIZONS</div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#"><i class="fas fa-bolt"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas fa-road"></i>Impact</a>
+                            <a href="blog.html"><i class="fas fa-road"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas fa-road"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fas fa-bolt"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fas fa-road"></i>Hub</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Courses Hero Section -->
+    <section class="courses-hero">
+        <div class="courses-hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Professional Short Courses</h1>
+            <p class="animate__animated animate__fadeInUp">Intensive programs designed to give you practical skills for immediate career impact</p>
+            <div class="hero-buttons animate__animated animate__fadeInUp">
+                <button class="cta-primary ripple" onclick="document.querySelector('.course-tools').scrollIntoView({behavior: 'smooth'})">Explore Courses</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Search and Filter Section -->
+    <section class="course-tools">
+        <div class="course-search-container">
+            <div class="course-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search courses...">
+            </div>
+            <button class="filter-toggle">
+                <i class="fas fa-filter"></i> Filters
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="course-main-container">
+        <!-- Filters Sidebar -->
+        <aside class="course-filters">
+            <div class="filter-section active">
+                <h3>Categories <i class="fas fa-chevron-down"></i></h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" checked> All Categories
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Technology
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Business
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Design
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Health
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Law
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Duration <i class="fas fa-chevron-down"></i></h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" checked> Any Duration
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> 1-3 Weeks
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> 4-6 Weeks
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> 7-9 Weeks
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> 10+ Weeks
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Price Range <i class="fas fa-chevron-down"></i></h3>
+                <input type="range" class="price-range" min="0" max="15000" value="15000" step="500" placeholder="">
+                <div class="price-values">
+                    <span>$0</span>
+                    <span>$150 Kshs</span>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Skill Level <i class="fas fa-chevron-down"></i></h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" checked> All Levels
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Beginner
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Intermediate
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Advanced
+                    </label>
+                </div>
+            </div>
+
+            <button class="filter-apply">Apply Filters</button>
+        </aside>
+
+        <!-- Course Grid -->
+        <main class="course-grid-container">
+            <div class="course-grid-header">
+                <h2>All Short Courses</h2>
+                <div class="sort-options">
+                    <button class="sort-toggle">
+                        Sort by: Recommended
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="sort-dropdown">
+                        
+                        <a href="#">Recommended</a>
+  <a href="#">Price: Low to High</a>
+  <a href="#">Price: High to Low</a>
+  <a href="#">Duration: Short to Long</a>
+  <a href="#">Duration: Long to Short</a>
+  <a href="#">Newest</a>
+  <a href="#">Popularity</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-grid">
+                <!-- Architecture & Construction Package -->
+                <div class="package-card animate__animated" data-price="74" data-duration="8" data-date="2025-05-15" data-popularity="95">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/arch1.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">Architecture & Construction</h2>
+                        <p class="package-description">
+                            Master the fundamentals of architectural design and construction management with this comprehensive package.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Technical drawing & drafting</li>
+                                <li>Sustainable building design</li>
+                                <li>Project costing & estimation</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 8 weeks</span>
+                        </div>
+
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>74</div>
+                            <a href="Architecture & Construction.html" class="package-cta ripple">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Software & IT Package -->
+                <div class="package-card animate__animated" data-price="78" data-duration="8" data-date="2025-05-19" data-popularity="89">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/IT2.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">Software & IT</h2>
+                        <p class="package-description">
+                            Launch your tech career with this all-inclusive IT package covering fundamental computer skills to full-stack development.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Web design (HTML5, CSS, JS)</li>
+                                <li>Object-oriented programming</li>
+                                <li>Cloud and edge computing</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 8 weeks</span>
+                        </div>
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>78</div>
+                            <a href="software&IT.html" class="package-cta ripple">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Law and Advocacy Essentials Package -->
+                <div class="package-card animate__animated" data-price="60" data-duration="6" data-date="2025-05-20" data-popularity="75">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/Law2.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">Law & Advocacy Essentials</h2>
+                        <p class="package-description">
+                            Gain foundational knowledge in legal principles and advocacy with this comprehensive package.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Legal research and writing</li>
+                                <li>Contract and tort law</li>
+                                <li>Legal ethics and conduct</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 6 weeks</span>
+                        </div>
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>60</div>
+                            <a href="Law.html" class="package-cta ripple">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clinical & Health Sciences Package -->
+                <div class="package-card animate__animated" data-price="63" data-duration="6" data-date="2025-05-21" data-popularity="68">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/Clinical1.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">Clinical & Health Sciences</h2>
+                        <p class="package-description">
+                            This comprehensive package provides essential knowledge for healthcare professionals and those entering the medical field.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Human anatomy and physiology</li>
+                                <li>First aid and emergency response</li>
+                                <li>Medical ethics and law</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 6 weeks</span>
+                        </div>
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>63</div>
+                            <a href="Clinical &Health Sciences.html" class="package-cta ripple">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Management & Administration Package -->
+                <div class="package-card animate__animated" data-price="39.99" data-duration="6" data-date="2025-05-22" data-popularity="80">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/Bussines4.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">Business Management</h2>
+                        <p class="package-description">
+                            Develop essential business acumen and administrative skills with this practical package.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Office administration</li>
+                                <li>Human resource management</li>
+                                <li>Business strategy & operations</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 6 weeks</span>
+                        </div>
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>39.99</div>
+                            <a href="Business.html" class="package-cta ripple">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finance & Accounting Package -->
+                <div class="package-card animate__animated" data-price="39.99" data-duration="6" data-date="2025-05-23" data-popularity="92">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/Fine2.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">Finance & Accounting</h2>
+                        <p class="package-description">
+                            Master financial literacy and accounting principles with this comprehensive package.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Personal finance & budgeting</li>
+                                <li>Principles of accounting</li>
+                                <li>Financial statement analysis</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 6 weeks</span>
+                        </div>
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>39.99</div>
+                            <a href="Finance.html" class="package-cta ripple">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Marketing & Media Package -->
+                <div class="package-card animate__animated" data-price="55" data-duration="6" data-date="2025-05-24" data-popularity="65">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/Social1.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">Digital Marketing & Media</h2>
+                        <p class="package-description">
+                            Become proficient in digital marketing strategies and tools with this hands-on package.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Social media strategy</li>
+                                <li>SEO (Search Engine Optimization)</li>
+                                <li>Marketing analytics</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 6 weeks</span>
+                        </div>
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>55</div>
+                            <a href="digital-marketing.html" class="package-cta ripple">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Science & Analysis Package -->
+                <div class="package-card animate__animated" data-price="85" data-duration="8" data-date="2025-05-27" data-popularity="86">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/DATA.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">Data Science & Analysis</h2>
+                        <p class="package-description">
+                            Dive into the world of data with this comprehensive package covering everything from data cleaning to machine learning.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Python programming</li>
+                                <li>Data cleaning & preprocessing</li>
+                                <li>Machine learning fundamentals</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 8 weeks</span>
+                        </div>
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>82</div>
+                            <a href="data-science.html" class="package-cta ripple">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cybersecurity Package -->
+                <div class="package-card animate__animated" data-price="78" data-duration="7" data-date="2025-05-25" data-popularity="59">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/Cyber.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">Cybersecurity</h2>
+                        <p class="package-description">
+                            Protect digital assets and understand security threats with this essential cybersecurity package.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Network security basics</li>
+                                <li>Cryptography basics</li>
+                                <li>Penetration testing</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 7 weeks</span>
+                        </div>
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>78</div>
+                            <a href="cyber-security.html" class="package-cta ripple">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & Machine Learning Package -->
+                <div class="package-card animate__animated" data-price="86" data-duration="9" data-date="2025-04-29" data-popularity="89">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/AI5.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">AI & Machine Learning</h2>
+                        <p class="package-description">
+                            Explore the cutting-edge field of artificial intelligence with this comprehensive package.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Neural networks & deep learning</li>
+                                <li>Natural language processing</li>
+                                <li>Model evaluation & tuning</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 9 weeks</span>
+                        </div>
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>86</div>
+                            <a href="artificial-inteligence.html" class="package-cta ripple">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphic Design Package -->
+                <div class="package-card animate__animated" data-price="47" data-duration="6" data-date="2025-05-23" data-popularity="79">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/Graphic.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">Graphic Design</h2>
+                        <p class="package-description">
+                            Explore the vibrant world of graphic design with this comprehensive package.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Adobe Creative Suite</li>
+                                <li>Brand identity & visual communication</li>
+                                <li>Social media content creation</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 6 weeks</span>
+                        </div>
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>47</div>
+                            <a href="Graphis.html" class="package-cta ripple">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photography Design Package -->
+                <div class="package-card animate__animated" data-price="55" data-duration="7" data-date="2025-05-20" data-popularity="69">
+                    <div class="package-image" style="background-image: url('assets/images/Packages/photography.jpg');"></div>
+                    <div class="package-content">
+                        <h2 class="package-title">Lens & Light Mastery</h2>
+                        <p class="package-description">
+                            Explore the art and craft of photography with this comprehensive package.
+                        </p>
+
+                        <div class="package-features">
+                            <h4>Key Skills:</h4>
+                            <ul>
+                                <li>Photography fundamentals</li>
+                                <li>Adobe Lightroom & Photoshop</li>
+                                <li>Color correction & grading</li>
+                            </ul>
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fa-solid fa-medal"></i> Plus Bonuses</span>
+                            <span><i class="fas fa-clock"></i> 7 weeks</span>
+                        </div>
+                        <div class="package-footer">
+                            <div class="package-price"><span>$</span>55</div>
+                            <a class="package-cta ripple" href="photography.html">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our <span>Students</span> Say</h2>
+                <p>Hear from professionals who transformed their careers with our courses</p>
+            </div>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                The Architecture & Construction course gave me practical skills I could immediately apply at work. The instructors were industry professionals who shared real-world insights.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Mwangi">
+                                </div>
+                                <div class="author-info">
+                                    <h4>John Mwangi</h4>
+                                    <p>Junior Architect</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                After completing the Digital Marketing course, I was able to start my own agency. The practical assignments and mentorship were invaluable to my success.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Kariuki">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sarah Kariuki</h4>
+                                    <p>Digital Marketing Specialist</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                The Data Science course was intense but worth every minute. I went from knowing nothing about Python to building machine learning models in just 8 weeks!
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="David Omondi">
+                                </div>
+                                <div class="author-info">
+                                    <h4>David Omondi</h4>
+                                    <p>Data Analyst</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                As a lawyer, the Law & Advocacy course helped me sharpen my research and writing skills. The practical exercises on contract drafting were particularly helpful.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Grace Wambui">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Grace Wambui</h4>
+                                    <p>Legal Associate</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-nav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-pattern"></div>
+        <div class="stats-container">
+            <div class="section-header">
+                <h2>Our <span>Impact</span> in Numbers</h2>
+                <p>Join thousands of professionals who have transformed their careers with Verita Campus</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-number">5,000</div>
+                    <div class="stat-label">Students Trained</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Course Programs</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="stat-number">50</div>
+                    <div class="stat-label">Expert Instructors</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="stat-number">100</div>
+                    <div class="stat-label">Partner Companies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently <span>Asked</span> Questions</h2>
+                <p>Find answers to common questions about our short courses</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the duration of each course?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our short courses typically range from 6 to 9 weeks, with most being 6 weeks long. Each course includes 3-5 hours of instruction per week, plus optional practical assignments.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Are the courses online or in-person?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer both online and in-person options for most courses. You can choose your preferred format during registration. Online courses include live sessions with instructors and access to recorded materials.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What certification will I receive?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Upon successful completion of a course, you'll receive a Verita Campus Professional Certificate that you can add to your LinkedIn profile and resume. Some courses also offer industry-recognized certifications.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do I need prior experience to enroll?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most of our courses are designed for beginners, with no prior experience required. For advanced courses, we clearly indicate any prerequisites in the course description.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What payment options are available?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept M-Pesa, credit/debit cards, and bank transfers. We also offer installment plans for most courses - please contact our admissions team for details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        const heroSection = document.querySelector('.courses-hero');
+        const heroHeight = heroSection.offsetHeight;
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > heroHeight * 0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+
+        // Filter Toggle
+        const filterToggle = document.querySelector('.filter-toggle');
+        const courseFilters = document.querySelector('.course-filters');
+
+        filterToggle.addEventListener('click', function() {
+            courseFilters.classList.toggle('active');
+        });
+
+        // Sort Dropdown
+        const sortToggle = document.querySelector('.sort-toggle');
+        const sortDropdown = document.querySelector('.sort-dropdown');
+
+        sortToggle.addEventListener('click', function() {
+            sortDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!sortToggle.contains(e.target)) {
+                sortDropdown.classList.remove('active');
+            }
+        });
+
+        // Filter Section Toggle
+        const filterSections = document.querySelectorAll('.filter-section');
+
+        filterSections.forEach(section => {
+            const header = section.querySelector('h3');
+            header.addEventListener('click', function() {
+                section.classList.toggle('active');
+            });
+        });
+
+        // Testimonial Slider
+        const testimonialTrack = document.querySelector('.testimonial-track');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const sliderDots = document.querySelectorAll('.slider-dot');
+        let currentIndex = 0;
+
+        function updateSlider() {
+            const cardWidth = testimonialCards[0].offsetWidth;
+            testimonialTrack.style.transform = `translateX(-${currentIndex * (cardWidth + 30)}px)`;
+            
+            // Update dots
+            sliderDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        sliderDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+        });
+
+        // Auto-advance slider
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % testimonialCards.length;
+            updateSlider();
+        }, 5000);
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Animate package cards on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const packageCards = document.querySelectorAll('.package-card');
+
+            function animateOnScroll() {
+                packageCards.forEach((card, index) => {
+                    const cardPosition = card.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 0.7;
+
+                    if (cardPosition < screenPosition) {
+                        setTimeout(() => {
+                            card.classList.add('animate__fadeInUp');
+                        }, index * 60);
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on page load
+        });
+
+        // ========== COURSE FILTER & SEARCH FUNCTIONALITY ==========
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInputs = document.querySelectorAll('.course-search input, .search-box input');
+    const courseCards = document.querySelectorAll('.package-card');
+    const applyFilterBtn = document.querySelector('.filter-apply');
+
+    const getSelectedFilters = () => {
+        const selected = {
+            categories: [],
+            durations: [],
+            levels: [],
+            price: parseInt(document.querySelector('.price-range').value, 10)
+        };
+
+        // Categories
+        document.querySelectorAll('.filter-section:nth-of-type(1) input:checked').forEach(input => {
+            selected.categories.push(input.parentElement.textContent.trim());
+        });
+
+        // Duration
+        document.querySelectorAll('.filter-section:nth-of-type(2) input:checked').forEach(input => {
+            selected.durations.push(input.parentElement.textContent.trim());
+        });
+
+        // Skill Level
+        document.querySelectorAll('.filter-section:nth-of-type(4) input:checked').forEach(input => {
+            selected.levels.push(input.parentElement.textContent.trim());
+        });
+
+        return selected;
+    };
+
+    const filterCourses = () => {
+        const { categories, durations, levels, price } = getSelectedFilters();
+        const keyword = searchInputs[0].value.trim().toLowerCase();
+
+        courseCards.forEach(card => {
+            const title = card.querySelector('.package-title')?.textContent.toLowerCase();
+            const description = card.querySelector('.package-description')?.textContent.toLowerCase();
+            const durationText = card.querySelector('.course-meta span:nth-child(2)')?.textContent.toLowerCase();
+            const priceValue = parseFloat(card.querySelector('.package-price')?.textContent.replace(/[^0-9.]/g, '')) || 0;
+
+            let visible = true;
+
+            // Keyword search
+            if (keyword && !(title.includes(keyword) || description.includes(keyword))) {
+                visible = false;
+            }
+
+            // Category match
+            if (!categories.includes("All Categories")) {
+                visible = categories.some(cat => title.includes(cat.toLowerCase())) ? visible : false;
+            }
+
+            // Duration match
+            if (!durations.includes("Any Duration")) {
+                visible = durations.some(dur => durationText.includes(dur.split(' ')[0])) ? visible : false;
+            }
+
+            // Skill level match (optional — not present in DOM yet unless you add it)
+            // if (!levels.includes("All Levels")) {
+            //     visible = levels.some(level => card.textContent.toLowerCase().includes(level.toLowerCase())) ? visible : false;
+            // }
+
+            // Price range
+            if (priceValue > price) visible = false;
+
+            card.style.display = visible ? 'block' : 'none';
+        });
+    };
+
+    // Apply filters on button click
+    applyFilterBtn?.addEventListener('click', filterCourses);
+
+    // Live search on typing
+    searchInputs.forEach(input => {
+        input.addEventListener('input', filterCourses);
+    });
+});
+
+    </script>
+
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    const searchInputs = document.querySelectorAll('.course-search input, .search-box input');
+    const courseCards = document.querySelectorAll('.package-card');
+    const applyFilterBtn = document.querySelector('.filter-apply');
+    const priceRange = document.querySelector('.price-range');
+    const priceDisplay = document.querySelector('.price-values span:last-child');
+    const sortToggle = document.querySelector('.sort-toggle');
+    const sortDropdown = document.querySelector('.sort-dropdown');
+
+    function setupSmartFilterBehavior() {
+        const filterGroups = [
+            { sectionIndex: 0, label: "All Categories" },
+            { sectionIndex: 1, label: "Any Duration" },
+            { sectionIndex: 3, label: "All Levels" },
+        ];
+
+        filterGroups.forEach(({ sectionIndex, label }) => {
+            const section = document.querySelectorAll('.filter-section')[sectionIndex];
+            const allOption = Array.from(section.querySelectorAll('input')).find(input => input.parentElement.textContent.trim() === label);
+            const specificOptions = Array.from(section.querySelectorAll('input')).filter(i => i !== allOption);
+
+            specificOptions.forEach(input => {
+                input.addEventListener('change', () => {
+                    if (input.checked) {
+                        allOption.checked = false;
+                    } else if (!specificOptions.some(i => i.checked)) {
+                        allOption.checked = true;
+                    }
+                    filterAndSortCourses();
+                });
+            });
+
+            allOption?.addEventListener('change', () => {
+                if (allOption.checked) {
+                    specificOptions.forEach(i => (i.checked = false));
+                    filterAndSortCourses();
+                }
+            });
+        });
+    }
+
+    function getFilters() {
+        const selected = {
+            keyword: searchInputs[0].value.trim().toLowerCase(),
+            categories: [],
+            durations: [],
+            levels: [],
+            price: parseInt(priceRange.value, 10),
+            sort: sortToggle.textContent.trim().replace("Sort by:", "").trim(),
+        };
+
+        document.querySelectorAll('.filter-section:nth-of-type(1) input:checked').forEach(input => {
+            selected.categories.push(input.parentElement.textContent.trim());
+        });
+
+        document.querySelectorAll('.filter-section:nth-of-type(2) input:checked').forEach(input => {
+            selected.durations.push(input.parentElement.textContent.trim());
+        });
+
+        document.querySelectorAll('.filter-section:nth-of-type(4) input:checked').forEach(input => {
+            selected.levels.push(input.parentElement.textContent.trim());
+        });
+
+        return selected;
+    }
+
+    function filterAndSortCourses() {
+        const { keyword, categories, durations, levels, price, sort } = getFilters();
+
+        const filteredCards = Array.from(courseCards).filter(card => {
+            const title = card.querySelector('.package-title')?.textContent.toLowerCase() || "";
+            const description = card.querySelector('.package-description')?.textContent.toLowerCase() || "";
+            const durationText = card.querySelector('.course-meta span:nth-child(2)')?.textContent.toLowerCase() || "";
+            const priceValue = parseFloat(card.querySelector('.package-price')?.textContent.replace(/[^0-9.]/g, '')) || 0;
+
+            let visible = true;
+
+            if (keyword && !(title.includes(keyword) || description.includes(keyword))) visible = false;
+
+            if (!categories.includes("All Categories")) {
+                visible = categories.some(cat => title.includes(cat.toLowerCase())) ? visible : false;
+            }
+
+            if (!durations.includes("Any Duration")) {
+                visible = durations.some(dur => durationText.includes(dur.split(' ')[0])) ? visible : false;
+            }
+
+            if (!levels.includes("All Levels")) {
+                visible = levels.some(level => title.includes(level.toLowerCase())) ? visible : false;
+            }
+
+            if (priceValue > price) visible = false;
+
+            return visible;
+        });
+
+        const sortedCards = filteredCards.sort((a, b) => {
+    const priceA = parseFloat(a.dataset.price || 0);
+    const priceB = parseFloat(b.dataset.price || 0);
+    const durationA = parseInt(a.dataset.duration || 0);
+    const durationB = parseInt(b.dataset.duration || 0);
+    const dateA = new Date(a.dataset.date || "2000-01-01");
+    const dateB = new Date(b.dataset.date || "2000-01-01");
+    const popA = parseInt(a.dataset.popularity || 0);
+    const popB = parseInt(b.dataset.popularity || 0);
+
+    switch (sort) {
+        case "Price: Low to High":
+            return priceA - priceB;
+        case "Price: High to Low":
+            return priceB - priceA;
+        case "Duration: Short to Long":
+            return durationA - durationB;
+        case "Duration: Long to Short":
+            return durationB - durationA;
+        case "Newest":
+        case "Newest to Oldest":
+            return dateB - dateA;
+        case "Popularity":
+            return popB - popA;
+        case "Recommended":
+        default:
+            return 0; // no sort; keeps HTML order
+    }
+});
+
+
+        // Hide all cards
+        courseCards.forEach(card => card.style.display = 'none');
+
+        // Show filtered + sorted cards
+        sortedCards.forEach(card => card.style.display = 'block');
+    }
+
+    // Update price display live
+    priceRange?.addEventListener('input', () => {
+        priceDisplay.textContent = `Kshs ${priceRange.value}`;
+        filterAndSortCourses();
+    });
+
+    // Apply button and search inputs
+    applyFilterBtn?.addEventListener('click', filterAndSortCourses);
+    searchInputs.forEach(input => input.addEventListener('input', filterAndSortCourses));
+
+    // Sort dropdown toggle
+    sortToggle?.addEventListener('click', () => {
+        sortDropdown.classList.toggle('active');
+    });
+
+    sortToggle?.addEventListener('click', () => {
+    console.log('Sort clicked');
+    sortDropdown.classList.toggle('active');
+});
+
+    // Handle sort selection
+    sortDropdown?.querySelectorAll('a').forEach(option => {
+        option.addEventListener('click', (e) => {
+            e.preventDefault();
+            sortToggle.innerHTML = `Sort by: ${option.textContent} <i class="fas fa-chevron-down"></i>`;
+            sortDropdown.classList.remove('active');
+            filterAndSortCourses();
+        });
+    });
+
+    setupSmartFilterBehavior();
+    filterAndSortCourses(); // Initial run
+});
+
+
+    </script>
+</body>
+
+</html>

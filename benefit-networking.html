@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verita Campus - Networking Opportunities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+       .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 4px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .navbar.solid {
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            height: 60px;
+            transition: var(--transition);
+            width: 14%;
+            margin-left: -100px;
+            margin-top: 0px;
+            margin-bottom: -5px;
+            transform: translateX(-20%);
+            cursor: pointer;
+        }
+       /*benefits section*/
+        .benefit-hero {
+            background: linear-gradient(135deg, #1a3a23, #0c6b32);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: var(--text-shadow-lg);
+        }
+        
+        .benefit-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .benefit-content {
+            padding: 100px 0;
+        }
+        
+        .content-block {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        
+        .content-block.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .content-text {
+            flex: 1;
+        }
+        
+        .content-media {
+            flex: 1;
+        }
+        
+        .content-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .content-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        
+        .content-text ul {
+            margin-bottom: 30px;
+        }
+        
+        .content-text ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .content-text ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            background: var(--gradient);
+            border-radius: 50%;
+        }
+        
+        .content-media img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+        
+        .content-media:hover img {
+            transform: scale(1.02);
+        }
+
+        .content-media.video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .play-button i {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+        
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        
+        .events-calendar {
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .calendar-header h2 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+        }
+        
+        .calendar-view {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .view-option {
+            padding: 8px 15px;
+            background: #eee;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .view-option.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card-hover);
+        }
+        
+        .event-date {
+            background: var(--gradient);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .event-date .month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .event-date .day {
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+        
+        .event-content {
+            padding: 20px;
+        }
+        
+        .event-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .event-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .event-meta i {
+            color: var(--primary-color);
+        }
+        
+        .event-description {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .event-cta {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .event-cta:hover {
+            background: var(--gradient-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-btn-hover);
+        }
+        
+        .alumni-network {
+            background: #f9f9f9;
+            padding: 80px 0;
+            margin-top: 60px;
+        }
+        
+        .alumni-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .alumni-container h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+        }
+        
+        .alumni-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .alumni-testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 1024px) {
+            .content-block {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .content-block.reverse {
+                flex-direction: column;
+            }
+            
+            .content-text, .content-media {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .benefit-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .content-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+            </div>
+            <div class="loader-text">BREAK THE BARRIERS</div>
+        </div>
+    </div>
+
+     <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fa-solid fa-building"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fa-solid fa-location-dot"></i>Hubs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Benefit Hero Section -->
+    <section class="benefit-hero">
+        <h1 class="animate__animated animate__fadeInDown">Networking Opportunities</h1>
+        <p class="animate__animated animate__fadeInUp">Connect with professionals, attend international events, and build relationships that advance your career</p>
+    </section>
+
+    <!-- Benefit Content -->
+    <section class="benefit-content">
+        <div class="content-block animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Access to International Conferences</h2>
+                <p>Our alumni actively participate in international conferences, held in different parts of the world, both virtually and in-person. These events are more than just gatherings - they are powerful sessions for collaboration, networking and global visibility.</p>
+                <p>The Verita Alumni get front-row access to keynote sessions by industry pioneers, panel discussions with leaders, and live project showcases. We facilitate these connections to help you build relationships that can transform your career.</p>
+                <ul>
+                    <li>Annual global alumni summit</li>
+                    <li>Industry-specific conferences</li>
+                    <li>Virtual networking events</li>
+                    <li>Local meetups and workshops</li>
+                    <li>Exclusive invite-only events</li>
+                </ul>
+            </div>
+            <div class="content-media reverse video-container">
+                <video controls poster="assets/images/Benefits/Access to networking opportunities/Networking.png">
+                <source src="assets/images/Benefits/Access to networking opportunities/CONF.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+        </div>
+
+        <div class="content-block reverse animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Professional Community</h2>
+                <p>When you join Verita Campus, you're not just enrolling in courses - you're joining a vibrant community of professionals, mentors, and industry leaders. Our community platform allows you to connect, collaborate, and learn from peers across different industries and experience levels.</p>
+                <p>We organize regular networking events, both online and offline, to help you build meaningful professional relationships that can lead to job opportunities, collaborations, and lifelong connections.</p>
+                <ul>
+                    <li>Dedicated community platform</li>
+                    <li>Industry-specific discussion groups</li>
+                    <li>Monthly networking mixers</li>
+                    <li>Alumni mentorship program</li>
+                    <li>Job referral network</li>
+                </ul>
+            </div>
+            <div class="content-media">
+                <img src="assets/images/Benefits/Access to networking opportunities/Networking.jpg" alt="People networking">
+            </div>
+        </div>
+
+        <div class="container animate__animated animate__fadeInUp" style="display:none;">
+            <div class="events-calendar">
+                <div class="calendar-header">
+                    <h2>Upcoming Events</h2>
+                    <div class="calendar-view">
+                        <div class="view-option active">All Events</div>
+                        <div class="view-option">Virtual</div>
+                        <div class="view-option">In-Person</div>
+                    </div>
+                </div>
+                <div class="calendar-grid">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <div class="month">June</div>
+                            <div class="day">15</div>
+                        </div>
+                        <div class="event-content">
+                            <h3>Tech Leaders Forum</h3>
+                            <div class="event-meta">
+                                <span><i class="fas fa-clock"></i> 2:00 PM - 5:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Virtual</span>
+                            </div>
+                            <p class="event-description">Panel discussion with CTOs from leading tech companies about emerging technologies and career opportunities.</p>
+                            <a href="#" class="event-cta">Register Now</a>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">
+                            <div class="month">July</div>
+                            <div class="day">03</div>
+                        </div>
+                        <div class="event-content">
+                            <h3>Alumni Networking Mixer</h3>
+                            <div class="event-meta">
+                                <span><i class="fas fa-clock"></i> 6:00 PM - 9:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Nairobi</span>
+                            </div>
+                            <p class="event-description">Casual networking event for Verita alumni and current students to connect and share experiences.</p>
+                            <a href="#" class="event-cta">Register Now</a>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">
+                            <div class="month">August</div>
+                            <div class="day">22</div>
+                        </div>
+                        <div class="event-content">
+                            <h3>Global Digital Summit</h3>
+                            <div class="event-meta">
+                                <span><i class="fas fa-clock"></i> 9:00 AM - 4:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> London & Virtual</span>
+                            </div>
+                            <p class="event-description">Annual conference featuring keynote speakers and workshops on digital transformation trends.</p>
+                            <a href="#" class="event-cta">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="alumni-network animate__animated animate__fadeInUp">
+            <div class="alumni-container">
+                <h2>Join Our Global Alumni Network</h2>
+                <div class="alumni-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10,000+</div>
+                        <div class="stat-label">Alumni Worldwide</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Career Advancement</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Countries Represented</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Annual Events</div>
+                    </div>
+                </div>
+                <div class="alumni-testimonials">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Through Verita's networking events, I met my current business partner. We've now built a successful digital agency together."</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Co-founder, Digital Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The alumni network helped me land my first job abroad. The connections I made at Verita opened doors I never imagined."</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David">
+                            </div>
+                            <div class="author-info">
+                                <h4>David Omondi</h4>
+                                <p>Software Engineer, Berlin</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"I still attend Verita events years after graduating. The quality of connections and continuous learning opportunities are unmatched."</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amina">
+                            </div>
+                            <div class="author-info">
+                                <h4>Amina Mohammed</h4>
+                                <p>Marketing Director, Dubai</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="content-block reverse animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Professional Community</h2>
+                <p>When you join Verita Campus, you're not just enrolling in courses - you're joining a vibrant community of professionals, mentors, and industry leaders. Our community platform allows you to connect, collaborate, and learn from peers across different industries and experience levels.</p>
+                <p>We organize regular networking events, both online and offline, to help you build meaningful professional relationships that can lead to job opportunities, collaborations, and lifelong connections.</p>
+                <ul>
+                    <li>Dedicated community platform</li>
+                    <li>Industry-specific discussion groups</li>
+                    <li>Monthly networking mixers</li>
+                    <li>Alumni mentorship program</li>
+                    <li>Job referral network</li>
+                </ul>
+            </div>
+            <div class="content-media reverse video-container">
+                <video controls poster="assets/images/Benefits/Access to networking opportunities/Net2.png">
+                <source src="assets/images/Benefits/Access to networking opportunities/Untitled-2025-06-16 17 26 47(copy)-2025-06-16 17 56 53(copy)-2025-06-16 19 07 54(copy).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="animate__animated animate__fadeInDown">Ready to Expand Your Network?</h2>
+        <p class="animate__animated animate__fadeInUp">Join Verita Campus and gain access to a global professional community that will support your career growth</p>
+        <div class="cta-buttons animate__animated animate__fadeInUp">
+            <button class="cta-primary ripple" onclick="window.location.href='short_courses.html'">Explore Courses</button>
+            <button class="cta-secondary ripple" onclick="window.location.href='contact.html'">Join Community</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+                <div class="footer-app-links" style="display:none;">
+                    <a href="#" class="app-store">
+                        <i class="fab fa-apple"></i>
+                        <span>Download on the<br><strong>App Store</strong></span>
+                    </a>
+                    <a href="#" class="google-play">
+                        <i class="fab fa-google-play"></i>
+                        <span>Get it on<br><strong>Google Play</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+            // Navbar Scroll Effect
+        const navbar=document.querySelector('.navbar');
+        const heroSection=document.querySelector('.benefit-hero');
+        const heroHeight=heroSection.offsetHeight;
+
+        window.addEventListener('scroll',function() {
+            if(window.scrollY>heroHeight*0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+        // Calendar view toggle
+        const viewOptions = document.querySelectorAll('.view-option');
+        
+        viewOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                viewOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                // Here you would typically filter events based on selection
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate__animated').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>

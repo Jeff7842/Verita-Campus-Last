@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Verita Campus - Get in Touch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+    .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 4px 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+    .navbar.transparent {
+    background: transparent;
+    box-shadow: none;
+}
+
+.navbar.solid {
+    background: var(--gradient);
+    box-shadow: var(--shadow);
+}
+
+.nav-logo {
+    height: 60px;
+    transition: var(--transition);
+    width: 14%;
+    margin-left: -100px;
+    margin-top: 0px;
+    margin-bottom: -5px;
+    transform: translateX(-20%);
+    cursor: pointer;
+}
+        /* Contact Page Styles */
+        .contact-hero {
+            height: 70vh;
+            min-height: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(12, 107, 50, 0.8), rgba(29, 189, 101, 0.7));
+            color: white;
+            overflow: hidden;
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/images/hero/smiling-african-american-customer-care-600nw-2237515137.jpg') center/cover no-repeat;
+            z-index: -1;
+            opacity: 0.6;
+        }
+        
+        .contact-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .contact-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-container {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width:1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top:90px;
+            
+        }
+        
+        .info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            
+        }
+        
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .info-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .info-content p, .info-content a {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .info-content a:hover {
+            color: var(--primary-color);
+        }
+        
+        .contact-form {
+            background: #f6f6f6;
+            border-radius: 10px;
+            padding: 0px 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+            margin-top: -5px;
+            width:570px;
+            
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            padding: 0px 15px;
+        }
+
+        .form-name{
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap:10px;
+            max-width:1000px;
+            margin:0 auto;
+            padding: 0px -40px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+            padding:0px 10px;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(29, 189, 101, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: var(--gradient-dark);
+            transform: translateY(-2px);
+        }
+        
+        .faq-section {
+            display: flex;
+            padding: 40px 0;
+            background: #f9f9f9;
+            align-items: flex-start;
+        }
+
+        .faq-grid{
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap:10px;
+            max-width:1300px;
+            margin:0 auto;
+            padding: 0px -40px;
+        }
+        .fa-co {
+   
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+        
+        .faq-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow:hidden;
+           
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--dark-color);
+            color: #f8b324;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+        }
+        
+        .faq-question i {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow:hidden;
+            background: white;
+            transition: all 0.5s ease;
+        }
+        
+        .faq-answer p {
+            padding: 0 0 20px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .faq-item.active .faq-question {
+            background: var(--dark-color);
+            color: #f8b324;
+            transition: all 0.7s ease;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+            </div>
+            <div class="loader-text">EXPAND YOUR HORIZONS</div>
+        </div>
+    </div>
+
+     <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#"><i class="fas fa-bolt"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas fa-road"></i>Impact</a>
+                            <a href="blog.html"><i class="fas fa-road"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas fa-road"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fas fa-bolt"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fas fa-road"></i>Hub</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Get In Touch</h1>
+            <p class="animate__animated animate__fadeInUp">We're here to help you on your learning journey</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Our Location</h3>
+                        <p>123 Education Avenue<br>California, USA</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email Us</h3>
+                        <a href="mailto:info@veritacampus.com">info@veritacampus.com</a><br>
+                        <a href="mailto:admissions@veritacampus.com">admissions@veritacampus.com </a>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Live Chat</h3>
+                        <p>Available during business hours<br>via our website chat widget</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2 style="font-size: 1.8rem; margin-bottom: 20px; margin-top: 30px; color: var(--dark-color); text-align:center;">Send Us a Message</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                      <diV class="form-name">
+                        <input type="text" id="name" name="name" placeholder="First Name" required>
+                        <input type="text" id="name" name="name" placeholder="Surname" required>
+                      </diV>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="joemark@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject">
+                            <option value="">Select a subject</option>
+                            <option value="admissions">Admissions Inquiry</option>
+                            <option value="courses">Course Information</option>
+                            <option value="support">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="I would like to know how to enroll to verita..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn ripple" style="margin-bottom:20px;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        
+        <div class="fa-co">
+            <div class="section-header">
+                <h2>Frequently Asked <span>Questions</span></h2>
+                <p>Find answers to common questions about Verita Campus</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do I need high school grades or a university degree to enroll for the courses?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>NO, you don't need high school papers or a degree to study the courses in Verita Campus. All you need is to be willing to grow as you learn the skills of the profession you choose.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is Verita Campus good for me as an entrepreneur?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>YES, this is the perfect fit for you. Our learning sessions not only focus on career, but also emphasizes on entrepreneurship. We help learners grow by exposing them to Professionals and skills that equip them to be better at entrepreneurship.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I get a job with the certificates from Verita Campus?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>SURE, you can get a job using the certificates acquired, alongside meeting the recruiters' requirements. Our qualifications are internationally accredited, having high value standard worldwide.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What exactly is Verita Avenue?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Verita Avenue is an extensive coursework that takes 6 months of completion once a learner has enrolled. It equips learners with deep and intensive mastery of skills in the course that they enroll in. These are not only classes, but opportunities for learners to gain global connections with seasoned professionals.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do I have to pay to become a Verita Alumni?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>NO, we do not charge money to add learners in the Verita Alumni Community. Once you have graduated from the coursework, you are eligible to become a Verita alumnus.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is there an age limit for studying in Verita?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>NO. There is no age restriction for enrolling for our courses. Anyone with an interest to learn and grow is accepted to study the courses.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> California, USA</li>
+                        <li><i class="fas fa-phone-alt" style="display:none;"></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+            // Navbar Scroll Effect
+    const navbar = document.querySelector('.navbar');
+    const heroSection = document.querySelector('.contact-hero');
+    const heroHeight = heroSection.offsetHeight;
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > heroHeight * 0.8) {
+            navbar.classList.add('solid');
+            navbar.classList.remove('transparent');
+        } else {
+            navbar.classList.add('transparent');
+            navbar.classList.remove('solid');
+        }
+    });
+        // FAQ Accordion Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

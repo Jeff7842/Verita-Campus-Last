@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science & Analysis Mastery | Verita Campus</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --data-primary: #2563eb;
+            --data-secondary: #3b82f6;
+            --data-accent: #f59e0b;
+            --data-dark: #1e40af;
+            --data-light: #eff6ff;
+            --data-gradient: linear-gradient(135deg, #2563eb, #1e40af);
+            --data-gradient-secondary: linear-gradient(135deg, #f59e0b, #f97316);
+            --data-surface: #ffffff;
+            --data-muted: #64748b;
+            --data-border: #e2e8f0;
+            --data-success: #10b981;
+            --data-warning: #f59e0b;
+            --data-error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--data-light);
+        }
+
+        .data-hero {
+            background: var(--data-gradient);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/data-hero.jpg') center/cover no-repeat;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .data-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .data-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .data-hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .course-meta-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 25px;
+            border-radius: 30px;
+            margin: 0 10px 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .data-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--data-dark);
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--data-primary);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--data-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .skill-card {
+            background: var(--data-surface);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid var(--data-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--data-gradient);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+            transition: all 0.4s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: rotateY(180deg) scale(1.1);
+            background: var(--data-gradient-secondary);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--data-dark);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .skill-card p {
+            color: var(--data-muted);
+            font-size: 1rem;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .curriculum-accordion {
+            max-width: 900px;
+            margin: 50px auto 0;
+        }
+
+        .accordion-item {
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
+            transition: all 0.3s ease;
+            background: var(--data-surface);
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+        }
+
+        .accordion-header {
+            background: var(--data-gradient);
+            color: white;
+            padding: 25px 30px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: var(--data-dark);
+        }
+
+        .accordion-header i {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            background: var(--data-surface);
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease;
+        }
+
+        .accordion-content.show {
+            padding: 30px;
+            max-height: 1500px;
+        }
+
+        .module-topics {
+            list-style-type: none;
+        }
+
+        .module-topics li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--data-border);
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .module-topics li:last-child {
+            border-bottom: none;
+        }
+
+        .module-topics li:before {
+            content: '\f121';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 15px;
+            color: var(--data-primary);
+            font-size: 1.2rem;
+        }
+
+        .data-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            height: 250px;
+            background: var(--data-surface);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(37, 99, 235, 0.9));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .tools-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .tool-item {
+            background: var(--data-surface);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--data-border);
+        }
+
+        .tool-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1);
+            border-color: var(--data-primary);
+        }
+
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--data-primary);
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 15px;
+        }
+
+        .tool-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--data-dark);
+            font-weight: 600;
+        }
+
+        .tool-item p {
+            color: var(--data-muted);
+            font-size: 0.9rem;
+        }
+
+        .career-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto 0;
+        }
+
+        .career-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--data-gradient);
+        }
+
+        .career-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+        }
+
+        .career-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .career-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .career-item::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--data-primary);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+        }
+
+        .career-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .career-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .career-content {
+            background: var(--data-surface);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--data-border);
+        }
+
+        .career-item:hover .career-content {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+            border-color: var(--data-primary);
+        }
+
+        .career-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--data-dark);
+            font-weight: 600;
+        }
+
+        .career-content p {
+            color: var(--data-muted);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .salary-range {
+            font-weight: 600;
+            color: var(--data-primary);
+            font-size: 1.1rem;
+        }
+
+        .testimonials-data {
+            background: var(--data-light);
+            padding: 100px 0;
+        }
+
+        .testimonial-slider-data {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card-data {
+            background: var(--data-surface);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--data-border);
+        }
+
+        .testimonial-card-data::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--data-gradient);
+        }
+
+        .testimonial-text-data {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--data-muted);
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 30px;
+            line-height: 1.7;
+        }
+
+        .testimonial-text-data::before {
+            content: '\201C';
+            position: absolute;
+            left: 0;
+            top: -20px;
+            font-size: 4rem;
+            color: rgba(37, 99, 235, 0.2);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-author-data {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar-data {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid var(--data-primary);
+        }
+
+        .author-avatar-data img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info-data h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--data-dark);
+            font-weight: 600;
+        }
+
+        .author-info-data p {
+            color: var(--data-muted);
+            font-size: 0.9rem;
+        }
+
+        .enrollment-data {
+            text-align: center;
+            padding: 100px 0;
+            background: var(--data-gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enrollment-data::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/data-bg.jpg') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .enrollment-content-data {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .enrollment-content-data h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .enrollment-content-data p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .price-box-data {
+            display: inline-block;
+            background: var(--data-surface);
+            color: var(--data-dark);
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-box-data::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--data-gradient-secondary);
+        }
+
+        .price-box-data span {
+            font-size: 1rem;
+            font-weight: normal;
+            color: var(--data-muted);
+        }
+
+        .enrollment-buttons-data {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-data-primary, .btn-data-secondary {
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-data-primary {
+            background: var(--data-surface);
+            color: var(--data-dark);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-data-primary:hover {
+            background: var(--data-accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-data-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-data-secondary:hover {
+            background: white;
+            color: var(--data-dark);
+            transform: translateY(-3px);
+        }
+
+        .guarantee-badge-data {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-top: 30px;
+            font-size: 1rem;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .guarantee-badge-data i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .payment-section {
+            padding: 100px 0;
+            background: var(--data-surface);
+        }
+
+        .payment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .payment-form {
+            background: var(--data-surface);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border: 1px solid var(--data-border);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--data-dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--data-border);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--data-primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .payment-method {
+            padding: 15px;
+            border: 2px solid var(--data-border);
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover, .payment-method.active {
+            border-color: var(--data-primary);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .payment-method i {
+            font-size: 2rem;
+            color: var(--data-primary);
+            margin-bottom: 10px;
+        }
+
+        .btn-pay {
+            width: 100%;
+            padding: 18px;
+            background: var(--data-gradient);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .btn-pay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-pay:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .data-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.3rem;
+            }
+            
+            .career-timeline::before {
+                left: 30px;
+            }
+            
+            .career-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .career-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .career-item::after {
+                left: 20px;
+            }
+            
+            .enrollment-buttons-data {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .data-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .price-box-data {
+                font-size: 2.5rem;
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="active">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="#"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="benefits.html" class="active">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment</a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe"></i>Global community & Global platforms</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Associates</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <section class="data-hero">
+        <div class="data-hero-content">
+            <span class="course-meta-badge"><i class="fas fa-clock"></i> 8 Weeks Intensive</span>
+            <span class="course-meta-badge"><i class="fas fa-certificate"></i> Industry Certification</span>
+            <span class="course-meta-badge"><i class="fas fa-chart-line"></i> High Demand</span>
+            <h1>Data Science & Analysis Mastery</h1>
+            <p>Transform raw data into actionable insights and build a lucrative career in the $200B+ data economy</p>
+            <button class="cta-primary ripple" onclick="document.querySelector('.enrollment-data').scrollIntoView({behavior: 'smooth'})">Start Learning Today</button>
+        </div>
+    </section>
+
+    <section class="data-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Master Skills That Drive Decisions</h2>
+                <p>Learn the exact techniques used by data scientists at Google, Amazon, and leading African companies to extract insights from complex datasets</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <h3>Python for Data Science</h3>
+                    <p>Master pandas, numpy, and scikit-learn to manipulate and analyze data efficiently</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3>SQL & Database Management</h3>
+                    <p>Query massive datasets and build scalable data pipelines for enterprise applications</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Machine Learning</h3>
+                    <p>Build predictive models using regression, classification, and clustering algorithms</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Data Visualization</h3>
+                    <p>Create compelling dashboards with matplotlib, seaborn, and Tableau for stakeholder presentations</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI & Deep Learning</h3>
+                    <p>Implement neural networks and NLP techniques for advanced analytics</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3>Cloud Platforms</h3>
+                    <p>Deploy models on AWS, Google Cloud, and Azure for scalable data solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="data-section" style="background: var(--data-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real-World Data Projects</h2>
+                <p>Build your portfolio with projects that solve actual business problems using real datasets from finance, healthcare, e-commerce, and social media</p>
+            </div>
+            <div class="data-gallery">
+                <div class="gallery-item">
+                    <img src="assets/images/data/finance-dashboard.jpg" alt="Finance Analytics">
+                    <div class="gallery-overlay">
+                        <h4>Financial Risk Analysis</h4>
+                        <p>Predict loan defaults using credit data</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/data/healthcare-analytics.jpg" alt="Healthcare Analytics">
+                    <div class="gallery-overlay">
+                        <h4>Healthcare Analytics</h4>
+                        <p>Analyze patient outcomes and optimize treatments</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/data/ecommerce-insights.jpg" alt="E-commerce Insights">
+                    <div class="gallery-overlay">
+                        <h4>E-commerce Insights</h4>
+                        <p>Customer segmentation and recommendation systems</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/data/social-media-sentiment.jpg" alt="Social Media Sentiment">
+                    <div class="gallery-overlay">
+                        <h4>Social Media Sentiment</h4>
+                        <p>Analyze public opinion from Twitter and Facebook data</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/data/sales-forecasting.jpg" alt="Sales Forecasting">
+                    <div class="gallery-overlay">
+                        <h4>Sales Forecasting</h4>
+                        <p>Predict future sales using time series analysis</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/data/fraud-detection.jpg" alt="Fraud Detection">
+                    <div class="gallery-overlay">
+                        <h4>Fraud Detection</h4>
+                        <p>Identify fraudulent transactions using ML algorithms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="data-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Industry-Standard Tools</h2>
+                <p>Master the exact tech stack used by data teams at top companies worldwide</p>
+            </div>
+            <div class="tools-showcase">
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fab fa-python"></i></div>
+                    <h4>Python</h4>
+                    <p>Primary programming language</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-database"></i></div>
+                    <h4>PostgreSQL</h4>
+                    <p>Relational database management</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Pandas & NumPy</h4>
+                    <p>Data manipulation & analysis</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Scikit-learn</h4>
+                    <p>Machine learning algorithms</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h4>Matplotlib & Seaborn</h4>
+                    <p>Data visualization libraries</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fab fa-aws"></i></div>
+                    <h4>AWS & GCP</h4>
+                    <p>Cloud computing platforms</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-table"></i></div>
+                    <h4>Tableau & Power BI</h4>
+                    <p>Business intelligence tools</p>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fab fa-docker"></i></div>
+                    <h4>Docker & Kubernetes</h4>
+                    <p>Containerization & deployment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="data-section" style="background: var(--data-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive Curriculum</h2>
+                <p>8-week structured program designed by industry experts to take you from beginner to job-ready data scientist</p>
+            </div>
+            <div class="curriculum-accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Week 1-2: Python Fundamentals & Data Manipulation</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-topics">
+                            <li>Python programming basics for data science</li>
+                            <li>NumPy for numerical computations and array operations</li>
+                            <li>Pandas for data manipulation and cleaning</li>
+                            <li>Working with CSV, JSON, and Excel files</li>
+                            <li>Data wrangling and preprocessing techniques</li>
+                            <li>Handling missing data and outliers</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Week 3-4: Exploratory Data Analysis & Visualization</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-topics">
+                            <li>Exploratory Data Analysis (EDA) techniques</li>
+                            <li>Matplotlib and Seaborn for data visualization</li>
+                            <li>Interactive dashboards with Plotly</li>
+                            <li>Statistical analysis and hypothesis testing</li>
+                            <li>Feature engineering and selection</li>
+                            <li>Correlation analysis and insights generation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Week 5-6: Machine Learning Fundamentals</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-topics">
+                            <li>Introduction to machine learning concepts</li>
+                            <li>Supervised learning: regression and classification</li>
+                            <li>Unsupervised learning: clustering and dimensionality reduction</li>
+                            <li>Model evaluation and validation techniques</li>
+                            <li>Hyperparameter tuning and model optimization</li>
+                            <li>Cross-validation and performance metrics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Week 7: Advanced ML & Deep Learning</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-topics">
+                            <li>Random forests and gradient boosting</li>
+                            <li>Neural networks and deep learning basics</li>
+                            <li>Natural language processing (NLP) applications</li>
+                            <li>Time series analysis and forecasting</li>
+                            <li>Recommender systems implementation</li>
+                            <li>Anomaly detection techniques</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Week 8: Deployment & Real-World Projects</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-topics">
+                            <li>Model deployment using Flask and FastAPI</li>
+                            <li>Cloud deployment on AWS/GCP/Azure</li>
+                            <li>Building end-to-end data pipelines</li>
+                            <li>Database integration and API development</li>
+                            <li>Performance monitoring and maintenance</li>
+                            <li>Portfolio project presentation and review</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="data-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Data Science Career Path</h2>
+                <p>Clear progression from entry-level to senior roles with competitive salary ranges in the African market</p>
+            </div>
+            <div class="career-timeline">
+                <div class="career-item">
+                    <div class="career-content">
+                        <h3>Entry-Level Positions</h3>
+                        <p>Start your data journey with these accessible roles</p>
+                        <p class="salary-range">Average Salary: $600 - $1,200</p>
+                        <ul>
+                            <li>Data Analyst</li>
+                            <li>Junior Data Scientist</li>
+                            <li>Business Intelligence Analyst</li>
+                            <li>Database Analyst</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-content">
+                        <h3>Mid-Level Positions</h3>
+                        <p>Advance after 2-3 years of experience</p>
+                        <p class="salary-range">Average Salary: $1,200 - $2,500</p>
+                        <ul>
+                            <li>Data Scientist</li>
+                            <li>Machine Learning Engineer</li>
+                            <li>Analytics Consultant</li>
+                            <li>Data Engineer</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-content">
+                        <h3>Senior-Level Positions</h3>
+                        <p>Leadership roles for experienced professionals</p>
+                        <p class="salary-range">Average Salary: $2,500 - $5,000+</p>
+                        <ul>
+                            <li>Senior Data Scientist</li>
+                            <li>Lead Data Engineer</li>
+                            <li>Chief Data Officer</li>
+                            <li>AI/ML Solutions Architect</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-content">
+                        <h3>Freelance & Consulting</h3>
+                        <p>Build your own data consulting practice</p>
+                        <p class="salary-range">Earnings Potential: $50 - $200/hour</p>
+                        <ul>
+                            <li>Freelance Data Scientist</li>
+                            <li>Analytics Consultant</li>
+                            <li>Training & Workshops</li>
+                            <li>Product Analytics Expert</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-data">
+        <div class="container">
+            <div class="section-header">
+                <h2>Success Stories</h2>
+                <p>Hear from our graduates who transformed their careers with data science skills</p>
+            </div>
+            <div class="testimonial-slider-data">
+                <div class="testimonial-card-data">
+                    <p class="testimonial-text-data">"This course completely changed my career trajectory. I went from being a sales rep to a data scientist at a fintech company in just 3 months. The practical projects gave me the confidence to tackle real-world problems."</p>
+                    <div class="testimonial-author-data">
+                        <div class="author-avatar-data">
+                            <img src="assets/images/testimonials/data1.jpg" alt="Sarah Mwangi">
+                        </div>
+                        <div class="author-info-data">
+                            <h4>Sarah Mwangi</h4>
+                            <p>Data Scientist, Safaricom</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card-data">
+                    <p class="testimonial-text-data">"The hands-on approach was exactly what I needed. We worked with real datasets from day one, and by the end, I had built a fraud detection system that's now used by my bank. The ROI on this course has been incredible."</p>
+                    <div class="testimonial-author-data">
+                        <div class="author-avatar-data">
+                            <img src="assets/images/testimonials/data2.jpg" alt="James Otieno">
+                        </div>
+                        <div class="author-info-data">
+                            <h4>James Otieno</h4>
+                            <p>Senior Data Analyst, KCB Bank</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card-data">
+                    <p class="testimonial-text-data">"I started my own data consulting business after completing this course. Within 6 months, I was earning 3x my previous salary working with international clients. The skills are truly in high demand globally."</p>
+                    <div class="testimonial-author-data">
+                        <div class="author-avatar-data">
+                            <img src="assets/images/testimonials/data3.jpg" alt="Aisha Hassan">
+                        </div>
+                        <div class="author-info-data">
+                            <h4>Aisha Hassan</h4>
+                            <p>Independent Data Consultant</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bonus-section">
+        <div class="bonus-container">
+            <h2 class="section-title">Exclusive Career Bonuses</h2>
+            <p>All our courses include these valuable career-enhancing resources at no extra cost:</p>
+            
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/cv.png" alt="" style="width:9%; margin-right:2px;"> Professional CV Writing</h3>
+                    <p>Get our proven templates and guidance to create a CV that stands out in the competitive job market.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/bribe.png" alt="" style="width:12%; margin-right:5px;"> Salary Negotiation Guide</h3>
+                    <p>Learn how to confidently negotiate your worth with employers across various industries.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/linkedin.png" alt="" style="width:8%; margin-right:5px;"> LinkedIn Optimization</h3>
+                    <p>Step-by-step training to build a powerful LinkedIn profile that attracts recruiters and opportunities.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/bullseye.png" alt="" style="width:9%; margin-right:5px;"> Job Market Navigation</h3>
+                    <p>Understand where to find the best opportunities and how to position yourself effectively.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/robot.png" alt="" style="width:12%; margin-right:5px;">  AI Basics for Professionals</h3>
+                    <p>Essential AI literacy covering tools like ChatGPT that are transforming workplaces globally.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/efficiency.png" alt="" style="width:12%; margin-right:5px;"> Productivity with Notion</h3>
+                    <p>Master this powerful tool to organize your job search and professional workflow efficiently.</p>
+                </div>
+            </div>
+            
+            <!-- Course-Specific Bonuses -->
+            <div class="course-specific-bonuses">
+                <h2>Software & IT <span>Exclusive Bonuses</span></h2>
+                
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/code.png" alt="" style="width:10%; margin-right:10px;"> GitHub Portfolio Setup</h3>
+                        <p>We'll help you create a professional GitHub profile to showcase your coding projects to employers.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/programming.png" alt="" style="width:10%; margin-right:10px;"> Freelancing Toolkit</h3>
+                        <p>Access our curated list of platforms and strategies to start earning as a developer while learning.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/diagram.png" alt="" style="width:12%; margin-right:10px;"> Real-World Project Templates</h3>
+                        <p>Get starter templates for common projects companies need developers for.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/cloud-computing.png" alt="" style="width:13%; margin-right:10px;"> AWS Cloud Essentials</h3>
+                        <p>Bonus module on cloud computing fundamentals with Amazon Web Services.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/online-community.png" alt="" style="width:14%; margin-right:10px;"> Tech Community Access</h3>
+                        <p>Exclusive invitation to a fast-growing developer community for networking and support.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/app-development.png" alt="" style="width:12%; margin-right:10px;">Mobile Dev Starter Kit</h3>
+                        <p>Bonus resources for getting started with mobile app development (Android/iOS).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="enrollment-data">
+        <div class="enrollment-content-data">
+            <h2>Start Your Data Science Journey Today</h2>
+            <p>Join hundreds of professionals who've transformed their careers with our practical, industry-focused training</p>
+            <div class="price-box-data">$82</div>
+            <div class="enrollment-buttons-data">
+                <button class="btn-data-primary ripple" onclick="document.querySelector('.payment-section').scrollIntoView({behavior: 'smooth'})">Enroll Now</button>
+                <button class="btn-data-secondary ripple">Download Syllabus</button>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: rgb(232, 0, 0);"><i class="fas fa-info-circle"></i> 3 Slots left</p>
+        </div>
+    </section>
+
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top ripple"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionItem = header.parentElement;
+                const accordionContent = header.nextElementSibling;
+                
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    if (item !== accordionItem) {
+                        item.querySelector('.accordion-header').classList.remove('active');
+                        item.querySelector('.accordion-content').classList.remove('show');
+                    }
+                });
+                
+                header.classList.toggle('active');
+                accordionContent.classList.toggle('show');
+            });
+        });
+
+        // Payment method selection
+        function selectPayment(method) {
+            document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+            event.target.closest('.payment-method').classList.add('active');
+            
+            const mpesaDetails = document.getElementById('mpesa-details');
+            if (method === 'mpesa') {
+                mpesaDetails.style.display = 'block';
+            } else {
+                mpesaDetails.style.display = 'none';
+            }
+        }
+
+        // Form submission
+        document.querySelector('.payment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Enrollment successful! You will receive payment instructions via email shortly.');
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        const heroSection = document.querySelector('.data-hero');
+        const heroHeight = heroSection.offsetHeight;
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > heroHeight * 0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+
+        // Simple testimonial slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card-data');
+        
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.display = i === index ? 'block' : 'none';
+            });
+        }
+        
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        showTestimonial(currentTestimonial);
+        setInterval(nextTestimonial, 5000);
+    </script>
+</body>
+</html>

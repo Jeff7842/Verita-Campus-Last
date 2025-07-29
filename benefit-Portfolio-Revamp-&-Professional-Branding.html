@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verita Campus - Portfolio Revamp & Professional Branding</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .benefit-hero {
+            background: linear-gradient(135deg, #1a3a23, #0c6b32);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: var(--text-shadow-lg);
+        }
+        
+        .benefit-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .benefit-content {
+            padding: 100px 0;
+        }
+        
+        .content-block {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        
+        .content-block.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .content-text {
+            flex: 1;
+        }
+        
+        .content-media {
+            flex: 1;
+        }
+        
+        .content-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .content-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        
+        .content-text ul {
+            margin-bottom: 30px;
+        }
+        
+        .content-text ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .content-text ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            background: var(--gradient);
+            border-radius: 50%;
+        }
+        
+        .content-media img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+        
+        .content-media:hover img {
+            transform: scale(1.02);
+        }
+
+        .content-media.video-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .content-media.video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .play-button i {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+        
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .portfolio-showcase {
+            background: #f9f9f9;
+            padding: 80px 0;
+            margin-top: 60px;
+        }
+        
+        .showcase-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .showcase-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .showcase-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .showcase-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+        
+        .showcase-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card-hover);
+        }
+        
+        .showcase-before-after {
+            display: flex;
+            height: 250px;
+        }
+        
+        .showcase-before, 
+        .showcase-after {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .showcase-before img, 
+        .showcase-after img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .showcase-card:hover .showcase-before img,
+        .showcase-card:hover .showcase-after img {
+            transform: scale(1.1);
+        }
+        
+        .showcase-before::after,
+        .showcase-after::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .showcase-before::after {
+            content: 'Before';
+        }
+        
+        .showcase-after::after {
+            content: 'After';
+        }
+        
+        .showcase-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .showcase-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .showcase-info p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .platform-section {
+            padding: 80px 0;
+        }
+        
+        .platform-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .platform-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .platform-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .platform-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .platform-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card-hover);
+        }
+        
+        .platform-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+            transition: var(--transition);
+        }
+        
+        .platform-card:hover .platform-icon {
+            transform: rotateY(180deg);
+            background: var(--gradient-dark);
+        }
+        
+        .platform-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .platform-card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 1024px) {
+            .content-block {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .content-block.reverse {
+                flex-direction: column;
+            }
+            
+            .content-text, .content-media {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .benefit-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .content-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .showcase-header h2,
+            .platform-header h2,
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+            </div>
+            <div class="loader-text">BREAK THE BARRIERS</div>
+        </div>
+    </div>
+
+     <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fa-solid fa-building"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fa-solid fa-location-dot"></i>Hubs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Benefit Hero Section -->
+    <section class="benefit-hero">
+        <h1 class="animate__animated animate__fadeInDown">Portfolio Revamp & Professional Branding</h1>
+        <p class="animate__animated animate__fadeInUp">Transform your professional presence with a standout portfolio and optimized digital profiles that attract opportunities</p>
+    </section>
+
+    <!-- Benefit Content -->
+    <section class="benefit-content">
+        <div class="content-block animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Elevate Your Professional Presence</h2>
+                <p>In today's competitive job market, your portfolio and online profiles are your most powerful tools for standing out. At Verita Campus, we don't just teach skills - we help you showcase them effectively to potential employers and clients.</p>
+                <p>Our comprehensive portfolio development program guides you through creating professional, attention-grabbing materials that highlight your strengths and achievements. Whether you're starting from scratch or looking to upgrade your existing portfolio, we provide the tools and expertise you need.</p>
+                <ul>
+                    <li>Personalized portfolio strategy sessions</li>
+                    <li>Industry-specific portfolio templates</li>
+                    <li>Professional case study development</li>
+                    <li>Before-and-after portfolio transformations</li>
+                    <li>Ongoing portfolio maintenance guidance</li>
+                </ul>
+            </div>
+            <div class="content-media">
+                <img src="assets/images/Benefits/portfolio/portfolio-showcase.jpg" alt="Portfolio showcase">
+            </div>
+        </div>
+
+        <div class="content-block reverse animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>LinkedIn & Digital Profile Optimization</h2>
+                <p>Your online presence is often the first impression you make. We help you optimize your LinkedIn profile and other professional platforms to maximize visibility and attract the right opportunities.</p>
+                <p>Our experts will guide you through crafting compelling profiles that highlight your skills, experience, and personality while incorporating industry-specific keywords that help recruiters find you.</p>
+                <ul>
+                    <li>Complete LinkedIn profile makeovers</li>
+                    <li>Keyword optimization for discoverability</li>
+                    <li>Professional headshot and banner design</li>
+                    <li>Content strategy for professional engagement</li>
+                    <li>Networking best practices</li>
+                </ul>
+            </div>
+            <div class="content-media video-container">
+                <video poster="assets/images/Verita Logo Symbol.png">
+                    <source src="assets/images/Benefits/portfolio/linkedin-optimization.mp4" type="video/mp4">
+                </video>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Personal Branding Strategy</h2>
+                <p>Develop a cohesive personal brand that communicates your unique value proposition across all platforms. We'll help you identify your strengths, define your professional identity, and create consistent messaging that resonates with your target audience.</p>
+                <p>A strong personal brand can open doors to speaking engagements, publications, and leadership opportunities that accelerate your career growth.</p>
+                <ul>
+                    <li>Personal brand discovery workshops</li>
+                    <li>Brand voice and messaging development</li>
+                    <li>Visual identity guidance (colors, fonts, style)</li>
+                    <li>Content creation strategy</li>
+                    <li>Thought leadership development</li>
+                </ul>
+            </div>
+            <div class="content-media">
+                <img src="assets/images/Benefits/portfolio/personal-branding.jpg" alt="Personal branding">
+            </div>
+        </div>
+
+        <!-- Portfolio Showcase Section -->
+        <section class="portfolio-showcase animate__animated animate__fadeInUp">
+            <div class="showcase-container">
+                <div class="showcase-header">
+                    <h2>Real Portfolio Transformations</h2>
+                    <p>See how Verita students have transformed their professional presence</p>
+                </div>
+                <div class="showcase-grid">
+                    <div class="showcase-card">
+                        <div class="showcase-before-after">
+                            <div class="showcase-before">
+                                <img src="assets/images/Benefits/portfolio/before1.jpg" alt="Before portfolio">
+                            </div>
+                            <div class="showcase-after">
+                                <img src="assets/images/Benefits/portfolio/after1.jpg" alt="After portfolio">
+                            </div>
+                        </div>
+                        <div class="showcase-info">
+                            <h3>Graphic Design Portfolio</h3>
+                            <p>Sarah's portfolio helped her land 3x more freelance clients</p>
+                        </div>
+                    </div>
+                    <div class="showcase-card">
+                        <div class="showcase-before-after">
+                            <div class="showcase-before">
+                                <img src="assets/images/Benefits/portfolio/before2.jpg" alt="Before portfolio">
+                            </div>
+                            <div class="showcase-after">
+                                <img src="assets/images/Benefits/portfolio/after2.jpg" alt="After portfolio">
+                            </div>
+                        </div>
+                        <div class="showcase-info">
+                            <h3>Data Science Portfolio</h3>
+                            <p>Michael increased interview requests by 200%</p>
+                        </div>
+                    </div>
+                    <div class="showcase-card">
+                        <div class="showcase-before-after">
+                            <div class="showcase-before">
+                                <img src="assets/images/Benefits/portfolio/before3.jpg" alt="Before portfolio">
+                            </div>
+                            <div class="showcase-after">
+                                <img src="assets/images/Benefits/portfolio/after3.jpg" alt="After portfolio">
+                            </div>
+                        </div>
+                        <div class="showcase-info">
+                            <h3>LinkedIn Profile</h3>
+                            <p>Amina's profile views increased by 400%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Optimization Section -->
+        <section class="platform-section animate__animated animate__fadeInUp">
+            <div class="platform-container">
+                <div class="platform-header">
+                    <h2>Professional Platform Optimization</h2>
+                    <p>We help you maximize every professional platform to showcase your skills and attract opportunities</p>
+                </div>
+                <div class="platform-grid">
+                    <div class="platform-card">
+                        <div class="platform-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <h3>LinkedIn Profile</h3>
+                        <p>Complete optimization including headline, about section, experience, and skills endorsement strategy</p>
+                    </div>
+                    <div class="platform-card">
+                        <div class="platform-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Personal Portfolio Website</h3>
+                        <p>Custom website development to showcase your work with professional case studies</p>
+                    </div>
+                    <div class="platform-card">
+                        <div class="platform-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub/Behance /Dribbble</h3>
+                        <p>Platform-specific optimization for tech and creative professionals</p>
+                    </div>
+                    <div class="platform-card">
+                        <div class="platform-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Resume & Cover Letters</h3>
+                        <p>ATS-friendly documents tailored to your target roles and industries</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="content-block reverse animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Ongoing Portfolio Support</h2>
+                <p>Your portfolio isn't a one-time project - it's a living document that should evolve with your career. We provide continuous support to help you keep your materials current and impactful.</p>
+                <p>Even after you complete your program, you'll have access to resources and guidance to ensure your professional presentation remains strong as you gain new skills and experience.</p>
+                <ul>
+                    <li>Quarterly portfolio review sessions</li>
+                    <li>New project addition guidance</li>
+                    <li>Industry trend updates</li>
+                    <li>Alumni portfolio showcase opportunities</li>
+                    <li>Lifetime access to portfolio templates</li>
+                </ul>
+            </div>
+            <div class="content-media">
+                <img src="assets/images/Benefits/portfolio/ongoing-support.jpg" alt="Ongoing support">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="animate__animated animate__fadeInDown">Ready to Transform Your Professional Presence?</h2>
+        <p class="animate__animated animate__fadeInUp">Join Verita Campus and get the tools, guidance, and support to create a portfolio that opens doors</p>
+        <div class="cta-buttons animate__animated animate__fadeInUp">
+            <button class="cta-primary ripple" onclick="window.location.href='short_courses.html'">Explore Courses</button>
+            <button class="cta-secondary ripple" onclick="window.location.href='contact.html'">Get Portfolio Consultation</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+                <div class="footer-app-links" style="display:none;">
+                    <a href="#" class="app-store">
+                        <i class="fab fa-apple"></i>
+                        <span>Download on the<br><strong>App Store</strong></span>
+                    </a>
+                    <a href="#" class="google-play">
+                        <i class="fab fa-google-play"></i>
+                        <span>Get it on<br><strong>Google Play</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        const heroSection = document.querySelector('.benefit-hero');
+        const heroHeight = heroSection.offsetHeight;
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > heroHeight * 0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+
+        // Play video
+        const playButton = document.querySelector('.play-button');
+        const video = document.querySelector('.content-media.video-container video');
+        
+        playButton.addEventListener('click', function() {
+            video.play();
+            video.controls = true;
+            playButton.style.display = 'none';
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate__animated').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Management & Administration | Verita Campus</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Business Color Theme */
+        .course-hero {
+            background: linear-gradient(135deg, rgba(106, 44, 112, 0.8), rgba(157, 83, 145, 0.6));
+        }
+
+        .section-title::after {
+            background: linear-gradient(90deg, #6a2c70, #9d5391);
+        }
+
+        .benefit-card,
+        .bonus-card {
+            border-left-color: #6a2c70;
+        }
+
+        .bonus-card {
+            border-top-color: #6a2c70;
+        }
+
+        .job-tag {
+            background: rgba(106, 44, 112, 0.1);
+        }
+
+        /* Business Icons */
+        .business-icon {
+            width: 24px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 4px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .navbar.solid {
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            height: 60px;
+            transition: var(--transition);
+            width: 14%;
+            margin-left: -100px;
+            margin-top: 0px;
+            margin-bottom: -5px;
+            transform: translateX(-20%);
+            cursor: pointer;
+        }
+
+
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border-left: 4px solid #6a2c70;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-author h4 {
+            margin: 0;
+            color: var(--dark-color);
+        }
+
+        .testimonial-author p {
+            margin: 5px 0 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: rgba(28, 49, 68, 0.1);
+            font-family: serif;
+        }
+
+        /* Instructor Video Section */
+        .instructor-video {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .play-button i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* Rest of the styles same as software&IT.html */
+        .course-hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 4px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .navbar.solid {
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            height: 60px;
+            transition: var(--transition);
+            width: 14%;
+            margin-left: -100px;
+            margin-top: 0px;
+            margin-bottom: -5px;
+            transform: translateX(-20%);
+            cursor: pointer;
+        }
+
+        /* Course Detail Page Styles */
+
+        .course-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/Packages/Bussines3.jpg') center/cover no-repeat;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .course-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .course-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .course-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .course-meta-badge {
+            display: inline-block;
+            background: rgba(225, 2, 246, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin: 0 5px 10px;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .course-meta-badge .fas{
+            color: var(--secondary-color);
+        }
+
+        .course-detail-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(12, 107, 50, 0.03), rgba(29, 189, 101, 0.05));
+        }
+
+        .course-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .course-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .course-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .course-content {
+            flex: 1;
+        }
+
+        .course-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .course-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .benefit-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .outline-list {
+            margin-top: 30px;
+        }
+
+        .outline-item {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .outline-item::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .job-opportunities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .job-tag {
+            background: rgba(29, 189, 101, 0.1);
+            color: var(--dark-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .enroll-cta {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(12, 107, 50, 0.05), rgba(29, 189, 101, 0.03));
+        }
+
+        .enroll-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .enroll-box h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .enroll-box p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .price-tag span {
+            font-size: 1rem;
+            color: #777;
+            font-weight: normal;
+        }
+
+        .bonus-section {
+            padding: 80px 0;
+
+        }
+
+        .bonus-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .bonus-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .bonus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .bonus-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .bonus-card h3 i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .bonus-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .bonus-badge {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--text-dark);
+            padding: 3px 10px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .course-specific-bonuses {
+            margin-top: 60px;
+        }
+
+        .course-specific-bonuses h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+            color: var(--dark-color);
+        }
+
+        .course-specific-bonuses h2 span {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .course-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .course-row:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .course-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+     <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fa-solid fa-building"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fa-solid fa-location-dot"></i>Hubs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <!-- Course Hero Section -->
+    <section class="course-hero">
+        <div class="course-hero-content">
+            <span class="course-meta-badge"><i class="fas fa-briefcase"></i> Entrepreneurship</span>
+            <span class="course-meta-badge"><i class="fas fa-clock"></i> 6 Weeks</span>
+            <span class="course-meta-badge"><i class="fas fa-certificate"></i> Certificate</span>
+            <h1>Business Management & Administration</h1>
+            <p>Essential skills to launch, manage, and grow successful businesses worldwide</p>
+            <button class="cta-primary ripple"
+                onclick="document.querySelector('.enroll-cta').scrollIntoView({behavior: 'smooth'})">Enroll Now</button>
+        </div>
+    </section>
+
+    <!-- Instructor Video Section -->
+    <section class="instructor-video">
+        <div class="container">
+            <h2 class="section-title">Your Business Mentor</h2>
+            <p>Successful entrepreneur John Otieno introduces the program</p>
+
+            <div class="video-container">
+                <video poster="assets/images/Packages/Bussines4.jpg" id="instructorVideo">
+                    <source src="assets/videos/business-course-intro.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay" id="videoOverlay">
+                    <div class="play-button" id="playButton">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <h3>Watch Introduction</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Introduction Section -->
+    <section class="course-detail-section">
+        <div class="course-container">
+            <div class="course-row">
+                <div class="course-content">
+                    <h2 class="section-title">Why This Course?</h2>
+                    <p>The entrepreneurial spirit is thriving, but many businesses fail due to lack of management
+                        skills. This practical course provides the essential knowledge to start, manage, and grow
+                        successful enterprises in the global market.</p>
+                    <p>Unlike theoretical business programs, we focus on real-world applications with case studies from
+                        successful businesses. You'll develop actual business plans and strategies during the
+                        course.</p>
+                    <p>With the global economy growing and new opportunities emerging daily, this course gives you the
+                        tools to capitalize on these opportunities whether you're starting a business or advancing your
+                        corporate career.</p>
+                </div>
+                <div class="course-image">
+                    <img src="assets/images/course-detail/business-intro.jpg" alt="Business professionals meeting">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Business Success Stories</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Hear from entrepreneurs and
+                professionals who transformed their careers</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="assets/images/testimonials/business-student1.jpg" alt="Mary A.">
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Mary A.</h4>
+                            <p>Fashion Boutique Owner</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        <p>"The inventory management and marketing strategies I learned helped me grow my boutique from
+                            a small kiosk to two retail stores in just 18 months. I still refer to my course notes
+                            weekly!"</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="assets/images/testimonials/business-student2.jpg" alt="Peter M.">
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Peter M.</h4>
+                            <p>Office Administrator</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        <p>"After completing this course, I implemented new filing systems and meeting protocols that
+                            got me promoted within 3 months. The organizational skills were game-changing."</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="assets/images/testimonials/business-student3.jpg" alt="Susan W.">
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Susan W.</h4>
+                            <p>HR Manager</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        <p>"The leadership and conflict resolution modules transformed how I manage my team. We've seen
+                            40% improvement in employee satisfaction since I applied these techniques."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Outline Section -->
+    <section class="course-detail-section">
+        <div class="course-container">
+            <div class="course-row">
+                <div class="course-image">
+                    <img src="assets/images/course-detail/business-outline.jpg" alt="Business course curriculum">
+                </div>
+                <div class="course-content">
+                    <h2 class="section-title">Course Outline</h2>
+                    <p>Our practical curriculum covers all aspects of running successful businesses:</p>
+                    <div class="outline-list">
+                        <div class="outline-item">
+                            <h3>Entrepreneurship Fundamentals</h3>
+                            <p>Identifying opportunities and developing business concepts</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Business Planning</h3>
+                            <p>Creating comprehensive plans for market conditions</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Financial Management</h3>
+                            <p>Bookkeeping, budgeting, and financial controls</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Marketing & Customer Relations</h3>
+                            <p>Effective strategies for consumers</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Operations Management</h3>
+                            <p>Streamlining processes for efficiency</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Human Resources</h3>
+                            <p>Hiring, training, and retaining talent</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Legal & Regulatory Compliance</h3>
+                            <p>Understanding business laws</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bonus-section">
+        <div class="bonus-container">
+            <h2 class="section-title">Exclusive Career Bonuses</h2>
+            <p>All our courses include these valuable career-enhancing resources at no extra cost:</p>
+
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/cv.png" alt="" style="width:9%; margin-right:2px;">
+                        Professional CV Writing</h3>
+                    <p>Get our proven templates and guidance to create a CV that stands out in the competitive job
+                        market.</p>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/bribe.png" alt=""
+                            style="width:12%; margin-right:5px;"> Salary Negotiation Guide</h3>
+                    <p>Learn how to confidently negotiate your worth with employers across various industries.
+                    </p>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/linkedin.png" alt=""
+                            style="width:8%; margin-right:5px;"> LinkedIn Optimization</h3>
+                    <p>Step-by-step training to build a powerful LinkedIn profile that attracts recruiters and
+                        opportunities.</p>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/bullseye.png" alt=""
+                            style="width:9%; margin-right:5px;"> Job Market Navigation</h3>
+                    <p>Understand where to find the best opportunities and how to position yourself effectively.</p>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/robot.png" alt=""
+                            style="width:12%; margin-right:5px;"> AI Basics for Professionals</h3>
+                    <p>Essential AI literacy covering tools like ChatGPT that are transforming workplaces globally.</p>
+                </div>
+
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/efficiency.png" alt=""
+                            style="width:12%; margin-right:5px;"> Productivity with Notion</h3>
+                    <p>Master this powerful tool to organize your job search and professional workflow efficiently.</p>
+                </div>
+            </div>
+
+
+            <!-- Unique Business Bonuses -->
+            <div class="course-specific-bonuses">
+                <h2>Business <span>Exclusive Bonuses</span></h2>
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/business-plan.png" class="business-icon"> Business
+                            Plan Template</h3>
+                        <p>Professionally designed template with market examples.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/excel.png" class="business-icon"> Financial
+                            Spreadsheets</h3>
+                        <p>Ready-to-use Excel templates for accounting and cash flow.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/meeting.png" class="business-icon"> Pitch Practice
+                            Sessions</h3>
+                        <p>Opportunity to practice investor pitches with feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Section -->
+    <section class="enroll-cta">
+        <div class="enroll-box">
+            <h2>Launch Your Business Future</h2>
+            <p>Gain the skills that transform employees into managers and ideas into enterprises</p>
+            <div class="price-tag">$50</div>
+            <button class="cta-primary ripple">Enroll Now</button>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: rgb(232, 0, 0);"><i class="fas fa-info-circle"></i> 6 Slots left</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+                <div class="footer-app-links" style="display:none;">
+                    <a href="#" class="app-store">
+                        <i class="fab fa-apple"></i>
+                        <span>Download on the<br><strong>App Store</strong></span>
+                    </a>
+                    <a href="#" class="google-play">
+                        <i class="fab fa-google-play"></i>
+                        <span>Get it on<br><strong>Google Play</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Navbar Scroll Effect
+        const navbar=document.querySelector('.navbar');
+        const heroSection=document.querySelector('.course-hero');
+        const heroHeight=heroSection.offsetHeight;
+
+        window.addEventListener('scroll',function() {
+            if(window.scrollY>heroHeight*0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+
+        // Video Player Functionality
+        const video=document.getElementById('instructorVideo');
+        const videoOverlay=document.getElementById('videoOverlay');
+        const playButton=document.getElementById('playButton');
+
+        playButton.addEventListener('click',function() {
+            videoOverlay.style.display='none';
+            video.play();
+        });
+
+        video.addEventListener('click',function() {
+            if(video.paused) {
+                video.play();
+                videoOverlay.style.display='none';
+            } else {
+                video.pause();
+                videoOverlay.style.display='flex';
+            }
+        });
+    </script>
+</body>
+
+</html>

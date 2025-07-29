@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verita Campus - Tech Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+         /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0px;
+            width: 110%;
+            padding: 7px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .navbar.solid {
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 90px;
+            margin-right:-90px;
+        }
+
+        .nav-logo {
+            height: 60px;
+            transition: var(--transition);
+            width: 12%;
+            margin-left: -100px;
+            margin-top: -3px;
+            transform: translateX(-20%);
+            cursor: pointer;
+            margin-right: 50px;
+        }
+
+        .nav-links ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links ul li a {
+            color: var(--text-light);
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links ul li a .fa-chevron-down{
+            transition: 0.3s;
+        }
+
+        .nav-links ul li a:hover .fa-chevron-down{
+            transform: rotate(180deg);
+            transition: 0.3s;
+        }
+
+        .nav-links ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links ul li a:hover::after {
+            width: 70%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--primary-color-2);
+            min-width: 250px;
+            max-width: 450px;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+            width: fit-content;
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            color: var(--text-dark);
+            display: block;
+            padding: 10px 15px;
+            transition: var(--transition);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--dark-color);
+            color: white;
+            padding-left: 20px;
+        }
+
+        .dropdown-content a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .dropdown .fas {
+            color:var(--secondary-color);
+        }
+
+        .dropdown .fa-solid {
+            color: var(--secondary-color);
+        }
+
+        .fa-chevron-down{
+          color: var(--secondary-color);  
+        }
+
+        /* Search Container */
+        .search-container {
+            position: relative;
+            margin-right: -20px;
+            left:70px;
+        }
+
+        .search-btn {
+            background: transparent;
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: var(--transition);
+            margin-right:20px;
+        }
+
+        .search-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
+
+        .search-box {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 300px;
+            background: white;
+            border-radius: 30px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .search-box.active {
+            opacity: 3;
+            visibility: visible;
+            transform: translateY(0);
+            z-index: 100;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 30px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .search-submit {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-submit:hover {
+            background: var(--dark-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .search-container {
+                margin-right: 10px;
+            }
+            .search-box {
+                position: fixed;
+                top: 80px;
+                left: 20px;
+                right: 20px;
+                width: auto;
+            }
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 12px;
+            transform: translateX(10%);
+            margin-right: -30px;
+        }
+
+        .login-btn,
+        .signup-btn {
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .login-btn i {
+            color: var(--prime-color);
+        }
+
+        .signup-btn i {
+            color: var(--primary-color-2);
+        }
+
+        .login-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .login-btn:hover {
+            background: var(--primary-color-2);
+            color: var(--primary-color);
+            scale: 1.05;
+        }
+
+        .signup-btn {
+            background: var(--secondary-color);
+            color: var(--text-dark);
+            border: 1px solid var(--secondary-color);
+        }
+
+        .signup-btn:hover {
+            background: var(--dark-color);
+            color: white;
+            scale: 1.05;
+            border: 1px solid var(--primary-color-2)
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+        /* Hub Page Styles */
+        .hub-header-section {
+            padding: 100px 0 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            text-align: center;
+        }
+
+        .hub-header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hub-header-content h1 span {
+            color: var(--secondary-color);
+        }
+
+        .hub-header-content .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .world-map-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .world-map {
+            width: 100%;
+            height: auto;
+            opacity: 0.8;
+        }
+
+        .location-dots .dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .location-dots .dot:hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            box-shadow: 0 0 0 4px rgba(248, 179, 36, 0.3);
+        }
+
+        .location-dots .dot::after {
+            content: attr(data-city);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            color: var(--text-dark);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .location-dots .dot:hover::after {
+            opacity: 1;
+            bottom: 120%;
+        }
+
+        .hub-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hub-intro h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hub-intro p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Hub Features Section */
+        .hub-features-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotateY(180deg);
+            background: var(--gradient-dark);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Hub Locations Section */
+        .hub-locations-section {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .location-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .location-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .location-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .location-card:hover .location-image img {
+            transform: scale(1.1);
+        }
+
+        .location-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .location-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .location-info p {
+            color: #777;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .location-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .location-link:hover {
+            color: var(--dark-color);
+            gap: 8px;
+        }
+
+        .location-link .fa-arrow-right {
+            transition: var(--transition);
+        }
+
+        .location-link:hover .fa-arrow-right {
+            transform: translateX(3px);
+        }
+
+        /* Hub CTA Section */
+        .hub-cta-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .hub-cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hub-cta-section p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hub-header-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hub-intro h2 {
+                font-size: 1.5rem;
+            }
+
+            .hub-intro p {
+                font-size: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+     <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#"><i class="fas fa-bolt"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas fa-road"></i>Impact</a>
+                            <a href="blog.html"><i class="fas fa-road"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas fa-road"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fas fa-bolt"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fas fa-road"></i>Hub</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hub Header Section -->
+    <section class="hub-header-section">
+        <div class="container">
+            <div class="hub-header-content">
+                <h1>Verita <span>Tech Hubs</span></h1>
+                <p class="subtitle">State-of-the-Art Learning Spaces Across The Globe</p>
+
+                <div class="world-map-container">
+                    <img src="assets/images/images/world_map white.png" alt="World Map with Verita Hub Locations"
+                        class="world-map">
+                    <div class="location-dots">
+                        <div class="dot" style="top: 50%; left: 75%;" data-city="Hong Kong"></div>
+                        <div class="dot" style="top: 63%; left: 48.5%;" data-city="Lagos"></div>
+                        <div class="dot" style="top: 68%; left: 57%;" data-city="Nairobi"></div>
+                        <div class="dot" style="top: 80%; left: 85%;" data-city="Adelaide"></div>
+                        <div class="dot" style="top: 84%; left: 53%;" data-city="Johannesburg"></div>
+                        <div class="dot" style="top: 40%; left: 55%;" data-city="Cairo"></div>
+                        <div class="dot" style="top: 37%; left: 45%;" data-city="Casablanca"></div>
+                        <div class="dot" style="top: 64%; left: 53%;" data-city="Halifax"></div>
+                        <div class="dot" style="top: 40%; left: 25%;" data-city="Boise"></div>
+                        <div class="dot" style="top: 77%; left: 55%;" data-city="Bulawayo"></div>
+                        <div class="dot" style="top: 68%; left: 72%;" data-city="Porto Alegre"></div>
+                        <div class="dot" style="top: 32%; left: 58%;" data-city="Tallinn"></div>
+                        <div class="dot" style="top: 35%; left: 65%;" data-city="Tbilisi"></div>
+                        <div class="dot" style="top: 70%; left: 80%;" data-city="Christchurch"></div>
+                        <div class="dot" style="top: 55%; left: 65%;" data-city="Busan"></div>
+                        <div class="dot" style="top: 42%; left: 28%;" data-city="Calgary"></div>
+                        <div class="dot" style="top: 74%; left: 49%;" data-city="Windhoek"></div>
+                        <div class="dot" style="top: 61%; left: 39%;" data-city="San Juan"></div>
+                        <div class="dot" style="top: 37%; left: 70%;" data-city="Astana"></div>
+                        <div class="dot" style="top: 48%; left: 35%;" data-city="Monterrey"></div>
+                        <div class="dot" style="top: 66%; left: 82%;" data-city="Hobart"></div>
+                        <div class="dot" style="top: 38%; left: 48%;" data-city="Tunis"></div>
+                        <div class="dot" style="top: 29%; left: 53%;" data-city="Riga"></div>
+                        <div class="dot" style="top: 40%; left: 77%;" data-city="Sapporo"></div>
+                    </div>
+                </div>
+
+                <div class="hub-intro">
+                    <h2>Innovative Spaces for Collaborative Learning</h2>
+                    <p>Our Verita Tech Hubs are designed to enhance the learning experience with advanced
+                        infrastructure, peer access, and opportunities for face-to-face networking with industry
+                        professionals. Through connection and collaboration, learners can utilize our hubs to boost
+                        their productivity and achieve their career goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hub Features Section -->
+    <section class="hub-features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Connectivity</h3>
+                    <p>All learners have access to high-speed internet, modern technology, and virtual learning systems,
+                        creating seamless remote workspaces.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Network for Success</h3>
+                    <p>We host meetups, tech talks, and networking events regularly at our hubs to help you make the
+                        right connections and build relationships.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Co-work & Collaborate</h3>
+                    <p>Our peer-led approach to learning comes alive in the Tech Hubs, where students work together to
+                        study, learn, and support each other.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Tech Resources</h3>
+                    <p>Access to premium software, development tools, and hardware to support your learning journey and
+                        project development.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Mentorship</h3>
+                    <p>Regular office hours with industry mentors and Verita instructors to guide you through challenges
+                        and career advice.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Events & Workshops</h3>
+                    <p>Exclusive access to tech workshops, hackathons, and guest speaker sessions hosted at our hubs.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation Labs</h3>
+                    <p>Dedicated <span>spaces</span>  for prototyping, testing ideas, and bringing your projects to life with
+                        like-minded peers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hub Locations Section -->
+    <section class="hub-locations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span>Hub</span> Locations</h2>
+                <p>Find a Verita Tech Hub near you</p>
+            </div>
+
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="assets/images/hubs/accra.jpg" alt="Verita Accra Hub">
+                    </div>
+                    <div class="location-info">
+                        <h3>Accra</h3>
+                        <p>GHANA</p>
+                        <a href="#" class="location-link" style="display:none;">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="assets/images/hubs/nairobi.jpg" alt="Verita Nairobi Hub">
+                    </div>
+                    <div class="location-info">
+                        <h3>Nairobi</h3>
+                        <p>KENYA</p>
+                        <a href="#" class="location-link" style="display:none;">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="assets/images/hubs/lagos.jpg" alt="Verita Lagos Hub">
+                    </div>
+                    <div class="location-info">
+                        <h3>Lagos</h3>
+                        <p>NIGERIA</p>
+                        <a href="#" class="location-link" style="display:none;">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="assets/images/hubs/johannesburg.jpg" alt="Verita Johannesburg Hub">
+                    </div>
+                    <div class="location-info">
+                        <h3>Johannesburg</h3>
+                        <p>SOUTH AFRICA</p>
+                        <a href="#" class="location-link" style="display:none;">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="assets/images/hubs/cairo.jpg" alt="Verita Cairo Hub">
+                    </div>
+                    <div class="location-info">
+                        <h3>Cairo</h3>
+                        <p>EGYPT</p>
+                        <a href="#" class="location-link" style="display:none;">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="assets/images/hubs/kigali.jpg" alt="Verita Kigali Hub">
+                    </div>
+                    <div class="location-info">
+                        <h3>Kigali</h3>
+                        <p>RWANDA</p>
+                        <a href="#" class="location-link" style="display:none;">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="assets/images/hubs/casablanca.jpg" alt="Verita Casablanca Hub">
+                    </div>
+                    <div class="location-info">
+                        <h3>Casablanca</h3>
+                        <p>MOROCCO</p>
+                        <a href="#" class="location-link" style="display:none;">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hub CTA Section -->
+    <section class="hub-cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Visit a Verita Tech Hub?</h2>
+                <p>Find your nearest location and schedule a visit to experience our collaborative learning spaces.</p>
+                <button class="cta-primary ripple">Find a Hub Near You</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        const heroSection = document.querySelector('.hub-header-section');
+        const heroHeight = heroSection.offsetHeight;
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > heroHeight * 0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+    </script>
+</body>
+
+</html>

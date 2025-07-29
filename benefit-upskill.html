@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verita Campus - Upskilling & Practical Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+       .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 4px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .navbar.solid {
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            height: 60px;
+            transition: var(--transition);
+            width: 14%;
+            margin-left: -100px;
+            margin-top: 0px;
+            margin-bottom: -5px;
+            transform: translateX(-20%);
+            cursor: pointer;
+        }
+       /*benefits section*/
+        .benefit-hero {
+            background: linear-gradient(135deg, #1a3a23, #0c6b32);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: var(--text-shadow-lg);
+        }
+        
+        .benefit-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .benefit-content {
+            padding: 100px 0;
+        }
+        
+        .content-block {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        
+        .content-block.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .content-text {
+            flex: 1;
+        }
+        
+        .content-media {
+            flex: 1;
+        }
+        
+        .content-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .content-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        
+        .content-text ul {
+            margin-bottom: 30px;
+        }
+        
+        .content-text ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .content-text ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            background: var(--gradient);
+            border-radius: 50%;
+        }
+        
+        .content-media img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+        
+        .content-media:hover img {
+            transform: scale(1.02);
+        }
+        
+        .content-media.video-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .content-media.video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .play-button i {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+        
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .stat-graph {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            margin-top: 40px;
+            width: 70%;
+            margin-left: 200px;
+        }
+        
+        .graph-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        .graph-container {
+            height: 400px;
+            background: #ffffff;
+            border-radius: 5px;
+            padding: 20px;
+            position: relative;
+            
+        }
+        
+        .graph-bar {
+            position: absolute;
+            bottom: 0px;
+            width: 60px;
+            background: var(--gradient);
+            border-radius: 5px 5px 0 0;
+            transition: height 1.5s ease, transform 0.3s ease;
+            transform-origin: bottom;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .graph-bar:hover {
+            transform: scaleY(1.05);
+            box-shadow: var(--shadow-primary);
+        }
+        
+        .graph-labels {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            margin-top:0px;
+            border-top:2px solid #0c6b32;
+            z-index: 4;
+            top:60px;
+        }
+        
+        .graph-label {
+            width: 150px;
+            text-align: center;
+            font-weight: 600;
+            color: #555;
+            margin-top: 20px;
+        }
+        
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 1024px) {
+            .content-block {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .content-block.reverse {
+                flex-direction: column;
+            }
+            
+            .content-text, .content-media {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .benefit-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .content-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+            </div>
+            <div class="loader-text">BREAK THE BARRIERS</div>
+        </div>
+    </div>
+
+     <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fa-solid fa-building"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fa-solid fa-location-dot"></i>Hubs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Benefit Hero Section -->
+    <section class="benefit-hero">
+        <h1 class="animate__animated animate__fadeInDown">Upskilling & Practical Experience</h1>
+        <p class="animate__animated animate__fadeInUp">Gain hands-on experience with real-world projects and flexible freelance opportunities</p>
+    </section>
+
+    <!-- Benefit Content -->
+    <section class="benefit-content">
+        <div class="content-block animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Real Skills for Real Careers</h2>
+                <p>At Verita Campus, we go beyond theoretical knowledge to provide you with practical, market-ready skills that employers are actively seeking. Our curriculum is designed in collaboration with industry leaders to ensure you learn exactly what's needed in today's competitive job market.</p>
+                <p>Our classes are designed to equip learners with relevant and on-demand skills that help them stand out in the market. We also support our learners by offering flexible freelance jobs that empower them financially.</p>
+                <ul>
+                    <li>Hands-on projects mirroring real workplace scenarios</li>
+                    <li>Industry-standard tools and technologies</li>
+                    <li>Regular skills assessments and feedback</li>
+                    <li>Portfolio-building opportunities</li>
+                    <li>Freelance gigs to earn while you learn</li>
+                </ul>
+            </div>
+            <div class="content-media">
+                <img src="assets/images/Benefits/upskill & Earn Money/Group_1.jpg" alt="Students working on projects">
+            </div>
+        </div>
+
+        <div class="content-block reverse animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Learn By Doing</h2>
+                <p>We believe the best way to learn is by doing. That's why over 70% of your time at Verita will be spent on practical exercises, projects, and simulations that give you real experience before you even graduate.</p>
+                <p>Our project-based approach means you'll build a professional portfolio as you learn, giving you tangible proof of your skills to show potential employers or clients.</p>
+                <ul>
+                    <li>80% of course time dedicated to practical work</li>
+                    <li>Real-world projects from partner companies</li>
+                    <li>Collaborative team projects to build teamwork skills</li>
+                    <li>Regular hackathons and innovation challenges</li>
+                </ul>
+            </div>
+            <div class="content-media video-container">
+                <video poster="assets/images/Verita Logo Symbol.png">
+                    <source src="assets/images/Benefits/upskill & Earn Money/Freelance.mp4" type="video/mp4">
+                </video>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Freelance Opportunities</h2>
+                <p>We understand the importance of financial empowerment while learning. That's why we connect our students with carefully vetted freelance opportunities that match their skill level.</p>
+                <p>These opportunities not only provide income but also valuable real-world experience and professional references that can jumpstart your career.</p>
+                <ul>
+                    <li>Access to our exclusive freelance platform</li>
+                    <li>Projects matched to your skill level and interests</li>
+                    <li>Mentorship and support throughout projects</li>
+                    <li>Opportunity to build a professional network</li>
+                </ul>
+            </div>
+            <div class="content-media">
+                <img src="assets/images/Benefits/upskill & Earn Money/freelancer.jpg" alt="Freelance work">
+            </div>
+        </div>
+
+        <div class="container animate__animated animate__fadeInUp">
+            <div class="stat-graph">
+                <h3 class="graph-title">Employment Rate After Completing Verita Courses</h3>
+                <div class="graph-container animate__animated" id="employmentGraph">
+                    <!-- Graph bars will be added by JavaScript -->
+                </div>
+                <div class="graph-labels">
+                    <div class="graph-label">3 Months</div>
+                    <div class="graph-label">6 Months</div>
+                    <div class="graph-label">1 Year</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="animate__animated animate__fadeInDown">Ready to Transform Your Career?</h2>
+        <p class="animate__animated animate__fadeInUp">Join thousands of students who have gained practical skills and launched successful careers through Verita Campus</p>
+        <div class="cta-buttons animate__animated animate__fadeInUp">
+            <button class="cta-primary ripple" onclick="window.location.href='short_courses.html'">Explore Courses</button>
+            <button class="cta-secondary ripple" onclick="window.location.href='contact.html'">Contact Advisor</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+                <div class="footer-app-links" style="display:none;">
+                    <a href="#" class="app-store">
+                        <i class="fab fa-apple"></i>
+                        <span>Download on the<br><strong>App Store</strong></span>
+                    </a>
+                    <a href="#" class="google-play">
+                        <i class="fab fa-google-play"></i>
+                        <span>Get it on<br><strong>Google Play</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+     // Navbar Scroll Effect
+        const navbar=document.querySelector('.navbar');
+        const heroSection=document.querySelector('.benefit-hero');
+        const heroHeight=heroSection.offsetHeight;
+
+        window.addEventListener('scroll',function() {
+            if(window.scrollY>heroHeight*0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+        // Animate graph bars
+        function animateGraph() {
+            const graph = document.getElementById('employmentGraph');
+            const graphHeight = graph.offsetHeight - 40; // minus padding
+            
+            // Create bars
+            const bar3Months = document.createElement('div');
+            bar3Months.className = 'graph-bar';
+            bar3Months.style.left = '10%';
+            bar3Months.style.height = '0';
+            bar3Months.textContent = '65%';
+            graph.appendChild(bar3Months);
+            
+            const bar6Months = document.createElement('div');
+            bar6Months.className = 'graph-bar';
+            bar6Months.style.left = 'calc(55% - 30px)';
+            bar6Months.style.height = '0';
+            bar6Months.textContent = '82%';
+            graph.appendChild(bar6Months);
+            
+            const bar1Year = document.createElement('div');
+            bar1Year.className = 'graph-bar';
+            bar1Year.style.left = '85%';
+            bar1Year.style.height = '0';
+            bar1Year.textContent = '94%';
+            graph.appendChild(bar1Year);
+            
+            // Animate bars after a short delay
+            setTimeout(() => {
+                bar3Months.style.height = (graphHeight * 0.65) + 'px';
+                bar6Months.style.height = (graphHeight * 0.82) + 'px';
+                bar1Year.style.height = (graphHeight * 0.94) + 'px';
+            }, 500);
+        }
+        
+        // Play video
+        const playButton = document.querySelector('.play-button');
+        const video = document.querySelector('.content-media.video-container video');
+        
+        playButton.addEventListener('click', function() {
+            video.play();
+            video.controls = true;
+            playButton.style.display = 'none';
+        });
+        
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'employmentGraph') {
+                        animateGraph();
+                    }
+                    entry.target.classList.add('animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate__animated').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verita Campus - Professional Courses & Training</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .news-button:hover{
+            color:var(--primary-color);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+            </div>
+            <div class="loader-text">BREAK THE BARRIERS</div>
+        </div>
+    </div>
+
+     <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fa-solid fa-building"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fa-solid fa-location-dot"></i>Hubs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Scrolling Animation -->
+    <section class="hero-section" id="home">
+        <div class="scrolling-gallery">
+            <div class="gallery-track gallery-track-1">
+                <div class="gallery-item"><img src="assets/images/courses/tech1.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/business1.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/tech6.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/tech2.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/business2.jpg" alt="Course"></div>
+            </div>
+            <div class="gallery-track gallery-track-2">
+                <div class="gallery-item"><img src="assets/images/courses/tech6.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/tech3.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/business3.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/business7.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/tech4.jpg" alt="Course"></div>
+            </div>
+            <div class="gallery-track gallery-track-3">
+                <div class="gallery-item"><img src="assets/images/courses/business4.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/business7.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/tech7.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/business5.jpg" alt="Course"></div>
+                <div class="gallery-item"><img src="assets/images/courses/tech1.jpg" alt="Course"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Transform Your Career with <span>Verita</span></h1>
+            <p class="animate__animated animate__fadeInUp">Professional courses designed to give you the competitive edge in today's job market</p>
+            <div class="hero-buttons animate__animated animate__fadeInUp">
+                <button class="cta-primary ripple">Explore Courses</button>
+                <button class="cta-secondary ripple" style="border: solid #23a84e;" onclick="window.location.href='contact.html'">Contact Us <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="scroll-down" href="#category">
+            <span onclick="document.querySelector('.course-categories').scrollIntoView({behavior: 'smooth'})">Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Course Categories Section -->
+    <section class="course-categories" id="category">
+        <div class="section-header">
+            <h2>Our <span>Course</span> Offerings</h2>
+            <p>Choose from our flexible learning options to suit your schedule and goals</p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card animate__animated">
+                <div class="card-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Short Courses</h3>
+                <p>6-week intensive programs focused on specific skills for immediate career impact.</p>
+                <div class="card-highlight"></div>
+                <button class="category-btn ripple" onclick="window.location.href='short_courses.html'">View Courses <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="category-card animate__animated">
+                <div class="card-icon">
+                    <i class="fas fa-road"></i>
+                </div>
+                <h3>Verita Avenue</h3>
+                <p>Long-term comprehensive programs for deep expertise and career transformation.</p>
+                <div class="card-highlight"></div>
+                <button class="category-btn ripple" style=" color:rgb(202, 13, 13); background: black;" onclick="window.location.href='404Error.html'">Enrollment Full</button>
+                <h2>Next Intake,Feb 20Th 2026</h2>
+            </div>
+            <div class="category-card animate__animated" style="display:none;">
+                <div class="card-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Corporate Training</h3>
+                <p>Customized programs for organizations to upskill their workforce.</p>
+                <div class="card-highlight"></div>
+                <button class="category-btn ripple">Learn More <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses Section -->
+    <section class="featured-courses">
+        <div class="section-header">
+            <h2>Featured <span>Courses</span></h2>
+            <p>Our most popular programs that are transforming careers</p>
+        </div>
+        <div class="courses-container">
+            <button class="scroll-btn scroll-left" aria-label="Scroll left">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+            <div class="courses-slider">
+                <div class="course-track">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="assets/images/Packages/DATA.jpg" alt="Course">
+                            <div class="course-badge">8 Weeks</div>
+                        </div>
+                        <div class="course-content">
+                            <h3>Data Science & Analysis</h3>
+                            <p>Master the basics of data analysis and visualization with Python.</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-chart-line"></i> Beginner</span>
+                                <span><i class="fas fa-clock"></i> 102 Hours</span>
+                            </div>
+                            <button class="course-btn ripple" onclick="window.location.href='data-science.html'">Enroll Now</button>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="assets/images/Packages/Social.jpg" alt="Course">
+                            <div class="course-badge">6 weeks</div>
+                        </div>
+                        <div class="course-content">
+                            <h3>Digital Marketing</h3>
+                            <p>Comprehensive training in modern digital marketing.</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-chart-line"></i> Intermediate</span>
+                                <span><i class="fas fa-clock"></i> 72 Hours</span>
+                            </div>
+                            <button class="course-btn ripple" onclick="window.location.href='digital-marketing.html'">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="assets/images/Packages/Bussines4.jpg" alt="Course">
+                            <div class="course-badge">6 Weeks</div>
+                        </div>
+                        <div class="course-content">
+                            <h3>Business Management</h3>
+                            <p>Develop essential business acumen and administrative skills.</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-chart-line"></i> Beginner Friendly</span>
+                                <span><i class="fas fa-clock"></i> 72 Hours</span>
+                            </div>
+                            <button class="course-btn ripple" onclick="window.location.href='Business.html'">Enroll Now</button>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="assets/images/Packages/Fine2.jpg" alt="Course">
+                            <div class="course-badge">6 weeks</div>
+                        </div>
+                        <div class="course-content">
+                            <h3>Finance & Accounting</h3>
+                            <p>Master financial literacy and accounting principles.</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-chart-line"></i> Advanced</span>
+                                <span><i class="fas fa-clock"></i> 55 Hours</span>
+                            </div>
+                            <button class="course-btn ripple" onclick="window.location.href='Finance.html'">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="assets/images/Packages/IT1.jpg" alt="Course">
+                            <div class="course-badge">8 Weeks</div>
+                        </div>
+                        <div class="course-content">
+                            <h3>Software & IT</h3>
+                            <p>Learn fundamental computer skills to full-stack development.</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-chart-line"></i> Intermediate</span>
+                                <span><i class="fas fa-clock"></i> 96 Hours</span>
+                            </div>
+                            <button class="course-btn ripple" onclick="window.location.href='software&IT.html'">Enroll Now</button>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="assets/images/Packages/Graphic.jpg" alt="Course">
+                            <div class="course-badge">6 Weeks</div>
+                        </div>
+                        <div class="course-content">
+                            <h3>Graphic Design</h3>
+                            <p>Explore the vibrant world of graphic design</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-chart-line"></i> Intermediate</span>
+                                <span><i class="fas fa-clock"></i> 55 Hours</span>
+                            </div>
+                            <button class="course-btn ripple" onclick="window.location.href='Graphis.html'">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="scroll-btn scroll-right" aria-label="Scroll right">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        </div>
+        <div class="view-all-courses">
+            <button class="cta-secondary ripple" style="border: solid #23a84e;" onclick="window.location.href='short_courses.html'">View All Courses <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <section class="partners-section">
+        <div class="section-header">
+            <h2>Trusted by Leading Institutions</h2>
+            <p>We partner with top educational institutions to deliver quality learning experiences</p>
+        </div>
+        <div class="partners-slider">
+            <div class="partner-track">
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Auburn-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/nvidia-logo.png" alt="Partner University">
+                </div>
+                 <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Fiverr-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Oregon-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Pennsylvania-University-Logo.png" alt="Partner University">
+                </div>
+                 <div class="partner-logo">
+                    <img src="assets/images/images/pattners/LinkedIn_2021.svg.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/microsoft-logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Stellenbosch-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Delaware-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Harvard-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Upwork-logo.svg.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Stanford-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Chicago-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/google.png" alt="Partner University">
+
+                    <!-- Duplicated for loop -->
+                    <img src="assets/images/images/pattners/" alt="">
+                </div>
+                 <div class="partner-logo">
+                    <img src="assets/images/images/pattners/LinkedIn_2021.svg.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Oregon-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/microsoft-logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Pennsylvania-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Stellenbosch-University-Logo.png" alt="Partner University">
+                </div>
+                 <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Upwork-logo.svg.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/nvidia-logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Delaware-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Harvard-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Stanford-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Chicago-University-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Fiverr-Logo.png" alt="Partner University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/google.png" alt="Partner University">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Verita Section -->
+    <section class="why-choose">
+        <div class="choose-container">
+            <div class="choose-image">
+                <div class="image-wrapper">
+                    <img src="assets/images/courses/business6.jpg" alt="Learning at Verita">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+            </div>
+            <div class="choose-content">
+                <h2>Why Choose <span>Verita Campus</span>?</h2>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Industry-Recognized Certifications</h3>
+                            <p>Our courses provide certifications valued by employers worldwide.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Expert Instructors</h3>
+                            <p>Learn from professionals with real-world experience in their fields.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Career Support</h3>
+                            <p>Get assistance with resume building, interviews, and job placement.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Flexible Learning</h3>
+                            <p>Study at your own pace with our online and hybrid options.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="cta-primary ripple" onclick="window.location.href='short_courses.html'">Get Started Today</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2>Success <span>Stories</span></h2>
+            <p>Hear from our students about their Verita experience</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>"The Data Science course at Verita completely transformed my career. Within 3 months of completing the program, I landed a job as a junior data analyst."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah K.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah K.</h4>
+                            <span>Data Analyst</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>"Verita's Digital Marketing Avenue program gave me all the tools I needed to start my own agency. The instructors were incredibly knowledgeable and supportive."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James L.">
+                        </div>
+                        <div class="author-info">
+                            <h4>James L.</h4>
+                            <span>Marketing Agency Owner</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>"I took the UX/UI short course to enhance my skills, and it was exactly what I needed. The practical projects helped me build a portfolio that got me promoted."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya M.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Priya M.</h4>
+                            <span>Product Designer</span>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Updates Section -->
+    <section class="news-section">
+        <div class="section-header">
+            <h2>Latest <span>News</span> & Updates</h2>
+            <p>Stay informed about our new courses, events, and industry insights</p>
+        </div>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="assets/images/Packages/AI2.jpg" alt="News Image">
+                    <div class="news-date">
+                        <span>15</span>
+                        <span>Jun</span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <h3>New AI Workshop Series</h3>
+                    <p>Join our free workshops on AI applications in business starting next month.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="assets/images/Packages/arch4.png" alt="News Image">
+                    <div class="news-date">
+                        <span>28</span>
+                        <span>May</span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <h3>Discover the Art of Architectural Drawing and Design</h3>
+                    <p>Unlock your creativity with our new architecture course.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="assets/images/Packages/Block_chain.jpg" alt="News Image">
+                    <div class="news-date">
+                        <span>10</span>
+                        <span>May</span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <h3>Blockchain Course Launch</h3>
+                    <p>Our new comprehensive blockchain development program is now available.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="view-all-courses">
+            <button class="cta-secondary news-button ripple" style="border: solid var(--secondary-color);" onclick="window.location.href='blog.html'">View Other News <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Impact Stories Section -->
+<section class="impact-section">
+    <div class="section-header">
+        <h2>Our <span>Impact</span> Stories</h2>
+        <p>See how Verita Campus alumni are making a difference in their communities</p>
+    </div>
+    <div class="impact-grid">
+        <!-- Impact Card 1 -->
+        <div class="impact-card">
+            <div class="impact-image">
+                <img src="assets/images/impact/student1.jpg" alt="Sarah Johnson">
+                <div class="impact-date">
+                    <span>15</span>
+                    <span>Jun 2024</span>
+                </div>
+                <div class="impact-nation">
+                    <i class="fas fa-globe"></i> Nigeria
+                </div>
+            </div>
+            <div class="impact-content">
+                <h3>Sunmisola Adiola</h3>
+                <div class="impact-meta">
+                    <span class="impact-course">Data Science & Analysis</span>
+                    <span class="impact-title">Working Professional | Data Analyst</span>
+                </div>
+                <p>After completing the Data Science course, Sarah developed a community dashboard that helps local NGOs track and visualize their impact metrics...</p>
+                <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Impact Card 2 -->
+        <div class="impact-card">
+            <div class="impact-image">
+                <img src="assets/images/impact/student2.jpg" alt="Michael Omondi">
+                <div class="impact-date">
+                    <span>28</span>
+                    <span>May 2024</span>
+                </div>
+                <div class="impact-nation">
+                    <i class="fas fa-globe"></i> Uganda
+                </div>
+            </div>
+            <div class="impact-content">
+                <h3>Michael Kyanja</h3>
+                <div class="impact-meta">
+                    <span class="impact-course">Digital Marketing</span>
+                    <span class="impact-title">Graduate | Digital Strategist</span>
+                </div>
+                <p>Michael launched a digital marketing agency that has helped over 50 small businesses establish their online presence, creating 12 new jobs...</p>
+                <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Impact Card 3 -->
+        <div class="impact-card">
+            <div class="impact-image">
+                <img src="assets/images/impact/student3.jpg" alt="Amina Mohammed">
+                <div class="impact-date">
+                    <span>10</span>
+                    <span>May 2024</span>
+                </div>
+                <div class="impact-nation">
+                    <i class="fas fa-globe"></i> Egypt
+                </div>
+            </div>
+            <div class="impact-content">
+                <h3>Amina Mohammed</h3>
+                <div class="impact-meta">
+                    <span class="impact-course">Business Management</span>
+                    <span class="impact-title">Student | Entrepreneur</span>
+                </div>
+                <p>Amina's agribusiness startup has empowered 30 women farmers with better market access, increasing their incomes by 40% through collective bargaining...</p>
+                <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Impact Card 4 -->
+        <div class="impact-card">
+            <div class="impact-image">
+                <img src="assets/images/impact/student4.jpg" alt="David Kiprop">
+                <div class="impact-date">
+                    <span>22</span>
+                    <span>Apr 2024</span>
+                </div>
+                <div class="impact-nation">
+                    <i class="fas fa-globe"></i> South Africa
+                </div>
+            </div>
+            <div class="impact-content">
+                <h3>Thabo Mokoena </h3>
+                <div class="impact-meta">
+                    <span class="impact-course">Software & IT</span>
+                    <span class="impact-title">Working Professional | Full-stack Developer</span>
+                </div>
+                <p>Mokoena developed a mobile app that connects rural clinics with specialist doctors, facilitating over 500 remote consultations in its first 3 months...</p>
+                <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Impact Card 5 -->
+        <div class="impact-card">
+            <div class="impact-image">
+                <img src="assets/images/impact/student5.jpg" alt="Grace Akinyi">
+                <div class="impact-date">
+                    <span>05</span>
+                    <span>Apr 2024</span>
+                </div>
+                <div class="impact-nation">
+                    <i class="fas fa-globe"></i> Sweden
+                </div>
+            </div>
+            <div class="impact-content">
+                <h3>Anna Svensson</h3>
+                <div class="impact-meta">
+                    <span class="impact-course">Finance & Accounting</span>
+                    <span class="impact-title">Graduate | Financial Consultant</span>
+                </div>
+                <p>Anna has trained over 200 youth in financial literacy and helped establish 15 community savings groups in low-income neighborhoods...</p>
+                <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Impact Card 6 -->
+        <div class="impact-card">
+            <div class="impact-image">
+                <img src="assets/images/impact/student6.jpg" alt="Brian Musyoki">
+                <div class="impact-date">
+                    <span>18</span>
+                    <span>Mar 2024</span>
+                </div>
+                <div class="impact-nation">
+                    <i class="fas fa-globe"></i> Kenya
+                </div>
+            </div>
+            <div class="impact-content">
+                <h3>Brian Musyoki</h3>
+                <div class="impact-meta">
+                    <span class="impact-course">Graphic Design</span>
+                    <span class="impact-title">Working Professional | Creative Director</span>
+                </div>
+                <p>Brian's design agency provides pro bono branding for social enterprises and has helped 10 nonprofits improve their visual communication...</p>
+                <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Impact Card 7 -->
+        <div class="impact-card">
+            <div class="impact-image">
+                <img src="assets/images/impact/student7.jpg" alt="Fatuma Hassan">
+                <div class="impact-date">
+                    <span>02</span>
+                    <span>Mar 2024</span>
+                </div>
+                <div class="impact-nation">
+                    <i class="fas fa-globe"></i> Singapore
+                </div>
+            </div>
+            <div class="impact-content">
+                <h3>Nur Amirah </h3>
+                <div class="impact-meta">
+                    <span class="impact-course">Business Management</span>
+                    <span class="impact-title">Student | Social Entrepreneur</span>
+                </div>
+                <p>Naur's clean energy startup has installed solar systems in 150 households, reducing kerosene dependence and creating 8 local technician jobs...</p>
+                <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <!-- Impact Card 8 -->
+        <div class="impact-card">
+            <div class="impact-image">
+                <img src="assets/images/impact/student7.jpg" alt="Fatuma Hassan">
+                <div class="impact-date">
+                    <span>14</span>
+                    <span>Sep 2021</span>
+                </div>
+                <div class="impact-nation">
+                    <i class="fas fa-globe"></i>United Kingdom
+                </div>
+            </div>
+            <div class="impact-content">
+                <h3>Chloe Thompson </h3>
+                <div class="impact-meta">
+                    <span class="impact-course">Cyber Security</span>
+                    <span class="impact-title">Working Professional | Computer Engineer</span>
+                </div>
+                <p>Chloe's cybersecurity venture has trained 120 youth in rural areas on digital safety, protecting small businesses from fraud while creating 6 local tech support jobs...</p>
+                <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <!-- Impact Card 9 -->
+        <div class="impact-card">
+            <div class="impact-image">
+                <img src="assets/images/impact/student7.jpg" alt="Fatuma Hassan">
+                <div class="impact-date">
+                    <span>07</span>
+                    <span>April 2022</span>
+                </div>
+                <div class="impact-nation">
+                    <i class="fas fa-globe"></i> Romania
+                </div>
+            </div>
+            <div class="impact-content">
+                <h3>Victoria Popescu </h3>
+                <div class="impact-meta">
+                    <span class="impact-course">Finance & Accounting</span>
+                    <span class="impact-title">Graduate | Calinary Arts</span>
+                </div>
+                <p>Victoria's community bakery initiative has empowered 35 women by providing training in sustainable baking practices, using locally sourced grains...</p>
+
+                <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="view-all-courses">
+            <button class="cta-secondary ripple" style="border: solid #23a84e;" onclick="window.location.href='impact.html'">Read More Stories <i class="fas fa-arrow-right"></i></button>
+        </div>
+</section>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Learning Journey?</h2>
+                <p>Contact our advisors to find the perfect program for your goals</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                      <div class="form-nam">
+                        <input type="text" placeholder="First Name">
+                        <input type="text" placeholder="Last Name">
+                       </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <select>
+                            <option value="">Select Course Interest</option>
+                            <option value="short">Short Courses</option>
+                            <option value="avenue">Verita Avenue</option>
+                            <option value="corporate">Corporate Training</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="cta-primary ripple">Get Information <i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+            <div class="cta-image">
+                <img src="assets/images/contact-us.png" alt="Contact Us">
+                <div class="floating-elements">
+                    <div class="element element-1"><i class="fas fa-comment-dots"></i></div>
+                    <div class="element element-2"><i class="fas fa-envelope"></i></div>
+                    <div class="element element-3"><i class="fas fa-phone-alt"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@veritalearning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="404Error.html"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope" style="color:var(--secondary-color);"></i> veritalearning@gmail.com </li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+                <div class="footer-app-links" style="display:none;">
+                    <a href="#" class="app-store">
+                        <i class="fab fa-apple"></i>
+                        <span>Download on the<br><strong>App Store</strong></span>
+                    </a>
+                    <a href="#" class="google-play">
+                        <i class="fab fa-google-play"></i>
+                        <span>Get it on<br><strong>Google Play</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

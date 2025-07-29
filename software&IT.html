@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software & IT Course | Verita Campus</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+       .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 4px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .navbar.solid {
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            height: 60px;
+            transition: var(--transition);
+            width: 14%;
+            margin-left: -100px;
+            margin-top: 0px;
+            margin-bottom: -5px;
+            transform: translateX(-20%);
+            cursor: pointer;
+        }
+        /* Course Detail Page Styles */
+        .course-hero {
+            background: linear-gradient(135deg, rgba(12, 107, 50, 0.7), rgba(29, 189, 101, 0.6));
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/Packages/IT2.jpg') center/cover no-repeat;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        .course-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .course-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .course-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .course-meta-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin: 0 5px 10px;
+            font-size: 0.9rem;
+        }
+        
+        .course-detail-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(12, 107, 50, 0.03), rgba(29, 189, 101, 0.05));
+        }
+        
+        .course-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .course-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .course-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .course-content {
+            flex: 1;
+        }
+        
+        .course-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .course-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .benefit-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .outline-list {
+            margin-top: 30px;
+        }
+        
+        .outline-item {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .outline-item::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        
+        .job-opportunities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .job-tag {
+            background: rgba(29, 189, 101, 0.1);
+            color: var(--dark-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .enroll-cta {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(12, 107, 50, 0.05), rgba(29, 189, 101, 0.03));
+        }
+        
+        .enroll-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .enroll-box h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .enroll-box p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+        
+        .price-tag span {
+            font-size: 1rem;
+            color: #777;
+            font-weight: normal;
+        }
+
+        .bonus-section {
+            padding: 80px 0;
+            
+        }
+        
+        .bonus-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .bonus-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .bonus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bonus-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .bonus-card h3 i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .bonus-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .bonus-badge {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--text-dark);
+            padding: 3px 10px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .course-specific-bonuses {
+            margin-top: 60px;
+        }
+        
+        .course-specific-bonuses h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+            color: var(--dark-color);
+        }
+        
+        .course-specific-bonuses h2 span {
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .course-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .course-row:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .course-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#"><i class="fas fa-bolt"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas fa-road"></i>Impact</a>
+                            <a href="blog.html"><i class="fas fa-road"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas fa-road"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fas fa-bolt"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fas fa-road"></i>Hub</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Hero Section -->
+    <section class="course-hero">
+        <div class="course-hero-content">
+            <span class="course-meta-badge"><i class="fas fa-clock"></i> 8 Weeks</span>
+            <span class="course-meta-badge"><i class="fas fa-certificate"></i> Certificate</span>
+            <h1>Software & IT Professional Course</h1>
+            <p>Master in-demand tech skills and launch your career in the booming IT sector with our comprehensive 8-week program</p>
+            <button class="cta-primary ripple" onclick="document.querySelector('.enroll-cta').scrollIntoView({behavior: 'smooth'})">Enroll Now</button>
+        </div>
+    </section>
+
+    <!-- Course Introduction Section -->
+    <section class="course-detail-section" style="background:rgb(244, 243, 243);">
+        <div class="course-container">
+            <div class="course-row">
+                <div class="course-content">
+                    <h2 class="section-title">Why This Course?</h2>
+                    <p>In today's digital economy, IT skills are no longer optional - they're essential. Our Software & IT course is designed to take you from beginner to job-ready in just 8 weeks, equipping you with the practical skills employers are desperately seeking.</p>
+                    <p>Unlike traditional programs that focus only on theory, we emphasize hands-on learning with real-world projects. You'll build a professional portfolio while learning, giving you a competitive edge in the job market.</p>
+                    <p>With the global tech sector growing rapidly and thousands of IT jobs going unfilled due to skills gaps, there's never been a better time to invest in your tech education.</p>
+                </div>
+                <div class="course-image">
+                    <img src="assets/images/course-detail/it-intro.jpg" alt="Students learning software development">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Benefits Section -->
+    <section class="course-detail-section" style="background: #f9f9f9;">
+        <div class="course-container">
+            <h2 class="section-title" style="text-align: center;">What You'll Gain</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3><img src="assets/images/Packages/Benefits/programming.png" alt="" style="width:15%; margin-right:10px;"> Practical Skills</h3>
+                    <p>Learn by doing with hands-on projects that mirror real workplace challenges, not just theoretical concepts.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><img src="assets/images/Packages/Benefits/target.png" alt="" style="width:17%; margin-right:10px;"> Career Ready</h3>
+                    <p>Graduate with a professional portfolio showcasing your skills to potential employers.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><img src="assets/images/Packages/Benefits/insight-1.png" alt="" style="width:18%; margin-right:10px;"> Industry Insights</h3>
+                    <p>Learn the tools and technologies actually used by leading tech companies today.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><img src="assets/images/Packages/Benefits/line-chart.png" alt="" style="width:15%; margin-right:10px;"> High Demand Skills</h3>
+                    <p>Master competencies that are in short supply in the global job market, making you highly employable.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><img src="assets/images/Packages/Benefits/badge.png" alt="" style="width:15%; margin-right:10px;"> Professional Mindset</h3>
+                    <p>Develop the work ethic and problem-solving approach that tech employers value.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><img src="assets/images/Packages/Benefits/social-media.png" alt="" style="width:18%; margin-right:10px;">Networking</h3>
+                    <p>Connect with industry professionals and like-minded peers throughout your learning journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Outline Section -->
+    <section class="course-detail-section">
+        <div class="course-container">
+            <div class="course-row">
+                <div class="course-image">
+                    <img src="assets/images/course-detail/it-outline.jpg" alt="Course curriculum">
+                </div>
+                <div class="course-content">
+                    <h2 class="section-title">Course Outline</h2>
+                    <p>Our comprehensive curriculum covers all the fundamentals you need to start your IT career, with modules designed by industry experts:</p>
+                    <div class="outline-list">
+                        <div class="outline-item">
+                            <h3>Computer Fundamentals & Office Applications</h3>
+                            <p>Master essential productivity tools used in every modern workplace</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Web Development Foundations</h3>
+                            <p>HTML5, CSS3, JavaScript - build responsive websites from scratch</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Database Systems</h3>
+                            <p>Learn to design and query databases with SQL</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Programming Fundamentals</h3>
+                            <p>Python programming and problem-solving techniques</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Full Stack Development</h3>
+                            <p>Build complete web applications with frontend and backend</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Cloud Computing Basics</h3>
+                            <p>Introduction to cloud platforms and deployment</p>
+                        </div>
+                        <div class="outline-item">
+                            <h3>Computer Networks</h3>
+                            <p>Understand networking concepts essential for IT roles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Opportunities Section -->
+    <section class="course-detail-section" style="background: #f9f9f9;">
+        <div class="course-container">
+            <div class="course-row">
+                <div class="course-content">
+                    <h2 class="section-title">Your Career Path</h2>
+                    <p>Graduates of our Software & IT course are prepared for various entry-level positions in the tech sector, with opportunities across multiple industries:</p>
+                    
+                    <h3 style="margin-top: 30px; color: var(--dark-color);">Immediate Job Opportunities:</h3>
+                    <div class="job-opportunities">
+                        <span class="job-tag">Junior Web Developer</span>
+                        <span class="job-tag">IT Support Specialist</span>
+                        <span class="job-tag">Database Assistant</span>
+                        <span class="job-tag">Software Tester</span>
+                        <span class="job-tag">Technical Support Engineer</span>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px; color: var(--dark-color);">Future Growth Paths:</h3>
+                    <div class="job-opportunities">
+                        <span class="job-tag">Full Stack Developer</span>
+                        <span class="job-tag">Systems Analyst</span>
+                        <span class="job-tag">DevOps Engineer</span>
+                        <span class="job-tag">Cloud Solutions Architect</span>
+                        <span class="job-tag">IT Project Manager</span>
+                    </div>
+                    
+                    <p style="margin-top: 30px;">The tech sector offers competitive starting salaries ($500-$1,200 for entry-level positions) with rapid career progression for skilled professionals.</p>
+                </div>
+                <div class="course-image">
+                    <img src="assets/images/course-detail/it-career.jpg" alt="IT professionals working">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Approach Section -->
+    <section class="course-detail-section">
+        <div class="course-container">
+            <h2 class="section-title" style="text-align: center;">Our Learning Approach</h2>
+            <div class="course-row">
+                <div class="course-image">
+                    <img src="assets/images/course-detail/it-learning.jpg" alt="Learning environment">
+                </div>
+                <div class="course-content">
+                    <h3>Practical, Project-Based Learning</h3>
+                    <p>We believe in learning by doing. Over 70% of your time will be spent on hands-on projects that simulate real workplace scenarios.</p>
+                    
+                    <h3 style="margin-top: 30px;">Flexible Study Options</h3>
+                    <p>Choose the learning mode that fits your schedule:</p>
+                    <ul style="margin-top: 15px; margin-left: 20px;">
+                        <li style="margin-bottom: 10px;"><strong>Evening Classes:</strong> 6pm-9pm, perfect for working professionals</li>
+                        <li style="margin-bottom: 10px;"><strong>Weekend Intensives:</strong> Saturdays 9am-4pm</li>
+                        <li style="margin-bottom: 10px;"><strong>Hybrid Option:</strong> Combine in-person and online learning</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 30px;">Requirements</h3>
+                    <p>To succeed in this course, you should have:</p>
+                    <ul style="margin-top: 15px; margin-left: 20px;">
+                        <li style="margin-bottom: 10px;">Basic computer literacy</li>
+                        <li style="margin-bottom: 10px;">Own laptop (minimum specs will be provided)</li>
+                        <li style="margin-bottom: 10px;">Commitment to 15-20 hours of study per week</li>
+                        <li style="margin-bottom: 10px;">Passion for problem-solving and technology</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bonus-section">
+        <div class="bonus-container">
+            <h2 class="section-title">Exclusive Career Bonuses</h2>
+            <p>All our courses include these valuable career-enhancing resources at no extra cost:</p>
+            
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/cv.png" alt="" style="width:9%; margin-right:2px;"> Professional CV Writing</h3>
+                    <p>Get our proven templates and guidance to create a CV that stands out in the competitive job market.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/bribe.png" alt="" style="width:12%; margin-right:5px;"> Salary Negotiation Guide</h3>
+                    <p>Learn how to confidently negotiate your worth with employers across various industries.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/linkedin.png" alt="" style="width:8%; margin-right:5px;"> LinkedIn Optimization</h3>
+                    <p>Step-by-step training to build a powerful LinkedIn profile that attracts recruiters and opportunities.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/bullseye.png" alt="" style="width:9%; margin-right:5px;"> Job Market Navigation</h3>
+                    <p>Understand where to find the best opportunities and how to position yourself effectively.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/robot.png" alt="" style="width:12%; margin-right:5px;">  AI Basics for Professionals</h3>
+                    <p>Essential AI literacy covering tools like ChatGPT that are transforming workplaces globally.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/efficiency.png" alt="" style="width:12%; margin-right:5px;"> Productivity with Notion</h3>
+                    <p>Master this powerful tool to organize your job search and professional workflow efficiently.</p>
+                </div>
+            </div>
+            
+            <!-- Course-Specific Bonuses -->
+            <div class="course-specific-bonuses">
+                <h2>Software & IT <span>Exclusive Bonuses</span></h2>
+                
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/code.png" alt="" style="width:10%; margin-right:10px;"> GitHub Portfolio Setup</h3>
+                        <p>We'll help you create a professional GitHub profile to showcase your coding projects to employers.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/programming.png" alt="" style="width:10%; margin-right:10px;"> Freelancing Toolkit</h3>
+                        <p>Access our curated list of platforms and strategies to start earning as a developer while learning.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/diagram.png" alt="" style="width:12%; margin-right:10px;"> Real-World Project Templates</h3>
+                        <p>Get starter templates for common projects companies need developers for.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/cloud-computing.png" alt="" style="width:13%; margin-right:10px;"> AWS Cloud Essentials</h3>
+                        <p>Bonus module on cloud computing fundamentals with Amazon Web Services.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/online-community.png" alt="" style="width:14%; margin-right:10px;"> Tech Community Access</h3>
+                        <p>Exclusive invitation to a fast-growing developer community for networking and support.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/app-development.png" alt="" style="width:12%; margin-right:10px;">Mobile Dev Starter Kit</h3>
+                        <p>Bonus resources for getting started with mobile app development (Android/iOS).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment CTA Section -->
+    <section class="enroll-cta">
+        <div class="enroll-box">
+            <h2>Start Your Tech Journey Today</h2>
+            <p>Join hundreds of people who've transformed their careers with our practical, industry-focused training.</p>
+            <div class="price-tag">$100</div>
+            <button class="cta-primary ripple">Enroll Now</button>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: rgb(232, 0, 0);"><i class="fas fa-info-circle"></i> 21 Slots left</p>
+        </div>
+    </section>
+
+<!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+                <div class="footer-app-links" style="display:none;">
+                    <a href="#" class="app-store">
+                        <i class="fab fa-apple"></i>
+                        <span>Download on the<br><strong>App Store</strong></span>
+                    </a>
+                    <a href="#" class="google-play">
+                        <i class="fab fa-google-play"></i>
+                        <span>Get it on<br><strong>Google Play</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>        
+    // Navbar Scroll Effect
+        const navbar=document.querySelector('.navbar');
+        const heroSection=document.querySelector('.cta-primary');
+        const heroHeight=heroSection.offsetHeight;
+
+        window.addEventListener('scroll',function() {
+            if(window.scrollY>heroHeight*0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+        </script>
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verita Campus - Global Exposure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+       .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 4px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .navbar.solid {
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            height: 60px;
+            transition: var(--transition);
+            width: 14%;
+            margin-left: -100px;
+            margin-top: 0px;
+            margin-bottom: -5px;
+            transform: translateX(-20%);
+            cursor: pointer;
+        }
+       /*benefits section*/
+        .benefit-hero {
+            background: linear-gradient(135deg, #1a3a23, #0c6b32);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: var(--text-shadow-lg);
+        }
+        
+        .benefit-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .benefit-content {
+            padding: 100px 0;
+        }
+        
+        .content-block {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        
+        .content-block.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .content-text {
+            flex: 1;
+        }
+        
+        .content-media {
+            flex: 1;
+        }
+        
+        .content-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .content-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        
+        .content-text ul {
+            margin-bottom: 30px;
+        }
+        
+        .content-text ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .content-text ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            background: var(--gradient);
+            border-radius: 50%;
+        }
+        
+        .content-media img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+        
+        .content-media:hover img {
+            transform: scale(1.02);
+        }
+
+        .content-media.video-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .content-media.video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .play-button i {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+        
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .world-map-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+        
+        .world-map {
+            width: 100%;
+            opacity: 0.8;
+        }
+        
+        .location-marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s infinite;
+        }
+        
+        .location-marker::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(29, 189, 101, 0.3);
+            border-radius: 50%;
+            top: -10px;
+            left: -10px;
+            animation: pulse 2s infinite;
+            animation-delay: 0.5s;
+        }
+        
+        .location-info {
+            position: absolute;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            width: 200px;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 10;
+        }
+        
+        .location-marker:hover .location-info {
+            opacity: 1;
+        }
+        
+        .location-info h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .location-info p {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .events-timeline {
+            max-width: 1000px;
+            margin: 60px auto 0;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .events-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-event {
+            position: relative;
+            margin-bottom: 60px;
+            width: 50%;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .timeline-event.left {
+            margin-right: auto;
+        }
+        
+        .timeline-event.right {
+            margin-left: auto;
+        }
+        
+        .timeline-event::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient);
+            border-radius: 50%;
+        }
+        
+        .timeline-event.left::after {
+            right: -10px;
+        }
+        
+        .timeline-event.right::after {
+            left: -10px;
+        }
+        
+        .event-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .event-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .event-description {
+            font-size: 0.95rem;
+            color: #555;
+        }
+        
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .content-block {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .content-block.reverse {
+                flex-direction: column;
+            }
+            
+            .content-text, .content-media {
+                width: 100%;
+            }
+            
+            .events-timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-event {
+                width: calc(100% - 40px);
+                margin-left: 40px;
+            }
+            
+            .timeline-event::after {
+                left: -30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .benefit-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .content-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+            </div>
+            <div class="loader-text">BREAK THE BARRIERS</div>
+        </div>
+    </div>
+
+     <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fa-solid fa-building"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fa-solid fa-location-dot"></i>Hubs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Benefit Hero Section -->
+    <section class="benefit-hero">
+        <h1 class="animate__animated animate__fadeInDown">Global Exposure</h1>
+        <p class="animate__animated animate__fadeInUp">Access international platforms, competitions, and networks that expand your horizons</p>
+    </section>
+
+    <!-- Benefit Content -->
+    <section class="benefit-content">
+        <div class="content-block animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Your Passport to Global Opportunities</h2>
+                <p>At Verita Campus, we believe learning shouldn't be confined by borders. We provide our students with unparalleled access to global platforms where they can showcase their skills, collaborate with international peers, and participate in worldwide competitions.</p>
+                <p>Interaction doesn't end in the classroom. We help our learners in their personal growth by exposing them to global platforms where they showcase their skills, collaborate with peers across continents, and participate in international competitions, webinars and innovation challenges.</p>
+                <ul>
+                    <li>International hackathons and competitions</li>
+                    <li>Global webinars with industry leaders</li>
+                    <li>Collaborative projects with international teams</li>
+                    <li>Portfolio showcases to global audiences</li>
+                    <li>Cross-cultural learning experiences</li>
+                </ul>
+            </div>
+             <div class="content-media reverse video-container">
+                <video controls poster="assets/images/Benefits/Exposure to Global Communities & Global platforms/Global1.png">
+                <source src="assets/images/Benefits/Exposure to Global Communities & Global platforms/exposure to global platforms.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+        </div>
+
+        <div class="content-block reverse animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Building a Worldwide Network</h2>
+                <p>These opportunities not only build confidence but also grow professional networks, increase visibility, enhance portfolios, and develop real-world readiness. Our alumni have gone on to work with international companies, launch global startups, and become thought leaders in their fields.</p>
+                <p>We maintain partnerships with institutions and organizations worldwide to ensure our students have access to the best global opportunities available.</p>
+                <ul>
+                    <li>Access to our global alumni network</li>
+                    <li>International mentorship programs</li>
+                    <li>Collaboration with students from 50+ countries</li>
+                    <li>Global job placement assistance</li>
+                    <li>Cultural exchange programs</li>
+                </ul>
+            </div>
+            <div class="content-media reverse video-container">
+                <video controls poster="assets/images/Benefits/Exposure to Global Communities & Global platforms/Global2.png">
+                <source src="assets/images/Benefits/Exposure to Global Communities & Global platforms/LOI.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+        </div>
+
+        <div class="container animate__animated animate__fadeInUp">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--dark-color);">Our Global Reach</h2>
+            <div class="world-map-container">
+                <img src="assets/images/images/world_map.png" alt="World Map" class="world-map">
+                <div class="location-marker" style="top: 30%; left: 25%;">
+                    <div class="location-info" style="top: -100px; left: 50px;">
+                        <h3>Africa Tech Summit</h3>
+                        <p>Annual conference attended by 50+ Verita students</p>
+                    </div>
+                </div>
+                <div class="location-marker" style="top: 40%; left: 50%;">
+                    <div class="location-info" style="top: -100px; left: 50px;">
+                        <h3>Global Hackathon</h3>
+                        <p>2024 winners from Verita Nairobi</p>
+                    </div>
+                </div>
+                <div class="location-marker" style="top: 25%; left: 75%;">
+                    <div class="location-info" style="top: -100px; right: 50px;">
+                        <h3>Silicon Valley Expo</h3>
+                        <p>Featured Verita student projects</p>
+                    </div>
+                </div>
+                <div class="location-marker" style="top: 60%; left: 80%;">
+                    <div class="location-info" style="bottom: -100px; right: 50px;">
+                        <h3>Asia Innovation Forum</h3>
+                        <p>Verita keynote speakers</p>
+                    </div>
+                </div>
+                <div class="location-marker" style="top: 70%; left: 40%;">
+                    <div class="location-info" style="bottom: -100px; left: 50px;">
+                        <h3>European Tech Week</h3>
+                        <p>Verita student delegation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container animate__animated animate__fadeInUp" style="display:none;">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--dark-color);">Upcoming Global Events</h2>
+            <div class="events-timeline">
+                <div class="timeline-event left">
+                    <div class="event-date">June 15, 2025</div>
+                    <h3 class="event-title">International Web Development Challenge</h3>
+                    <p class="event-description">Compete against teams from 30 countries in this 48-hour hackathon to solve real-world problems with innovative web solutions.</p>
+                </div>
+                <div class="timeline-event right">
+                    <div class="event-date">August 3, 2025</div>
+                    <h3 class="event-title">Global Digital Marketing Summit</h3>
+                    <p class="event-description">Learn from industry leaders and network with marketing professionals from around the world in this virtual conference.</p>
+                </div>
+                <div class="timeline-event left">
+                    <div class="event-date">October 20, 2025</div>
+                    <h3 class="event-title">Africa Innovation Expo</h3>
+                    <p class="event-description">Showcase your projects to investors and companies looking for the next big idea in tech and business.</p>
+                </div>
+                <div class="timeline-event right">
+                    <div class="event-date">December 5, 2025</div>
+                    <h3 class="event-title">Verita Global Graduation</h3>
+                    <p class="event-description">Celebrate your achievements with students from all Verita campuses worldwide in our virtual graduation ceremony.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="animate__animated animate__fadeInDown">Ready to Go Global?</h2>
+        <p class="animate__animated animate__fadeInUp">Join Verita Campus and gain access to international opportunities that will transform your career</p>
+        <div class="cta-buttons animate__animated animate__fadeInUp">
+            <button class="cta-primary ripple" onclick="window.location.href='short_courses.html'">Explore Courses</button>
+            <button class="cta-secondary ripple" onclick="window.location.href='contact.html'">Learn More</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+                <div class="footer-app-links" style="display:none;">
+                    <a href="#" class="app-store">
+                        <i class="fab fa-apple"></i>
+                        <span>Download on the<br><strong>App Store</strong></span>
+                    </a>
+                    <a href="#" class="google-play">
+                        <i class="fab fa-google-play"></i>
+                        <span>Get it on<br><strong>Google Play</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+            // Navbar Scroll Effect
+        const navbar=document.querySelector('.navbar');
+        const heroSection=document.querySelector('.benefit-hero');
+        const heroHeight=heroSection.offsetHeight;
+
+        window.addEventListener('scroll',function() {
+            if(window.scrollY>heroHeight*0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate__animated').forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Animate location markers
+        const markers = document.querySelectorAll('.location-marker');
+        markers.forEach(marker => {
+            marker.addEventListener('mouseenter', function() {
+                const info = this.querySelector('.location-info');
+                info.style.opacity = '1';
+            });
+            
+            marker.addEventListener('mouseleave', function() {
+                const info = this.querySelector('.location-info');
+                info.style.opacity = '0';
+            });
+        });
+    </script>
+</body>
+
+</html>

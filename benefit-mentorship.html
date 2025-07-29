@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verita Campus - Professional Mentorship</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .benefit-hero {
+            background: linear-gradient(135deg, #1a3a23, #0c6b32);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: var(--text-shadow-lg);
+        }
+        
+        .benefit-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .benefit-content {
+            padding: 100px 0;
+        }
+        
+        .content-block {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        
+        .content-block.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .content-text {
+            flex: 1;
+        }
+        
+        .content-media {
+            flex: 1;
+        }
+        
+        .content-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .content-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        
+        .content-text ul {
+            margin-bottom: 30px;
+        }
+        
+        .content-text ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .content-text ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            background: var(--gradient);
+            border-radius: 50%;
+        }
+        
+        .content-media img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+        
+        .content-media:hover img {
+            transform: scale(1.02);
+        }
+
+        .content-media.video-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .content-media.video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .play-button i {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+        
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        
+        .mentors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+            padding: 0 20px;
+        }
+        
+        .mentor-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+        
+        .mentor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card-hover);
+        }
+        
+        .mentor-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .mentor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .mentor-card:hover .mentor-image img {
+            transform: scale(1.1);
+        }
+        
+        .mentor-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .mentor-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .mentor-info p {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        
+        .mentor-company {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .mentor-company img {
+            height: 30px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .mentor-card:hover .mentor-company img {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        .testimonial-section {
+            background: #f9f9f9;
+            padding: 80px 0;
+            margin-top: 60px;
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .testimonial-container h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--dark-color);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        
+        .testimonial-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial-quote::before,
+        .testimonial-quote::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+        }
+        
+        .testimonial-quote::before {
+            top: -20px;
+            left: -15px;
+        }
+        
+        .testimonial-quote::after {
+            bottom: -40px;
+            right: -15px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 1024px) {
+            .content-block {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .content-block.reverse {
+                flex-direction: column;
+            }
+            
+            .content-text, .content-media {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .benefit-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .content-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+            </div>
+            <div class="loader-text">BREAK THE BARRIERS</div>
+        </div>
+    </div>
+
+     <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fa-solid fa-building"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fa-solid fa-location-dot"></i>Hubs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <!-- Benefit Hero Section -->
+    <section class="benefit-hero">
+        <h1 class="animate__animated animate__fadeInDown">Professional Mentorship</h1>
+        <p class="animate__animated animate__fadeInUp">Connect directly with industry experts and recruiters who can guide your career path</p>
+    </section>
+
+    <!-- Benefit Content -->
+    <section class="benefit-content">
+        <div class="content-block animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Direct Access to Industry Leaders</h2>
+                <p>Success requires mentorship. At Verita Campus, we not only teach high-quality skills but also connect you with recruiters and industry professionals in your field. This direct interaction bridges the gap between learning and professional practice.</p>
+                <p>Through Q&A sessions, live mentorship hangouts, and personalized guidance, we provide opportunities you won't find in ordinary online classes. Our mentors are carefully selected professionals who are passionate about nurturing the next generation of talent.</p>
+                <ul>
+                    <li>One-on-one mentorship sessions</li>
+                    <li>Industry-specific career guidance</li>
+                    <li>Resume and portfolio reviews</li>
+                    <li>Interview preparation and mock interviews</li>
+                    <li>Networking opportunities with professionals</li>
+                </ul>
+            </div>
+            <div class="content-media reverse video-container">
+                <video poster="assets/images/Verita Logo Symbol.png">
+                    <source src="assets/images/Benefits/Professional Mentorship/Mentor.mp4" type="video/mp4">
+                </video>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block reverse animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Recruiter Connections</h2>
+                <p>We maintain strong relationships with hiring managers and recruiters across various industries. These connections give you direct access to job opportunities and valuable insights into what employers are looking for.</p>
+                <p>Our mentorship program includes regular "Meet the Recruiter" sessions where you can learn about current hiring trends, salary expectations, and how to stand out in the application process.</p>
+                <ul>
+                    <li>Exclusive recruiter networking events</li>
+                    <li>Insider knowledge of hiring processes</li>
+                    <li>Direct feedback on your application materials</li>
+                    <li>Access to unadvertised job opportunities</li>
+                </ul>
+            </div>
+            <div class="content-media reverse video-container">
+                <video controls poster="assets/images/Benefits/Professional Mentorship/Mentorship.png">
+                <source src="assets/images/Benefits/Professional Mentorship/MENTORSHIP.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+        </div>
+
+        <div class="container animate__animated animate__fadeInUp">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--dark-color);">Meet Some of Our Mentors</h2>
+            <div class="mentors-grid">
+                <div class="mentor-card">
+                    <div class="mentor-image">
+                        <img src="assets/images/mentors/mentor1.jpg" alt="Mentor">
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Sarah Johnson</h3>
+                        <p>Senior Data Scientist</p>
+                        <div class="mentor-company">
+                            <img src="assets/images/companies/google.png" alt="Google">
+                        </div>
+                        <p>8 years experience in machine learning and AI</p>
+                    </div>
+                </div>
+                <div class="mentor-card">
+                    <div class="mentor-image">
+                        <img src="assets/images/mentors/mentor2.jpg" alt="Mentor">
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Michael Chen</h3>
+                        <p>UX Design Lead</p>
+                        <div class="mentor-company">
+                            <img src="assets/images/companies/facebook.png" alt="Facebook">
+                        </div>
+                        <p>Specializes in product design and user research</p>
+                    </div>
+                </div>
+                <div class="mentor-card">
+                    <div class="mentor-image">
+                        <img src="assets/images/mentors/mentor3.jpg" alt="Mentor">
+                    </div>
+                    <div class="mentor-info">
+                        <h3>David Omondi</h3>
+                        <p>Tech Recruiter</p>
+                        <div class="mentor-company">
+                            <img src="assets/images/companies/microsoft.png" alt="Microsoft">
+                        </div>
+                        <p>10+ years hiring for top tech companies</p>
+                    </div>
+                </div>
+                <div class="mentor-card">
+                    <div class="mentor-image">
+                        <img src="assets/images/mentors/mentor4.jpg" alt="Mentor">
+                    </div>
+                    <div class="mentor-info">
+                        <h3>Amina Mohammed</h3>
+                        <p>Digital Marketing Director</p>
+                        <div class="mentor-company">
+                            <img src="assets/images/companies/amazon.png" alt="Amazon">
+                        </div>
+                        <p>Expert in growth marketing and analytics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="testimonial-section animate__animated animate__fadeInUp">
+            <div class="testimonial-container">
+                <h2>What Our Students Say</h2>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">The mentorship program at Verita completely transformed my job search. My mentor helped me refine my portfolio and introduced me to recruiters. I landed my dream job within two months of completing the course!</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Student">
+                        </div>
+                        <div class="author-info">
+                            <h4>Grace Wanjiru</h4>
+                            <p>UX Designer at Safaricom</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="animate__animated animate__fadeInDown">Ready to Accelerate Your Career?</h2>
+        <p class="animate__animated animate__fadeInUp">Join Verita Campus and gain access to industry mentors who can guide you to success</p>
+        <div class="cta-buttons animate__animated animate__fadeInUp">
+            <button class="cta-primary ripple" onclick="window.location.href='short_courses.html'">Explore Courses</button>
+            <button class="cta-secondary ripple" onclick="window.location.href='contact.html'">Speak to Advisor</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+                <div class="footer-app-links" style="display:none;">
+                    <a href="#" class="app-store">
+                        <i class="fab fa-apple"></i>
+                        <span>Download on the<br><strong>App Store</strong></span>
+                    </a>
+                    <a href="#" class="google-play">
+                        <i class="fab fa-google-play"></i>
+                        <span>Get it on<br><strong>Google Play</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+                // Navbar Scroll Effect
+        const navbar=document.querySelector('.navbar');
+        const heroSection=document.querySelector('.benefit-hero');
+        const heroHeight=heroSection.offsetHeight;
+
+        window.addEventListener('scroll',function() {
+            if(window.scrollY>heroHeight*0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+                // Play video
+        const playButton = document.querySelector('.play-button');
+        const video = document.querySelector('.content-media.video-container video');
+        
+        playButton.addEventListener('click', function() {
+            video.play();
+            video.controls = true;
+            playButton.style.display = 'none';
+        });
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate__animated').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>

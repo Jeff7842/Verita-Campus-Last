@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verita Campus - Entrepreneurship Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+       .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 4px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .navbar.solid {
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-logo {
+            height: 60px;
+            transition: var(--transition);
+            width: 14%;
+            margin-left: -100px;
+            margin-top: 0px;
+            margin-bottom: -5px;
+            transform: translateX(-20%);
+            cursor: pointer;
+        }
+       /*benefits section*/
+        .benefit-hero {
+            background: linear-gradient(135deg, #1a3a23, #0c6b32);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: var(--text-shadow-lg);
+        }
+        
+        .benefit-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .benefit-content {
+            padding: 100px 0;
+        }
+        
+        .content-block {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        
+        .content-block.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .content-media.reverse {
+            flex-direction: column-reverse;
+        }
+        
+        .content-text {
+            flex: 1;
+        }
+        
+        .content-media {
+            flex: 1;
+        }
+        
+        .content-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .content-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        
+        .content-text ul {
+            margin-bottom: 30px;
+        }
+        
+        .content-text ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .content-text ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            background: var(--gradient);
+            border-radius: 50%;
+        }
+        
+        .content-media img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+        
+        .content-media:hover img {
+            transform: scale(1.02);
+        }
+
+        .content-media.video-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .content-media.video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .play-button i {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+        
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        
+        .process-steps {
+            max-width: 1000px;
+            margin: 60px auto 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card-hover);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .process-step p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .success-stories {
+            background: #f9f9f9;
+            padding: 80px 0;
+            margin-top: 60px;
+        }
+        
+        .stories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .stories-container h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+        }
+        
+        .story-slider {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .story-card {
+            min-width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        
+        .story-content {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+        
+        .company-logo {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .company-logo img {
+            height: 100%;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+        }
+        
+        .story-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .story-quote::before,
+        .story-quote::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+        }
+        
+        .story-quote::before {
+            top: -20px;
+            left: -15px;
+        }
+        
+        .story-quote::after {
+            bottom: -40px;
+            right: -15px;
+        }
+        
+        .founder-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .founder-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .founder-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .founder-details p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+        
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .content-media.video-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .content-media.video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .play-button i {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+        
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .video-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-caption {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .video-caption h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .video-caption p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .video-caption h2 {
+                font-size: 1.7rem;
+            }
+            
+            .video-caption p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .content-block {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .content-block.reverse {
+                flex-direction: column;
+            }
+            
+            .content-text, .content-media {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .benefit-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .benefit-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .content-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+            </div>
+            <div class="loader-text">BREAK THE BARRIERS</div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fa-solid fa-building"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fa-solid fa-location-dot"></i>Hubs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Benefit Hero Section -->
+    <section class="benefit-hero">
+        <h1 class="animate__animated animate__fadeInDown">Entrepreneurship Support</h1>
+        <p class="animate__animated animate__fadeInUp">Turn your ideas into reality with our comprehensive startup support system</p>
+    </section>
+
+
+
+
+    <!-- Benefit Content -->
+    <section class="benefit-content">
+        <div class="content-block animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>From Idea to Impact</h2>
+                <p>At Verita Campus, we believe that the ambitions of our learners are valuable. We provide the resources, guidance, and funding to help you turn your ideas into successful ventures.</p>
+                <p>Learners are able to achieve their ambitions through expert guidance and funding of their projects from incubation to completion. The whole process is also achieved through interactions with international companies and institutions that we collaborate with.</p>
+                <ul>
+                    <li>Idea validation and market research support</li>
+                    <li>Business model development workshops</li>
+                    <li>Access to seed funding and grants</li>
+                    <li>Legal and financial advisory services</li>
+                    <li>Prototyping and MVP development support</li>
+                </ul>
+            </div>
+            <div class="content-media">
+                <img src="assets/images/benefits/entrepreneur1.jpg" alt="Entrepreneur working">
+            </div>
+        </div>
+                <!-- Video Section 1 -->
+        <div class="content-block reverse animate__animated animate__fadeInUp">
+            <div class="content-text">
+<h2>Why Choose Entrepreneurship?</h2>
+    <p>Entrepreneurship is more than starting a business; it’s about creating value, solving real problems, and taking ownership of your future.</p>
+    <P>By choosing this path, you learn to turn ideas into action, adapt to challenges, and build solutions that matter to people.</P> 
+   <p> You gain the freedom to shape your work around your values while developing resilience, creativity, and leadership along the way. Whether you aim to launch a tech startup, a creative studio, or a social enterprise, entrepreneurship equips you with the mindset and practical skills to drive impact and create a life and career on your own terms.</p>
+</div>
+            <div class="content-media reverse video-container">
+                <video poster="assets/images/Verita Logo Symbol.png">
+                    <source src="assets/images/Benefits/entrepreneurship and career empowerment/ENTRE.mp4" type="video/mp4">
+                </video>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block reverse animate__animated animate__fadeInUp">
+            <div class="content-text">
+                <h2>Incubation Program</h2>
+                <p>Our startup incubation program provides selected ventures with workspace, mentorship, funding, and access to our network of investors and partners. The program runs for 6-12 months, depending on the needs of your business.</p>
+                <p>We've helped launch over 50 successful startups across various industries, with many going on to secure additional funding and achieve profitability.</p>
+                <ul>
+                    <li>Dedicated workspace and resources</li>
+                    <li>Weekly mentorship sessions</li>
+                    <li>Access to our investor network</li>
+                    <li>Product development support</li>
+                    <li>Marketing and sales strategy development</li>
+                </ul>
+            </div>
+            <div class="content-media">
+                <img src="assets/images/benefits/entrepreneur2.jpg" alt="Startup team">
+            </div>
+        </div>
+
+        <div class="content-block reverse animate__animated animate__fadeInUp">
+            <div class="content-text">
+    <h2>Define Your Own Success</h2>
+    <p>Success isn't one-size-fits-all. We guide you to define what success means for you, then give you the tools and support to reach it through consistent action and measurable milestones.</p>
+    <p>Through our structured success frameworks, you will build habits and systems that align with your goals, allowing you to grow sustainably and confidently in your chosen path.</p>
+    <ul>
+        <li>Personalized goal-setting frameworks</li>
+        <li>Weekly accountability check-ins</li>
+        <li>Real-world challenges to test progress</li>
+        <li>Access to mentors and a supportive community</li>
+    </ul>
+            </div>
+            <div class="content-media reverse video-container">
+                <video poster="assets/images/Packages/Bussines3.jpg">
+                    <source src="assets/images/Benefits/entrepreneurship and career empowerment/SUCCESS.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="container animate__animated animate__fadeInUp">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--dark-color);">Our Startup Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Idea Submission</h3>
+                    <p>Submit your business idea through our online portal for initial review and feedback.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Validation</h3>
+                    <p>Work with our experts to validate your idea through market research and feasibility studies.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Development</h3>
+                    <p>Build your prototype or MVP with technical support from our team and partners.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Launch</h3>
+                    <p>Launch your product or service with our marketing and funding support.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-section animate__animated animate__fadeInUp">
+            <div class="container">
+                <div class="video-wrapper">
+                    <iframe width="100%" height="500" src="assets/images/Benefits/entrepreneurship and career empowerment/EMP.mp4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">
+                    <h2>Pitch Day Highlights</h2>
+                    <p>Experience the energy of our quarterly pitch days where entrepreneurs present to investors. This compilation shows the most exciting moments from recent pitch events, including funding announcements and successful deals.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="success-stories animate__animated animate__fadeInUp">
+            <div class="stories-container">
+                <h2>Success Stories</h2>
+                <div class="story-slider">
+                    <div class="story-track" id="storyTrack">
+                        <div class="story-card">
+                            <div class="story-content">
+                                <div class="company-logo">
+                                    <img src="assets/images/startups/startup1.png" alt="FarmConnect">
+                                </div>
+                                <p class="story-quote">Verita's entrepreneurship program gave us the tools and confidence to launch our agri-tech platform. With their initial funding and mentorship, we've grown to serve over 10,000 farmers across East Africa.</p>
+                                <div class="founder-info">
+                                    <div class="founder-image">
+                                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="James Kariuki">
+                                    </div>
+                                    <div class="founder-details">
+                                        <h4>James Kariuki</h4>
+                                        <p>Co-founder, FarmConnect</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-content">
+                                <div class="company-logo">
+                                    <img src="assets/images/startups/startup2.png" alt="EduTech Africa">
+                                </div>
+                                <p class="story-quote">The incubation program at Verita was instrumental in refining our business model and connecting us with investors. We've now expanded to three countries and are changing how students learn across the continent.</p>
+                                <div class="founder-info">
+                                    <div class="founder-image">
+                                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Wanjiru Mwangi">
+                                    </div>
+                                    <div class="founder-details">
+                                        <h4>Wanjiru Mwangi</h4>
+                                        <p>CEO, EduTech Africa</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <div class="story-content">
+                                <div class="company-logo">
+                                    <img src="assets/images/startups/startup3.png" alt="GreenEnergy Solutions">
+                                </div>
+                                <p class="story-quote">As a renewable energy startup, the technical and business support from Verita helped us overcome early challenges. We've now installed solar solutions in over 500 homes and businesses.</p>
+                                <div class="founder-info">
+                                    <div class="founder-image">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Ochieng">
+                                    </div>
+                                    <div class="founder-details">
+                                        <h4>David Ochieng</h4>
+                                        <p>Founder, GreenEnergy Solutions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-nav" id="sliderNav">
+                        <div class="slider-dot active"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="animate__animated animate__fadeInDown">Ready to Launch Your Venture?</h2>
+        <p class="animate__animated animate__fadeInUp">Join Verita Campus and access the resources you need to build a successful business</p>
+        <div class="cta-buttons animate__animated animate__fadeInUp">
+            <button class="cta-primary ripple" onclick="window.location.href='short_courses.html'">Explore Courses</button>
+            <button class="cta-secondary ripple" onclick="window.location.href='contact.html'">Submit Your Idea</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+                <div class="footer-app-links" style="display:none;">
+                    <a href="#" class="app-store">
+                        <i class="fab fa-apple"></i>
+                        <span>Download on the<br><strong>App Store</strong></span>
+                    </a>
+                    <a href="#" class="google-play">
+                        <i class="fab fa-google-play"></i>
+                        <span>Get it on<br><strong>Google Play</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+            // Navbar Scroll Effect
+        const navbar=document.querySelector('.navbar');
+        const heroSection=document.querySelector('.benefit-hero');
+        const heroHeight=heroSection.offsetHeight;
+
+        window.addEventListener('scroll',function() {
+            if(window.scrollY>heroHeight*0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+                // Play video
+        const playButton = document.querySelector('.play-button');
+        const video = document.querySelector('.content-media.video-container video');
+        
+        playButton.addEventListener('click', function() {
+            video.play();
+            video.controls = true;
+            playButton.style.display = 'none';
+        });
+        // Story slider functionality
+        const track = document.getElementById('storyTrack');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+        
+        // Auto-advance slides
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % dots.length;
+            goToSlide(currentSlide);
+        }, 5000);
+        
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate__animated').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lens & Light Mastery Photography Course | Verita Campus</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --photo-primary: #6B5B95;
+            --photo-secondary: #8789C0;
+            --photo-accent: #D64161;
+            --photo-dark: #34314C;
+            --photo-light: #F6F5F5;
+            --photo-gradient: linear-gradient(135deg, #6B5B95, #34314C);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Hero Section with Animated Aperture Effect */
+        .photo-hero {
+            background: var(--photo-gradient);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .photo-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/Packages/photography.jpg') center/cover no-repeat;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .photo-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .photo-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            font-family: 'Playfair Display', serif;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        .photo-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Aperture Animation */
+        .aperture-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.1;
+        }
+
+        .aperture {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, transparent 40%, var(--photo-accent) 40%);
+            border-radius: 50%;
+            position: relative;
+            animation: aperturePulse 8s infinite alternate;
+        }
+
+        .aperture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(
+                transparent 0deg 60deg,
+                var(--photo-primary) 60deg 120deg,
+                transparent 120deg 180deg,
+                var(--photo-primary) 180deg 240deg,
+                transparent 240deg 300deg,
+                var(--photo-primary) 300deg 360deg
+            );
+            border-radius: 50%;
+        }
+
+        @keyframes aperturePulse {
+            0% { transform: scale(0.5); opacity: 0.1; }
+            100% { transform: scale(1.5); opacity: 0.3; }
+        }
+
+        /* Course Sections */
+        .photo-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-bg-pattern-photo {
+            background-color: white;
+            background-image: radial-gradient(rgba(107, 91, 149, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .section-header-photo {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header-photo h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--photo-dark);
+            position: relative;
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-header-photo h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--photo-primary);
+            border-radius: 2px;
+        }
+
+        /* Photography Grid Layout */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .photo-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(52, 49, 76, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--photo-primary);
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(52, 49, 76, 0.2);
+        }
+
+        .photo-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--photo-gradient);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.4s ease;
+        }
+
+        .photo-card:hover .photo-icon {
+            transform: rotateY(180deg) scale(1.1);
+            background: linear-gradient(135deg, var(--photo-accent), var(--photo-primary));
+        }
+
+        .photo-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--photo-dark);
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .photo-card p {
+            color: #555;
+            font-size: 1rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Photo Gallery Showcase */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 300px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(52, 49, 76, 0.8);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Equipment Showcase */
+        .equipment-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .equipment-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .equipment-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .equipment-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--photo-primary);
+        }
+
+        /* Testimonials with Photo Style */
+        .testimonials-photo {
+            background: var(--photo-light);
+            padding: 100px 0;
+        }
+
+        .testimonial-slider-photo {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card-photo {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(52, 49, 76, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--photo-gradient);
+        }
+
+        .testimonial-text-photo {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 30px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .testimonial-text-photo::before {
+            content: '\201C';
+            position: absolute;
+            left: 0;
+            top: -20px;
+            font-size: 4rem;
+            color: rgba(107, 91, 149, 0.2);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-author-photo {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid var(--photo-primary);
+        }
+
+        .author-avatar-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info-photo h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--photo-dark);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .author-info-photo p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Curriculum with Photo Style */
+        .curriculum-photo {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .accordion-photo {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item-photo {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(52, 49, 76, 0.1);
+        }
+
+        .accordion-header-photo {
+            background: white;
+            color: var(--photo-dark);
+            padding: 20px 25px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid var(--photo-primary);
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .accordion-header-photo:hover {
+            background: var(--photo-light);
+        }
+
+        .accordion-header-photo i {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header-photo.active i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content-photo {
+            background: var(--photo-light);
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+
+        .accordion-content-photo.show {
+            padding: 25px;
+            max-height: 1000px;
+        }
+
+        .module-topics-photo {
+            list-style-type: none;
+        }
+
+        .module-topics-photo li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .module-topics-photo li:last-child {
+            border-bottom: none;
+        }
+
+        .module-topics-photo li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            background-color: var(--photo-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            content: '\f030';
+            font-size: 12px;
+        }
+
+        /* Career Path with Photo Timeline */
+        .career-path-photo {
+            background: var(--photo-light);
+            padding: 80px 0;
+        }
+
+        .timeline-photo {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto 0;
+        }
+
+        .timeline-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--photo-gradient);
+        }
+
+        .timeline-item-photo {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+        }
+
+        .timeline-item-photo:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item-photo:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-item-photo::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--photo-primary);
+            box-shadow: 0 0 0 4px rgba(107, 91, 149, 0.2);
+        }
+
+        .timeline-item-photo:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item-photo:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content-photo {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(52, 49, 76, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-content-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--photo-accent);
+        }
+
+        .timeline-item-photo:hover .timeline-content-photo {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(52, 49, 76, 0.2);
+        }
+
+        .timeline-content-photo h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--photo-dark);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .timeline-content-photo p {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .salary-range-photo {
+            font-weight: 600;
+            color: var(--photo-primary);
+        }
+
+        /* Enrollment CTA with Photo Style */
+        .enrollment-photo {
+            text-align: center;
+            padding: 100px 0;
+            background: var(--photo-gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enrollment-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/Packages/photography.jpg') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .enrollment-content-photo {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .enrollment-content-photo h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease-out;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .enrollment-content-photo p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .price-box-photo {
+            display: inline-block;
+            background: white;
+            color: var(--photo-dark);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .price-box-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--photo-accent);
+        }
+
+        .price-box-photo span {
+            font-size: 1rem;
+            font-weight: normal;
+            color: #777;
+        }
+
+        .enrollment-buttons-photo {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-photo-primary, .btn-photo-secondary {
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-photo-primary {
+            background: white;
+            color: var(--photo-primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-photo-primary:hover {
+            background: var(--photo-accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-photo-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-photo-secondary:hover {
+            background: white;
+            color: var(--photo-primary);
+            transform: translateY(-3px);
+        }
+
+        .guarantee-badge-photo {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .guarantee-badge-photo i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .photo-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-header-photo h2 {
+                font-size: 2.3rem;
+            }
+            
+            .timeline-photo::before {
+                left: 30px;
+            }
+            
+            .timeline-item-photo {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-item-photo:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item-photo::after {
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .photo-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .photo-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-header-photo h2 {
+                font-size: 2rem;
+            }
+            
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .enrollment-buttons-photo {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .photo-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .price-box-photo {
+                font-size: 2rem;
+                padding: 10px 30px;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#"><i class="fas fa-bolt"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas fa-road"></i>Impact</a>
+                            <a href="blog.html"><i class="fas fa-road"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas fa-road"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fas fa-bolt"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fas fa-road"></i>Hub</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Hero Section -->
+    <section class="photo-hero">
+        <div class="photo-hero-content">
+            <span class="course-meta-badge"><i class="fas fa-clock"></i> 7 Weeks Intensive</span>
+            <span class="course-meta-badge"><i class="fas fa-certificate"></i> Professional Certification</span>
+            <h1>Lens & Light Mastery</h1>
+            <p>Master the art and technique of photography to capture stunning images and build a professional portfolio</p>
+            <button class="cta-primary ripple" onclick="document.querySelector('.enrollment-photo').scrollIntoView({behavior: 'smooth'})">Enroll Now</button>
+        </div>
+        
+        <!-- Aperture animation -->
+        <div class="aperture-animation">
+            <div class="aperture"></div>
+        </div>
+    </section>
+
+    <!-- Course Overview Section -->
+    <section class="photo-section">
+        <div class="container">
+            <div class="section-header-photo">
+                <h2>Capture the World Through Your Lens</h2>
+                <p>Our comprehensive photography course transforms beginners into skilled visual storytellers ready for the growing creative industry</p>
+            </div>
+            
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <div class="photo-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Technical Mastery</h3>
+                    <p>Understand exposure, aperture, shutter speed, ISO, and how to control them for perfect shots in any lighting condition.</p>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="photo-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Lighting Techniques</h3>
+                    <p>Master natural and artificial lighting to create mood, drama, and professional-quality images.</p>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="photo-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Creative Composition</h3>
+                    <p>Learn the rules of composition and when to break them to create visually compelling photographs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="photo-section section-bg-pattern-photo">
+        <div class="container">
+            <div class="section-header-photo">
+                <h2>Student Work Gallery</h2>
+                <p>See examples of photographs taken by our students during the course</p>
+            </div>
+            
+            <div class="photo-gallery">
+                <div class="gallery-item">
+                    <img src="assets/images/photo-gallery/portrait1.jpg" alt="Portrait Photography">
+                    <div class="gallery-overlay">
+                        <h4>Portrait</h4>
+                        <p>By Jane M., Nairobi</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="assets/images/photo-gallery/landscape1.jpg" alt="Landscape Photography">
+                    <div class="gallery-overlay">
+                        <h4>Landscape</h4>
+                        <p>By David K., Mombasa</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="assets/images/photo-gallery/street1.jpg" alt="Street Photography">
+                    <div class="gallery-overlay">
+                        <h4>Street</h4>
+                        <p>By Grace W., Kisumu</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="assets/images/photo-gallery/product1.jpg" alt="Product Photography">
+                    <div class="gallery-overlay">
+                        <h4>Product</h4>
+                        <p>By Samuel T., Nakuru</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="assets/images/photo-gallery/wedding1.jpg" alt="Event Photography">
+                    <div class="gallery-overlay">
+                        <h4>Event</h4>
+                        <p>By Amina S., Eldoret</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="assets/images/photo-gallery/wildlife1.jpg" alt="Wildlife Photography">
+                    <div class="gallery-overlay">
+                        <h4>Wildlife</h4>
+                        <p>By Brian O., Thika</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Showcase Section -->
+    <section class="photo-section">
+        <div class="container">
+            <div class="section-header-photo">
+                <h2>Master Professional Tools</h2>
+                <p>Learn to use industry-standard equipment and software</p>
+            </div>
+            
+            <div class="equipment-showcase">
+                <div class="equipment-item">
+                    <div class="equipment-icon">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <h4>DSLR/Mirrorless</h4>
+                    <p>Master professional camera systems</p>
+                </div>
+                
+                <div class="equipment-item">
+                    <div class="equipment-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h4>Lightroom</h4>
+                    <p>Professional photo editing</p>
+                </div>
+                
+                <div class="equipment-item">
+                    <div class="equipment-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h4>Photoshop</h4>
+                    <p>Advanced image manipulation</p>
+                </div>
+                
+                <div class="equipment-item">
+                    <div class="equipment-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4>Lighting Gear</h4>
+                    <p>Studio and portable lighting</p>
+                </div>
+                
+                <div class="equipment-item">
+                    <div class="equipment-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h4>Lenses</h4>
+                    <p>Prime, zoom, and specialty lenses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-photo">
+        <div class="container">
+            <div class="section-header-photo">
+                <h2>Success Stories</h2>
+                <p>Hear from our graduates who transformed their passion into profession</p>
+            </div>
+            
+            <div class="testimonial-slider-photo">
+                <div class="testimonial-card-photo">
+                    <p class="testimonial-text-photo">"This course completely transformed how I see the world through my lens. I went from taking snapshots to creating professional-quality images that I'm proud to showcase. Within months of completing the course, I booked my first paid wedding gig!"</p>
+                    <div class="testimonial-author-photo">
+                        <div class="author-avatar-photo">
+                            <img src="assets/images/testimonials/photo1.jpg" alt="Sarah K.">
+                        </div>
+                        <div class="author-info-photo">
+                            <h4>Sarah K.</h4>
+                            <p>Wedding Photographer, Nairobi</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card-photo">
+                    <p class="testimonial-text-photo">"As a small business owner, I took this course to improve my product photography. The skills I gained helped me create professional-looking images that increased my online sales by 40%. The instructors were incredibly knowledgeable and supportive."</p>
+                    <div class="testimonial-author-photo">
+                        <div class="author-avatar-photo">
+                            <img src="assets/images/testimonials/photo2.jpg" alt="James M.">
+                        </div>
+                        <div class="author-info-photo">
+                            <h4>James M.</h4>
+                            <p>E-commerce Entrepreneur, Mombasa</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card-photo">
+                    <p class="testimonial-text-photo">"The hands-on approach of this course was exactly what I needed. We didn't just learn theory - we were out shooting every week with expert guidance. The portfolio I built during the course helped me land my first job at a local magazine."</p>
+                    <div class="testimonial-author-photo">
+                        <div class="author-avatar-photo">
+                            <img src="assets/images/testimonials/photo3.jpg" alt="Grace W.">
+                        </div>
+                        <div class="author-info-photo">
+                            <h4>Grace W.</h4>
+                            <p>Magazine Photographer, Kisumu</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="curriculum-photo">
+        <div class="container">
+            <div class="section-header-photo">
+                <h2>Comprehensive Curriculum</h2>
+                <p>Our 7-week program covers all essential photography topics through hands-on shooting</p>
+            </div>
+            
+            <div class="accordion-photo">
+                <div class="accordion-item-photo">
+                    <div class="accordion-header-photo">
+                        <span>Week 1: Camera Fundamentals</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content-photo">
+                        <ul class="module-topics-photo">
+                            <li>Understanding exposure triangle (aperture, shutter speed, ISO)</li>
+                            <li>Camera modes and settings</li>
+                            <li>Lens types and their uses</li>
+                            <li>Basic composition techniques</li>
+                            <li>File formats (RAW vs JPEG)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item-photo">
+                    <div class="accordion-header-photo">
+                        <span>Week 2: Mastering Light</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content-photo">
+                        <ul class="module-topics-photo">
+                            <li>Natural light photography</li>
+                            <li>Golden hour and blue hour</li>
+                            <li>Artificial lighting setups</li>
+                            <li>Light modifiers (diffusers, reflectors)</li>
+                            <li>Flash photography basics</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item-photo">
+                    <div class="accordion-header-photo">
+                        <span>Week 3: Composition & Creativity</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content-photo">
+                        <ul class="module-topics-photo">
+                            <li>Rule of thirds and other composition rules</li>
+                            <li>Leading lines and framing</li>
+                            <li>Color theory in photography</li>
+                            <li>Creating depth and dimension</li>
+                            <li>Developing your photographic eye</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item-photo">
+                    <div class="accordion-header-photo">
+                        <span>Week 4: Portrait & People Photography</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content-photo">
+                        <ul class="module-topics-photo">
+                            <li>Posing techniques</li>
+                            <li>Environmental portraits</li>
+                            <li>Studio lighting setups</li>
+                            <li>Working with models</li>
+                            <li>Capturing authentic expressions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item-photo">
+                    <div class="accordion-header-photo">
+                        <span>Week 5: Landscape & Travel Photography</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content-photo">
+                        <ul class="module-topics-photo">
+                            <li>Scouting locations</li>
+                            <li>Working with natural light</li>
+                            <li>Filters and long exposures</li>
+                            <li>Creating panoramic images</li>
+                            <li>Travel photography storytelling</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item-photo">
+                    <div class="accordion-header-photo">
+                        <span>Week 6: Specialized Photography</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content-photo">
+                        <ul class="module-topics-photo">
+                            <li>Product and food photography</li>
+                            <li>Event and wedding photography</li>
+                            <li>Street photography techniques</li>
+                            <li>Wildlife and nature photography</li>
+                            <li>Architectural photography</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item-photo">
+                    <div class="accordion-header-photo">
+                        <span>Week 7: Editing & Business</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content-photo">
+                        <ul class="module-topics-photo">
+                            <li>Adobe Lightroom workflow</li>
+                            <li>Photoshop for photographers</li>
+                            <li>Creating a professional portfolio</li>
+                            <li>Pricing your photography services</li>
+                            <li>Marketing your photography business</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Path Section -->
+    <section class="career-path-photo">
+        <div class="container">
+            <div class="section-header-photo">
+                <h2>Your Photography Career Path</h2>
+                <p>Graduates of our program are prepared for various roles in the creative industry</p>
+            </div>
+            
+            <div class="timeline-photo">
+                <div class="timeline-item-photo">
+                    <div class="timeline-content-photo">
+                        <h3>Entry-Level Positions</h3>
+                        <p>Start your creative career with these accessible roles</p>
+                        <p class="salary-range-photo">Average Salary: $250 - $600</p>
+                        <ul>
+                            <li>Assistant Photographer</li>
+                            <li>Event Photographer</li>
+                            <li>Real Estate Photographer</li>
+                            <li>Photo Editor</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item-photo">
+                    <div class="timeline-content-photo">
+                        <h3>Mid-Level Positions</h3>
+                        <p>Advance your career after 1-2 years of experience</p>
+                        <p class="salary-range-photo">Average Salary: $600 - $1,200</p>
+                        <ul>
+                            <li>Portrait Photographer</li>
+                            <li>Commercial Photographer</li>
+                            <li>Photojournalist</li>
+                            <li>Studio Manager</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item-photo">
+                    <div class="timeline-content-photo">
+                        <h3>Senior-Level Positions</h3>
+                        <p>Leadership roles for experienced professionals</p>
+                        <p class="salary-range-photo">Average Salary: $1,200+</p>
+                        <ul>
+                            <li>Lead Photographer</li>
+                            <li>Creative Director</li>
+                            <li>Photo Editor (Publications)</li>
+                            <li>Photography Instructor</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item-photo">
+                    <div class="timeline-content-photo">
+                        <h3>Entrepreneurial Path</h3>
+                        <p>Start your own photography business or freelance practice</p>
+                        <p class="salary-range-photo">Earnings Potential: Unlimited</p>
+                        <ul>
+                            <li>Wedding Photographer</li>
+                            <li>Fashion Photographer</li>
+                            <li>Stock Photography</li>
+                            <li>Photography Studio Owner</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bonus-section">
+        <div class="bonus-container">
+            <h2 class="section-title">Exclusive Career Bonuses</h2>
+            <p>All our courses include these valuable career-enhancing resources at no extra cost:</p>
+            
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/cv.png" alt="" style="width:9%; margin-right:2px;"> Professional CV Writing</h3>
+                    <p>Get our proven templates and guidance to create a CV that stands out in the competitive job market.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/bribe.png" alt="" style="width:12%; margin-right:5px;"> Salary Negotiation Guide</h3>
+                    <p>Learn how to confidently negotiate your worth with employers across various industries.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/linkedin.png" alt="" style="width:8%; margin-right:5px;"> LinkedIn Optimization</h3>
+                    <p>Step-by-step training to build a powerful LinkedIn profile that attracts recruiters and opportunities.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/bullseye.png" alt="" style="width:9%; margin-right:5px;"> Job Market Navigation</h3>
+                    <p>Understand where to find the best opportunities and how to position yourself effectively.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/robot.png" alt="" style="width:12%; margin-right:5px;">  AI Basics for Professionals</h3>
+                    <p>Essential AI literacy covering tools like ChatGPT that are transforming workplaces globally.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <span class="bonus-badge">For All Students</span>
+                    <h3><img src="assets/images/Packages/Benefits/efficiency.png" alt="" style="width:12%; margin-right:5px;"> Productivity with Notion</h3>
+                    <p>Master this powerful tool to organize your job search and professional workflow efficiently.</p>
+                </div>
+            </div>
+            
+            <!-- Course-Specific Bonuses -->
+            <div class="course-specific-bonuses">
+                <h2>Software & IT <span>Exclusive Bonuses</span></h2>
+                
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/code.png" alt="" style="width:10%; margin-right:10px;"> GitHub Portfolio Setup</h3>
+                        <p>We'll help you create a professional GitHub profile to showcase your coding projects to employers.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/programming.png" alt="" style="width:10%; margin-right:10px;"> Freelancing Toolkit</h3>
+                        <p>Access our curated list of platforms and strategies to start earning as a developer while learning.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/diagram.png" alt="" style="width:12%; margin-right:10px;"> Real-World Project Templates</h3>
+                        <p>Get starter templates for common projects companies need developers for.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/cloud-computing.png" alt="" style="width:13%; margin-right:10px;"> AWS Cloud Essentials</h3>
+                        <p>Bonus module on cloud computing fundamentals with Amazon Web Services.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/online-community.png" alt="" style="width:14%; margin-right:10px;"> Tech Community Access</h3>
+                        <p>Exclusive invitation to a fast-growing developer community for networking and support.</p>
+                    </div>
+                    
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/app-development.png" alt="" style="width:12%; margin-right:10px;">Mobile Dev Starter Kit</h3>
+                        <p>Bonus resources for getting started with mobile app development (Android/iOS).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment CTA Section -->
+    <section class="enrollment-photo">
+        <div class="enrollment-content-photo">
+            <h2>Start Your Photographic Journey Today</h2>
+            <p>Join hundreds of people who've transformed their passion into profession with our practical training</p>
+            
+            <div class="price-box-photo">
+                $70
+            </div>
+            
+            <div class="enrollment-buttons-photo">
+                <button class="btn-photo-primary ripple">Enroll Now</button>
+                <button class="btn-photo-secondary ripple">Download Syllabus</button>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 0.9rem; color: rgb(232, 0, 0);"><i class="fas fa-info-circle"></i> 16 Slots left</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+                <div class="footer-app-links" style="display:none;">
+                    <a href="#" class="app-store">
+                        <i class="fab fa-apple"></i>
+                        <span>Download on the<br><strong>App Store</strong></span>
+                    </a>
+                    <a href="#" class="google-play">
+                        <i class="fab fa-google-play"></i>
+                        <span>Get it on<br><strong>Google Play</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header-photo');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionItem = header.parentElement;
+                const accordionContent = header.nextElementSibling;
+                
+                // Close all other accordion items
+                document.querySelectorAll('.accordion-item-photo').forEach(item => {
+                    if (item !== accordionItem) {
+                        item.querySelector('.accordion-header-photo').classList.remove('active');
+                        item.querySelector('.accordion-content-photo').classList.remove('show');
+                    }
+                });
+                
+                // Toggle current item
+                header.classList.toggle('active');
+                accordionContent.classList.toggle('show');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        const heroSection = document.querySelector('.photo-hero');
+        const heroHeight = heroSection.offsetHeight;
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > heroHeight * 0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+
+        // Simple testimonial slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card-photo');
+        
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.display = i === index ? 'block' : 'none';
+            });
+        }
+        
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+        
+        // Show first testimonial initially
+        showTestimonial(currentTestimonial);
+        
+        // Auto-advance testimonials
+        setInterval(nextTestimonial, 5000);
+    </script>
+</body>
+</html>

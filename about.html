@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Verita Campus - Professional Education</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 4px 0;
+        z-index: 1000;
+        transition: var(--transition);
+    }
+
+    .navbar.transparent {
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .navbar.solid {
+        background: var(--gradient);
+        box-shadow: var(--shadow);
+    }
+
+    .nav-logo {
+        height: 60px;
+        transition: var(--transition);
+        width: 14%;
+        margin-left: -100px;
+        margin-top: 0px;
+        margin-bottom: -5px;
+        transform: translateX(-20%);
+        cursor: pointer;
+    }
+    
+    /* About Page Styles */
+    .about-hero {
+        height: 100vh;
+        min-height: 400px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, rgba(12, 107, 50, 0.8), hsl(40, 94%, 56%, 0.7));
+        color: white;
+        overflow: hidden;
+    }
+    
+    .about-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('assets/images/images/studying.jpg') center/cover no-repeat;
+        z-index: -1;
+        opacity: 0.5;
+    }
+    
+    .about-hero-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+        scale:1.2;
+    }
+    
+    .about-hero h1 {
+        font-size: 5rem;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Mission Section */
+    .about-mission {
+        padding: 80px 0;
+        background: white;
+    }
+    
+    .mission-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+    
+    .mission-image {
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mission-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .mission-content {
+        flex: 1;
+    }
+    
+    .mission-content h2 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        color: var(--dark-color);
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .mission-content h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: var(--gradient);
+        border-radius: 2px;
+    }
+    
+    .mission-content p {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 25px;
+        line-height: 1.7;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+        padding: 60px 0;
+        background: #f9f9f9;
+        text-align: center;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 40px auto 0;
+        padding: 0 20px;
+    }
+    
+    .stat-card {
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    .stat-label {
+        font-size: 1.1rem;
+        color: #666;
+    }
+    
+    /* Departments Section */
+    .departments-section {
+        padding: 80px 0;
+        background: white;
+    }
+    
+    .departments-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem;
+        color: var(--dark-color);
+        margin-bottom: 15px;
+    }
+    
+    .section-header p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .departments-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 30px;
+    }
+    
+    .department-card {
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+    
+    .department-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+    
+    .department-icon {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gradient);
+        color: white;
+        font-size: 3rem;
+    }
+    
+    .department-info {
+        padding: 20px;
+    }
+    
+    .department-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--dark-color);
+        text-align: center;
+    }
+    
+    .department-info p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+        text-align: center;
+    }
+    
+    /* Certifications Section */
+    .certifications-section {
+        padding: 80px 0;
+        background: #f9f9f9;
+    }
+    
+    .certifications-container {
+        max-width: 1350px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .certifications-slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 30px;
+        padding: 20px 0;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .certification-card {
+        flex: 0 0 300px;
+        scroll-snap-align: start;
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+    }
+    
+    .certification-logo {
+        height: 80px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .certification-logo img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+    }
+    
+    .certification-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: var(--dark-color);
+    }
+    
+    .certification-card p {
+        font-size: 0.95rem;
+        color: #666;
+    }
+    
+    /* Global Reach Section */
+    .global-section {
+        padding: 80px 0;
+        background: white;
+    }
+    
+    .world-map-container {
+        position: relative;
+        max-width: 1000px;
+        margin: 40px auto 0;
+    }
+    
+    .world-map {
+        width: 100%;
+        opacity: 0.8;
+    }
+    
+    .location-marker {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: var(--secondary-color);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: pulse 2s infinite;
+    }
+    
+    .location-marker::after {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: rgba(23, 53, 123, 0.3);
+        border-radius: 50%;
+        top: -10px;
+        left: -10px;
+        animation: pulse 2s infinite;
+        animation-delay: 0.5s;
+    }
+    
+    .location-info {
+        position: absolute;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 200px;
+        opacity: 0;
+        transition: var(--transition);
+        z-index: 10;
+    }
+    
+    .location-marker:hover .location-info {
+        opacity: 1;
+    }
+    
+    .location-info h3 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+        color: var(--dark-color);
+    }
+    
+    .location-info p {
+        font-size: 0.8rem;
+        color: #666;
+    }
+    
+    /* Projects Section */
+    .projects-section {
+        padding: 80px 0;
+        background: #f9f9f9;
+    }
+    
+    .projects-timeline {
+        max-width: 1000px;
+        margin: 40px auto 0;
+        position: relative;
+        padding: 0 20px;
+    }
+    
+    .projects-timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        background: var(--primary-color);
+        transform: translateX(-50%);
+    }
+    
+    .timeline-project {
+        position: relative;
+        margin-bottom: 60px;
+        width: 48%;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .timeline-project.left {
+        margin-right: auto;
+    }
+    
+    .timeline-project.right {
+        margin-left: auto;
+    }
+    
+    .timeline-project::after {
+        content: '';
+        position: absolute;
+        top: 30px;
+        width: 20px;
+        height: 20px;
+        background: var(--gradient);
+        border-radius: 50%;
+    }
+    
+    .timeline-project.left::after {
+        right: -27px;
+    }
+    
+    .timeline-project.right::after {
+        left: -27px;
+    }
+    
+    .project-date {
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+    
+    .project-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: var(--dark-color);
+    }
+    
+    .project-description {
+        font-size: 0.95rem;
+        color: #555;
+    }
+    
+    /* Innovations Section */
+    .innovations-section {
+        padding: 80px 0;
+        background: white;
+    }
+    
+    .innovations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 40px auto 0;
+        padding: 0 20px;
+    }
+    
+    .innovation-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+    
+    .innovation-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+    
+    .innovation-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .innovation-info {
+        padding: 25px;
+    }
+    
+    .innovation-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--dark-color);
+    }
+    
+    .innovation-info p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+    }
+    
+    /* Team Section */
+    .team-section {
+        padding: 80px 0;
+        background: white;
+        text-align: center;
+    }
+    
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 40px auto 0;
+        padding: 0 20px;
+    }
+    
+    .team-member {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+    
+    .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+    
+    .member-image {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .member-info {
+        padding: 20px;
+    }
+    
+    .member-name {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+        color: var(--dark-color);
+    }
+    
+    .member-role {
+        font-size: 0.9rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+    }
+    
+    .member-bio {
+        font-size: 0.95rem;
+        color: #666;
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(1.5);
+            opacity: 0;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .mission-container {
+            flex-direction: column;
+        }
+        
+        .about-hero h1 {
+            font-size: 2.5rem;
+        }
+        
+        .mission-content h2 {
+            font-size: 1.8rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+        }
+        
+        .projects-timeline::before {
+            left: 20px;
+        }
+        
+        .timeline-project {
+            width: calc(100% - 40px);
+            margin-left: 40px;
+        }
+        
+        .timeline-project::after {
+            left: -30px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+            </div>
+            <div class="loader-text">EXPAND YOUR HORIZONS</div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fa-solid fa-building"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fa-solid fa-location-dot"></i>Hubs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Our Story</h1>
+            <p class="animate__animated animate__fadeInUp">Transforming lives through accessible, quality education since 2015</p>
+        </div>
+        <div class="scroll-down">
+            <span onclick="document.querySelector('.about-mission').scrollIntoView({behavior: 'smooth'})">Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="about-mission">
+        <div class="mission-container">
+            <div class="mission-image">
+                <img src="assets/images/about-mission.jpg" alt="Verita Campus Mission">
+            </div>
+            <div class="mission-content">
+                <h2>Our Mission</h2>
+                <p>Verita Campus is an internationally accredited institution that offers quality skills through virtual open learning. Since 2015, we have impacted the world with our main headquarters located in California, USA.</p>
+                <p>Our mission is to democratize professional education, making high-quality skills training accessible to anyone with the desire to learn and grow, regardless of their background or formal education.</p>
+                <p>We believe in practical, career-focused education that prepares our students not just with knowledge, but with the skills and confidence to excel in their chosen fields.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>By The <span>Numbers</span></h2>
+                <p>Our impact in the world of professional education</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" style="color:black;"><span style="color:var(--primary-color);">15</span>+</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color:black;"><span style="color:var(--primary-color);">527K</span>+</div>
+                    <div class="stat-label">Students Trained</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color:black;"><span style="color:var(--primary-color);">50</span>+</div>
+                    <div class="stat-label">Countries Reached</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color:black;"><span style="color:var(--primary-color);">100</span>%</div>
+                    <div class="stat-label">Satisfaction Guarantee</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section class="departments-section">
+        <div class="departments-container">
+            <div class="section-header">
+                <h2>Our <span>Departments</span></h2>
+                <p>Specialized divisions driving innovation and excellence in education</p>
+            </div>
+            
+            <div class="departments-grid">
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="department-info">
+                        <h3>Technology Education</h3>
+                        <p>Our tech department offers cutting-edge courses in software development, data science, cybersecurity, and emerging technologies, keeping pace with industry demands.</p>
+                    </div>
+                </div>
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="department-info">
+                        <h3>Business & Entrepreneurship</h3>
+                        <p>Focused on developing business acumen, this department offers programs in management, finance, marketing, and startup incubation.</p>
+                    </div>
+                </div>
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="department-info">
+                        <h3>Creative Arts</h3>
+                        <p>From digital design to multimedia production, this department nurtures creative talent with industry-standard tools and methodologies.</p>
+                    </div>
+                </div>
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="department-info">
+                        <h3>Global Initiatives</h3>
+                        <p>This department manages our international partnerships, exchange programs, and global certification standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <div class="certifications-container">
+            <div class="section-header">
+                <h2>Our <span>Accreditations</span></h2>
+                <p>Recognized by leading educational and professional bodies worldwide</p>
+            </div>
+            
+            <div class="certifications-slider">
+                <div class="certification-card">
+                    <div class="certification-logo">
+                        <img src="assets/images/courses/graduation-cap-with-globe-digital-art-style-education-day.jpg" alt="Accreditation">
+                    </div>
+                    <h3>International Education Standards</h3>
+                    <p>Recognized for aligning with global best practices in education and learning excellence.</p>
+                </div>
+                <div class="certification-card">
+                    <div class="certification-logo">
+                        <img src="assets/images/courses/standard-quality-control-concept-m.jpg" alt="Accreditation">
+                    </div>
+                    <h3>Quality Assurance Certified</h3>
+                    <p>Acknowledged for upholding high curriculum standards that align with best practices in higher education.</p>
+                </div>
+                <div class="certification-card">
+                    <div class="certification-logo">
+                        <img src="assets/images/courses/diverse-business-colleagues-shoo.jpg" alt="Accreditation">
+                    </div>
+                    <h3>Industry Partnership</h3>
+                    <p>Equipping learners with skills aligned with technologies and tools from leading companies like Microsoft, Google, and IBM.</p>
+                </div>
+                <div class="certification-card">
+                    <div class="certification-logo">
+                        <img src="assets/images/courses/successful-connected-business-people.jpg" alt="Accreditation">
+                    </div>
+                    <h3>Global Recognition</h3>
+                    <p>Our certificates are recognized in over 50 countries for employment and further education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Reach Section -->
+    <section class="global-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Global <span>Presence</span></h2>
+                <p>Expanding educational opportunities across continents</p>
+            </div>
+            
+            <div class="world-map-container">
+                <img src="assets/images/images/world_map_2.png" alt="World Map" class="world-map">
+                <div class="location-marker" style="top: 30%; left: 25%;">
+                    <div class="location-info" style="top: -100px; left: 50px;">
+                        <h3>Africa</h3>
+                        <p>25+ learning centers across 15 countries serving 150,000+ students annually</p>
+                    </div>
+                </div>
+                <div class="location-marker" style="top: 40%; left: 50%;">
+                    <div class="location-info" style="top: -100px; left: 50px;">
+                        <h3>Europe</h3>
+                        <p>10 partner institutions with exchange programs and joint certifications</p>
+                    </div>
+                </div>
+                <div class="location-marker" style="top: 25%; left: 75%;">
+                    <div class="location-info" style="top: -100px; right: 50px;">
+                        <h3>North America</h3>
+                        <p>Headquarters in California with research and development facilities</p>
+                    </div>
+                </div>
+                <div class="location-marker" style="top: 60%; left: 80%;">
+                    <div class="location-info" style="bottom: -100px; right: 50px;">
+                        <h3>Asia</h3>
+                        <p>Digital learning platforms reaching 50,000+ students in 8 countries</p>
+                    </div>
+                </div>
+                <div class="location-marker" style="top: 70%; left: 40%;">
+                    <div class="location-info" style="bottom: -100px; left: 50px;">
+                        <h3>South America</h3>
+                        <p>Expanding network of learning hubs with local language support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming <span>Projects</span></h2>
+                <p>Innovative initiatives shaping the future of education</p>
+            </div>
+            
+            <div class="projects-timeline">
+                <div class="timeline-project left">
+                    <div class="project-date">Q3 2025</div>
+                    <h3 class="project-title">Verita AI Learning Assistant</h3>
+                    <p class="project-description">Launching our AI-powered learning companion that provides personalized tutoring, career guidance, and skill assessment for every student.</p>
+                </div>
+                <div class="timeline-project right">
+                    <div class="project-date">Q1 2026</div>
+                    <h3 class="project-title">Global Skills Exchange</h3>
+                    <p class="project-description">A revolutionary platform connecting learners worldwide for peer-to-peer skill sharing and collaborative projects across borders.</p>
+                </div>
+                <div class="timeline-project left">
+                    <div class="project-date">Q3 2026</div>
+                    <h3 class="project-title">Virtual Reality Campuses</h3>
+                    <p class="project-description">Immersive VR learning environments that simulate real-world workplaces for practical training in various professions.</p>
+                </div>
+                <div class="timeline-project right">
+                    <div class="project-date">Q1 2027</div>
+                    <h3 class="project-title">Micro-Credential Network</h3>
+                    <p class="project-description">Blockchain-based credentialing system allowing students to build modular, stackable qualifications recognized by employers worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovations Section -->
+    <section class="innovations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span>Innovations</span></h2>
+                <p>Pioneering approaches to professional education</p>
+            </div>
+            
+            <div class="innovations-grid">
+                <div class="innovation-card">
+                    <div class="innovation-image" style="background-image: url('assets/images/courses/man-working-environment-project.jpg');"></div>
+                    <div class="innovation-info">
+                        <h3>Competency-Based Learning</h3>
+                        <p>Our unique approach focuses on mastering skills rather than time spent in class, allowing students to progress at their own pace.</p>
+                    </div>
+                </div>
+                <div class="innovation-card">
+                    <div class="innovation-image" style="background-image: url('assets/images/courses/researchers-looking-alternative-energy-souces.jpg');"></div>
+                    <div class="innovation-info">
+                        <h3>Project-Based Curriculum</h3>
+                        <p>All courses are built around real-world projects that students can add to their professional portfolios upon completion.</p>
+                    </div>
+                </div>
+                <div class="innovation-card" style="display:none;">
+                    <div class="innovation-image" style=" background-image: url('assets/images/innovations/innovation3.jpg');"></div>
+                    <div class="innovation-info">
+                        <h3>Income Share Agreements</h3>
+                        <p>Pioneering affordable education with payment plans tied to post-graduation income for qualifying students.</p>
+                    </div>
+                </div>
+                <div class="innovation-card">
+                    <div class="innovation-image" style="background-image: url('assets/images/courses/Mentorship.jpg');"></div>
+                    <div class="innovation-info">
+                        <h3>Global Mentorship Network</h3>
+                        <p>Connecting students with industry professionals worldwide for guidance, networking, and career opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our <span>Leadership</span></h2>
+                <p>The passionate educators driving Verita's vision</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image" style="background-image: url('assets/images/profile/Dr.Liam.jpg');"></div>
+                    <div class="member-info">
+                        <h3 class="member-name">Dr.Liam Carter</h3>
+                        <div class="member-role">Founder & CEO</div>
+                        <p class="member-bio">Education visionary with 20+ years in curriculum development and online learning platforms. Holds a PhD in Educational Technology from Stanford University.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image" style="background-image: url('assets/images/profile/Samue_Tekle.jpg');"></div>
+                    <div class="member-info">
+                        <h3 class="member-name">Samuel Tekle</h3>
+                        <div class="member-role">Co-Founder</div>
+                        <p class="member-bio">Expert in instructional design and quality assurance for professional education. Former director of learning at a Fortune 500 company.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image" style="background-image: url('assets/images/profile/Amina_Diallo.jpg');"></div>
+                    <div class="member-info">
+                        <h3 class="member-name">Amina Diallo</h3>
+                        <div class="member-role">Student Success Manager</div>
+                        <p class="member-bio">Dedicated to ensuring every Verita student achieves their learning goals. Specializes in career counseling and professional development.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image" style="background-image: url('assets/images/profile/Charles.jpg');"></div>
+                    <div class="member-info">
+                        <h3 class="member-name">Charles David</h3>
+                        <div class="member-role">Director of Innovation</div>
+                        <p class="member-bio">Leads our R&D team in developing cutting-edge learning technologies and methodologies to enhance student outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> California, USA</li>
+                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+            // Navbar Scroll Effect
+    const navbar = document.querySelector('.navbar');
+    const heroSection = document.querySelector('.about-hero');
+    const heroHeight = heroSection.offsetHeight;
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > heroHeight * 0.8) {
+            navbar.classList.add('solid');
+            navbar.classList.remove('transparent');
+        } else {
+            navbar.classList.add('transparent');
+            navbar.classList.remove('solid');
+        }
+    });
+    
+    // Animate location markers on hover
+    const markers = document.querySelectorAll('.location-marker');
+    markers.forEach(marker => {
+        marker.addEventListener('mouseenter', function() {
+            const info = this.querySelector('.location-info');
+            info.style.opacity = '1';
+        });
+        
+        marker.addEventListener('mouseleave', function() {
+            const info = this.querySelector('.location-info');
+            info.style.opacity = '0';
+        });
+    });
+    </script>
+</body>
+</html>

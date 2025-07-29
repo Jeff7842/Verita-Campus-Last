@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Machine Learning Professional Course | Verita Campus</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { zoom: 85%; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 50%, #2d1b69 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --ai-primary: #00f5ff;
+            --ai-secondary: #ff00ff;
+            --ai-accent: #7c3aed;
+            --ai-glow: 0 0 20px rgba(0, 245, 255, 0.5);
+            --ai-gradient: linear-gradient(135deg, #00f5ff, #7c3aed, #ff00ff);
+        }
+
+        /* Navigation */
+        .ai-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(15, 15, 35, 0.95);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .ai-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .ai-logo {
+            height: 50px;
+            filter: drop-shadow(0 0 15px var(--ai-primary));
+        }
+
+        .ai-nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .ai-nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .ai-nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--ai-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .ai-nav-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .ai-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(0, 245, 255, 0.1) 0%, transparent 50%);
+            overflow: hidden;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="%2300f5ff" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle><circle cx="80" cy="40" r="1" fill="%237c3aed" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle><circle cx="60" cy="80" r="1" fill="%23ff00ff" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/></circle></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: var(--ai-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(0, 245, 255, 0.5); }
+            to { text-shadow: 0 0 30px rgba(0, 245, 255, 0.8), 0 0 40px rgba(124, 58, 237, 0.6); }
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--ai-primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary {
+            background: var(--ai-gradient);
+            color: #000;
+            box-shadow: var(--ai-glow);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.8);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid var(--ai-primary);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(0, 245, 255, 0.1);
+            box-shadow: var(--ai-glow);
+        }
+
+        /* Section Styles */
+        .ai-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: var(--ai-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--ai-primary);
+            box-shadow: var(--ai-glow);
+        }
+
+        .skill-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: var(--ai-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--ai-primary);
+        }
+
+        .skill-description {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Curriculum Timeline */
+        .curriculum-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-marker {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--ai-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            margin-right: 30px;
+            box-shadow: var(--ai-glow);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--ai-primary);
+        }
+
+        .timeline-list {
+            list-style: none;
+        }
+
+        .timeline-list li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            opacity: 0.9;
+        }
+
+        .timeline-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--ai-primary);
+        }
+
+        /* Projects Showcase */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--ai-glow);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--ai-primary);
+        }
+
+        .project-difficulty {
+            padding: 5px 15px;
+            background: rgba(0, 245, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-description {
+            opacity: 0.8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            padding: 5px 12px;
+            background: rgba(124, 58, 237, 0.2);
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: var(--ai-accent);
+        }
+
+        /* Career Path */
+        .career-path {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .career-level {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .career-level:hover {
+            background: rgba(0, 245, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .career-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--ai-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #000;
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+
+        .career-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--ai-primary);
+        }
+
+        .career-salary {
+            font-size: 1.2rem;
+            color: var(--ai-secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .career-description {
+            opacity: 0.8;
+        }
+
+        /* Tools Grid */
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .tool-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--ai-glow);
+        }
+
+        .tool-logo {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--ai-primary);
+        }
+
+        .tool-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--ai-primary);
+        }
+
+        .tool-category {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials */
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--ai-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--ai-primary);
+        }
+
+        .testimonial-role {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Enrollment */
+        .enrollment-section {
+            padding: 100px 0;
+            background: radial-gradient(circle, rgba(0, 245, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .enrollment-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .enrollment-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 25px;
+            padding: 60px;
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.2);
+        }
+
+        .price-tag {
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--ai-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 30px 0;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            opacity: 0.9;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--ai-primary);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .ai-footer {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(0, 245, 255, 0.2);
+            padding: 80px 0 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--ai-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 8px 0;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--ai-primary);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 245, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ai-primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--ai-primary);
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0, 245, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 3rem; }
+            .section-title { font-size: 2.5rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .career-level { flex-direction: column; text-align: center; }
+            .career-icon { margin: 0 0 20px 0; }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="ai-navbar transparent">
+        <div class="ai-nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo" class="ai-logo"></a>
+            </div>
+            <div class="ai-nav-links">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down ai"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas fa-globe" ></i>Portfolio Revamp & Professional Branding</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#"><i class="fas fa-bolt"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas fa-road"></i>Impact</a>
+                            <a href="blog.html"><i class="fas fa-road"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas fa-road"></i>Testimony</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fas fa-bolt"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fas fa-road"></i>Hub</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="ai-hero">
+        <div class="hero-particles"></div>
+        <div class="hero-content">
+            <h1 class="fade-in">AI & Machine Learning Mastery</h1>
+            <p class="fade-in">Build Intelligent Systems That Transform Industries</p>
+            <div class="hero-stats fade-in">
+                <div class="stat-item">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Job Placement</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Weeks</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+            </div>
+            <div class="hero-cta fade-in">
+                <button class="cta-btn cta-primary" onclick="scrollToSection('skills')">Start Learning</button>
+                <button class="cta-btn cta-secondary" onclick="scrollToSection('curriculum')">View Curriculum</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Skills Section -->
+    <section class="ai-section" id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">Master AI Fundamentals</h2>
+                <p class="section-subtitle fade-in">Develop cutting-edge skills in artificial intelligence, machine learning, and deep learning</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                    <h3 class="skill-title">Machine Learning</h3>
+                    <p class="skill-description">Master supervised, unsupervised, and reinforcement learning algorithms with real-world applications</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3 class="skill-title">Deep Learning</h3>
+                    <p class="skill-description">Build neural networks using TensorFlow, PyTorch, and Keras for computer vision and NLP</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                    <h3 class="skill-title">NLP & Chatbots</h3>
+                    <p class="skill-description">Create intelligent conversational AI and language processing systems</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-eye"></i></div>
+                    <h3 class="skill-title">Computer Vision</h3>
+                    <p class="skill-description">Develop image recognition, object detection, and autonomous systems</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="skill-title">Data Science</h3>
+                    <p class="skill-description">Extract insights from big data using advanced analytics and visualization</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                    <h3 class="skill-title">Cloud AI</h3>
+                    <p class="skill-description">Deploy AI solutions on AWS, Azure, and Google Cloud platforms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum -->
+    <section class="ai-section" id="curriculum">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">12-Week Intensive Curriculum</h2>
+                <p class="section-subtitle fade-in">From Python basics to advanced AI deployment</p>
+            </div>
+            <div class="curriculum-timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker">1-3</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Python & Data Foundations</h3>
+                        <ul class="timeline-list">
+                            <li>Python programming for data science</li>
+                            <li>NumPy, Pandas, and data manipulation</li>
+                            <li>Statistical analysis and visualization</li>
+                            <li>Introduction to Jupyter notebooks</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker">4-6</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Machine Learning Fundamentals</h3>
+                        <ul class="timeline-list">
+                            <li>Supervised learning algorithms</li>
+                            <li>Unsupervised learning techniques</li>
+                            <li>Model evaluation and validation</li>
+                            <li>Feature engineering and selection</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker">7-9</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Deep Learning Mastery</h3>
+                        <ul class="timeline-list">
+                            <li>Neural networks and architectures</li>
+                            <li>CNN for computer vision</li>
+                            <li>RNN and LSTM for sequences</li>
+                            <li>Transfer learning applications</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker">10-12</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Advanced AI & Deployment</h3>
+                        <ul class="timeline-list">
+                            <li>Natural language processing</li>
+                            <li>Reinforcement learning</li>
+                            <li>Model deployment and MLOps</li>
+                            <li>Capstone project presentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="ai-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">Real-World Projects</h2>
+                <p class="section-subtitle fade-in">Build a portfolio that impresses employers</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Sentiment Analysis System</h3>
+                        <span class="project-difficulty">Intermediate</span>
+                    </div>
+                    <p class="project-description">Build an AI system that analyzes customer reviews across multiple platforms and provides actionable insights.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">NLTK</span>
+                        <span class="tech-tag">TensorFlow</span>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Autonomous Vehicle Simulator</h3>
+                        <span class="project-difficulty">Advanced</span>
+                    </div>
+                    <p class="project-description">Create a reinforcement learning agent that navigates complex traffic scenarios in a simulated environment.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">OpenAI Gym</span>
+                        <span class="tech-tag">Computer Vision</span>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Medical Diagnosis AI</h3>
+                        <span class="project-difficulty">Advanced</span>
+                    </div>
+                    <p class="project-description">Develop a deep learning model that identifies diseases from medical imaging data with 95%+ accuracy.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">Transfer Learning</span>
+                        <span class="tech-tag">Medical Imaging</span>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Recommendation Engine</h3>
+                        <span class="project-difficulty">Intermediate</span>
+                    </div>
+                    <p class="project-description">Build a Netflix-style recommendation system using collaborative filtering and matrix factorization.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Surprise</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Path -->
+    <section class="ai-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">AI Career Progression</h2>
+                <p class="section-subtitle fade-in">From junior data scientist to AI lead</p>
+            </div>
+            <div class="career-path">
+                <div class="career-level fade-in">
+                    <div class="career-icon">🚀</div>
+                    <div class="career-info">
+                        <h3>Junior Data Scientist</h3>
+                        <div class="career-salary">$800-1,200/month</div>
+                        <p class="career-description">Entry-level position focusing on data analysis and basic ML models</p>
+                    </div>
+                </div>
+                <div class="career-level fade-in">
+                    <div class="career-icon">🧠</div>
+                    <div class="career-info">
+                        <h3>Machine Learning Engineer</h3>
+                        <div class="career-salary">$1,500-2,500/month</div>
+                        <p class="career-description">Build and deploy ML models for production systems</p>
+                    </div>
+                </div>
+                <div class="career-level fade-in">
+                    <div class="career-icon">🎯</div>
+                    <div class="career-info">
+                        <h3>Senior AI Engineer</h3>
+                        <div class="career-salary">$3,000-5,000/month</div>
+                        <p class="career-description">Lead AI projects and mentor junior team members</p>
+                    </div>
+                </div>
+                <div class="career-level fade-in">
+                    <div class="career-icon">👑</div>
+                    <div class="career-info">
+                        <h3>AI Lead / Principal</h3>
+                        <div class="career-salary">$5,000-8,000+/month</div>
+                        <p class="career-description">Drive AI strategy and innovation across the organization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="ai-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">Industry-Leading Tools</h2>
+                <p class="section-subtitle fade-in">Master the tools professionals use daily</p>
+            </div>
+            <div class="tools-container">
+                <div class="tool-item fade-in">
+                    <div class="tool-logo">🐍</div>
+                    <div class="tool-name">Python</div>
+                    <div class="tool-category">Core Language</div>
+                </div>
+                <div class="tool-item fade-in">
+                    <div class="tool-logo">🔥</div>
+                    <div class="tool-name">PyTorch</div>
+                    <div class="tool-category">Deep Learning</div>
+                </div>
+                <div class="tool-item fade-in">
+                    <div class="tool-logo">📊</div>
+                    <div class="tool-name">TensorFlow</div>
+                    <div class="tool-category">ML Framework</div>
+                </div>
+                <div class="tool-item fade-in">
+                    <div class="tool-logo">🧮</div>
+                    <div class="tool-name">Scikit-learn</div>
+                    <div class="tool-category">ML Library</div>
+                </div>
+                <div class="tool-item fade-in">
+                    <div class="tool-logo">☁️</div>
+                    <div class="tool-name">AWS SageMaker</div>
+                    <div class="tool-category">Cloud Platform</div>
+                </div>
+                <div class="tool-item fade-in">
+                    <div class="tool-logo">📈</div>
+                    <div class="tool-name">Jupyter</div>
+                    <div class="tool-category">Development</div>
+                </div>
+                <div class="tool-item fade-in">
+                    <div class="tool-logo">🎨</div>
+                    <div class="tool-name">Matplotlib</div>
+                    <div class="tool-category">Visualization</div>
+                </div>
+                <div class="tool-item fade-in">
+                    <div class="tool-logo">🤖</div>
+                    <div class="tool-name">OpenAI API</div>
+                    <div class="tool-category">AI Services</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="ai-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">Success Stories</h2>
+                <p class="section-subtitle fade-in">Transforming careers with AI expertise</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-item fade-in">
+                    <div class="testimonial-avatar">DM</div>
+                    <p class="testimonial-text">"The course transformed my career from marketing to AI engineering. I'm now building recommendation systems at a fintech startup!"</p>
+                    <div class="testimonial-author">David Mwangi</div>
+                    <div class="testimonial-role">AI Engineer at FinTech Startup</div>
+                </div>
+                <div class="testimonial-item fade-in">
+                    <div class="testimonial-avatar">SW</div>
+                    <p class="testimonial-text">"The hands-on projects gave me the confidence to lead my company's AI transformation. We're now processing 10TB of data daily!"</p>
+                    <div class="testimonial-author">Sarah Wanjiku</div>
+                    <div class="testimonial-role">Senior Data Scientist</div>
+                </div>
+                <div class="testimonial-item fade-in">
+                    <div class="testimonial-avatar">KO</div>
+                    <p class="testimonial-text">"The NLP specialization helped me build chatbots for healthcare. We're improving patient outcomes across East Africa!"</p>
+                    <div class="testimonial-author">Kevin Otieno</div>
+                    <div class="testimonial-role">AI Product Manager</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment -->
+    <section class="enrollment-section">
+        <div class="enrollment-container">
+            <div class="enrollment-card fade-in">
+                <h2 class="section-title">Start Your AI Journey</h2>
+                <p class="section-subtitle">Join the AI revolution that's transforming industries</p>
+                <div class="price-tag">$150<span>(20% Off)</span></div>
+                <ul class="features-list">
+                    <li>12-week intensive program</li>
+                    <li>50+ hands-on projects</li>
+                    <li>Industry mentorship</li>
+                    <li>Job placement support</li>
+                    <li>Lifetime community access</li>
+                </ul>
+                <button class="cta-btn cta-primary" onclick="scrollToSection('footer')">Secure Your Spot</button>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: rgb(232, 0, 0);"><i class="fas fa-info-circle"></i> 25 Slots left</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="ai-footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="short_courses.html">Courses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="benefits.html">Benefits</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>AI Courses</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Machine Learning</a></li>
+                        <li><a href="#">Deep Learning</a></li>
+                        <li><a href="#">NLP Specialist</a></li>
+                        <li><a href="#">Computer Vision</a></li>
+                        <li><a href="#">AI Ethics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">AI Blog</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p style="opacity: 0.8; margin-bottom: 20px;">Join our AI community</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Verita Campus AI Academy. All rights reserved. | info@veritacampus.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.ai-navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 15, 35, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
+        });
+
+        // Smooth scroll for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

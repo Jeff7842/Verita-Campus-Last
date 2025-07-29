@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verita Campus - Alumni Network</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        /* Alumni Page Styles */
+        .alumni-hero {
+            height: 60vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+        
+        .alumni-hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .alumni-hero-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(12, 107, 50, 0.9), rgba(12, 107, 50, 0.2));
+            z-index: -1;
+        }
+        
+        .alumni-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .alumni-hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: var(--text-shadow-lg);
+        }
+        
+        .alumni-hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: var(--text-shadow-md);
+        }
+        
+        /* Alumni Story Section */
+        .alumni-story {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .alumni-story.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .alumni-video {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card-hover);
+        }
+        
+        .alumni-video video {
+            width: 100%;
+            display: block;
+        }
+        
+        .alumni-content {
+            flex: 1;
+        }
+        
+        .alumni-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .alumni-content p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .alumni-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Alumni Grid Section */
+        .alumni-grid-section {
+            background: #f9f9f9;
+            padding: 80px 0;
+        }
+        
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .alumni-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+        
+        .alumni-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card-hover);
+        }
+        
+        .alumni-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .alumni-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .alumni-card:hover .alumni-image img {
+            transform: scale(1.1);
+        }
+        
+        .alumni-info {
+            padding: 20px;
+        }
+        
+        .alumni-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .alumni-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .alumni-bio {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .alumni-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .alumni-social a {
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+        
+        .alumni-social a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Testimonials Section */
+        .alumni-testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .testimonial-slider {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+        
+        .testimonial-track::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .testimonial-slide {
+            flex: 0 0 auto;
+            width: 350px;
+            scroll-snap-align: start;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        
+        .testimonial-quote {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info span {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        /* Events Section */
+        .alumni-events {
+            background: #f9f9f9;
+            padding: 80px 0;
+        }
+        
+        .events-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card-hover);
+        }
+        
+        .event-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+        
+        .event-date {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .event-content {
+            padding: 20px;
+        }
+        
+        .event-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .event-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #777;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .event-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .event-cta {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .event-cta:hover {
+            background: var(--dark-color);
+        }
+        
+        /* Comments Section */
+        .alumni-comments {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .comments-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .comment-form {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .comment-form h3 {
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(35, 168, 78, 0.2);
+        }
+        
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .submit-btn:hover {
+            background: var(--dark-color);
+        }
+        
+        .comments-list {
+            margin-top: 40px;
+        }
+        
+        .comment-item {
+            border-bottom: 1px solid #eee;
+            padding: 25px 0;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .comment-author {
+            flex: 1;
+        }
+        
+        .comment-author h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .comment-date {
+            font-size: 0.8rem;
+            color: #999;
+        }
+        
+        .comment-text {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .alumni-cta {
+            background: var(--gradient);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .alumni-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .alumni-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn-primary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .cta-btn-primary:hover {
+            background: transparent;
+            color: white;
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .cta-btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .alumni-story {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .alumni-story.reverse {
+                flex-direction: column;
+            }
+            
+            .alumni-video, .alumni-content {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .alumni-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .alumni-hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .alumni-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .alumni-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stat-item {
+                text-align: left;
+            }
+            
+            .alumni-cta h2 {
+                font-size: 2rem;
+            }
+            
+            .alumni-cta p {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fa-solid fa-building"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fa-solid fa-location-dot"></i>Hubs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Alumni Hero Section -->
+    <section class="alumni-hero">
+        <img src="assets/images/Packages/alumn.jpg" alt="Alumni Network" class="alumni-hero-image">
+        <div class="alumni-hero-gradient"></div>
+        <div class="alumni-hero-content">
+            <h1>Verita Alumni Network</h1>
+            <p>Join our global community of dreamers, doers, and changemakers</p>
+        </div>
+    </section>
+
+    <!-- Featured Alumni Story -->
+    <section class="alumni-story">
+        <div class="alumni-video">
+            <video controls poster="assets/images/Alumni/Write_your_story.png">
+                <source src="assets/images/Alumni/corrected_Alumni.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="alumni-content">
+            <h2>From Verita to Ivy League</h2>
+            <p>This video features Verita alumni from Ethiopia who joined the Verita Avenue program after high school and later achieved direct access to apply for The Ivy League Universities. In a moment of time they met at Edinburgh University, not as strangers but now as the Verita Alumni family.</p>
+            <p>Their academic journey has been successful in a foreign land because they support each other through the networking opportunity they utilized in the Verita Avenue program.</p>
+            <div class="alumni-stats">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Ivy League Admits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Support System</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Success Stories -->
+    <section class="alumni-grid-section">
+        <div class="section-header">
+            <h2>Alumni <span>Success</span> Stories</h2>
+            <p>Discover how Verita alumni are making an impact across the globe</p>
+        </div>
+        <div class="alumni-grid">
+            <!-- Alumni Card 1 -->
+            <div class="alumni-card">
+                <div class="alumni-image">
+                    <img src="assets/images/alumni/alumni-1.jpg" alt="Hiroshi Tanaka">
+                </div>
+                <div class="alumni-info">
+                    <h3 class="alumni-name">Hiroshi Tanaka</h3>
+                    <span class="alumni-title">Engineering Consultant at Tesla</span>
+                    <p class="alumni-bio">Who said dreams don't come true? Hiroshi's journey started with a decision to join the Verita Avenue Program. Through the program, he gained real-world experience, hands-on skills and powerful global connections.</p>
+                    <div class="alumni-social" style="display: none;">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alumni Card 2 -->
+            <div class="alumni-card">
+                <div class="alumni-image">
+                    <img src="assets/images/alumni/alumni-2.jpg" alt="Sarah Johnson">
+                </div>
+                <div class="alumni-info">
+                    <h3 class="alumni-name">Siti Nurhaliza</h3>
+                    <span class="alumni-title">Data Scientist at Google</span>
+                    <p class="alumni-bio">Siti transitioned from teaching to data science through Verita's intensive program. She now leads a team analyzing educational data to improve learning outcomes worldwide.</p>
+                    <div class="alumni-social" style="display: none;">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alumni Card 3 -->
+            <div class="alumni-card">
+                <div class="alumni-image">
+                    <img src="assets/images/alumni/alumni-3.jpg" alt="Kwame">
+                </div>
+                <div class="alumni-info">
+                    <h3 class="alumni-name">Kwame Mensah</h3>
+                    <span class="alumni-title">Founder, Digital Marketing Agency</span>
+                    <p class="alumni-bio">Kwame launched his agency immediately after completing Verita's Digital Marketing program. He now employs 15 people and serves clients across three continents.</p>
+                    <div class="alumni-social" style="display: none;">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Testimonials -->
+    <section class="alumni-testimonials">
+        <div class="section-header">
+            <h2>Alumni <span>Testimonials</span></h2>
+            <p>Hear directly from our graduates about their Verita experience</p>
+        </div>
+        <div class="testimonial-slider">
+            <div class="testimonial-track">
+                <!-- Testimonial Slide 1 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">"The Verita alumni community is a network of friends, dreamers, and doers. Our reunions, meetups, professional collaborations and peer mentorship have pioneered deep friendships, cross-cultural understanding and meaningful opportunities that go beyond careers."</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="assets/images/alumni/testimonial-1.jpg" alt="Amina Mohammed">
+                            </div>
+                            <div class="author-info">
+                                <h4>Amina Mohammed</h4>
+                                <span>Social Entrepreneur, Egypt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Slide 2 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">"Together, our graduates stay connected, uplift each other and continue to grow, not just as professionals but as a global family. The support I received from fellow alumni when relocating to Germany was invaluable."</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="assets/images/alumni/testimonial-2.jpg" alt="David Kiprop">
+                            </div>
+                            <div class="author-info">
+                                <h4>David Müller</h4>
+                                <span>Software Engineer, Germany</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Slide 3 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">"Verita didn't just teach me skills - it introduced me to a lifelong network. My first three clients all came through alumni referrals, and now I pay it forward by mentoring current students."</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="assets/images/alumni/testimonial-3.jpg" alt="Aline Uwase">
+                            </div>
+                            <div class="author-info">
+                                <h4>Aline Uwase</h4>
+                                <span>Financial Consultant, Rwanda</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Events Section -->
+    <section class="alumni-events">
+        <div class="events-container">
+            <div class="section-header">
+                <h2>Alumni <span>Events</span></h2>
+                <p>Connect with fellow graduates at our global events</p>
+            </div>
+            <div class="events-grid">
+                <!-- Event Card 1 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="assets/images/alumni/event-1.jpg" alt="Annual Alumni Reunion">
+                        <div class="event-date">April 15</div>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Annual Global Alumni Reunion</h3>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i> Edinburgh, UK
+                        </div>
+                        <p class="event-desc">Join us for our flagship alumni event featuring networking, professional development workshops, and keynote speakers from the Verita community.</p>
+                        <a href="#" class="event-cta">Register Now</a>
+                    </div>
+                </div>
+                
+                <!-- Event Card 2 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="assets/images/alumni/event-2.jpg" alt="Career Networking">
+                        <div class="event-date">Feb 5</div>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Virtual Career Networking Night</h3>
+                        <div class="event-location">
+                            <i class="fas fa-globe"></i> Online Event
+                        </div>
+                        <p class="event-desc">Connect with alumni across industries and geographies in our speed networking event designed to create professional opportunities.</p>
+                        <a href="#" class="event-cta">Register Now</a>
+                    </div>
+                </div>
+                
+                <!-- Event Card 3 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="assets/images/alumni/event-3.jpg" alt="Mentorship Program">
+                        <div class="event-date">June 20</div>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Alumni-Student Mentorship Launch</h3>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i> Nairobi, Kenya
+                        </div>
+                        <p class="event-desc">Kickoff for our year-long mentorship program pairing current students with alumni in their field of interest.</p>
+                        <a href="#" class="event-cta">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Comments Section -->
+    <section class="alumni-comments">
+        <div class="comments-container">
+            <div class="section-header">
+                <h2>Alumni <span>Connections</span></h2>
+                <p>Share your story and connect with fellow graduates</p>
+            </div>
+            
+            <div class="comment-form">
+                <h3>Share Your Experience</h3>
+                <form id="alumniCommentForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Your Message</label>
+                        <textarea id="comment" name="comment" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Post Comment</button>
+                </form>
+            </div>
+            
+            <div class="comments-list">
+                <h3>Recent Alumni Messages</h3>
+                
+                <!-- Comment Item 1 -->
+                <div class="comment-item">
+                    <div class="comment-header">
+                        <div class="comment-avatar">EK</div>
+                        <div class="comment-author">
+                            <h4>Erick K.</h4>
+                            <div class="comment-date">June 15, 2024</div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        Just landed my dream job at Tesla Engineering thanks to the skills and network I built through Verita Avenue. The alumni community helped me prepare for interviews and even connected me with someone in the company who referred me!
+                    </div>
+                </div>
+                
+                <!-- Comment Item 2 -->
+                <div class="comment-item">
+                    <div class="comment-header">
+                        <div class="comment-avatar">SM</div>
+                        <div class="comment-author">
+                            <h4>Sarah M.</h4>
+                            <div class="comment-date">May 28, 2024</div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        Looking for alumni in the Berlin area to connect with. Recently relocated here for work and would love to meet fellow Verita graduates. The cross-cultural understanding we developed through the program makes these connections so valuable.
+                    </div>
+                </div>
+                
+                <!-- Comment Item 3 -->
+                <div class="comment-item">
+                    <div class="comment-header">
+                        <div class="comment-avatar">AM</div>
+                        <div class="comment-author">
+                            <h4>Amina M.</h4>
+                            <div class="comment-date">April 10, 2024</div>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        Our alumni meetups in Dar es Salaam have been life-changing. We've started several business collaborations and even a community project together. Verita truly creates a global family that continues to grow together.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Video Story 2 -->
+    <section class="alumni-story reverse">
+        <div class="alumni-content">
+            <h2>Global Family, Local Impact</h2>
+            <p>Our alumni community is a network of friends, dreamers, and doers. Our reunions, meetups, professional collaborations and peer mentorship have pioneered deep friendships, cross-cultural understanding and meaningful opportunities that go beyond careers.</p>
+            <p>Together, our graduates stay connected, uplift each other and continue to grow, not just as professionals but as a global family. Whether you're looking for career advice, business partnerships, or just friendship in a new city, the Verita alumni network is there for you.</p>
+            <a href="#" class="category-btn ripple">Join Our Network <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="alumni-video">
+            <video controls poster="assets/images/Alumni/untitled_design.png">
+                <source src="assets/images/Alumni/HJUJ.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Alumni CTA Section -->
+    <section class="alumni-cta">
+        <h2>Join the Verita Alumni Network</h2>
+        <p>Whether you're looking to reconnect with classmates, give back by mentoring current students, or expand your professional network, the Verita alumni community welcomes you.</p>
+        <div class="cta-buttons">
+            <a href="#" class="cta-btn-primary ripple">Update Your Profile</a>
+            <a href="#" class="cta-btn-secondary ripple">Contact Alumni Relations</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="associates.html"><i class="fas fa-chevron-right"></i> Associates</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="404Error.html"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope" style="color:var(--secondary-color);"></i> veritalearning@gmail.com</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Alumni Comments Form Submission
+        document.getElementById('alumniCommentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+            
+            // Create new comment element
+            const commentsList = document.querySelector('.comments-list');
+            const newComment = document.createElement('div');
+            newComment.className = 'comment-item';
+            
+            // Get first letters for avatar
+            const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
+            
+            // Set today's date
+            const today = new Date();
+            const dateString = today.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+            
+            // Create comment HTML
+            newComment.innerHTML = `
+                <div class="comment-header">
+                    <div class="comment-avatar">${initials}</div>
+                    <div class="comment-author">
+                        <h4>${name}</h4>
+                        <div class="comment-date">${dateString}</div>
+                    </div>
+                </div>
+                <div class="comment-text">${comment}</div>
+            `;
+            
+            // Add new comment to the top of the list
+            commentsList.insertBefore(newComment, commentsList.firstChild);
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Thank you for sharing your experience! Your comment has been posted.');
+        });
+        
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        const heroSection = document.querySelector('.alumni-hero');
+        const heroHeight = heroSection.offsetHeight;
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > heroHeight * 0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
+    </script>
+</body>
+</html>

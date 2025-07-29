@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verita Campus - Our Partners</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Associations Page Styles */
+        .associations-hero {
+            height: 60vh;
+            min-height: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(12, 107, 50, 0.8), hsl(40, 94%, 56%, 0.7));
+            color: white;
+            overflow: hidden;
+        }
+        
+        .associations-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/Associations/hero.webp') center/cover no-repeat;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        .associations-hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .associations-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .partnerships-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .partnership-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .partnership-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .partnership-intro h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .partnership-intro p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .partnership-item {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .partnership-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .partnership-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .partnership-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .partnership-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .partnership-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .partnership-content {
+            flex: 1;
+        }
+        
+        .partnership-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .partnership-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .partnership-content p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .partnership-quote {
+            font-style: italic;
+            color: #666;
+            padding-left: 20px;
+            border-left: 3px solid var(--secondary-color);
+            margin: 25px 0;
+        }
+        
+        .partnership-quote i {
+            color: var(--secondary-color);
+            margin-right: 5px;
+        }
+        
+        .more-partners {
+            padding: 60px 0;
+            background: #f9f9f9;
+            text-align: center;
+        }
+        
+        .partners-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .partner-logo {
+            width: 150px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover img {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        .explore-courses {
+            text-align: center;
+            padding: 60px 0;
+            background: white;
+        }
+        
+        @media (max-width: 768px) {
+            .associations-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .partnership-item {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .partnership-item:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .partnership-image {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-logo">
+                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+            </div>
+            <div class="loader-text">GLOBAL CONNECTIONS</div>
+        </div>
+    </div>
+
+     <!-- Navigation Bar -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Courses <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="short_courses.html"><i class="fas fa-bolt"></i> Short Courses</a>
+                            <a href="404Error.html"><i class="fas fa-road"></i> Verita Avenue</a>
+                        </div>
+                    </li>
+                    <li><a href="associates.html">Acknowledgements</a></li>
+                    <li class="dropdown">
+                        <a href="benefits.html">Benefits <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content" style="width:400px;">
+                            <a href="benefit-upskill.html"><i class="fa-solid fa-user-doctor"></i>Upskill & Earn Smarter</a>
+                            <a href="benefit-entrepreneurship.html"><i class="fas fa-lightbulb"></i>Entrepreneurship & Career Empowerment </a>
+                            <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
+                            <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
+                            <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
+                            <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
+                            
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Community <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="about.html"><i class="fa-solid fa-building"></i>Who we Are</a>
+                            <a href="hub.html"><i class="fa-solid fa-location-dot"></i>Hubs</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Search Button -->
+            <div class="search-container">
+                <button class="search-btn ripple" id="searchToggle">
+        <i class="fas fa-search"></i>
+    </button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="auth-buttons" style="display:none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="ri-login-circle-line"></i> Log In</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Associations Hero Section -->
+    <section class="associations-hero">
+        <div class="associations-hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Our Global Network</h1>
+            <p class="animate__animated animate__fadeInUp">Collaborating with world-class institutions to deliver exceptional learning experiences</p>
+        </div>
+    </section>
+
+    <!-- Partnerships Section -->
+    <section class="partnerships-section">
+        <div class="partnership-container">
+            <div class="partnership-intro">
+                <h2>Strategic Educational Partnerships</h2>
+                <p>In today's interconnected world, education is no longer confined by borders. While formal partnership agreements may not always be publicly outlined, our learning initiatives often move in step with the methodologies and thought leadership of the world's most prestigious universities and innovative organizations.</p>
+                <p>Verita has partnered with international institutions through curricular inspiration, collaborative forums, aligned projects, and faculty-led interactions.</p>
+            </div>
+            
+            <div class="partnership-item">
+                <div class="partnership-image">
+                    <img src="assets/images/Associations/stanford-br.png" alt="Stanford University">
+                </div>
+                <div class="partnership-content">
+                    <h3><i class="fas fa-university"></i> Stanford University (USA)</h3>
+                    <p>Verita in alignment with Stanford has pioneered transformation and interdisciplinary excellence in global innovation. Our collaboration focuses on bringing Silicon Valley's cutting-edge approaches to learners worldwide.</p>
+                    <div class="partnership-quote">
+                        <i class="fas fa-quote-left"></i> Verita is consistent in journeying in the future in its structure of learning and that's the right path.
+                        <div class="quote-author">— Prof. Zheng Lung, Stanford University</div>
+                    </div>
+                    <a href="short_courses.html" class="category-btn ripple">Explore Inspired Courses <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="partnership-item">
+                <div class="partnership-image">
+                    <img src="assets/images/Associations/google.jpg" alt="Google">
+                </div>
+                <div class="partnership-content">
+                    <h3><i class="fab fa-google"></i> Google</h3>
+                    <p>Google has partnered and contributed significantly to the development of Verita through their workspaces and faculty outreach in technology. This partnership provides our students with access to Google's innovative tools and teaching methodologies.</p>
+                    <div class="partnership-quote">
+                        <i class="fas fa-quote-left"></i> Technology has made learning easier. You do not need to stress about going to physical classrooms anymore...
+                        <div class="quote-author">— Susan Winchsky, Google Executive</div>
+                    </div>
+                    <a href="short_courses.html" class="category-btn ripple">View Tech Courses <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="partnership-item">
+                <div class="partnership-image">
+                    <img src="assets/images/Associations/California.jpg" alt="UC Berkeley">
+                </div>
+                <div class="partnership-content">
+                    <h3><i class="fas fa-university"></i> University of California, Berkeley</h3>
+                    <p>Our shared engagement in academic conferences and co-participation in regional initiatives form the basis of an ongoing intellectual relationship with UC Berkeley that has opened more opportunities to our learners.</p>
+                    <div class="partnership-quote">
+                        <i class="fas fa-quote-left"></i> A step of faith made me stand where I am, thank you Verita...
+                        <div class="quote-author">— Johnson Keith, Verita Alumnus</div>
+                    </div>
+                    <a href="short_courses.html" class="category-btn ripple">Discover Programs <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="partnership-item">
+                <div class="partnership-image">
+                    <img src="assets/images/Associations/Microsoft.jpg" alt="Microsoft">
+                </div>
+                <div class="partnership-content">
+                    <h3><i class="fab fa-microsoft"></i> Microsoft</h3>
+                    <p>Verita endears the collaboration with Microsoft in workflows in IT and software development in talent actualization. Their structure complements our internal offerings and serve as valuable progression routes for our students.</p>
+                    <div class="partnership-quote">
+                        <i class="fas fa-quote-left"></i> Today's workforce needs more IT training and Verita is the best fit for professionals
+                        <div class="quote-author">— Lukas, Tech Recruiter</div>
+                    </div>
+                    <a href="short_courses.html" class="category-btn ripple">See IT Courses <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="partnership-item">
+                <div class="partnership-image">
+                    <img src="assets/images/Associations/Melbourne.jpg" alt="University of Melbourne">
+                </div>
+                <div class="partnership-content">
+                    <h3><i class="fas fa-university"></i> University of Melbourne (Australia)</h3>
+                    <p>Verita's participation in global forums and learning communities frequently overlaps with University of Melbourne, making our Alumni Community a continual reference point in our development of virtual learning ecosystems.</p>
+                    <div class="partnership-quote">
+                        <i class="fas fa-quote-left"></i> Verita expresses the best form of Virtual learning........
+                        <div class="quote-author">— Dr. Khan Jenkins, Verita Alumnus</div>
+                    </div>
+                    <a href="short_courses.html" class="category-btn ripple">Browse Courses <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="partnership-item">
+                <div class="partnership-image">
+                    <img src="assets/images/Associations/A-Bank-of-Africa.png" alt="Bank of Africa">
+                </div>
+                <div class="partnership-content">
+                    <h3><i class="fas fa-landmark"></i> Bank of Africa</h3>
+                    <p>As frequent contributors to African education, our networks have an aligned path in regional innovation and scholarly discourse. This partnership helps bridge the gap between financial education and practical banking needs.</p>
+                    <div class="partnership-quote">
+                        <i class="fas fa-quote-left"></i> I am happy that Verita Considers Africa in building resilient talent
+                        <div class="quote-author">— Melissa Mureithi, Advocate & Verita Alumnus</div>
+                    </div>
+                    <a href="short_courses.html" class="category-btn ripple">View Finance Courses <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="partnership-item">
+                <div class="partnership-image">
+                    <img src="assets/images/Associations/Havard.jpg" alt="Harvard University">
+                </div>
+                <div class="partnership-content">
+                    <h3><i class="fas fa-university"></i> Harvard University</h3>
+                    <p>Verita has consistently partnered in alignment with Harvard in equipping multiple faculty members and students in engaged resource exchange throughout learning and innovation sessions.</p>
+                    <div class="partnership-quote">
+                        <i class="fas fa-quote-left"></i> If I would rewrite my story, I would still choose Verita.
+                        <div class="quote-author">— Keniggen Angel, Harvard Graduate & Verita Alumnus</div>
+                    </div>
+                    <a href="short_courses.html" class="category-btn ripple">Explore All Courses <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+       
+
+        <div class="partnership-item">
+    <div class="partnership-image">
+        <img src="assets/images/Associations/Black-Engineers.jpeg" alt="Global Engineering Forum">
+    </div>
+    <div class="partnership-content">
+        <h3><i class="fas fa-cogs"></i> Global Engineering Forum</h3>
+        <p>Our direct partnership with GEF has ensured that our learners have access to work and entrepreneurship opportunities.</p>
+        <div class="partnership-quote">
+            <i class="fas fa-quote-left"></i> Verita deserves more accolades for the skilled workforce it produces.
+            <div class="quote-author">— CEO,Global Engineering Forum</div>
+        </div>
+        <a href="engineering_programs.html" class="category-btn ripple">Discover Programs <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+
+<div class="partnership-item">
+    <div class="partnership-image">
+        <img src="assets/images/Associations/UN.jpg" alt="United Nations">
+    </div>
+    <div class="partnership-content">
+        <h3><i class="fas fa-globe"></i> United Nations</h3>
+        <p>Verita’s Partnership with the United Nations SDGs aligns in providing quality education to those that cannot afford to pay the large semester fees in international universities.Many Verita Alumni have actively participated in the UN seminars and economic opportunities.</p>
+        <div class="partnership-quote">
+            <i class="fas fa-quote-left"></i>Verita Stands out as the best Virtual learning platform that has regard for all social classes.
+            <div class="quote-author">— Mark Preston – UN Diplomat</div>
+        </div>
+        <a href="leadership_courses.html" class="category-btn ripple">Discover Programs <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+
+<div class="partnership-item">
+    <div class="partnership-image">
+        <img src="assets/images/Associations/Trinity.jpg" alt="Trinity College Dublin">
+    </div>
+    <div class="partnership-content">
+        <h3><i class="fas fa-university"></i> Trinity College, Dublin</h3>
+        <p>Our interdisciplinary course models reflect the partnered structure of Trinity’s methodologies. In our curriculum workshops, Trinity College often serve as exemplar frameworks.</p>
+        <div class="partnership-quote">
+            <i class="fas fa-quote-left"></i>Verita’s faith in the dreams and ambitions of learners has created a large ground of belief system that needs to be emulated.
+            <div class="quote-author">— Khan Mudrok-Verita Facilitator,Europe</div>
+        </div>
+        <a href="short_courses.html" class="category-btn ripple">Discover Programs <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+ </div>
+
+    </section>
+    
+    <!-- More Partners Section -->
+    <section class="more-partners">
+        <div class="partnership-container">
+            <div class="section-header">
+                <h2>Additional <span>Collaborations</span></h2>
+                <p>We're proud to work with these leading institutions and organizations</p>
+            </div>
+            
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Stanford-University-Logo.png" alt="Stanford University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Harvard-University-Logo.png" alt="Harvard University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Chicago-University-Logo.png" alt="University of Chicago">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Pennsylvania-University-Logo.png" alt="University of Pennsylvania">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Oregon-University-Logo.png" alt="University of Oregon">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Delaware-University-Logo.png" alt="University of Delaware">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Auburn-University-Logo.png" alt="Auburn University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Stellenbosch-University-Logo.png" alt="Stellenbosch University">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/LinkedIn_2021.svg.png" alt="LinkedIn">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Upwork-logo.svg.png" alt="Upwork">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/images/pattners/Fiverr-Logo.png" alt="Fiverr">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Explore Courses CTA -->
+    <section class="explore-courses">
+        <div class="partnership-container">
+            <h2>Ready to Experience World-Class Education?</h2>
+            <p>Browse our courses developed in collaboration with these prestigious partners</p>
+            <div class="hero-buttons">
+                <button class="cta-primary ripple" onclick="window.location.href='short_courses.html'">View All Courses</button>
+                <button class="cta-secondary ripple" style="border: solid #23a84e; color:var(--secondary-color);" onclick="window.location.href='contact.html'">Contact Us <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <p>Professional education for career advancement and personal growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="associations.html"><i class="fas fa-chevron-right"></i> Associates</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@veritacampus.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top ripple">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Scroll animation for partnership items
+        document.addEventListener('DOMContentLoaded', function() {
+            const partnershipItems = document.querySelectorAll('.partnership-item');
+            
+            function checkVisibility() {
+                partnershipItems.forEach(item => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (itemTop < windowHeight - 100) {
+                        item.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Check on load
+            checkVisibility();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkVisibility);
+            
+            // Navbar Scroll Effect
+            const navbar = document.querySelector('.navbar');
+            const heroSection = document.querySelector('.associations-hero');
+            const heroHeight = heroSection.offsetHeight;
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > heroHeight * 0.8) {
+                    navbar.classList.add('solid');
+                    navbar.classList.remove('transparent');
+                } else {
+                    navbar.classList.add('transparent');
+                    navbar.classList.remove('solid');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

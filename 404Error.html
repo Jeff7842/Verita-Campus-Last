@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verita Avenue - Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        /* Custom styles for the under construction page */
+        .construction-container {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        .construction-content {
+            display:flex;
+            max-width: 3800px;
+            width: 170%;
+            background:transparent;
+            position: relative;
+        }
+
+        .error-section {
+            flex: 1;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            
+        }
+
+        .animation-section {
+            flex:1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            
+            scale: 1.5;
+        }
+
+        img {
+           width:600%;
+           scale: 1.4;
+            height: auto;
+            animation: none;
+            position:absolute;
+            right: 30%;
+            top: 350px;
+            
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #1dbd65;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            max-width: 80%;
+        }
+
+        .countdown {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .countdown-item {
+            text-align: center;
+            background: #eef7f9;
+            padding: 1rem;
+            border-radius: 10px;
+            min-width: 80px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1dbd65;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        .notify-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1dbd65, #118ca7);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(29, 189, 101, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .notify-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(29, 189, 101, 0.3);
+        }
+
+        .notify-btn:active {
+            transform: translateY(1px);
+        }
+
+        .construction-vector {
+            width: 70%;
+            height: auto;
+            
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            background: #f8b324;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: #1dbd65;
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .shape-3 {
+            width: 70px;
+            height: 70px;
+            background: #118ca7;
+            top: 60%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .full-badge {
+            position: absolute;
+            top: 265px;
+            right: 320px;
+            background: #de3442;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.7rem;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+            animation: pulse 2.5s infinite;
+        }
+
+        .next-intake {
+            background: #ecfaf9;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid #1dbd65;
+        }
+
+        .next-intake h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .next-intake p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .next-intake strong {
+            color: #1dbd65;
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 992px) {
+            .construction-content {
+                flex-direction: column;
+            }
+            
+            .error-section {
+                padding: 3rem 2rem;
+            }
+            
+            .animation-section {
+                padding: 3rem 0;
+            }
+            
+            .error-message {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            
+            .error-title {
+                font-size: 1.8rem;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 0.8rem;
+            }
+            
+            .countdown-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="construction-container">
+        <div class="construction-content">
+            <div class="error-section">
+                <div class="full-badge">ENROLLMENT FULL</div>
+                <div class="error-code">404</div>
+                <h1 class="error-title">Verita Avenue is Under Construction</h1>
+                <p class="error-message">
+                    Our comprehensive long-term program is currently being developed with cutting-edge content 
+                    and innovative learning experiences. We're working hard to create something extraordinary 
+                    for your professional growth.
+                </p>
+                
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+                
+                <div class="next-intake">
+                    <h3>Next Intake Coming Soon</h3>
+                    <p>Registration will open on <strong>February 20, 2026</strong></p>
+                </div>
+                
+                <button class="notify-btn pulse">Notify Me When Available</button>
+            </div>
+            
+            <div class="animation-section">
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+                <img src="assets/images/404Error.png" alt="Under Construction" class="construction-vector">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const targetDate = new Date('February 20, 2026 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('days').innerHTML = '00';
+                document.getElementById('hours').innerHTML = '00';
+                document.getElementById('minutes').innerHTML = '00';
+                document.getElementById('seconds').innerHTML = '00';
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = Math.floor(seconds).toString().padStart(2, '0');
+        }
+        
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Notification button functionality
+        document.querySelector('.notify-btn').addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-check"></i> Notification Request Sent';
+            this.style.background = '#1dbd65';
+            this.classList.remove('pulse');
+            
+            setTimeout(() => {
+                alert('Thank you! We will notify you when Verita Avenue registration opens.');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
