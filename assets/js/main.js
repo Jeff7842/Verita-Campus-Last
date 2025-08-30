@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         preloader.classList.add('fade-out');
         setTimeout(() => {
             preloader.style.display = 'none';
-        },300);
+        }, 300);
     });
 
     // Mobile Menu Toggle
@@ -33,6 +33,46 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.classList.remove('solid');
         }
     });
+
+    // Vertical scrolling gallery animation
+    function animateVerticalGallery() {
+        const galleryTracks = document.querySelectorAll('.gallery-track');
+
+        galleryTracks.forEach(track => {
+            const speed = track.classList.contains('gallery-track-1') ? 30 :
+                track.classList.contains('gallery-track-2') ? 40 : 50;
+
+            const items = track.querySelectorAll('.gallery-item');
+            const itemHeight = items[0].offsetHeight + 20; // height + gap
+
+            // Clone items to create seamless loop
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                track.appendChild(clone);
+            });
+
+            // Animate with CSS transitions
+            let position = 0;
+
+            function scroll() {
+                position -= 1; // adjust for smoother/faster scrolling
+                track.style.transform = `translateY(${position}px)`;
+
+                // Reset when enough items have scrolled out of view
+                if (Math.abs(position) >= itemHeight * items.length) {
+                    position = 0;
+                }
+
+                requestAnimationFrame(scroll);
+            }
+
+            scroll();
+        });
+    }
+
+    // Run on DOM load
+    document.addEventListener('DOMContentLoaded', animateVerticalGallery);
+
 
     // Animate elements on scroll
     const animateElements = document.querySelectorAll('.animate__animated');
@@ -193,7 +233,7 @@ window.addEventListener('resize', () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     const searchInputs = document.querySelectorAll('.course-search input, .search-box input');
     const courseCards = document.querySelectorAll('.package-card');
     const applyFilterBtn = document.querySelector('.filter-apply');
@@ -207,9 +247,9 @@ document.addEventListener("DOMContentLoaded", function () {
             categories: [],
             durations: [],
             levels: [],
-            price: parseInt(priceRange?.value || 15000, 10),
+                price: parseInt(priceRange?.value || 15000, 10),
             keyword: searchInputs[0].value.trim().toLowerCase(),
-            sortBy: sortToggle?.textContent.trim().split(":")[1]?.trim() || "Recommended"
+                sortBy: sortToggle?.textContent.trim().split(":")[1]?.trim() || "Recommended"
         };
 
         document.querySelectorAll('.filter-section:nth-of-type(1) input:checked').forEach(input => {
@@ -232,9 +272,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const cardsArray = Array.from(courseCards);
 
         const filtered = cardsArray.filter(card => {
-            const title = card.querySelector('.package-title')?.textContent.toLowerCase();
-            const description = card.querySelector('.package-description')?.textContent.toLowerCase();
-            const durationText = card.querySelector('.course-meta span:nth-child(2)')?.textContent.toLowerCase();
+            const title = card.querySelector('.package-title')?.textContent.toLowerCase() || "";
+            const description = card.querySelector('.package-description')?.textContent.toLowerCase() || "";
+            const durationText = card.querySelector('.course-meta span:nth-child(2)')?.textContent.toLowerCase() || "";
             const priceValue = parseFloat(card.querySelector('.package-price')?.textContent.replace(/[^0-9.]/g, '')) || 0;
 
             let show = true;
@@ -265,11 +305,16 @@ document.addEventListener("DOMContentLoaded", function () {
             const durationB = parseInt(b.querySelector('.course-meta span:nth-child(2)')?.textContent) || 0;
 
             switch (sortBy) {
-                case 'Price: Low to High': return priceA - priceB;
-                case 'Price: High to Low': return priceB - priceA;
-                case 'Duration: Short to Long': return durationA - durationB;
-                case 'Newest': return 0; // Placeholder for date logic
-                default: return 0;
+                case 'Price: Low to High':
+                    return priceA - priceB;
+                case 'Price: High to Low':
+                    return priceB - priceA;
+                case 'Duration: Short to Long':
+                    return durationA - durationB;
+                case 'Newest':
+                    return 0; // Placeholder for date logic
+                default:
+                    return 0;
             }
         });
 
@@ -305,7 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
     filterAndSortCourses();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     const searchInputs = document.querySelectorAll('.course-search input, .search-box input');
     const courseCards = document.querySelectorAll('.package-card');
     const applyFilterBtn = document.querySelector('.filter-apply');
@@ -343,7 +388,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ========== COURSE FILTER & SEARCH FUNCTIONALITY ==========
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     const searchInputs = document.querySelectorAll('.course-search input, .search-box input');
     const courseCards = document.querySelectorAll('.package-card');
     const applyFilterBtn = document.querySelector('.filter-apply');
@@ -379,9 +424,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const keyword = searchInputs[0].value.trim().toLowerCase();
 
         courseCards.forEach(card => {
-            const title = card.querySelector('.package-title')?.textContent.toLowerCase();
-            const description = card.querySelector('.package-description')?.textContent.toLowerCase();
-            const durationText = card.querySelector('.course-meta span:nth-child(2)')?.textContent.toLowerCase();
+            const title = card.querySelector('.package-title')?.textContent.toLowerCase() || "";
+            const description = card.querySelector('.package-description')?.textContent.toLowerCase() || "";
+            const durationText = card.querySelector('.course-meta span:nth-child(2)')?.textContent.toLowerCase() || "";
             const priceValue = parseFloat(card.querySelector('.package-price')?.textContent.replace(/[^0-9.]/g, '')) || 0;
 
             let visible = true;
@@ -421,5 +466,3 @@ document.addEventListener("DOMContentLoaded", function () {
         input.addEventListener('input', filterCourses);
     });
 });
-
-    

@@ -6,6 +6,7 @@
     --secondary-color: #f8b324;
     --secondary-color-2: #8f6e3b;
     --secondary-color-3: #84643c;
+    --dark-color-3:#074c27;
     --dark-color-2: #0f723e;
     --dark-color: #0c6b32;
     --prime-color: #118ca7;
@@ -143,7 +144,7 @@ button {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.2s ease;
 }
 
 .preloader.fade-out {
@@ -215,6 +216,7 @@ button {
 .navbar.transparent {
     background: transparent;
     box-shadow: none;
+    margin-bottom: 10px;
 }
 
 .navbar.solid {
@@ -255,15 +257,31 @@ button {
     position: relative;
 }
 
+.nav-links .home-links{
+color: var(--primary-color-2);
+}
+
+.nav-links .home-links:hover{
+color: var(--dark-color-2);
+}
+
+.navbar.solid .nav-links .home-links{
+    color: var(--text-light);
+}
+
+.navbar.solid .nav-links .home-links:hover{
+    color: var(--secondary-color);
+}
+
 .nav-links ul li a:hover {
     color: var(--secondary-color);
 }
 
-.nav-links ul li a .fa-chevron-down{
+.nav-links ul li a .fa-chevron-down {
     transition: 0.3s;
 }
 
-.nav-links ul li a:hover .fa-chevron-down{
+.nav-links ul li a:hover .fa-chevron-down {
     transform: rotate(180deg);
     transition: 0.3s;
 }
@@ -348,6 +366,14 @@ button {
 .search-container {
     position: relative;
     margin-right: 20px;
+}
+
+.search-container .home-links{
+    color: var(--secondary-color);
+}
+
+.navbar.solid .search-container .home-links{
+    color: white;
 }
 
 .search-btn {
@@ -497,45 +523,88 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
     color: white;
     overflow: hidden;
 }
 
-.scrolling-gallery {
+.hero-section {
+    padding-top: 80px;
+    /* equal or slightly more than navbar height */
+}
+
+.hero-section::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 290px;
+    /* height of the fade zone under navbar */
+    background: linear-gradient(to bottom, #fbf4e7 0%, rgba(0, 0, 0, 0) 100%);
+    /* Replace #1dbd65 with your navbar background or transparent */
+    pointer-events: none;
+    z-index: 35;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0px;
+    /* how tall the fade effect should be */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #ffffff 100%);
+    /* replace #f5f5f5 with the background of your next section */
+    pointer-events: none;
+    /* makes sure it doesn’t block clicks */
+    z-index: 15;
+}
+
+.scrolling-gallery {
+    top: 80px;
+    /* start below navbar instead of 0 */
+    height: calc(100% - 80px);
+    /* reduce height so it fits neatly */
+}
+
+.scrolling-gallery {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 40px);
     z-index: -1;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.4);
+    background: #fbf4e7;
+    /*rgb(4, 56, 25)*/
 }
 
 .gallery-track {
     position: absolute;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
     will-change: transform;
 }
 
 .gallery-track-1 {
     top: 10%;
-    left: 0;
-    animation: scroll-left 30s linear infinite;
+    right: 640px;
+    animation: scroll-down 60s linear infinite;
 }
 
 .gallery-track-2 {
     top: 40%;
-    right: 0;
-    animation: scroll-right 40s linear infinite;
+    right: 20px;
+    animation: scroll-down 80s linear infinite;
 }
 
 .gallery-track-3 {
     bottom: 10%;
-    left: 0;
-    animation: scroll-left 50s linear infinite;
+    right: 330px;
+    animation: scroll-up 50s linear infinite;
 }
 
 .gallery-item {
@@ -565,34 +634,38 @@ button {
     transform: scale(1.1);
 }
 
-@keyframes scroll-left {
+@keyframes scroll-down {
     0% {
-        transform: translateX(0);
+        transform: translateY(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateY(-50%);
     }
 }
 
-@keyframes scroll-right {
+@keyframes scroll-up {
     0% {
-        transform: translateX(0);
+        transform: translateY(0);
     }
     100% {
-        transform: translateX(50%);
+        transform: translateY(50%);
     }
 }
 
 .hero-content {
     max-width: 800px;
-    padding: 0 20px;
+    padding: 0px 20px;
     z-index: 1;
+    margin-right: 650px;
+    margin-bottom: -100px;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    text-shadow: var(--text-shadow-lg);
+    /*text-shadow: var(--text-shadow-lg);*/
+    width: 70%;
+    color:#074c27;
 }
 
 .hero-content h1 span {
@@ -602,13 +675,15 @@ button {
 .hero-content p {
     font-size: 1.3rem;
     margin-bottom: 30px;
-    text-shadow: var(--text-shadow-md);
-    font-weight:600;
+    /*text-shadow: var(--text-shadow-md);*/
+    font-weight: 600;
+    width: 70%;
+    color: #000000;
 }
 
 .hero-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 20px;
 }
 
@@ -645,8 +720,14 @@ button {
 
 .cta-secondary {
     background: transparent;
-    color: white;
+    color: #ffffff;
     border: 2px solid white;
+}
+
+.hero-buttons .cta-secondary {
+    background: transparent;
+    color: #000000;
+    border: 2px solid #23a84e;
 }
 
 .cta-secondary:hover {
@@ -655,6 +736,18 @@ button {
     transform: translateY(-3px);
     box-shadow: var(--shadow-btn-hover);
 }
+
+.cta-secondary i{
+    opacity: 0%;
+    transition: 0.8s;
+}
+ .cta-secondary:hover i {
+    opacity: 100%;
+    color: var(--secondary-color);
+    transition: 1.0s;
+    transform: translateX(40%);
+}
+
 
 .scroll-down {
     position: absolute;
@@ -700,6 +793,8 @@ button {
 .course-categories {
     padding: 100px 0;
     background: white;
+    position: relative;
+    overflow: hidden;
 }
 
 .categories-grid {
@@ -762,12 +857,10 @@ button {
     color: var(--dark-color);
     margin-top: 15px;
     font-size: 1.0rem;
-    margin-bottom:-15px;
-     animation: heartbeat 3.5s infinite;
-  transform-origin: center;
+    margin-bottom: -15px;
+    animation: heartbeat 3.5s infinite;
+    transform-origin: center;
 }
-
-
 
 .card-highlight {
     position: absolute;
@@ -814,25 +907,27 @@ button {
 }
 
 @keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  14% {
-    transform: scale(1.1);
-  }
-  28% {
-    transform: scale(1);
-  }
-  42% {
-    transform: scale(1.1);
-  }
-  60% {
-    transform: scale(1);
-  }
-  80% {
-    transform: scale(1);
-  }
+    0% {
+        transform: scale(1);
+    }
+    14% {
+        transform: scale(1.1);
+    }
+    28% {
+        transform: scale(1);
+    }
+    42% {
+        transform: scale(1.1);
+    }
+    60% {
+        transform: scale(1);
+    }
+    80% {
+        transform: scale(1);
+    }
 }
+
+
 /* Featured Courses Section */
 
 
@@ -1034,11 +1129,13 @@ button {
     transition: 0.4s;
 }
 
+
 /* Partners Section */
+
 .partners-section {
     padding: 80px 0;
     background: white;
-    margin-bottom:-50px;
+    margin-bottom: -50px;
 }
 
 .partners-slider {
@@ -1064,7 +1161,7 @@ button {
     background: white;
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition:1.5s;
+    transition: 1.5s;
 }
 
 .partner-logo img {
@@ -1078,18 +1175,23 @@ button {
 .partner-logo:hover img {
     filter: grayscale(0);
     opacity: 1;
-    transition:0.5s;
+    transition: 0.5s;
 }
 
-.partner-logo:hover{
-    transform:translateY(-1rem);
-    transition:0.7s;
+.partner-logo:hover {
+    transform: translateY(-1rem);
+    transition: 0.7s;
 }
 
 @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-200px * 8)); }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-200px * 8));
+    }
 }
+
 
 /* Why Choose Section */
 
@@ -1455,14 +1557,15 @@ button {
     flex-direction: column;
     gap: 20px;
 }
-        .form-nam{
-            display:grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap:10px;
-            max-width:1000px;
-            margin:0 auto;
-            padding: 0px -40px;
-        }
+
+.form-nam {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0px -40px;
+}
 
 .form-group {
     position: relative;
@@ -1583,7 +1686,9 @@ button {
     }
 }
 
+
 /* Impact Section */
+
 .impact-section {
     padding: 100px 0;
     background: #f9f9f9;
@@ -1708,12 +1813,15 @@ button {
     margin-bottom: 15px;
 }
 
+
 /* Responsive adjustments */
+
 @media (max-width: 768px) {
     .impact-grid {
         grid-template-columns: 1fr;
     }
 }
+
 
 /* Footer */
 
