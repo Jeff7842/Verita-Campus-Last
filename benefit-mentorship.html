@@ -102,7 +102,7 @@
         .content-media:hover img {
             transform: scale(1.02);
         }
-
+        
         .content-media.video-container {
             position: relative;
             border-radius: 10px;
@@ -141,7 +141,6 @@
             background: white;
             transform: translate(-50%, -50%) scale(1.1);
         }
-        
         
         .mentors-grid {
             display: grid;
@@ -334,12 +333,11 @@
                 flex-direction: column;
                 gap: 30px;
             }
-            
             .content-block.reverse {
                 flex-direction: column;
             }
-            
-            .content-text, .content-media {
+            .content-text,
+            .content-media {
                 width: 100%;
             }
         }
@@ -348,19 +346,15 @@
             .benefit-hero h1 {
                 font-size: 2.5rem;
             }
-            
             .benefit-hero p {
                 font-size: 1.1rem;
             }
-            
             .content-text h2 {
                 font-size: 1.8rem;
             }
-            
             .cta-section h2 {
                 font-size: 2rem;
             }
-            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -374,18 +368,18 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader-logo">
-                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+                <img src="Assets/images/Verita_Logo_Symbol.png" alt="Verita Logo">
             </div>
             <div class="loader-text">BREAK THE BARRIERS</div>
         </div>
     </div>
 
-     <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar transparent">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+                    <img src="Assets/images/Verita_Campus_Dark_Logo_(vertical).png" alt="Verita Logo"></a>
             </div>
             <div class="nav-links">
                 <ul>
@@ -407,11 +401,11 @@
                             <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
                             <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
                             <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
-                            
-                            
+
+
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="#">Community <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
@@ -459,8 +453,10 @@
         <div class="content-block animate__animated animate__fadeInUp">
             <div class="content-text">
                 <h2>Direct Access to Industry Leaders</h2>
-                <p>Success requires mentorship. At Verita Campus, we not only teach high-quality skills but also connect you with recruiters and industry professionals in your field. This direct interaction bridges the gap between learning and professional practice.</p>
-                <p>Through Q&A sessions, live mentorship hangouts, and personalized guidance, we provide opportunities you won't find in ordinary online classes. Our mentors are carefully selected professionals who are passionate about nurturing the next generation of talent.</p>
+                <p>Success requires mentorship. At Verita Campus, we not only teach high-quality skills but also connect you with recruiters and industry professionals in your field. This direct interaction bridges the gap between learning and professional
+                    practice.</p>
+                <p>Through Q&A sessions, live mentorship hangouts, and personalized guidance, we provide opportunities you won't find in ordinary online classes. Our mentors are carefully selected professionals who are passionate about nurturing the next
+                    generation of talent.</p>
                 <ul>
                     <li>One-on-one mentorship sessions</li>
                     <li>Industry-specific career guidance</li>
@@ -591,7 +587,7 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <img src="assets/images/Verita_Campus_Logo_1.2.png" alt="Verita Logo">
                     <p>Professional education for career advancement and personal growth.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
@@ -624,7 +620,7 @@
                     <h3>Contact Us</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
-                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li style="display:none;"><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
                         <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
                     </ul>
                 </div>
@@ -654,13 +650,13 @@
 
     <script src="assets/js/main.js"></script>
     <script>
-                // Navbar Scroll Effect
-        const navbar=document.querySelector('.navbar');
-        const heroSection=document.querySelector('.benefit-hero');
-        const heroHeight=heroSection.offsetHeight;
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        const heroSection = document.querySelector('.benefit-hero');
+        const heroHeight = heroSection.offsetHeight;
 
-        window.addEventListener('scroll',function() {
-            if(window.scrollY>heroHeight*0.8) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > heroHeight * 0.8) {
                 navbar.classList.add('solid');
                 navbar.classList.remove('transparent');
             } else {
@@ -668,10 +664,10 @@
                 navbar.classList.remove('solid');
             }
         });
-                // Play video
+        // Play video
         const playButton = document.querySelector('.play-button');
         const video = document.querySelector('.content-media.video-container video');
-        
+
         playButton.addEventListener('click', function() {
             video.play();
             video.controls = true;
@@ -685,8 +681,10 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
-        
+        }, {
+            threshold: 0.1
+        });
+
         document.querySelectorAll('.animate__animated').forEach(element => {
             observer.observe(element);
         });

@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-       .navbar {
+        .navbar {
             position: fixed;
             top: 0;
             left: 0;
@@ -20,17 +20,17 @@
             z-index: 1000;
             transition: var(--transition);
         }
-
+        
         .navbar.transparent {
             background: transparent;
             box-shadow: none;
         }
-
+        
         .navbar.solid {
             background: var(--gradient);
             box-shadow: var(--shadow);
         }
-
+        
         .nav-logo {
             height: 60px;
             transition: var(--transition);
@@ -41,7 +41,8 @@
             transform: translateX(-20%);
             cursor: pointer;
         }
-       /*benefits section*/
+        /*benefits section*/
+        
         .benefit-hero {
             background: linear-gradient(135deg, #1a3a23, #0c6b32);
             color: white;
@@ -196,7 +197,6 @@
             border-radius: 5px;
             padding: 20px;
             position: relative;
-            
         }
         
         .graph-bar {
@@ -224,10 +224,10 @@
             display: flex;
             justify-content: space-between;
             padding: 0 20px;
-            margin-top:0px;
-            border-top:2px solid #0c6b32;
+            margin-top: 0px;
+            border-top: 2px solid #0c6b32;
             z-index: 4;
-            top:60px;
+            top: 60px;
         }
         
         .graph-label {
@@ -269,12 +269,11 @@
                 flex-direction: column;
                 gap: 30px;
             }
-            
             .content-block.reverse {
                 flex-direction: column;
             }
-            
-            .content-text, .content-media {
+            .content-text,
+            .content-media {
                 width: 100%;
             }
         }
@@ -283,19 +282,15 @@
             .benefit-hero h1 {
                 font-size: 2.5rem;
             }
-            
             .benefit-hero p {
                 font-size: 1.1rem;
             }
-            
             .content-text h2 {
                 font-size: 1.8rem;
             }
-            
             .cta-section h2 {
                 font-size: 2rem;
             }
-            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -309,18 +304,18 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader-logo">
-                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+                <img src="assets/images/Verita_Logo_Symbol.png" alt="Verita Logo">
             </div>
             <div class="loader-text">BREAK THE BARRIERS</div>
         </div>
     </div>
 
-     <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar transparent">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+                    <img src="Assets/images/Verita_Campus_Dark_Logo_(vertical).png" alt="Verita Logo"></a>
             </div>
             <div class="nav-links">
                 <ul>
@@ -342,11 +337,11 @@
                             <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
                             <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
                             <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
-                            
-                            
+
+
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="#">Community <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
@@ -395,7 +390,8 @@
         <div class="content-block animate__animated animate__fadeInUp">
             <div class="content-text">
                 <h2>Real Skills for Real Careers</h2>
-                <p>At Verita Campus, we go beyond theoretical knowledge to provide you with practical, market-ready skills that employers are actively seeking. Our curriculum is designed in collaboration with industry leaders to ensure you learn exactly what's needed in today's competitive job market.</p>
+                <p>At Verita Campus, we go beyond theoretical knowledge to provide you with practical, market-ready skills that employers are actively seeking. Our curriculum is designed in collaboration with industry leaders to ensure you learn exactly
+                    what's needed in today's competitive job market.</p>
                 <p>Our classes are designed to equip learners with relevant and on-demand skills that help them stand out in the market. We also support our learners by offering flexible freelance jobs that empower them financially.</p>
                 <ul>
                     <li>Hands-on projects mirroring real workplace scenarios</li>
@@ -479,7 +475,7 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <img src="assets/images/Verita_Campus_Logo_1.2.png" alt="Verita Logo">
                     <p>Professional education for career advancement and personal growth.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
@@ -512,7 +508,7 @@
                     <h3>Contact Us</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
-                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li style="display:none;"><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
                         <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
                     </ul>
                 </div>
@@ -542,13 +538,13 @@
 
     <script src="assets/js/main.js"></script>
     <script>
-     // Navbar Scroll Effect
-        const navbar=document.querySelector('.navbar');
-        const heroSection=document.querySelector('.benefit-hero');
-        const heroHeight=heroSection.offsetHeight;
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        const heroSection = document.querySelector('.benefit-hero');
+        const heroHeight = heroSection.offsetHeight;
 
-        window.addEventListener('scroll',function() {
-            if(window.scrollY>heroHeight*0.8) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > heroHeight * 0.8) {
                 navbar.classList.add('solid');
                 navbar.classList.remove('transparent');
             } else {
@@ -560,7 +556,7 @@
         function animateGraph() {
             const graph = document.getElementById('employmentGraph');
             const graphHeight = graph.offsetHeight - 40; // minus padding
-            
+
             // Create bars
             const bar3Months = document.createElement('div');
             bar3Months.className = 'graph-bar';
@@ -568,21 +564,21 @@
             bar3Months.style.height = '0';
             bar3Months.textContent = '65%';
             graph.appendChild(bar3Months);
-            
+
             const bar6Months = document.createElement('div');
             bar6Months.className = 'graph-bar';
             bar6Months.style.left = 'calc(55% - 30px)';
             bar6Months.style.height = '0';
             bar6Months.textContent = '82%';
             graph.appendChild(bar6Months);
-            
+
             const bar1Year = document.createElement('div');
             bar1Year.className = 'graph-bar';
             bar1Year.style.left = '85%';
             bar1Year.style.height = '0';
             bar1Year.textContent = '94%';
             graph.appendChild(bar1Year);
-            
+
             // Animate bars after a short delay
             setTimeout(() => {
                 bar3Months.style.height = (graphHeight * 0.65) + 'px';
@@ -590,17 +586,17 @@
                 bar1Year.style.height = (graphHeight * 0.94) + 'px';
             }, 500);
         }
-        
+
         // Play video
         const playButton = document.querySelector('.play-button');
         const video = document.querySelector('.content-media.video-container video');
-        
+
         playButton.addEventListener('click', function() {
             video.play();
             video.controls = true;
             playButton.style.display = 'none';
         });
-        
+
         // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -612,8 +608,10 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
-        
+        }, {
+            threshold: 0.1
+        });
+
         document.querySelectorAll('.animate__animated').forEach(element => {
             observer.observe(element);
         });

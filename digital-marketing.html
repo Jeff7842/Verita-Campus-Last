@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
+         :root {
             --dm-primary: #6a11cb;
             --dm-secondary: #2575fc;
             --dm-accent: #ff4b1f;
             --dm-dark: #3d087b;
             --dm-light: #f8f4ff;
         }
-
         /* Navigation Bar */
+        
         .navbar {
             position: fixed;
             top: 0;
@@ -26,17 +27,17 @@
             z-index: 1000;
             transition: var(--transition);
         }
-
+        
         .navbar.transparent {
             background: transparent;
             box-shadow: none;
         }
-
+        
         .navbar.solid {
             background: linear-gradient(135deg, var(--dm-primary), var(--dm-dark));
             box-shadow: var(--shadow);
         }
-
+        
         .nav-logo {
             height: 60px;
             transition: var(--transition);
@@ -47,8 +48,8 @@
             transform: translateX(-20%);
             cursor: pointer;
         }
-
         /* Course Hero Section */
+        
         .course-hero {
             background: linear-gradient(135deg, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.7));
             color: white;
@@ -101,8 +102,8 @@
             font-weight: 600;
             animation: fadeIn 1.5s ease-out;
         }
-
         /* Floating Social Icons Animation */
+        
         .floating-icons {
             position: absolute;
             width: 100%;
@@ -113,7 +114,7 @@
             z-index: -1;
             overflow: hidden;
         }
-
+        
         .social-icon {
             position: absolute;
             width: 40px;
@@ -123,7 +124,7 @@
             opacity: 0.6;
             animation: floatIcon linear infinite;
         }
-
+        
         @keyframes floatIcon {
             0% {
                 transform: translateY(0) rotate(0deg);
@@ -140,24 +141,24 @@
                 opacity: 0;
             }
         }
-
         /* Course Detail Sections */
+        
         .course-section {
             padding: 100px 0;
             position: relative;
             overflow: hidden;
         }
-
+        
         .section-bg-light {
             background-color: var(--dm-light);
         }
-
+        
         .section-bg-pattern {
             background-color: white;
             background-image: radial-gradient(var(--dm-light) 1px, transparent 1px);
             background-size: 20px 20px;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -165,12 +166,12 @@
             position: relative;
             z-index: 2;
         }
-
+        
         .section-header {
             text-align: center;
             margin-bottom: 60px;
         }
-
+        
         .section-header h2 {
             font-size: 2.8rem;
             margin-bottom: 20px;
@@ -179,7 +180,7 @@
             display: inline-block;
             font-family: 'Montserrat', sans-serif;
         }
-
+        
         .section-header h2:after {
             content: '';
             position: absolute;
@@ -191,22 +192,22 @@
             background: var(--dm-primary);
             border-radius: 2px;
         }
-
+        
         .section-header p {
             font-size: 1.2rem;
             color: #555;
             max-width: 700px;
             margin: 0 auto;
         }
-
         /* Course Features */
+        
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
-
+        
         .feature-card {
             background: white;
             border-radius: 15px;
@@ -217,12 +218,12 @@
             position: relative;
             overflow: hidden;
         }
-
+        
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(106, 17, 203, 0.2);
         }
-
+        
         .feature-card:before {
             content: '';
             position: absolute;
@@ -233,7 +234,7 @@
             background: linear-gradient(135deg, rgba(106, 17, 203, 0.05), transparent);
             z-index: -1;
         }
-
+        
         .feature-icon {
             width: 80px;
             height: 80px;
@@ -247,31 +248,31 @@
             color: white;
             transition: all 0.4s ease;
         }
-
+        
         .feature-card:hover .feature-icon {
             transform: rotateY(180deg) scale(1.1);
         }
-
+        
         .feature-card h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
             color: var(--dm-dark);
             text-align: center;
         }
-
+        
         .feature-card p {
             color: #555;
             font-size: 1rem;
             text-align: center;
             line-height: 1.6;
         }
-
         /* Curriculum Section */
+        
         .curriculum-accordion {
             max-width: 800px;
             margin: 50px auto 0;
         }
-
+        
         .accordion-item {
             margin-bottom: 20px;
             border-radius: 10px;
@@ -279,11 +280,11 @@
             box-shadow: 0 5px 15px rgba(106, 17, 203, 0.1);
             transition: all 0.3s ease;
         }
-
+        
         .accordion-item:hover {
             box-shadow: 0 8px 25px rgba(106, 17, 203, 0.2);
         }
-
+        
         .accordion-header {
             background: linear-gradient(135deg, var(--dm-primary), var(--dm-secondary));
             color: white;
@@ -296,19 +297,19 @@
             align-items: center;
             transition: all 0.3s ease;
         }
-
+        
         .accordion-header:hover {
             background: linear-gradient(135deg, var(--dm-dark), var(--dm-primary));
         }
-
+        
         .accordion-header i {
             transition: transform 0.3s ease;
         }
-
+        
         .accordion-header.active i {
             transform: rotate(180deg);
         }
-
+        
         .accordion-content {
             background: white;
             padding: 0 25px;
@@ -316,27 +317,27 @@
             overflow: hidden;
             transition: max-height 0.3s ease-out, padding 0.3s ease;
         }
-
+        
         .accordion-content.show {
             padding: 25px;
             max-height: 1000px;
         }
-
+        
         .module-topics {
             list-style-type: none;
         }
-
+        
         .module-topics li {
             padding: 10px 0;
             border-bottom: 1px dashed #eee;
             display: flex;
             align-items: center;
         }
-
+        
         .module-topics li:last-child {
             border-bottom: none;
         }
-
+        
         .module-topics li:before {
             content: '\f00c';
             font-family: 'Font Awesome 6 Free';
@@ -345,21 +346,21 @@
             color: var(--dm-primary);
             font-size: 1.2rem;
         }
-
         /* Career Path Section */
+        
         .career-path {
             display: flex;
             justify-content: center;
             margin-top: 50px;
             position: relative;
         }
-
+        
         .career-timeline {
             position: relative;
             max-width: 800px;
             width: 100%;
         }
-
+        
         .career-timeline:before {
             content: '';
             position: absolute;
@@ -370,24 +371,24 @@
             height: 100%;
             background: linear-gradient(to bottom, var(--dm-primary), var(--dm-accent));
         }
-
+        
         .career-item {
             position: relative;
             width: 50%;
             padding: 20px 40px;
             box-sizing: border-box;
         }
-
+        
         .career-item:nth-child(odd) {
             left: 0;
             text-align: right;
         }
-
+        
         .career-item:nth-child(even) {
             left: 50%;
             text-align: left;
         }
-
+        
         .career-item:after {
             content: '';
             position: absolute;
@@ -398,15 +399,15 @@
             background: var(--dm-primary);
             box-shadow: 0 0 0 4px rgba(106, 17, 203, 0.2);
         }
-
+        
         .career-item:nth-child(odd):after {
             right: -10px;
         }
-
+        
         .career-item:nth-child(even):after {
             left: -10px;
         }
-
+        
         .career-content {
             background: white;
             padding: 25px;
@@ -414,48 +415,48 @@
             box-shadow: 0 5px 15px rgba(106, 17, 203, 0.1);
             transition: all 0.3s ease;
         }
-
+        
         .career-item:hover .career-content {
             transform: scale(1.05);
             box-shadow: 0 10px 25px rgba(106, 17, 203, 0.2);
         }
-
+        
         .career-content h3 {
             font-size: 1.3rem;
             margin-bottom: 10px;
             color: var(--dm-dark);
         }
-
+        
         .career-content p {
             color: #555;
             font-size: 0.95rem;
             margin-bottom: 10px;
         }
-
+        
         .salary-range {
             font-weight: 600;
             color: var(--dm-primary);
         }
-
         /* Testimonials Section */
+        
         .testimonials-slider {
             max-width: 1000px;
             margin: 50px auto 0;
             position: relative;
             overflow: hidden;
         }
-
+        
         .testimonial-track {
             display: flex;
             transition: transform 0.5s ease;
         }
-
+        
         .testimonial-card {
             min-width: 100%;
             padding: 0 20px;
             box-sizing: border-box;
         }
-
+        
         .testimonial-content {
             background: white;
             border-radius: 15px;
@@ -463,7 +464,7 @@
             box-shadow: 0 10px 30px rgba(106, 17, 203, 0.1);
             position: relative;
         }
-
+        
         .testimonial-content:before {
             content: '\201C';
             position: absolute;
@@ -474,7 +475,7 @@
             font-family: serif;
             line-height: 1;
         }
-
+        
         .testimonial-text {
             font-size: 1.1rem;
             font-style: italic;
@@ -483,12 +484,12 @@
             position: relative;
             z-index: 1;
         }
-
+        
         .testimonial-author {
             display: flex;
             align-items: center;
         }
-
+        
         .author-avatar {
             width: 60px;
             height: 60px;
@@ -497,30 +498,30 @@
             margin-right: 20px;
             border: 3px solid var(--dm-primary);
         }
-
+        
         .author-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
+        
         .author-info h4 {
             font-size: 1.2rem;
             margin-bottom: 5px;
             color: var(--dm-dark);
         }
-
+        
         .author-info p {
             color: #777;
             font-size: 0.9rem;
         }
-
+        
         .testimonial-nav {
             display: flex;
             justify-content: center;
             margin-top: 40px;
         }
-
+        
         .testimonial-dot {
             width: 12px;
             height: 12px;
@@ -530,59 +531,59 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
+        
         .testimonial-dot.active {
             background: var(--dm-primary);
             transform: scale(1.2);
         }
-
         /* Platform Comparison Section */
+        
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 50px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-
-        .comparison-table th, 
+        
+        .comparison-table th,
         .comparison-table td {
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid #eee;
         }
-
+        
         .comparison-table th {
             background: var(--dm-primary);
             color: white;
             font-weight: 600;
         }
-
+        
         .comparison-table tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-
+        
         .comparison-table tr:hover {
             background-color: var(--dm-light);
         }
-
+        
         .check-mark {
             color: var(--dm-primary);
             font-size: 1.2rem;
         }
-
+        
         .x-mark {
             color: #ff6b6b;
             font-size: 1.2rem;
         }
-
         /* Social Media Platform Cards */
+        
         .platform-cards {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
-
+        
         .platform-card {
             background: white;
             border-radius: 15px;
@@ -592,12 +593,12 @@
             text-align: center;
             padding: 30px;
         }
-
+        
         .platform-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(106, 17, 203, 0.2);
         }
-
+        
         .platform-icon {
             width: 80px;
             height: 80px;
@@ -609,51 +610,51 @@
             color: white;
             border-radius: 50%;
         }
-
+        
         .facebook-icon {
             background: linear-gradient(135deg, #1877f2, #0d5cb6);
         }
-
+        
         .instagram-icon {
             background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
         }
-
+        
         .tiktok-icon {
             background: linear-gradient(135deg, #000000, #25f4ee, #fe2c55);
         }
-
+        
         .youtube-icon {
             background: linear-gradient(135deg, #ff0000, #cc0000);
         }
-
+        
         .linkedin-icon {
             background: linear-gradient(135deg, #0077b5, #004471);
         }
-
+        
         .twitter-icon {
             background: linear-gradient(135deg, #1da1f2, #0d8ecf);
         }
-
+        
         .platform-card h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
             color: var(--dm-dark);
         }
-
+        
         .platform-card p {
             color: #666;
             font-size: 0.95rem;
             margin-bottom: 20px;
         }
-
+        
         .platform-stats {
             display: flex;
             justify-content: space-between;
             font-size: 0.9rem;
             color: #777;
         }
-
         /* Enrollment CTA */
+        
         .enrollment-cta {
             text-align: center;
             padding: 80px 0;
@@ -662,7 +663,7 @@
             position: relative;
             overflow: hidden;
         }
-
+        
         .enrollment-cta:before {
             content: '';
             position: absolute;
@@ -674,27 +675,27 @@
             opacity: 0.1;
             z-index: 1;
         }
-
+        
         .enrollment-content {
             position: relative;
             z-index: 2;
             max-width: 800px;
             margin: 0 auto;
         }
-
+        
         .enrollment-content h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
             animation: fadeInDown 0.8s ease-out;
         }
-
+        
         .enrollment-content p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
             animation: fadeInUp 0.8s ease-out;
         }
-
+        
         .price-box {
             display: inline-block;
             background: white;
@@ -707,13 +708,13 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             animation: pulse 2s infinite;
         }
-
+        
         .price-box span {
             font-size: 1rem;
             font-weight: normal;
             color: #777;
         }
-
+        
         .enrollment-buttons {
             display: flex;
             justify-content: center;
@@ -721,8 +722,9 @@
             margin-top: 30px;
             flex-wrap: wrap;
         }
-
-        .btn-primary, .btn-secondary {
+        
+        .btn-primary,
+        .btn-secondary {
             padding: 15px 35px;
             border-radius: 50px;
             font-size: 1.1rem;
@@ -731,32 +733,32 @@
             cursor: pointer;
             border: none;
         }
-
+        
         .btn-primary {
             background: white;
             color: var(--dm-primary);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-
+        
         .btn-primary:hover {
             background: var(--dm-accent);
             color: white;
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
-
+        
         .btn-secondary {
             background: transparent;
             color: white;
             border: 2px solid white;
         }
-
+        
         .btn-secondary:hover {
             background: white;
             color: var(--dm-primary);
             transform: translateY(-3px);
         }
-
+        
         .guarantee-badge {
             display: inline-flex;
             align-items: center;
@@ -767,134 +769,134 @@
             font-size: 0.9rem;
             animation: fadeIn 1.5s ease-out;
         }
-
+        
         .guarantee-badge i {
             margin-right: 10px;
             font-size: 1.2rem;
         }
-
+        
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
-
         /* Responsive Styles */
+        
         @media (max-width: 992px) {
             .course-hero h1 {
                 font-size: 2.8rem;
             }
-            
             .section-header h2 {
                 font-size: 2.3rem;
             }
-            
             .career-timeline:before {
                 left: 30px;
             }
-            
             .career-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 0;
                 text-align: left;
             }
-            
             .career-item:nth-child(even) {
                 left: 0;
             }
-            
             .career-item:after {
                 left: 20px;
             }
         }
-
+        
         @media (max-width: 768px) {
             .course-hero h1 {
                 font-size: 2.3rem;
             }
-            
             .course-hero p {
                 font-size: 1.1rem;
             }
-            
             .section-header h2 {
                 font-size: 2rem;
             }
-            
             .features-grid {
                 grid-template-columns: 1fr;
             }
-            
             .enrollment-buttons {
                 flex-direction: column;
                 align-items: center;
             }
         }
-
+        
         @media (max-width: 576px) {
             .course-hero h1 {
                 font-size: 2rem;
             }
-            
             .course-meta-badge {
                 display: block;
                 margin: 10px auto;
             }
-            
             .price-box {
                 font-size: 2rem;
                 padding: 10px 30px;
             }
         }
-
         /* Animations */
+        
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-
+        
         @keyframes fadeInUp {
-            from { 
+            from {
                 opacity: 0;
                 transform: translateY(20px);
             }
-            to { 
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
+        
         @keyframes fadeInDown {
-            from { 
+            from {
                 opacity: 0;
                 transform: translateY(-20px);
             }
-            to { 
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
+        
         @keyframes slideInDown {
-            from { 
+            from {
                 opacity: 0;
                 transform: translateY(-50px);
             }
-            to { 
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
     </style>
 </head>
+
 <body>
-     <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar transparent">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+                    <img src="Assets/images/Verita_Campus_Dark_Logo_(vertical).png" alt="Verita Logo"></a>
             </div>
             <div class="nav-links">
                 <ul>
@@ -915,11 +917,11 @@
                             <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
                             <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
                             <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
-                            
-                            
+
+
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="#">Community <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
@@ -966,7 +968,7 @@
             <p>Master social media strategy, content creation, and digital advertising to build powerful online brands and campaigns</p>
             <button class="cta-primary ripple" onclick="document.querySelector('.enrollment-cta').scrollIntoView({behavior: 'smooth'})">Enroll Now</button>
         </div>
-        
+
         <!-- Floating social icons animation -->
         <div class="floating-icons" id="floatingIcons"></div>
     </section>
@@ -978,7 +980,7 @@
                 <h2>Become a Digital Marketing Expert</h2>
                 <p>Our comprehensive Digital Marketing & Media course equips you with practical skills to thrive in the fast-paced world of online marketing</p>
             </div>
-            
+
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -987,7 +989,7 @@
                     <h3>Social Media Mastery</h3>
                     <p>Learn platform-specific strategies for Facebook, Instagram, TikTok, LinkedIn, and Twitter to build engaged communities.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
@@ -995,7 +997,7 @@
                     <h3>Data-Driven Marketing</h3>
                     <p>Master analytics tools to measure performance, optimize campaigns, and demonstrate ROI to clients or employers.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-ad"></i>
@@ -1014,7 +1016,7 @@
                 <h2>Master All Major Platforms</h2>
                 <p>Learn platform-specific strategies tailored to each social network's unique audience and algorithm</p>
             </div>
-            
+
             <div class="platform-cards">
                 <div class="platform-card">
                     <div class="platform-icon facebook-icon">
@@ -1027,7 +1029,7 @@
                         <span><i class="fas fa-percentage"></i> 65% adults</span>
                     </div>
                 </div>
-                
+
                 <div class="platform-card">
                     <div class="platform-icon instagram-icon">
                         <i class="fab fa-instagram"></i>
@@ -1039,7 +1041,7 @@
                         <span><i class="fas fa-percentage"></i> 72% teens</span>
                     </div>
                 </div>
-                
+
                 <div class="platform-card">
                     <div class="platform-icon tiktok-icon">
                         <i class="fab fa-tiktok"></i>
@@ -1051,7 +1053,7 @@
                         <span><i class="fas fa-clock"></i> 52 min/day</span>
                     </div>
                 </div>
-                
+
                 <div class="platform-card">
                     <div class="platform-icon youtube-icon">
                         <i class="fab fa-youtube"></i>
@@ -1063,7 +1065,7 @@
                         <span><i class="fas fa-search"></i> #2 search</span>
                     </div>
                 </div>
-                
+
                 <div class="platform-card">
                     <div class="platform-icon linkedin-icon">
                         <i class="fab fa-linkedin-in"></i>
@@ -1075,7 +1077,7 @@
                         <span><i class="fas fa-briefcase"></i> 4/5 pros</span>
                     </div>
                 </div>
-                
+
                 <div class="platform-card">
                     <div class="platform-icon twitter-icon">
                         <i class="fab fa-twitter"></i>
@@ -1098,7 +1100,7 @@
                 <h2>Comprehensive Curriculum</h2>
                 <p>Our 6-week intensive program covers all essential digital marketing and media topics</p>
             </div>
-            
+
             <div class="curriculum-accordion">
                 <div class="accordion-item">
                     <div class="accordion-header">
@@ -1115,7 +1117,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="accordion-item">
                     <div class="accordion-header">
                         <span>Week 2: Social Media Strategy</span>
@@ -1131,7 +1133,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="accordion-item">
                     <div class="accordion-header">
                         <span>Week 3: Content Creation & Storytelling</span>
@@ -1147,7 +1149,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="accordion-item">
                     <div class="accordion-header">
                         <span>Week 4: Paid Advertising Mastery</span>
@@ -1163,7 +1165,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="accordion-item">
                     <div class="accordion-header">
                         <span>Week 5: Analytics & Optimization</span>
@@ -1179,7 +1181,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="accordion-item">
                     <div class="accordion-header">
                         <span>Week 6: Business Growth & Final Project</span>
@@ -1206,7 +1208,7 @@
                 <h2>Your Digital Marketing Career Path</h2>
                 <p>Graduates of our program are prepared for various roles in the digital marketing industry</p>
             </div>
-            
+
             <div class="career-path">
                 <div class="career-timeline">
                     <div class="career-item">
@@ -1222,7 +1224,7 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <div class="career-item">
                         <div class="career-content">
                             <h3>Mid-Level Positions</h3>
@@ -1236,7 +1238,7 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <div class="career-item">
                         <div class="career-content">
                             <h3>Senior-Level Positions</h3>
@@ -1250,7 +1252,7 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <div class="career-item">
                         <div class="career-content">
                             <h3>Entrepreneurial Path</h3>
@@ -1276,12 +1278,13 @@
                 <h2>Success Stories</h2>
                 <p>Hear from our graduates who transformed their careers with digital marketing skills</p>
             </div>
-            
+
             <div class="testimonials-slider">
                 <div class="testimonial-track">
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <p class="testimonial-text">"This course completely changed my career trajectory. I went from being unemployed to managing social media for three local businesses within 3 months of completing the program. The practical skills I learned are directly applicable to real client work."</p>
+                            <p class="testimonial-text">"This course completely changed my career trajectory. I went from being unemployed to managing social media for three local businesses within 3 months of completing the program. The practical skills I learned are directly applicable
+                                to real client work."</p>
                             <div class="testimonial-author">
                                 <div class="author-avatar">
                                     <img src="assets/images/testimonials/testimonial1.jpg" alt="Sarah M.">
@@ -1300,10 +1303,11 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <p class="testimonial-text">"As a small business owner, I was struggling to get results from my online marketing. After taking this course, I can now run my own Facebook ads, create engaging content, and track my ROI. My sales have increased by 300% in just 6 months!"</p>
+                            <p class="testimonial-text">"As a small business owner, I was struggling to get results from my online marketing. After taking this course, I can now run my own Facebook ads, create engaging content, and track my ROI. My sales have increased by 300% in
+                                just 6 months!"</p>
                             <div class="testimonial-author">
                                 <div class="author-avatar">
                                     <img src="assets/images/testimonials/testimonial2.jpg" alt="James K.">
@@ -1322,10 +1326,11 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <p class="testimonial-text">"The Digital Marketing course gave me the confidence to switch careers from teaching to marketing. I'm now working as a content creator at a reputable agency with great growth potential. The instructors were knowledgeable and supportive throughout."</p>
+                            <p class="testimonial-text">"The Digital Marketing course gave me the confidence to switch careers from teaching to marketing. I'm now working as a content creator at a reputable agency with great growth potential. The instructors were knowledgeable and
+                                supportive throughout."</p>
                             <div class="testimonial-author">
                                 <div class="author-avatar">
                                     <img src="assets/images/testimonials/testimonial3.jpg" alt="Grace W.">
@@ -1345,7 +1350,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-nav">
                     <div class="testimonial-dot active"></div>
                     <div class="testimonial-dot"></div>
@@ -1362,7 +1367,7 @@
                 <h2>How We Compare</h2>
                 <p>See why our Digital Marketing & Media course stands out from traditional education</p>
             </div>
-            
+
             <table class="comparison-table">
                 <thead>
                     <tr>
@@ -1424,75 +1429,75 @@
         <div class="bonus-container">
             <h2 class="section-title">Exclusive Career Bonuses</h2>
             <p>All our courses include these valuable career-enhancing resources at no extra cost:</p>
-            
+
             <div class="bonus-grid">
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
                     <h3><img src="assets/images/Packages/Benefits/cv.png" alt="" style="width:9%; margin-right:2px;"> Professional CV Writing</h3>
                     <p>Get our proven templates and guidance to create a CV that stands out in the competitive job market.</p>
                 </div>
-                
+
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
                     <h3><img src="assets/images/Packages/Benefits/bribe.png" alt="" style="width:12%; margin-right:5px;"> Salary Negotiation Guide</h3>
                     <p>Learn how to confidently negotiate your worth with employers across various industries.</p>
                 </div>
-                
+
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
                     <h3><img src="assets/images/Packages/Benefits/linkedin.png" alt="" style="width:8%; margin-right:5px;"> LinkedIn Optimization</h3>
                     <p>Step-by-step training to build a powerful LinkedIn profile that attracts recruiters and opportunities.</p>
                 </div>
-                
+
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
                     <h3><img src="assets/images/Packages/Benefits/bullseye.png" alt="" style="width:9%; margin-right:5px;"> Job Market Navigation</h3>
                     <p>Understand where to find the best opportunities and how to position yourself effectively.</p>
                 </div>
-                
+
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
-                    <h3><img src="assets/images/Packages/Benefits/robot.png" alt="" style="width:12%; margin-right:5px;">  AI Basics for Professionals</h3>
+                    <h3><img src="assets/images/Packages/Benefits/robot.png" alt="" style="width:12%; margin-right:5px;"> AI Basics for Professionals</h3>
                     <p>Essential AI literacy covering tools like ChatGPT that are transforming workplaces globally.</p>
                 </div>
-                
+
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
                     <h3><img src="assets/images/Packages/Benefits/efficiency.png" alt="" style="width:12%; margin-right:5px;"> Productivity with Notion</h3>
                     <p>Master this powerful tool to organize your job search and professional workflow efficiently.</p>
                 </div>
             </div>
-            
+
             <!-- Course-Specific Bonuses -->
             <div class="course-specific-bonuses">
                 <h2>Software & IT <span>Exclusive Bonuses</span></h2>
-                
+
                 <div class="bonus-grid">
                     <div class="bonus-card">
                         <h3><img src="assets/images/Packages/Benefits/code.png" alt="" style="width:10%; margin-right:10px;"> GitHub Portfolio Setup</h3>
                         <p>We'll help you create a professional GitHub profile to showcase your coding projects to employers.</p>
                     </div>
-                    
+
                     <div class="bonus-card">
                         <h3><img src="assets/images/Packages/Benefits/programming.png" alt="" style="width:10%; margin-right:10px;"> Freelancing Toolkit</h3>
                         <p>Access our curated list of platforms and strategies to start earning as a developer while learning.</p>
                     </div>
-                    
+
                     <div class="bonus-card">
                         <h3><img src="assets/images/Packages/Benefits/diagram.png" alt="" style="width:12%; margin-right:10px;"> Real-World Project Templates</h3>
                         <p>Get starter templates for common projects companies need developers for.</p>
                     </div>
-                    
+
                     <div class="bonus-card">
                         <h3><img src="assets/images/Packages/Benefits/cloud-computing.png" alt="" style="width:13%; margin-right:10px;"> AWS Cloud Essentials</h3>
                         <p>Bonus module on cloud computing fundamentals with Amazon Web Services.</p>
                     </div>
-                    
+
                     <div class="bonus-card">
                         <h3><img src="assets/images/Packages/Benefits/online-community.png" alt="" style="width:14%; margin-right:10px;"> Tech Community Access</h3>
                         <p>Exclusive invitation to a fast-growing developer community for networking and support.</p>
                     </div>
-                    
+
                     <div class="bonus-card">
                         <h3><img src="assets/images/Packages/Benefits/app-development.png" alt="" style="width:12%; margin-right:10px;">Mobile Dev Starter Kit</h3>
                         <p>Bonus resources for getting started with mobile app development (Android/iOS).</p>
@@ -1507,16 +1512,16 @@
         <div class="enrollment-content">
             <h2>Start Your Digital Marketing Journey Today</h2>
             <p>Join hundreds of people who've transformed their careers with our practical training</p>
-            
+
             <div class="price-box">
                 $75
             </div>
-            
+
             <div class="enrollment-buttons">
                 <button class="btn-primary ripple">Enroll Now</button>
                 <button class="btn-secondary ripple">Download Syllabus</button>
             </div>
-            
+
             <p style="margin-top: 20px; font-size: 0.9rem; color: rgb(232, 0, 0);"><i class="fas fa-info-circle"></i> 32 Slots left</p>
         </div>
     </section>
@@ -1526,7 +1531,7 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <img src="assets/images/Verita_Campus_Logo_1.2.png" alt="Verita Logo">
                     <p>Professional education for career advancement and personal growth.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
@@ -1559,7 +1564,7 @@
                     <h3>Contact Us</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
-                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li style="display:none;"><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
                         <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
                     </ul>
                 </div>
@@ -1612,29 +1617,29 @@
         for (let i = 0; i < iconCount; i++) {
             const icon = document.createElement('div');
             icon.className = 'social-icon';
-            
+
             // Random position
             const leftPos = Math.random() * 100;
             icon.style.left = `${leftPos}%`;
-            
+
             // Random size
             const size = 20 + Math.random() * 30;
             icon.style.width = `${size}px`;
             icon.style.height = `${size}px`;
-            
+
             // Random icon
             const randomIcon = icons[Math.floor(Math.random() * icons.length)];
             icon.innerHTML = `<i class="fab fa-${randomIcon}"></i>`;
             icon.style.color = getIconColor(randomIcon);
-            
+
             // Random animation duration
             const duration = 10 + Math.random() * 20;
             icon.style.animationDuration = `${duration}s`;
-            
+
             // Random delay
             const delay = Math.random() * 10;
             icon.style.animationDelay = `${delay}s`;
-            
+
             floatingIcons.appendChild(icon);
         }
 
@@ -1652,12 +1657,12 @@
 
         // Accordion functionality
         const accordionHeaders = document.querySelectorAll('.accordion-header');
-        
+
         accordionHeaders.forEach(header => {
             header.addEventListener('click', () => {
                 const accordionItem = header.parentElement;
                 const accordionContent = header.nextElementSibling;
-                
+
                 // Close all other accordion items
                 document.querySelectorAll('.accordion-item').forEach(item => {
                     if (item !== accordionItem) {
@@ -1665,7 +1670,7 @@
                         item.querySelector('.accordion-content').classList.remove('show');
                     }
                 });
-                
+
                 // Toggle current item
                 header.classList.toggle('active');
                 accordionContent.classList.toggle('show');
@@ -1680,12 +1685,12 @@
 
         function goToSlide(index) {
             testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
-            
+
             // Update dots
             testimonialDots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
-            
+
             currentSlide = index;
         }
 
@@ -1700,4 +1705,5 @@
         }, 5000);
     </script>
 </body>
+
 </html>

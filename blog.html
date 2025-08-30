@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,300 +11,295 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
         /* Navigation Bar */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0px;
-    width: 110%;
-    padding: 7px 0;
-    z-index: 1000;
-    transition: var(--transition);
-}
-
-.navbar.transparent {
-    background: transparent;
-    box-shadow: none;
-}
-
-.navbar.solid {
-    background: var(--gradient);
-    box-shadow: var(--shadow);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 0 90px;
-    margin-right:-90px;
-}
-
-.nav-logo {
-    height: 60px;
-    transition: var(--transition);
-    width: 12%;
-    margin-left: -100px;
-    margin-top: -3px;
-    transform: translateX(-20%);
-    cursor: pointer;
-    margin-right: 50px;
-}
-
-.nav-links ul {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links ul li a {
-    color: var(--text-light);
-    font-weight: 600;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: var(--transition);
-    position: relative;
-}
-
-.nav-links ul li a:hover {
-    color: var(--secondary-color);
-}
-
-.nav-links ul li a .fa-chevron-down{
-    transition: 0.3s;
-}
-
-.nav-links ul li a:hover .fa-chevron-down{
-    transform: rotate(180deg);
-    transition: 0.3s;
-}
-
-.nav-links ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: var(--secondary-color);
-    transition: var(--transition);
-}
-
-.nav-links ul li a:hover::after {
-    width: 70%;
-}
-
-.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--primary-color-2);
-    min-width: 250px;
-    max-width: 450px;
-    border-radius: 5px;
-    box-shadow: var(--shadow);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: var(--transition);
-    z-index: 100;
-    width: fit-content;
-}
-
-.dropdown:hover .dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-content a {
-    color: var(--text-dark);
-    display: block;
-    padding: 10px 15px;
-    transition: var(--transition);
-}
-
-.dropdown-content a:last-child {
-    border-bottom: none;
-}
-
-.dropdown-content a:hover {
-    background: var(--dark-color);
-    color: white;
-    padding-left: 20px;
-}
-
-
-
-.dropdown-content a i {
-    margin-right: 10px;
-    width: 20px;
-    text-align: center;
-}
-
-.dropdown .fas {
-    color: var(--secondary-color);
-}
-
-.dropdown .fa-solid {
-    color: var(--secondary-color);
-}
-
-
-/* Search Container */
-
-.search-container {
-    position: relative;
-    margin-right: -20px;
-    left:70px;
-}
-
-.search-btn {
-    background: transparent;
-    color: white;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    transition: var(--transition);
-    margin-right:20px;
-}
-
-.search-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: scale(1.1);
-}
-
-.search-box {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 300px;
-    background: white;
-    border-radius: 30px;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    box-shadow: var(--shadow-md);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: var(--transition);
-    z-index: 1000;
-}
-
-.search-box.active {
-    opacity: 3;
-    visibility: visible;
-    transform: translateY(0);
-    z-index: 100;
-}
-
-.search-box input {
-    flex: 1;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 30px;
-    outline: none;
-    font-size: 0.9rem;
-}
-
-.search-submit {
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.search-submit:hover {
-    background: var(--dark-color);
-}
-
-
-/* Responsive adjustments */
-
-@media (max-width: 768px) {
-    .search-container {
-        margin-right: 10px;
-    }
-    .search-box {
-        position: fixed;
-        top: 80px;
-        left: 20px;
-        right: 20px;
-        width: auto;
-    }
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 12px;
-    transform: translateX(10%);
-    margin-right: -30px;
-}
-
-.login-btn,
-.signup-btn {
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.login-btn i {
-    color: var(--prime-color);
-}
-
-.signup-btn i {
-    color: var(--primary-color-2);
-}
-
-.login-btn {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.login-btn:hover {
-    background: var(--primary-color-2);
-    color: var(--primary-color);
-    scale: 1.05;
-}
-
-.signup-btn {
-    background: var(--secondary-color);
-    color: var(--text-dark);
-    border: 1px solid var(--secondary-color);
-}
-
-.signup-btn:hover {
-    background: var(--dark-color);
-    color: white;
-    scale: 1.05;
-    border: 1px solid var(--primary-color-2)
-}
-
-.mobile-menu-btn {
-    display: none;
-    font-size: 1.5rem;
-    color: white;
-    cursor: pointer;
-}
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0px;
+            width: 110%;
+            padding: 7px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .navbar.transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+        
+        .navbar.solid {
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 90px;
+            margin-right: -90px;
+        }
+        
+        .nav-logo {
+            height: 60px;
+            transition: var(--transition);
+            width: 12%;
+            margin-left: -100px;
+            margin-top: -3px;
+            transform: translateX(-20%);
+            cursor: pointer;
+            margin-right: 50px;
+        }
+        
+        .nav-links ul {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links ul li a {
+            color: var(--text-light);
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links ul li a .fa-chevron-down {
+            transition: 0.3s;
+        }
+        
+        .nav-links ul li a:hover .fa-chevron-down {
+            transform: rotate(180deg);
+            transition: 0.3s;
+        }
+        
+        .nav-links ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-links ul li a:hover::after {
+            width: 70%;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--primary-color-2);
+            min-width: 250px;
+            max-width: 450px;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+            width: fit-content;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            color: var(--text-dark);
+            display: block;
+            padding: 10px 15px;
+            transition: var(--transition);
+        }
+        
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-content a:hover {
+            background: var(--dark-color);
+            color: white;
+            padding-left: 20px;
+        }
+        
+        .dropdown-content a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .dropdown .fas {
+            color: var(--secondary-color);
+        }
+        
+        .dropdown .fa-solid {
+            color: var(--secondary-color);
+        }
+        /* Search Container */
+        
+        .search-container {
+            position: relative;
+            margin-right: -20px;
+            left: 70px;
+        }
+        
+        .search-btn {
+            background: transparent;
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: var(--transition);
+            margin-right: 20px;
+        }
+        
+        .search-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
+        
+        .search-box {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 300px;
+            background: white;
+            border-radius: 30px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+        
+        .search-box.active {
+            opacity: 3;
+            visibility: visible;
+            transform: translateY(0);
+            z-index: 100;
+        }
+        
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 30px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+        
+        .search-submit {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-submit:hover {
+            background: var(--dark-color);
+        }
+        /* Responsive adjustments */
+        
+        @media (max-width: 768px) {
+            .search-container {
+                margin-right: 10px;
+            }
+            .search-box {
+                position: fixed;
+                top: 80px;
+                left: 20px;
+                right: 20px;
+                width: auto;
+            }
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 12px;
+            transform: translateX(10%);
+            margin-right: -30px;
+        }
+        
+        .login-btn,
+        .signup-btn {
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .login-btn i {
+            color: var(--prime-color);
+        }
+        
+        .signup-btn i {
+            color: var(--primary-color-2);
+        }
+        
+        .login-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .login-btn:hover {
+            background: var(--primary-color-2);
+            color: var(--primary-color);
+            scale: 1.05;
+        }
+        
+        .signup-btn {
+            background: var(--secondary-color);
+            color: var(--text-dark);
+            border: 1px solid var(--secondary-color);
+        }
+        
+        .signup-btn:hover {
+            background: var(--dark-color);
+            color: white;
+            scale: 1.05;
+            border: 1px solid var(--primary-color-2)
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
         /* Additional Blog-specific Styles */
+        
         .blog-header {
             height: 60vh;
             position: relative;
@@ -314,7 +310,6 @@
             color: rgb(255, 255, 255);
             overflow: hidden;
             margin-bottom: 60px;
-            
         }
         
         .blog-header-image {
@@ -406,21 +401,22 @@
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .filter-btn:hover {
             background: rgb(241, 241, 241);
         }
-
-        .filter-btn .fa-chevron-down{
-            transition:0.3s;
+        
+        .filter-btn .fa-chevron-down {
+            transition: 0.3s;
         }
-        .filter-btn:hover .fa-chevron-down{
+        
+        .filter-btn:hover .fa-chevron-down {
             transform: rotate(180deg);
             transition: 0.3s;
             color: var(--primary-color);
         }
-
-        .filter-btn::before .fa-chevron-down.active{
+        
+        .filter-btn::before .fa-chevron-down.active {
             display: block;
             transform: rotate(180deg);
             transition: 0.3s;
@@ -583,26 +579,26 @@
             border: 1px solid var(--primary-color);
         }
         
-        .page-prev, .page-next {
+        .page-prev,
+        .page-next {
             padding: 0 20px;
             border-radius: 30px;
             transition: 0.3s;
         }
-
-
+        
         .page-prev i {
             transition: 0.4s;
         }
-
+        
         .page-prev:hover i {
             transform: translateX(-50%);
             transition: 0.4s;
         }
-
+        
         .page-next i {
             transition: 0.4s;
         }
-
+        
         .page-next:hover i {
             transform: translateX(50%);
             transition: 0.4s;
@@ -627,11 +623,13 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             padding: 20px 0;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
+            /* Firefox */
         }
         
         .impact-track::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
+            display: none;
+            /* Chrome/Safari */
         }
         
         .impact-slide {
@@ -644,65 +642,67 @@
             text-align: center;
             margin-top: 30px;
         }
-
+        
         .cta-secondary {
             background: transparent;
             color: #000000;
             border: 2px solid var(--dark-color);
             transition: 0.5s;
         }
-
+        
         .cta-secondary:hover {
             background: var(--primary-color-2);
             color: (--text-light);
             border: 2px solid var(--secondary-color);
             transition: 0.6s;
         }
-
-        .cta-secondary i{
-          opacity: 0%;
-           transition: 0.5s; 
+        
+        .cta-secondary i {
+            opacity: 0%;
+            transition: 0.5s;
         }
-
-        .cta-secondary:hover i{
+        
+        .cta-secondary:hover i {
             color: #f5f5f5;
-            transform:translateX(50%);
+            transform: translateX(50%);
             transition: 0.8s;
             opacity: 90%;
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        
         /* Responsive adjustments */
+        
         @media (max-width: 768px) {
             .blog-header-content h1 {
                 font-size: 2.5rem;
             }
-            
             .blog-header-content p {
                 font-size: 1.1rem;
             }
-            
             .blog-filters {
                 flex-direction: column;
             }
-            
             .filter-dropdown {
                 width: 100%;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar transparent">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+                    <img src="Assets/images/Verita_Campus_Dark_Logo_(vertical).png" alt="Verita Logo"></a>
             </div>
             <div class="nav-links">
                 <ul>
@@ -724,11 +724,11 @@
                             <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
                             <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
                             <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
-                            
-                            
+
+
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="#">Community <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
@@ -765,7 +765,7 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- Blog Header -->
     <section class="blog-header">
         <img src="assets/images/Blog/Blog.jpg" alt="Blog Header" class="blog-header-image">
@@ -783,7 +783,7 @@
             <i class="fas fa-search search-icon"></i>
             <div class="search-results" style="display:none;"></div>
         </div>
-        
+
         <div class="filter-dropdown">
             <button class="filter-btn">All Topics <i class="fas fa-chevron-down"></i></button>
             <div class="filter-content">
@@ -810,7 +810,7 @@
                 <a href="#">Finance</a>
             </div>
         </div>
-        
+
         <div class="filter-dropdown">
             <button class="filter-btn">All Courses <i class="fas fa-chevron-down"></i></button>
             <div class="filter-content">
@@ -827,7 +827,7 @@
                 <a href="#">Other</a>
             </div>
         </div>
-        
+
         <div class="filter-dropdown">
             <button class="filter-btn">All Dates <i class="fas fa-chevron-down"></i></button>
             <div class="filter-content">
@@ -859,7 +859,7 @@
                 <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Blog Card 2 -->
         <div class="blog-card" data-topic="Careers of the Future" data-course="Career Guidance" data-date="2024-11-10">
             <div class="blog-image">
@@ -876,7 +876,7 @@
                 <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Blog Card 3 -->
         <div class="blog-card" data-topic="Software Engineering" data-course="Software & IT" data-date="2025-04-05">
             <div class="blog-image">
@@ -893,7 +893,7 @@
                 <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Blog Card 4 -->
         <div class="blog-card" data-topic="Women in Tech" data-course="Software & IT" data-date="2025-06-28">
             <div class="blog-image">
@@ -910,7 +910,7 @@
                 <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Blog Card 5 -->
         <div class="blog-card" data-topic="Data Analytics" data-course="Data Science & Analysis" data-date="2024-06-20">
             <div class="blog-image">
@@ -927,7 +927,7 @@
                 <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Blog Card 6 -->
         <div class="blog-card" data-topic="Success Stories" data-course="Other" data-date="2025-03-15">
             <div class="blog-image">
@@ -944,7 +944,7 @@
                 <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Blog Card 7 -->
         <div class="blog-card" data-topic="Career Accelerator" data-course="Software & IT" data-date="2024-11-10">
             <div class="blog-image">
@@ -961,7 +961,7 @@
                 <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Blog Card 8 -->
         <div class="blog-card" data-topic="Webinars" data-course="Software & IT" data-date="2024-09-17">
             <div class="blog-image">
@@ -978,7 +978,7 @@
                 <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Blog Card 9 -->
         <div class="blog-card" data-topic="Careers of the Future" data-course="Other" data-date="2024-11-25">
             <div class="blog-image">
@@ -995,7 +995,7 @@
                 <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Blog Card 10 -->
         <div class="blog-card" data-topic="Careers of the Future" data-course="Other" data-date="2024-11-25">
             <div class="blog-image">
@@ -1030,7 +1030,7 @@
             <h2>Success <span>Stories</span></h2>
             <p>See how our learners are making an impact</p>
         </div>
-        
+
         <div class="impact-slider">
             <div class="impact-track">
                 <!-- Impact Slide 1 -->
@@ -1057,7 +1057,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Impact Slide 2 -->
                 <div class="impact-slide">
                     <div class="impact-card">
@@ -1082,7 +1082,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Impact Slide 3 -->
                 <div class="impact-slide">
                     <div class="impact-card">
@@ -1107,7 +1107,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Impact Slide 4 -->
                 <div class="impact-slide">
                     <div class="impact-card">
@@ -1132,7 +1132,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Impact Slide 5 -->
                 <div class="impact-slide">
                     <div class="impact-card">
@@ -1159,7 +1159,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="view-all-impact">
             <button class="cta-secondary ripple" onclick="window.location.href='impact.html'">View All Impact Stories <i class="fas fa-arrow-right"></i></button>
         </div>
@@ -1170,7 +1170,7 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <img src="assets/images/Verita_Campus_Logo_1.2.png" alt="Verita Logo">
                     <p>Professional education for career advancement and personal growth.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
@@ -1203,7 +1203,7 @@
                     <h3>Contact Us</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
-                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li style="display:none;"><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
                         <li><i class="fas fa-envelope" style="color:var(--secondary-color);"></i> veritalearning@gmail.com </li>
                         <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
                     </ul>
@@ -1229,17 +1229,16 @@
 
 
     <script>
-    
         // Blog-specific JavaScript
         document.addEventListener('DOMContentLoaded', function() {
             // Filter dropdown functionality
             const filterBtns = document.querySelectorAll('.filter-btn');
-            
+
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const content = this.nextElementSibling;
                     content.classList.toggle('active');
-                    
+
                     // Close other open dropdowns
                     document.querySelectorAll('.filter-content').forEach(item => {
                         if (item !== content && item.classList.contains('active')) {
@@ -1250,20 +1249,20 @@
             });
 
             // Navbar Scroll Effect
-        const navbar = document.querySelector('.navbar');
-        const heroSection = document.querySelector('.blog-header');
-        const heroHeight = heroSection.offsetHeight;
+            const navbar = document.querySelector('.navbar');
+            const heroSection = document.querySelector('.blog-header');
+            const heroHeight = heroSection.offsetHeight;
 
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > heroHeight * 0.8) {
-                navbar.classList.add('solid');
-                navbar.classList.remove('transparent');
-            } else {
-                navbar.classList.add('transparent');
-                navbar.classList.remove('solid');
-            }
-        });
-            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > heroHeight * 0.8) {
+                    navbar.classList.add('solid');
+                    navbar.classList.remove('transparent');
+                } else {
+                    navbar.classList.add('transparent');
+                    navbar.classList.remove('solid');
+                }
+            });
+
             // Close dropdowns when clicking outside
             document.addEventListener('click', function(e) {
                 if (!e.target.closest('.filter-dropdown')) {
@@ -1272,15 +1271,15 @@
                     });
                 }
             });
-            
+
             // Search functionality
             const searchInput = document.querySelector('.search-input');
             const searchIcon = document.querySelector('.search-icon');
-            
+
             searchIcon.addEventListener('click', function() {
                 performSearch();
             });
-            
+
             searchInput.addEventListener('keyup', function(e) {
                 if (e.key === 'Enter') {
                     performSearch();
@@ -1288,7 +1287,7 @@
                     // Live search suggestions could be implemented here
                 }
             });
-            
+
             function performSearch() {
                 const searchTerm = searchInput.value.trim();
                 if (searchTerm) {
@@ -1296,10 +1295,10 @@
                     alert('Searching for: ' + searchTerm);
                 }
             }
-            
+
             // Pagination functionality
             const pageBtns = document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)');
-            
+
             pageBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelector('.page-btn.active').classList.remove('active');
@@ -1307,29 +1306,29 @@
                     // Implement page change functionality
                 });
             });
-            
+
             // Impact slider navigation
             const impactTrack = document.querySelector('.impact-track');
             let isDown = false;
             let startX;
             let scrollLeft;
-            
+
             impactTrack.addEventListener('mousedown', (e) => {
                 isDown = true;
                 startX = e.pageX - impactTrack.offsetLeft;
                 scrollLeft = impactTrack.scrollLeft;
             });
-            
+
             impactTrack.addEventListener('mouseleave', () => {
                 isDown = false;
             });
-            
+
             impactTrack.addEventListener('mouseup', () => {
                 isDown = false;
             });
-            
+
             impactTrack.addEventListener('mousemove', (e) => {
-                if(!isDown) return;
+                if (!isDown) return;
                 e.preventDefault();
                 const x = e.pageX - impactTrack.offsetLeft;
                 const walk = (x - startX) * 2;
@@ -1338,175 +1337,177 @@
         });
 
         // Enable search and filter inputs on blog.html
-// Clean, direct, functional
+        // Clean, direct, functional
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Enable blog search input filtering
-    const blogSearchInput = document.querySelector('.blog-filters .search-input');
-    const blogCards = document.querySelectorAll('.blog-card');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enable blog search input filtering
+            const blogSearchInput = document.querySelector('.blog-filters .search-input');
+            const blogCards = document.querySelectorAll('.blog-card');
 
-    blogSearchInput.addEventListener('input', function () {
-        const term = this.value.trim().toLowerCase();
-        blogCards.forEach(card => {
-            const title = card.querySelector('h3').innerText.toLowerCase();
-            const topic = card.querySelector('.blog-topic').innerText.toLowerCase();
-            const description = card.querySelector('p').innerText.toLowerCase();
-            if (title.includes(term) || topic.includes(term) || description.includes(term)) {
-                card.style.display = '';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
-    const blogCards = document.querySelectorAll('.blog-card');
-    const filterDropdowns = document.querySelectorAll('.filter-dropdown');
-
-    filterDropdowns.forEach(dropdown => {
-        const btn = dropdown.querySelector('.filter-btn');
-        const content = dropdown.querySelector('.filter-content');
-        const links = content.querySelectorAll('a');
-
-        btn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            content.classList.toggle('active');
-        });
-
-        links.forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const filter = this.innerText.trim().toLowerCase();
-                btn.innerHTML = this.innerText + ' <i class="fas fa-chevron-down"></i>';
-                content.classList.remove('active');
-
+            blogSearchInput.addEventListener('input', function() {
+                const term = this.value.trim().toLowerCase();
                 blogCards.forEach(card => {
-                    const topic = card.dataset.topic.toLowerCase();
-                    const course = card.dataset.course.toLowerCase();
-                    const date = card.dataset.date.toLowerCase();
-
-                    const filterType = btn.innerText.toLowerCase();
-
-                    if (filter === 'all topics' || filter === 'all courses' || filter === 'all dates') {
-                        card.style.display = '';
-                    } else if (filterType.includes('topic') && topic.includes(filter)) {
-                        card.style.display = '';
-                    } else if (filterType.includes('course') && course.includes(filter)) {
-                        card.style.display = '';
-                    } else if (filterType.includes('date') && date.includes(filter)) {
+                    const title = card.querySelector('h3').innerText.toLowerCase();
+                    const topic = card.querySelector('.blog-topic').innerText.toLowerCase();
+                    const description = card.querySelector('p').innerText.toLowerCase();
+                    if (title.includes(term) || topic.includes(term) || description.includes(term)) {
                         card.style.display = '';
                     } else {
                         card.style.display = 'none';
                     }
                 });
             });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const blogCards = document.querySelectorAll('.blog-card');
+                const filterDropdowns = document.querySelectorAll('.filter-dropdown');
+
+                filterDropdowns.forEach(dropdown => {
+                    const btn = dropdown.querySelector('.filter-btn');
+                    const content = dropdown.querySelector('.filter-content');
+                    const links = content.querySelectorAll('a');
+
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        content.classList.toggle('active');
+                    });
+
+                    links.forEach(link => {
+                        link.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const filter = this.innerText.trim().toLowerCase();
+                            btn.innerHTML = this.innerText + ' <i class="fas fa-chevron-down"></i>';
+                            content.classList.remove('active');
+
+                            blogCards.forEach(card => {
+                                const topic = card.dataset.topic.toLowerCase();
+                                const course = card.dataset.course.toLowerCase();
+                                const date = card.dataset.date.toLowerCase();
+
+                                const filterType = btn.innerText.toLowerCase();
+
+                                if (filter === 'all topics' || filter === 'all courses' || filter === 'all dates') {
+                                    card.style.display = '';
+                                } else if (filterType.includes('topic') && topic.includes(filter)) {
+                                    card.style.display = '';
+                                } else if (filterType.includes('course') && course.includes(filter)) {
+                                    card.style.display = '';
+                                } else if (filterType.includes('date') && date.includes(filter)) {
+                                    card.style.display = '';
+                                } else {
+                                    card.style.display = 'none';
+                                }
+                            });
+                        });
+                    });
+                });
+
+                document.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-content.active').forEach(activeContent => {
+                        activeContent.classList.remove('active');
+                    });
+                });
+            });
+
         });
-    });
-
-    document.addEventListener('click', function () {
-        document.querySelectorAll('.filter-content.active').forEach(activeContent => {
-            activeContent.classList.remove('active');
-        });
-    });
-});
-
-    });
-
     </script>
     <script>
         // Pagination functionality
-function setupPagination(cardSelector, itemsPerPage = 9) {
-    const cards = document.querySelectorAll(cardSelector);
-    const totalItems = cards.length;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
-    const paginationContainer = document.querySelector('.pagination');
-    
-    // Hide all cards initially
-    cards.forEach(card => card.style.display = 'none');
-    
-    // If only one page, hide pagination except active page 1
-    if (totalPages <= 1) {
-        const pageBtns = document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)');
-        pageBtns.forEach((btn, index) => {
-            if (index > 0) btn.style.display = 'none';
-        });
-        showPage(1, cardSelector, itemsPerPage);
-        return;
-    }
-    
-    // Show first page by default
-    showPage(1, cardSelector, itemsPerPage);
-    
-    // Handle page button clicks
-    document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const pageNum = parseInt(this.textContent);
-            document.querySelector('.page-btn.active').classList.remove('active');
-            this.classList.add('active');
-            showPage(pageNum, cardSelector, itemsPerPage);
-        });
-    });
-    
-    // Previous button
-    document.querySelector('.page-prev').addEventListener('click', function() {
-        const activeBtn = document.querySelector('.page-btn.active');
-        const prevBtn = activeBtn.previousElementSibling;
-        
-        if (prevBtn && prevBtn.classList.contains('page-btn') && !prevBtn.classList.contains('page-prev')) {
-            activeBtn.classList.remove('active');
-            prevBtn.classList.add('active');
-            showPage(parseInt(prevBtn.textContent), cardSelector, itemsPerPage);
-        }
-    });
-    
-    // Next button
-    document.querySelector('.page-next').addEventListener('click', function() {
-        const activeBtn = document.querySelector('.page-btn.active');
-        const nextBtn = activeBtn.nextElementSibling;
-        
-        if (nextBtn && nextBtn.classList.contains('page-btn') && !nextBtn.classList.contains('page-next')) {
-            activeBtn.classList.remove('active');
-            nextBtn.classList.add('active');
-            showPage(parseInt(nextBtn.textContent), cardSelector, itemsPerPage);
-        }
-    });
-}
+        function setupPagination(cardSelector, itemsPerPage = 9) {
+            const cards = document.querySelectorAll(cardSelector);
+            const totalItems = cards.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const paginationContainer = document.querySelector('.pagination');
 
-function showPage(pageNum, cardSelector, itemsPerPage) {
-    const cards = document.querySelectorAll(cardSelector);
-    const startIndex = (pageNum - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    
-    // Hide all cards
-    cards.forEach(card => card.style.display = 'none');
-    
-    // Show cards for current page
-    for (let i = startIndex; i < endIndex && i < cards.length; i++) {
-        cards[i].style.display = '';
-    }
-    
-    // Scroll to top of grid
-    document.querySelector(cardSelector).parentElement.scrollIntoView({ behavior: 'smooth' });
-}
+            // Hide all cards initially
+            cards.forEach(card => card.style.display = 'none');
 
-// Initialize pagination when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // For impact.html
-    if (document.querySelector('.impact-grid')) {
-        setupPagination('.impact-card');
-    }
-    
-    // For blog.html
-    if (document.querySelector('.blog-grid')) {
-        setupPagination('.blog-card', 9);
-    }
-    
-    // For testimony.html
-    if (document.querySelector('.testimony-grid')) {
-        setupPagination('.testimony-card', 9);
-    }
-});
+            // If only one page, hide pagination except active page 1
+            if (totalPages <= 1) {
+                const pageBtns = document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)');
+                pageBtns.forEach((btn, index) => {
+                    if (index > 0) btn.style.display = 'none';
+                });
+                showPage(1, cardSelector, itemsPerPage);
+                return;
+            }
+
+            // Show first page by default
+            showPage(1, cardSelector, itemsPerPage);
+
+            // Handle page button clicks
+            document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const pageNum = parseInt(this.textContent);
+                    document.querySelector('.page-btn.active').classList.remove('active');
+                    this.classList.add('active');
+                    showPage(pageNum, cardSelector, itemsPerPage);
+                });
+            });
+
+            // Previous button
+            document.querySelector('.page-prev').addEventListener('click', function() {
+                const activeBtn = document.querySelector('.page-btn.active');
+                const prevBtn = activeBtn.previousElementSibling;
+
+                if (prevBtn && prevBtn.classList.contains('page-btn') && !prevBtn.classList.contains('page-prev')) {
+                    activeBtn.classList.remove('active');
+                    prevBtn.classList.add('active');
+                    showPage(parseInt(prevBtn.textContent), cardSelector, itemsPerPage);
+                }
+            });
+
+            // Next button
+            document.querySelector('.page-next').addEventListener('click', function() {
+                const activeBtn = document.querySelector('.page-btn.active');
+                const nextBtn = activeBtn.nextElementSibling;
+
+                if (nextBtn && nextBtn.classList.contains('page-btn') && !nextBtn.classList.contains('page-next')) {
+                    activeBtn.classList.remove('active');
+                    nextBtn.classList.add('active');
+                    showPage(parseInt(nextBtn.textContent), cardSelector, itemsPerPage);
+                }
+            });
+        }
+
+        function showPage(pageNum, cardSelector, itemsPerPage) {
+            const cards = document.querySelectorAll(cardSelector);
+            const startIndex = (pageNum - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            // Hide all cards
+            cards.forEach(card => card.style.display = 'none');
+
+            // Show cards for current page
+            for (let i = startIndex; i < endIndex && i < cards.length; i++) {
+                cards[i].style.display = '';
+            }
+
+            // Scroll to top of grid
+            document.querySelector(cardSelector).parentElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize pagination when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // For impact.html
+            if (document.querySelector('.impact-grid')) {
+                setupPagination('.impact-card');
+            }
+
+            // For blog.html
+            if (document.querySelector('.blog-grid')) {
+                setupPagination('.blog-card', 9);
+            }
+
+            // For testimony.html
+            if (document.querySelector('.testimony-grid')) {
+                setupPagination('.testimony-card', 9);
+            }
+        });
     </script>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>

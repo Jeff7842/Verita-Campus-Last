@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
         /* Impact Page Header */
+        
         .impact-header {
             height: 60vh;
             position: relative;
@@ -59,8 +61,8 @@
             margin-bottom: 30px;
             text-shadow: var(--text-shadow-md);
         }
-        
         /* Impact Search and Filters */
+        
         .impact-filters {
             display: flex;
             flex-wrap: wrap;
@@ -142,8 +144,8 @@
             background: #f5f5f5;
             color: var(--primary-color);
         }
-        
         /* Impact Grid */
+        
         .impact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -265,8 +267,8 @@
             margin-bottom: 20px;
             line-height: 1.6;
         }
-        
         /* Pagination */
+        
         .pagination {
             display: flex;
             justify-content: center;
@@ -300,66 +302,68 @@
             border: 1px solid var(--primary-color);
         }
         
-        .page-prev, .page-next {
+        .page-prev,
+        .page-next {
             padding: 0 20px;
             border-radius: 30px;
             transition: 0.3s;
         }
-
+        
         .page-prev i {
             transition: 0.4s;
         }
-
+        
         .page-prev:hover i {
             transform: translateX(-50%);
             transition: 0.4s;
         }
-
+        
         .page-next i {
             transition: 0.4s;
         }
-
+        
         .page-next:hover i {
             transform: translateX(50%);
             transition: 0.4s;
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        
         /* Responsive adjustments */
+        
         @media (max-width: 768px) {
             .impact-header-content h1 {
                 font-size: 2.5rem;
             }
-            
             .impact-header-content p {
                 font-size: 1.1rem;
             }
-            
             .impact-filters {
                 flex-direction: column;
             }
-            
             .impact-filter-dropdown {
                 width: 100%;
             }
-            
             .impact-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar transparent">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+                    <img src="Assets/images/Verita_Campus_Dark_Logo_(vertical).png" alt="Verita Logo"></a>
             </div>
             <div class="nav-links">
                 <ul>
@@ -381,11 +385,11 @@
                             <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
                             <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
                             <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
-                            
-                            
+
+
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="#">Community <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
@@ -422,7 +426,7 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- Impact Header -->
     <section class="impact-header">
         <img src="assets/images/Packages/Bussines3.jpg" alt="Impact Stories" class="impact-header-image">
@@ -440,7 +444,7 @@
             <i class="fas fa-search impact-search-icon"></i>
             <div class="search-results" style="display:none;"></div>
         </div>
-        
+
         <div class="impact-filter-dropdown">
             <button class="impact-filter-btn">All Courses <i class="fas fa-chevron-down"></i></button>
             <div class="impact-filter-content">
@@ -454,7 +458,7 @@
                 <a href="#">Salesforce Administrator</a>
             </div>
         </div>
-        
+
         <div class="impact-filter-dropdown">
             <button class="impact-filter-btn">All Countries <i class="fas fa-chevron-down"></i></button>
             <div class="impact-filter-content">
@@ -470,7 +474,7 @@
                 <a href="#">Somalia</a>
             </div>
         </div>
-        
+
         <div class="impact-filter-dropdown">
             <button class="impact-filter-btn">All Dates <i class="fas fa-chevron-down"></i></button>
             <div class="impact-filter-content">
@@ -508,7 +512,7 @@
                 <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Impact Card 2 -->
         <div class="impact-card">
             <div class="impact-image">
@@ -531,8 +535,8 @@
                 <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
-         <!-- Impact Card 3 -->
+
+        <!-- Impact Card 3 -->
         <div class="impact-card">
             <div class="impact-image">
                 <img src="assets/images/impact/student7.jpg" alt="Fatuma Hassan">
@@ -601,9 +605,9 @@
                 <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-    
-       
-       <!-- Impact Card 6 -->
+
+
+        <!-- Impact Card 6 -->
         <div class="impact-card">
             <div class="impact-image">
                 <img src="assets/images/impact/student5.jpg" alt="Grace Akinyi">
@@ -625,7 +629,7 @@
                 <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Impact Card 7 -->
         <div class="impact-card">
             <div class="impact-image">
@@ -648,7 +652,7 @@
                 <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Impact Card 8 -->
         <div class="impact-card">
             <div class="impact-image">
@@ -671,7 +675,7 @@
                 <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Impact Card 9 -->
         <div class="impact-card">
             <div class="impact-image">
@@ -694,7 +698,7 @@
                 <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Impact Card 10 -->
         <div class="impact-card">
             <div class="impact-image">
@@ -717,7 +721,7 @@
                 <a href="#" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
-        
+
         <!-- Impact Card 11 -->
         <div class="impact-card">
             <div class="impact-image">
@@ -804,7 +808,7 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <img src="assets/images/Verita_Campus_Logo_1.2.png" alt="Verita Logo">
                     <p>Professional education for career advancement and personal growth.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
@@ -837,7 +841,7 @@
                     <h3>Contact Us</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
-                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li style="display:none;"><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
                         <li><i class="fas fa-envelope" style="color:var(--secondary-color);"></i> veritalearning@gmail.com </li>
                         <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
                     </ul>
@@ -866,12 +870,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Filter dropdown functionality
             const impactFilterBtns = document.querySelectorAll('.impact-filter-btn');
-            
+
             impactFilterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const content = this.nextElementSibling;
                     content.classList.toggle('active');
-                    
+
                     // Close other open dropdowns
                     document.querySelectorAll('.impact-filter-content').forEach(item => {
                         if (item !== content && item.classList.contains('active')) {
@@ -881,21 +885,21 @@
                 });
             });
 
-             // Navbar Scroll Effect
-        const navbar = document.querySelector('.navbar');
-        const heroSection = document.querySelector('.impact-header');
-        const heroHeight = heroSection.offsetHeight;
+            // Navbar Scroll Effect
+            const navbar = document.querySelector('.navbar');
+            const heroSection = document.querySelector('.impact-header');
+            const heroHeight = heroSection.offsetHeight;
 
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > heroHeight * 0.8) {
-                navbar.classList.add('solid');
-                navbar.classList.remove('transparent');
-            } else {
-                navbar.classList.add('transparent');
-                navbar.classList.remove('solid');
-            }
-        });
-            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > heroHeight * 0.8) {
+                    navbar.classList.add('solid');
+                    navbar.classList.remove('transparent');
+                } else {
+                    navbar.classList.add('transparent');
+                    navbar.classList.remove('solid');
+                }
+            });
+
             // Close dropdowns when clicking outside
             document.addEventListener('click', function(e) {
                 if (!e.target.closest('.impact-filter-dropdown')) {
@@ -904,15 +908,15 @@
                     });
                 }
             });
-            
+
             // Search functionality
             const impactSearchInput = document.querySelector('.impact-search-input');
             const impactSearchIcon = document.querySelector('.impact-search-icon');
-            
+
             impactSearchIcon.addEventListener('click', function() {
                 performImpactSearch();
             });
-            
+
             impactSearchInput.addEventListener('keyup', function(e) {
                 if (e.key === 'Enter') {
                     performImpactSearch();
@@ -920,7 +924,7 @@
                     // Live search suggestions could be implemented here
                 }
             });
-            
+
             function performImpactSearch() {
                 const searchTerm = impactSearchInput.value.trim();
                 if (searchTerm) {
@@ -928,10 +932,10 @@
                     alert('Searching impact stories for: ' + searchTerm);
                 }
             }
-            
+
             // Pagination functionality
             const impactPageBtns = document.querySelectorAll('.impact-page-btn:not(.impact-page-prev):not(.impact-page-next)');
-            
+
             impactPageBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelector('.impact-page-btn.active').classList.remove('active');
@@ -939,22 +943,22 @@
                     // Implement page change functionality
                 });
             });
-            
+
             // Previous/Next buttons
             document.querySelector('.impact-page-prev').addEventListener('click', function() {
                 const activeBtn = document.querySelector('.impact-page-btn.active');
                 const prevBtn = activeBtn.previousElementSibling;
-                
+
                 if (prevBtn && prevBtn.classList.contains('impact-page-btn') && !prevBtn.classList.contains('impact-page-prev')) {
                     activeBtn.classList.remove('active');
                     prevBtn.classList.add('active');
                 }
             });
-            
+
             document.querySelector('.impact-page-next').addEventListener('click', function() {
                 const activeBtn = document.querySelector('.impact-page-btn.active');
                 const nextBtn = activeBtn.nextElementSibling;
-                
+
                 if (nextBtn && nextBtn.classList.contains('impact-page-btn') && !nextBtn.classList.contains('impact-page-next')) {
                     activeBtn.classList.remove('active');
                     nextBtn.classList.add('active');
@@ -964,138 +968,141 @@
     </script>
     <script>
         // Pagination functionality
-function setupPagination(cardSelector, itemsPerPage = 9) {
-    const cards = document.querySelectorAll(cardSelector);
-    const totalItems = cards.length;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
-    const paginationContainer = document.querySelector('.pagination');
-    
-    // Hide all cards initially
-    cards.forEach(card => card.style.display = 'none');
-    
-    // If only one page, hide pagination except active page 1
-    if (totalPages <= 1) {
-        const pageBtns = document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)');
-        pageBtns.forEach((btn, index) => {
-            if (index > 0) btn.style.display = 'none';
-        });
-        showPage(1, cardSelector, itemsPerPage);
-        return;
-    }
-    
-    // Show first page by default
-    showPage(1, cardSelector, itemsPerPage);
-    
-    // Handle page button clicks
-    document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const pageNum = parseInt(this.textContent);
-            document.querySelector('.page-btn.active').classList.remove('active');
-            this.classList.add('active');
-            showPage(pageNum, cardSelector, itemsPerPage);
-        });
-    });
-    
-    // Previous button
-    document.querySelector('.page-prev').addEventListener('click', function() {
-        const activeBtn = document.querySelector('.page-btn.active');
-        const prevBtn = activeBtn.previousElementSibling;
-        
-        if (prevBtn && prevBtn.classList.contains('page-btn') && !prevBtn.classList.contains('page-prev')) {
-            activeBtn.classList.remove('active');
-            prevBtn.classList.add('active');
-            showPage(parseInt(prevBtn.textContent), cardSelector, itemsPerPage);
-        }
-    });
-    
-    // Next button
-    document.querySelector('.page-next').addEventListener('click', function() {
-        const activeBtn = document.querySelector('.page-btn.active');
-        const nextBtn = activeBtn.nextElementSibling;
-        
-        if (nextBtn && nextBtn.classList.contains('page-btn') && !nextBtn.classList.contains('page-next')) {
-            activeBtn.classList.remove('active');
-            nextBtn.classList.add('active');
-            showPage(parseInt(nextBtn.textContent), cardSelector, itemsPerPage);
-        }
-    });
-}
+        function setupPagination(cardSelector, itemsPerPage = 9) {
+            const cards = document.querySelectorAll(cardSelector);
+            const totalItems = cards.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const paginationContainer = document.querySelector('.pagination');
 
-function showPage(pageNum, cardSelector, itemsPerPage) {
-    const cards = document.querySelectorAll(cardSelector);
-    const startIndex = (pageNum - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    
-    // Hide all cards
-    cards.forEach(card => card.style.display = 'none');
-    
-    // Show cards for current page
-    for (let i = startIndex; i < endIndex && i < cards.length; i++) {
-        cards[i].style.display = '';
-    }
-    
-    // Scroll to top of grid
-    document.querySelector(cardSelector).parentElement.scrollIntoView({ behavior: 'smooth' });
-}
+            // Hide all cards initially
+            cards.forEach(card => card.style.display = 'none');
 
-// Initialize pagination when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // For impact.html
-    if (document.querySelector('.impact-grid')) {
-        setupPagination('.impact-card');
-    }
-});
+            // If only one page, hide pagination except active page 1
+            if (totalPages <= 1) {
+                const pageBtns = document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)');
+                pageBtns.forEach((btn, index) => {
+                    if (index > 0) btn.style.display = 'none';
+                });
+                showPage(1, cardSelector, itemsPerPage);
+                return;
+            }
+
+            // Show first page by default
+            showPage(1, cardSelector, itemsPerPage);
+
+            // Handle page button clicks
+            document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const pageNum = parseInt(this.textContent);
+                    document.querySelector('.page-btn.active').classList.remove('active');
+                    this.classList.add('active');
+                    showPage(pageNum, cardSelector, itemsPerPage);
+                });
+            });
+
+            // Previous button
+            document.querySelector('.page-prev').addEventListener('click', function() {
+                const activeBtn = document.querySelector('.page-btn.active');
+                const prevBtn = activeBtn.previousElementSibling;
+
+                if (prevBtn && prevBtn.classList.contains('page-btn') && !prevBtn.classList.contains('page-prev')) {
+                    activeBtn.classList.remove('active');
+                    prevBtn.classList.add('active');
+                    showPage(parseInt(prevBtn.textContent), cardSelector, itemsPerPage);
+                }
+            });
+
+            // Next button
+            document.querySelector('.page-next').addEventListener('click', function() {
+                const activeBtn = document.querySelector('.page-btn.active');
+                const nextBtn = activeBtn.nextElementSibling;
+
+                if (nextBtn && nextBtn.classList.contains('page-btn') && !nextBtn.classList.contains('page-next')) {
+                    activeBtn.classList.remove('active');
+                    nextBtn.classList.add('active');
+                    showPage(parseInt(nextBtn.textContent), cardSelector, itemsPerPage);
+                }
+            });
+        }
+
+        function showPage(pageNum, cardSelector, itemsPerPage) {
+            const cards = document.querySelectorAll(cardSelector);
+            const startIndex = (pageNum - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            // Hide all cards
+            cards.forEach(card => card.style.display = 'none');
+
+            // Show cards for current page
+            for (let i = startIndex; i < endIndex && i < cards.length; i++) {
+                cards[i].style.display = '';
+            }
+
+            // Scroll to top of grid
+            document.querySelector(cardSelector).parentElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize pagination when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // For impact.html
+            if (document.querySelector('.impact-grid')) {
+                setupPagination('.impact-card');
+            }
+        });
     </script>
     <script>
         // Live search functionality
-function setupLiveSearch(inputSelector, cardSelector) {
-    const searchInput = document.querySelector(inputSelector);
-    const cards = document.querySelectorAll(cardSelector);
-    
-    searchInput.addEventListener('input', function() {
-        const term = this.value.trim().toLowerCase();
-        
-        cards.forEach(card => {
-            let searchText = '';
-            
-            // For impact cards
-            if (card.classList.contains('impact-card')) {
-                searchText = card.querySelector('h3').innerText.toLowerCase() + ' ' + 
+        function setupLiveSearch(inputSelector, cardSelector) {
+            const searchInput = document.querySelector(inputSelector);
+            const cards = document.querySelectorAll(cardSelector);
+
+            searchInput.addEventListener('input', function() {
+                const term = this.value.trim().toLowerCase();
+
+                cards.forEach(card => {
+                    let searchText = '';
+
+                    // For impact cards
+                    if (card.classList.contains('impact-card')) {
+                        searchText = card.querySelector('h3').innerText.toLowerCase() + ' ' +
                             card.querySelector('p').innerText.toLowerCase();
-            }
-            // For blog cards
-            else if (card.classList.contains('blog-card')) {
-                searchText = card.querySelector('h3').innerText.toLowerCase() + ' ' + 
+                    }
+                    // For blog cards
+                    else if (card.classList.contains('blog-card')) {
+                        searchText = card.querySelector('h3').innerText.toLowerCase() + ' ' +
                             card.querySelector('p').innerText.toLowerCase() + ' ' +
                             card.querySelector('.blog-topic').innerText.toLowerCase();
-            }
-            // For testimony cards
-            else if (card.classList.contains('testimony-card')) {
-                searchText = card.querySelector('h3').innerText.toLowerCase() + ' ' + 
+                    }
+                    // For testimony cards
+                    else if (card.classList.contains('testimony-card')) {
+                        searchText = card.querySelector('h3').innerText.toLowerCase() + ' ' +
                             card.querySelector('p').innerText.toLowerCase() + ' ' +
                             card.querySelector('.testimony-course').innerText.toLowerCase() + ' ' +
                             card.querySelector('.author-info h4').innerText.toLowerCase();
-            }
-            
-            if (searchText.includes(term)) {
-                card.style.display = '';
-            } else {
-                card.style.display = 'none';
+                    }
+
+                    if (searchText.includes(term)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Reset pagination after search
+                setupPagination(cardSelector, 9);
+            });
+        }
+
+        // Initialize live search when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // For impact.html
+            if (document.querySelector('.impact-search-input')) {
+                setupLiveSearch('.impact-search-input', '.impact-card');
             }
         });
-        
-        // Reset pagination after search
-        setupPagination(cardSelector, 9);
-    });
-}
-
-// Initialize live search when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // For impact.html
-    if (document.querySelector('.impact-search-input')) {
-        setupLiveSearch('.impact-search-input', '.impact-card');
-    }
-});
     </script>
 </body>
+
 </html>

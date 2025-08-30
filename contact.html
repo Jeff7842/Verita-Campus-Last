@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,37 +9,38 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
-    .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 4px 0;
-    z-index: 1000;
-    transition: var(--transition);
-}
-
-    .navbar.transparent {
-    background: transparent;
-    box-shadow: none;
-}
-
-.navbar.solid {
-    background: var(--gradient);
-    box-shadow: var(--shadow);
-}
-
-.nav-logo {
-    height: 60px;
-    transition: var(--transition);
-    width: 14%;
-    margin-left: -100px;
-    margin-top: 0px;
-    margin-bottom: -5px;
-    transform: translateX(-20%);
-    cursor: pointer;
-}
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 4px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .navbar.transparent {
+            background: transparent;
+            box-shadow: none;
+        }
+        
+        .navbar.solid {
+            background: var(--gradient);
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-logo {
+            height: 60px;
+            transition: var(--transition);
+            width: 14%;
+            margin-left: -100px;
+            margin-top: 0px;
+            margin-bottom: -5px;
+            transform: translateX(-20%);
+            cursor: pointer;
+        }
         /* Contact Page Styles */
+        
         .contact-hero {
             height: 70vh;
             min-height: 400px;
@@ -84,7 +86,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            max-width:1200px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -93,15 +95,13 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
-            margin-top:90px;
-            
+            margin-top: 90px;
         }
         
         .info-card {
             display: flex;
             align-items: flex-start;
             gap: 20px;
-            
         }
         
         .info-icon {
@@ -123,7 +123,8 @@
             color: var(--dark-color);
         }
         
-        .info-content p, .info-content a {
+        .info-content p,
+        .info-content a {
             color: #666;
             font-size: 1rem;
             line-height: 1.6;
@@ -139,21 +140,20 @@
             padding: 0px 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
             margin-top: -5px;
-            width:570px;
-            
+            width: 570px;
         }
         
         .form-group {
             margin-bottom: 20px;
             padding: 0px 15px;
         }
-
-        .form-name{
-            display:grid;
+        
+        .form-name {
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap:10px;
-            max-width:1000px;
-            margin:0 auto;
+            gap: 10px;
+            max-width: 1000px;
+            margin: 0 auto;
             padding: 0px -40px;
         }
         
@@ -162,7 +162,7 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: #444;
-            padding:0px 10px;
+            padding: 0px 10px;
         }
         
         .form-group input,
@@ -213,21 +213,21 @@
             background: #f9f9f9;
             align-items: flex-start;
         }
-
-        .faq-grid{
-            display:grid;
+        
+        .faq-grid {
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-            gap:10px;
-            max-width:1300px;
-            margin:0 auto;
+            gap: 10px;
+            max-width: 1300px;
+            margin: 0 auto;
             padding: 0px -40px;
         }
+        
         .fa-co {
-   
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
         
         .faq-container {
             max-width: 1400px;
@@ -238,8 +238,7 @@
         .faq-item {
             margin-bottom: 15px;
             border-radius: 8px;
-            overflow:hidden;
-           
+            overflow: hidden;
         }
         
         .faq-question {
@@ -268,7 +267,7 @@
         .faq-answer {
             padding: 0 20px;
             max-height: 0;
-            overflow:hidden;
+            overflow: hidden;
             background: white;
             transition: all 0.5s ease;
         }
@@ -287,7 +286,6 @@
         
         .faq-item.active .faq-question i {
             transform: rotate(180deg);
-
         }
         
         .faq-item.active .faq-answer {
@@ -298,30 +296,30 @@
             .contact-hero h1 {
                 font-size: 2.5rem;
             }
-            
             .contact-form {
                 padding: 30px 20px;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Preloader -->
     <div class="preloader">
         <div class="loader">
             <div class="loader-logo">
-                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+                <img src="Assets/images/Verita_Logo_Symbol.png" alt="Verita Logo">
             </div>
             <div class="loader-text">EXPAND YOUR HORIZONS</div>
         </div>
     </div>
 
-     <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar transparent">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+                    <img src="Assets/images/Verita_Campus_Dark_Logo_(vertical).png" alt="Verita Logo"></a>
             </div>
             <div class="nav-links">
                 <ul>
@@ -342,11 +340,11 @@
                             <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
                             <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
                             <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
-                            
-                            
+
+
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="#">Community <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
@@ -415,7 +413,7 @@
                         <a href="mailto:admissions@veritacampus.com">admissions@veritacampus.com </a>
                     </div>
                 </div>
-                
+
                 <div class="info-card">
                     <div class="info-icon">
                         <i class="fas fa-comments"></i>
@@ -426,16 +424,16 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="contact-form">
                 <h2 style="font-size: 1.8rem; margin-bottom: 20px; margin-top: 30px; color: var(--dark-color); text-align:center;">Send Us a Message</h2>
                 <form>
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                      <diV class="form-name">
-                        <input type="text" id="name" name="name" placeholder="First Name" required>
-                        <input type="text" id="name" name="name" placeholder="Surname" required>
-                      </diV>
+                        <diV class="form-name">
+                            <input type="text" id="name" name="name" placeholder="First Name" required>
+                            <input type="text" id="name" name="name" placeholder="Surname" required>
+                        </diV>
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
@@ -463,78 +461,80 @@
 
     <!-- FAQ Section -->
     <section class="faq-section" id="faq">
-        
+
         <div class="fa-co">
             <div class="section-header">
                 <h2>Frequently Asked <span>Questions</span></h2>
                 <p>Find answers to common questions about Verita Campus</p>
             </div>
-            
+
             <div class="faq-container">
                 <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Do I need high school grades or a university degree to enroll for the courses?
-                        <i class="fas fa-chevron-down"></i>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Do I need high school grades or a university degree to enroll for the courses?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>NO, you don't need high school papers or a degree to study the courses in Verita Campus. All you need is to be willing to grow as you learn the skills of the profession you choose.</p>
+                        </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>NO, you don't need high school papers or a degree to study the courses in Verita Campus. All you need is to be willing to grow as you learn the skills of the profession you choose.</p>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Is Verita Campus good for me as an entrepreneur?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>YES, this is the perfect fit for you. Our learning sessions not only focus on career, but also emphasizes on entrepreneurship. We help learners grow by exposing them to Professionals and skills that equip them to be better
+                                at entrepreneurship.</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Is Verita Campus good for me as an entrepreneur?
-                        <i class="fas fa-chevron-down"></i>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I get a job with the certificates from Verita Campus?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SURE, you can get a job using the certificates acquired, alongside meeting the recruiters' requirements. Our qualifications are internationally accredited, having high value standard worldwide.</p>
+                        </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>YES, this is the perfect fit for you. Our learning sessions not only focus on career, but also emphasizes on entrepreneurship. We help learners grow by exposing them to Professionals and skills that equip them to be better at entrepreneurship.</p>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What exactly is Verita Avenue?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Verita Avenue is an extensive coursework that takes 6 months of completion once a learner has enrolled. It equips learners with deep and intensive mastery of skills in the course that they enroll in. These are not only classes,
+                                but opportunities for learners to gain global connections with seasoned professionals.</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Can I get a job with the certificates from Verita Campus?
-                        <i class="fas fa-chevron-down"></i>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Do I have to pay to become a Verita Alumni?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>NO, we do not charge money to add learners in the Verita Alumni Community. Once you have graduated from the coursework, you are eligible to become a Verita alumnus.</p>
+                        </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>SURE, you can get a job using the certificates acquired, alongside meeting the recruiters' requirements. Our qualifications are internationally accredited, having high value standard worldwide.</p>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Is there an age limit for studying in Verita?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>NO. There is no age restriction for enrolling for our courses. Anyone with an interest to learn and grow is accepted to study the courses.</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        What exactly is Verita Avenue?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Verita Avenue is an extensive coursework that takes 6 months of completion once a learner has enrolled. It equips learners with deep and intensive mastery of skills in the course that they enroll in. These are not only classes, but opportunities for learners to gain global connections with seasoned professionals.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Do I have to pay to become a Verita Alumni?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>NO, we do not charge money to add learners in the Verita Alumni Community. Once you have graduated from the coursework, you are eligible to become a Verita alumnus.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Is there an age limit for studying in Verita?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>NO. There is no age restriction for enrolling for our courses. Anyone with an interest to learn and grow is accepted to study the courses.</p>
-                    </div>
-                </div>
                 </div>
             </div>
         </div>
-        
+
     </section>
 
     <!-- Footer -->
@@ -542,7 +542,7 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <img src="assets/images/Verita_Campus_Logo_1.2.png" alt="Verita Logo">
                     <p>Professional education for career advancement and personal growth.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -595,27 +595,27 @@
 
     <script src="assets/js/main.js"></script>
     <script>
-            // Navbar Scroll Effect
-    const navbar = document.querySelector('.navbar');
-    const heroSection = document.querySelector('.contact-hero');
-    const heroHeight = heroSection.offsetHeight;
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        const heroSection = document.querySelector('.contact-hero');
+        const heroHeight = heroSection.offsetHeight;
 
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > heroHeight * 0.8) {
-            navbar.classList.add('solid');
-            navbar.classList.remove('transparent');
-        } else {
-            navbar.classList.add('transparent');
-            navbar.classList.remove('solid');
-        }
-    });
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > heroHeight * 0.8) {
+                navbar.classList.add('solid');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('solid');
+            }
+        });
         // FAQ Accordion Functionality
         document.addEventListener('DOMContentLoaded', function() {
             const faqItems = document.querySelectorAll('.faq-item');
-            
+
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
-                
+
                 question.addEventListener('click', () => {
                     // Close all other items
                     faqItems.forEach(otherItem => {
@@ -623,7 +623,7 @@
                             otherItem.classList.remove('active');
                         }
                     });
-                    
+
                     // Toggle current item
                     item.classList.toggle('active');
                 });
@@ -631,4 +631,5 @@
         });
     </script>
 </body>
+
 </html>

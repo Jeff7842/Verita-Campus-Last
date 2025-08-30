@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-       .navbar {
+        .navbar {
             position: fixed;
             top: 0;
             left: 0;
@@ -16,17 +17,17 @@
             z-index: 1000;
             transition: var(--transition);
         }
-
+        
         .navbar.transparent {
             background: transparent;
             box-shadow: none;
         }
-
+        
         .navbar.solid {
             background: var(--gradient);
             box-shadow: var(--shadow);
         }
-
+        
         .nav-logo {
             height: 60px;
             transition: var(--transition);
@@ -37,8 +38,8 @@
             transform: translateX(-20%);
             cursor: pointer;
         }
-
         /* Medical Color Theme */
+        
         .course-hero {
             background: linear-gradient(135deg, rgba(12, 83, 107, 0.8), rgba(29, 131, 189, 0.6));
         }
@@ -47,7 +48,8 @@
             background: linear-gradient(90deg, #0c536b, #1d83bd);
         }
         
-        .benefit-card, .bonus-card {
+        .benefit-card,
+        .bonus-card {
             border-left-color: #0c536b;
         }
         
@@ -58,8 +60,8 @@
         .job-tag {
             background: rgba(12, 83, 107, 0.1);
         }
-        
         /* Testimonial Section */
+        
         .testimonial-section {
             padding: 80px 0;
             background: #f8f9fa;
@@ -69,12 +71,12 @@
             background: white;
             border-radius: 10px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
             border-left: 4px solid #0c536b;
         }
-        
         /* ... (other styles same as law page) ... */
+        
         .testimonial-header {
             display: flex;
             align-items: center;
@@ -121,8 +123,8 @@
             color: rgba(28, 49, 68, 0.1);
             font-family: serif;
         }
-        
         /* Instructor Video Section */
+        
         .instructor-video {
             padding: 80px 0;
             background: white;
@@ -135,7 +137,7 @@
             position: relative;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .video-container video {
@@ -154,13 +156,13 @@
             justify-content: center;
             align-items: center;
             color: white;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.3);
         }
         
         .play-button {
             width: 70px;
             height: 70px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -172,15 +174,15 @@
         
         .play-button:hover {
             transform: scale(1.1);
-            background: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.3);
         }
         
         .play-button i {
             font-size: 1.5rem;
             color: white;
         }
-        
         /* Rest of the styles same as software&IT.html */
+        
         .course-hero {
             padding: 120px 0 80px;
             text-align: center;
@@ -199,6 +201,7 @@
             z-index: -1;
             opacity: 0.7;
         }
+        
         .navbar {
             position: fixed;
             top: 0;
@@ -208,17 +211,17 @@
             z-index: 1000;
             transition: var(--transition);
         }
-
+        
         .navbar.transparent {
             background: transparent;
             box-shadow: none;
         }
-
+        
         .navbar.solid {
             background: var(--gradient);
             box-shadow: var(--shadow);
         }
-
+        
         .nav-logo {
             height: 60px;
             transition: var(--transition);
@@ -229,7 +232,8 @@
             transform: translateX(-20%);
             cursor: pointer;
         }
-        /* Course Detail Page Styles */     
+        /* Course Detail Page Styles */
+        
         .course-hero::before {
             content: '';
             position: absolute;
@@ -434,10 +438,9 @@
             color: #777;
             font-weight: normal;
         }
-
+        
         .bonus-section {
             padding: 80px 0;
-            
         }
         
         .bonus-container {
@@ -516,21 +519,18 @@
                 flex-direction: column;
                 gap: 30px;
             }
-            
             .course-row:nth-child(even) {
                 flex-direction: column;
             }
-            
             .course-hero h1 {
                 font-size: 2.2rem;
             }
-            
             .section-title {
                 font-size: 1.8rem;
             }
         }
-        
         /* Medical Icons */
+        
         .medical-icon {
             width: 24px;
             margin-right: 10px;
@@ -538,13 +538,14 @@
         }
     </style>
 </head>
+
 <body>
- <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar transparent">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+                    <img src="Assets/images/Verita_Campus_Dark_Logo_(vertical).png" alt="Verita Logo"></a>
             </div>
             <div class="nav-links">
                 <ul>
@@ -565,11 +566,11 @@
                             <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
                             <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
                             <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
-                            
-                            
+
+
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="#">Community <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
@@ -624,7 +625,7 @@
         <div class="container">
             <h2 class="section-title">Meet Your Instructor</h2>
             <p>Dr. Wanjiku Mburu welcomes you to the Clinical & Health Sciences program</p>
-            
+
             <div class="video-container">
                 <video poster="assets/images/Packages/Clinical1.jpg" id="instructorVideo">
                     <source src="assets/videos/clinical-course-intro.mp4" type="video/mp4">
@@ -646,7 +647,8 @@
             <div class="course-row">
                 <div class="course-content">
                     <h2 class="section-title">Why This Course?</h2>
-                    <p>The healthcare sector is expanding rapidly, creating demand for skilled clinical professionals. This course provides foundational medical knowledge and practical skills for those entering healthcare or current professionals seeking to enhance their competencies.</p>
+                    <p>The healthcare sector is expanding rapidly, creating demand for skilled clinical professionals. This course provides foundational medical knowledge and practical skills for those entering healthcare or current professionals seeking
+                        to enhance their competencies.</p>
                     <p>Developed by practicing healthcare providers, our curriculum emphasizes hands-on learning with realistic medical scenarios and simulations. You'll train with equipment used in hospitals and clinics.</p>
                     <p>With Universal Health Coverage (UHC) being implemented nationwide, this course prepares you for rewarding careers in the evolving healthcare landscape.</p>
                 </div>
@@ -695,7 +697,7 @@
         <div class="container">
             <h2 class="section-title" style="text-align: center;">Healthcare Success Stories</h2>
             <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Hear from students who launched healthcare careers through our program</p>
-            
+
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
@@ -714,7 +716,7 @@
                         <p>"The practical skills I gained helped me secure a position at a Nairobi clinic just two weeks after completing the course. The emergency response training was especially valuable when I assisted at a road accident scene."</p>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <div class="testimonial-avatar">
@@ -732,7 +734,7 @@
                         <p>"This course transformed how I serve my community. I can now properly assess patients, understand basic medications, and recognize when to refer to hospitals. My village health reports have improved dramatically."</p>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <div class="testimonial-avatar">
@@ -799,43 +801,43 @@
         </div>
     </section>
 
- <!-- Bonus Section -->
+    <!-- Bonus Section -->
     <section class="bonus-section">
         <section class="bonus-container">
             <h2 class="section-title">Exclusive Career Bonuses</h2>
             <p>All our courses include these valuable career-enhancing resources at no extra cost:</p>
-            
+
             <div class="bonus-grid">
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
                     <h3><img src="assets/images/Packages/Benefits/cv.png" alt="" style="width:9%; margin-right:2px;"> Professional CV Writing</h3>
                     <p>Get our proven templates and guidance to create a CV that stands out in the competitive job market.</p>
                 </div>
-                
+
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
                     <h3><img src="assets/images/Packages/Benefits/bribe.png" alt="" style="width:12%; margin-right:5px;"> Salary Negotiation Guide</h3>
                     <p>Learn how to confidently negotiate your worth with employers across various industries.</p>
                 </div>
-                
+
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
                     <h3><img src="assets/images/Packages/Benefits/linkedin.png" alt="" style="width:8%; margin-right:5px;"> LinkedIn Optimization</h3>
                     <p>Step-by-step training to build a powerful LinkedIn profile that attracts recruiters and opportunities.</p>
                 </div>
-                
+
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
                     <h3><img src="assets/images/Packages/Benefits/bullseye.png" alt="" style="width:9%; margin-right:5px;"> Job Market Navigation</h3>
                     <p>Understand where to find the best opportunities and how to position yourself effectively.</p>
                 </div>
-                
+
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
-                    <h3><img src="assets/images/Packages/Benefits/robot.png" alt="" style="width:12%; margin-right:5px;">  AI Basics for Professionals</h3>
+                    <h3><img src="assets/images/Packages/Benefits/robot.png" alt="" style="width:12%; margin-right:5px;"> AI Basics for Professionals</h3>
                     <p>Essential AI literacy covering tools like ChatGPT that are transforming workplaces globally.</p>
                 </div>
-                
+
                 <div class="bonus-card">
                     <span class="bonus-badge">For All Students</span>
                     <h3><img src="assets/images/Packages/Benefits/efficiency.png" alt="" style="width:12%; margin-right:5px;"> Productivity with Notion</h3>
@@ -844,135 +846,136 @@
             </div>
         </section>
 
-    <!-- Unique Clinical Bonuses -->
-     <section class="bonus-section">
-    <div class="course-specific-bonuses">
-        <h2>Clinical & Health <span>Exclusive Bonuses</span></h2>
-        <div class="bonus-grid">
-            <div class="bonus-card">
-                <h3><img src="assets/images/Packages/Benefits/first-aid-kit.png" class="medical-icon"> First Aid Kit</h3>
-                <p>Receive a basic first aid kit with course enrollment (valued at $25).</p>
-            </div>
-            <div class="bonus-card">
-                <h3><img src="assets/images/Packages/Benefits/medical-handbook.png" class="medical-icon"> Clinical Handbook</h3>
-                <p>Pocket reference guide with common medications and procedures.</p>
-            </div>
-            <div class="bonus-card">
-                <h3><img src="assets/images/Packages/Benefits/vaccine.png" class="medical-icon"> Health Certification</h3>
-                <p>Free basic health screening and certification upon course completion.</p>
-            </div>
-        </div>
-    </div>
-    </section>
-
-    <!-- Enrollment Section -->
-    <section class="enroll-cta">
-        <div class="enroll-box">
-            <h2>Begin Your Healthcare Journey</h2>
-            <p>Join the next generation of skilled healthcare professionals</p>
-            <div class="price-tag">$80</div>
-            <button class="cta-primary ripple">Enroll Now</button>
-            <p style="margin-top: 20px; font-size: 0.9rem; color: rgb(232, 0, 0);"><i class="fas fa-info-circle"></i> 46 Slots left</p>
-        </div>
-    </section>
-
-<!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-logo">
-                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
-                    <p>Professional education for career advancement and personal growth.</p>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <!-- Unique Clinical Bonuses -->
+        <section class="bonus-section">
+            <div class="course-specific-bonuses">
+                <h2>Clinical & Health <span>Exclusive Bonuses</span></h2>
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/first-aid-kit.png" class="medical-icon"> First Aid Kit</h3>
+                        <p>Receive a basic first aid kit with course enrollment (valued at $25).</p>
+                    </div>
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/medical-handbook.png" class="medical-icon"> Clinical Handbook</h3>
+                        <p>Pocket reference guide with common medications and procedures.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <h3><img src="assets/images/Packages/Benefits/vaccine.png" class="medical-icon"> Health Certification</h3>
+                        <p>Free basic health screening and certification upon course completion.</p>
                     </div>
                 </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
-                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                        <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
-                    </ul>
+            </div>
+        </section>
+
+        <!-- Enrollment Section -->
+        <section class="enroll-cta">
+            <div class="enroll-box">
+                <h2>Begin Your Healthcare Journey</h2>
+                <p>Join the next generation of skilled healthcare professionals</p>
+                <div class="price-tag">$80</div>
+                <button class="cta-primary ripple">Enroll Now</button>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: rgb(232, 0, 0);"><i class="fas fa-info-circle"></i> 46 Slots left</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-logo">
+                        <img src="assets/images/Verita_Campus_Logo_1.2.png" alt="Verita Logo">
+                        <p>Professional education for career advancement and personal growth.</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61577901089355"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/verita_learning/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@verita_learning"><i class="fab fa-tiktok"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                            <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Courses</h3>
+                        <ul>
+                            <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-contact">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
+                            <li style="display:none;"><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
+                            <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <h3>Courses</h3>
-                    <ul>
-                        <li><a href="short_courses.html"><i class="fas fa-chevron-right"></i> Short Courses</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Verita Avenue</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Corporate Training</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Upcoming Programs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>Contact Us</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
-                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
-                        <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
-                    </ul>
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        <p>&copy; 2025 Verita Campus. All rights reserved.</p>
+                    </div>
+                    <div class="footer-app-links" style="display:none;">
+                        <a href="#" class="app-store">
+                            <i class="fab fa-apple"></i>
+                            <span>Download on the<br><strong>App Store</strong></span>
+                        </a>
+                        <a href="#" class="google-play">
+                            <i class="fab fa-google-play"></i>
+                            <span>Get it on<br><strong>Google Play</strong></span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="copyright">
-                    <p>&copy; 2025 Verita Campus. All rights reserved.</p>
-                </div>
-                <div class="footer-app-links" style="display:none;">
-                    <a href="#" class="app-store">
-                        <i class="fab fa-apple"></i>
-                        <span>Download on the<br><strong>App Store</strong></span>
-                    </a>
-                    <a href="#" class="google-play">
-                        <i class="fab fa-google-play"></i>
-                        <span>Get it on<br><strong>Google Play</strong></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
-    <script src="assets/js/main.js"></script>
-    <script>
-        // Navbar Scroll Effect
-        const navbar = document.querySelector('.navbar');
-        const heroSection = document.querySelector('.course-hero');
-        const heroHeight = heroSection.offsetHeight;
+        <script src="assets/js/main.js"></script>
+        <script>
+            // Navbar Scroll Effect
+            const navbar = document.querySelector('.navbar');
+            const heroSection = document.querySelector('.course-hero');
+            const heroHeight = heroSection.offsetHeight;
 
-        window.addEventListener('scroll', function() {
-            if(window.scrollY > heroHeight * 0.8) {
-                navbar.classList.add('solid');
-                navbar.classList.remove('transparent');
-            } else {
-                navbar.classList.add('transparent');
-                navbar.classList.remove('solid');
-            }
-        });
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > heroHeight * 0.8) {
+                    navbar.classList.add('solid');
+                    navbar.classList.remove('transparent');
+                } else {
+                    navbar.classList.add('transparent');
+                    navbar.classList.remove('solid');
+                }
+            });
 
-        // Video Player Functionality
-        const video = document.getElementById('instructorVideo');
-        const videoOverlay = document.getElementById('videoOverlay');
-        const playButton = document.getElementById('playButton');
+            // Video Player Functionality
+            const video = document.getElementById('instructorVideo');
+            const videoOverlay = document.getElementById('videoOverlay');
+            const playButton = document.getElementById('playButton');
 
-        playButton.addEventListener('click', function() {
-            videoOverlay.style.display = 'none';
-            video.play();
-        });
-
-        video.addEventListener('click', function() {
-            if(video.paused) {
-                video.play();
+            playButton.addEventListener('click', function() {
                 videoOverlay.style.display = 'none';
-            } else {
-                video.pause();
-                videoOverlay.style.display = 'flex';
-            }
-        });
-    </script>
+                video.play();
+            });
+
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                    videoOverlay.style.display = 'none';
+                } else {
+                    video.pause();
+                    videoOverlay.style.display = 'flex';
+                }
+            });
+        </script>
 </body>
+
 </html>

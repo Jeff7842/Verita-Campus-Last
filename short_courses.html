@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         /* Base Styles */
+        
         body {
             zoom: 85%;
             background-color: #f8f9fa;
         }
-
         /* Navigation Bar */
+        
         .navbar {
             position: fixed;
             top: 0;
@@ -29,7 +30,7 @@
             background: var(--gradient);
             box-shadow: var(--shadow);
         }
-
+        
         .nav-logo {
             height: 60px;
             transition: var(--transition);
@@ -40,8 +41,8 @@
             transform: translateX(-20%);
             cursor: pointer;
         }
-
         /* Hero Section with Parallax Effect */
+        
         .courses-hero {
             height: 60vh;
             position: relative;
@@ -54,7 +55,7 @@
             background: linear-gradient(135deg, rgba(12, 107, 50, 0.9), rgba(29, 189, 101, 0.7));
             perspective: 1000px;
         }
-
+        
         .courses-hero::before {
             content: '';
             position: absolute;
@@ -68,27 +69,33 @@
             transform: translateZ(-1px) scale(1.2);
             animation: fadeInBottom 1.5s ease-out;
         }
-
+        
         .courses-hero-content {
             max-width: 800px;
             padding: 0 20px;
             animation: fadeInUp 1s ease-out;
             transform-style: preserve-3d;
         }
-
+        
         .courses-hero h1 {
             font-size: 3.2rem;
             margin-bottom: 20px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             animation: textGlow 3s infinite alternate;
         }
-
+        
         .courses-hero p {
             font-size: 1.3rem;
             margin-bottom: 30px;
             text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         }
-
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
         @keyframes fadeInBottom {
             from {
                 opacity: 0;
@@ -99,7 +106,7 @@
                 transform: translateZ(-1px) scale(1.2);
             }
         }
-
+        
         @keyframes textGlow {
             from {
                 text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
@@ -108,17 +115,16 @@
                 text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 20px rgba(29, 189, 101, 0.4);
             }
         }
-
         /* Course Search and Filter Section */
+        
         .course-tools {
             background: transparent;
             padding: 30px 0;
-            position:relative;
+            position: relative;
             top: 20px;
             z-index: 100;
-           
         }
-
+        
         .course-search-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -129,13 +135,13 @@
             gap: 20px;
             padding-left: 370px;
         }
-
+        
         .course-search {
             flex: 1;
             position: relative;
             max-width: 600px;
         }
-
+        
         .course-search input {
             width: 100%;
             padding: 15px 20px;
@@ -146,13 +152,13 @@
             padding-left: 50px;
             box-shadow: var(--shadow-sm);
         }
-
+        
         .course-search input:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: var(--shadow-primary);
         }
-
+        
         .course-search i {
             position: absolute;
             left: 20px;
@@ -160,10 +166,10 @@
             transform: translateY(-50%);
             color: #777;
         }
-
+        
         .filter-toggle {
             display: none;
-            background:none;
+            background: none;
             color: rgb(0, 0, 0);
             border: none;
             padding: 12px 20px;
@@ -173,22 +179,23 @@
             transition: var(--transition);
             z-index: 120;
         }
-
+        
         .filter-toggle:hover {
             background: var(--gradient-dark);
             transform: translateY(-2px);
         }
-
         /* Main Content Layout */
+        
         .course-main-container {
             display: flex;
             max-width: 1400px;
             margin: 0 auto;
             padding: 30px 20px;
             gap: 30px;
+            margin-bottom: 30px;
         }
-
         /* Filters Sidebar */
+        
         .course-filters {
             width: 280px;
             flex-shrink: 0;
@@ -199,20 +206,19 @@
             height: fit-content;
             position: sticky;
             top: 150px;
-            margin-left:-170px;
-
+            margin-left: -170px;
         }
-
+        
         .filter-section {
             margin-bottom: 25px;
             border-bottom: 1px solid #eee;
             padding-bottom: 20px;
         }
-
+        
         .filter-section:last-child {
             border-bottom: none;
         }
-
+        
         .filter-section h3 {
             font-size: 1.2rem;
             margin-bottom: 15px;
@@ -222,21 +228,21 @@
             justify-content: space-between;
             cursor: pointer;
         }
-
+        
         .filter-section h3 i {
             transition: transform 0.3s ease;
         }
-
+        
         .filter-section.active h3 i {
             transform: rotate(180deg);
         }
-
+        
         .filter-options {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-
+        
         .filter-option {
             display: flex;
             align-items: center;
@@ -248,21 +254,21 @@
             padding: 8px 10px;
             border-radius: 5px;
         }
-
+        
         .filter-option:hover {
             background: rgba(29, 189, 101, 0.1);
             color: var(--dark-color);
         }
-
+        
         .filter-option input {
             margin-right: 8px;
         }
-
+        
         .price-range {
             width: 100%;
             margin-top: 15px;
         }
-
+        
         .price-values {
             display: flex;
             justify-content: space-between;
@@ -270,7 +276,7 @@
             font-size: 0.9rem;
             color: #777;
         }
-
+        
         .filter-apply {
             width: 100%;
             padding: 12px;
@@ -283,34 +289,34 @@
             transition: var(--transition);
             margin-top: 10px;
         }
-
+        
         .filter-apply:hover {
             background: var(--gradient-dark);
             transform: translateY(-2px);
             box-shadow: var(--shadow-btn-hover);
         }
-
         /* Course Grid */
+        
         .course-grid-container {
             flex: 1;
         }
-
+        
         .course-grid-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
         }
-
+        
         .course-grid-header h2 {
             font-size: 1.8rem;
             color: var(--dark-color);
         }
-
+        
         .sort-options {
             position: relative;
         }
-
+        
         .sort-toggle {
             background: white;
             border: 1px solid #ddd;
@@ -323,11 +329,11 @@
             font-size: 0.95rem;
             transition: var(--transition);
         }
-
+        
         .sort-toggle:hover {
             border-color: var(--primary-color);
         }
-
+        
         .sort-dropdown {
             position: absolute;
             top: 100%;
@@ -343,32 +349,32 @@
             transition: var(--transition);
             z-index: 10;
         }
-
+        
         .sort-dropdown.active {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
-
+        
         .sort-dropdown a {
             display: block;
             padding: 10px 20px;
             color: #555;
             transition: var(--transition);
         }
-
+        
         .sort-dropdown a:hover {
             background: rgba(29, 189, 101, 0.1);
             color: var(--dark-color);
         }
-
+        
         .course-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 25px;
         }
-
         /* Compact Course Card */
+        
         .package-card {
             background: white;
             border-radius: 15px;
@@ -378,21 +384,21 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            margin-top:30px;
+            margin-top: 30px;
         }
-
+        
         .package-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
         }
-
+        
         .package-image {
             height: 200px;
             background-size: cover;
             background-position: center;
             position: relative;
         }
-
+        
         .package-image::after {
             content: '';
             position: absolute;
@@ -402,14 +408,14 @@
             height: 100%;
             background: linear-gradient(135deg, rgba(29, 189, 101, 0.2), rgba(248, 179, 36, 0.2));
         }
-
+        
         .package-content {
             padding: 25px;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
-
+        
         .package-title {
             font-size: 1.5rem;
             margin-bottom: 15px;
@@ -417,7 +423,7 @@
             position: relative;
             padding-bottom: 10px;
         }
-
+        
         .package-title::after {
             content: '';
             position: absolute;
@@ -428,7 +434,7 @@
             background: var(--gradient);
             border-radius: 2px;
         }
-
+        
         .package-description {
             font-size: 0.95rem;
             color: #555;
@@ -436,30 +442,30 @@
             line-height: 1.6;
             flex: 1;
         }
-
+        
         .package-features {
             margin-bottom: 20px;
         }
-
+        
         .package-features h4 {
             font-size: 1rem;
             margin-bottom: 10px;
             color: var(--dark-color);
         }
-
+        
         .package-features ul {
             display: grid;
             grid-template-columns: 1fr;
             gap: 8px;
         }
-
+        
         .package-features li {
             display: flex;
             align-items: center;
             font-size: 0.9rem;
             color: #666;
         }
-
+        
         .package-features li::before {
             content: '\f00c';
             font-family: 'Font Awesome 6 Free';
@@ -468,7 +474,7 @@
             color: var(--primary-color);
             font-size: 0.8rem;
         }
-
+        
         .course-meta {
             display: flex;
             justify-content: space-between;
@@ -476,17 +482,17 @@
             font-size: 0.9rem;
             color: #777;
         }
-
+        
         .course-meta span {
             display: flex;
             align-items: center;
             gap: 5px;
         }
-
+        
         .course-meta i {
             color: var(--primary-color);
         }
-
+        
         .package-footer {
             display: flex;
             justify-content: space-between;
@@ -495,20 +501,20 @@
             padding-top: 15px;
             border-top: 1px solid #eee;
         }
-
+        
         .package-price {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-color);
             font-family: 'Arial', sans-serif;
         }
-
+        
         .package-price span {
             font-size: 0.9rem;
             color: #777;
             font-weight: normal;
         }
-
+        
         .package-cta {
             display: inline-flex;
             align-items: center;
@@ -520,59 +526,59 @@
             transition: all 0.3s ease;
             font-size: 0.95rem;
         }
-
+        
         .package-cta:hover {
             background: var(--gradient-dark);
             transform: translateX(5px);
             box-shadow: var(--shadow-btn-hover);
         }
-
+        
         .package-cta i {
             margin-left: 8px;
             transition: all 0.3s ease;
             font-size: 0.9rem;
         }
-
+        
         .package-cta:hover i {
             transform: translateX(5px);
         }
-
         /* Testimonials Section */
+        
         .testimonials-section {
             padding: 80px 0;
             background: linear-gradient(135deg, #d2e5f8, #e9f5ee);
-            margin-top:100px;
+            margin-top: 100px;
             z-index: 100;
             position: relative;
         }
-
+        
         .testimonials-container {
             max-width: 1500px;
             margin: 0 auto;
             padding: 0 60px;
         }
-
+        
         .testimonials-slider {
             position: relative;
             margin-top: 50px;
-
         }
-
+        
         .testimonial-track {
             display: flex;
             gap: 30px;
             padding: 100px 0;
-            overflow-x:auto;
+            overflow-x: auto;
             scroll-snap-type: x mandatory;
-            -webkit-scrollbar-width: none; /* For Firefox */
-            scrollbar-width:1700px;
+            -webkit-scrollbar-width: none;
+            /* For Firefox */
+            scrollbar-width: 1700px;
             width: 200%;
         }
-
+        
         .testimonial-track::-webkit-scrollbar {
-            display:none;
+            display: none;
         }
-
+        
         .testimonial-card {
             flex: 0 0 auto;
             width: 550px;
@@ -583,16 +589,16 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
         }
-
+        
         .testimonial-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
-
+        
         .testimonial-content {
             position: relative;
         }
-
+        
         .quote-icon {
             position: absolute;
             top: 0;
@@ -600,7 +606,7 @@
             font-size: 3rem;
             color: rgba(29, 189, 101, 0.1);
         }
-
+        
         .testimonial-text {
             font-style: italic;
             margin-bottom: 25px;
@@ -609,13 +615,13 @@
             position: relative;
             z-index: 1;
         }
-
+        
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-
+        
         .author-avatar {
             width: 60px;
             height: 60px;
@@ -623,37 +629,37 @@
             overflow: hidden;
             flex-shrink: 0;
         }
-
+        
         .author-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
+        
         .author-info h4 {
             font-size: 1.1rem;
             margin-bottom: 5px;
             color: var(--dark-color);
         }
-
+        
         .author-info p {
             font-size: 0.9rem;
             color: #777;
         }
-
+        
         .rating {
             color: var(--secondary-color);
             font-size: 0.9rem;
             margin-top: 5px;
         }
-
+        
         .slider-nav {
             display: flex;
             justify-content: center;
             gap: 10px;
             margin-top: 30px;
         }
-
+        
         .slider-dot {
             width: 12px;
             height: 12px;
@@ -662,13 +668,13 @@
             cursor: pointer;
             transition: var(--transition);
         }
-
+        
         .slider-dot.active {
             background: var(--primary-color);
             transform: scale(1.2);
         }
-
         /* Stats Section */
+        
         .stats-section {
             padding: 80px 0;
             background: var(--gradient);
@@ -676,7 +682,7 @@
             position: relative;
             overflow: hidden;
         }
-
+        
         .stats-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -684,54 +690,53 @@
             position: relative;
             z-index: 1;
         }
-
+        
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
-
+        
         .stat-card {
             text-align: center;
             padding: 30px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            -webkit-backdrop-filter:blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px);
             transition: var(--transition);
-
         }
-
+        
         .stat-card:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.15);
         }
-
+        
         .stat-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--secondary-color);
         }
-
+        
         .stat-number {
             font-size: 2.8rem;
             font-weight: 700;
             margin-bottom: 10px;
             display: inline-block;
         }
-
+        
         .stat-number::after {
             content: '+';
             font-size: 1.5rem;
             vertical-align: super;
         }
-
+        
         .stat-label {
             font-size: 1.1rem;
             opacity: 0.9;
         }
-
+        
         .stats-pattern {
             position: absolute;
             top: 0;
@@ -742,19 +747,19 @@
             background-image: radial-gradient(circle, white 1px, transparent 1px);
             background-size: 30px 30px;
         }
-
         /* FAQ Section */
+        
         .faq-section {
             padding: 80px 0;
             background: white;
         }
-
+        
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         .faq-item {
             margin-bottom: 15px;
             border-radius: 10px;
@@ -762,11 +767,11 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
         }
-
+        
         .faq-item:hover {
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
-
+        
         .faq-question {
             background: #f8f9fa;
             padding: 20px;
@@ -779,19 +784,19 @@
             align-items: center;
             transition: var(--transition);
         }
-
+        
         .faq-question:hover {
             background: #f1f1f1;
         }
-
+        
         .faq-question i {
             transition: transform 0.3s ease;
         }
-
+        
         .faq-item.active .faq-question i {
             transform: rotate(180deg);
         }
-
+        
         .faq-answer {
             padding: 0 20px;
             max-height: 0;
@@ -799,97 +804,84 @@
             transition: max-height 0.3s ease, padding 0.3s ease;
             background: white;
         }
-
+        
         .faq-item.active .faq-answer {
             padding: 20px;
             max-height: 500px;
         }
-
+        
         .faq-answer p {
             color: #555;
             line-height: 1.7;
         }
-
         /* Responsive Styles */
+        
         @media (max-width: 1200px) {
             .course-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
         }
-
+        
         @media (max-width: 992px) {
             .course-main-container {
                 flex-direction: column;
             }
-
             .course-filters {
                 width: 100%;
                 position: static;
                 margin-bottom: 30px;
                 display: none;
             }
-
             .course-filters.active {
                 display: block;
             }
-
             .filter-toggle {
                 display: block;
             }
-
             .course-search-container {
                 flex-direction: column;
                 align-items: stretch;
             }
-
             .course-search {
                 max-width: 100%;
             }
         }
-
+        
         @media (max-width: 768px) {
             .courses-hero h1 {
                 font-size: 2.5rem;
             }
-
             .courses-hero p {
                 font-size: 1.1rem;
             }
-
             .course-grid-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
             }
-
             .testimonial-card {
                 width: 280px;
             }
-
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
-
+        
         @media (max-width: 576px) {
             .courses-hero {
                 height: 50vh;
             }
-
             .courses-hero h1 {
                 font-size: 2rem;
             }
-
             .package-title {
                 font-size: 1.3rem;
             }
-
             .package-footer {
                 flex-direction: column;
                 gap: 15px;
                 align-items: flex-start;
             }
-
             .stats-grid {
                 grid-template-columns: 1fr;
             }
@@ -902,7 +894,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader-logo">
-                <img src="Assets/images/Verita Logo Symbol.png" alt="Verita Logo">
+                <img src="Assets/images/Verita_Logo_Symbol.png" alt="Verita Logo">
             </div>
             <div class="loader-text">EXPAND YOUR HORIZONS</div>
         </div>
@@ -913,7 +905,7 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="Assets/images/Verita Campus Dark Logo (vertical).png" alt="Verita Logo"></a>
+                    <img src="Assets/images/Verita_Campus_Dark_Logo_(vertical).png" alt="Verita Logo"></a>
             </div>
             <div class="nav-links">
                 <ul>
@@ -934,18 +926,18 @@
                             <a href="benefit-mentorship.html"><i class="fa-solid fa-person-chalkboard"></i>Professional mentorship</a>
                             <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
                             <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
-                            
-                            
+
+
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="#">Community <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
-                            <a href="#"><i class="fas fa-bolt"></i>Alumni</a>
-                            <a href="impact.html"><i class="fas fa-road"></i>Impact</a>
-                            <a href="blog.html"><i class="fas fa-road"></i>Blog</a>
-                            <a href="testimony.html"><i class="fas fa-road"></i>Testimonals</a>
+                            <a href="alumni.html"><i class="fas ri-community-fill"></i>Alumni</a>
+                            <a href="impact.html"><i class="fas ri-hand-coin-fill"></i>Impact</a>
+                            <a href="blog.html"><i class="fas ri-file-list-3-fill"></i>Blog</a>
+                            <a href="testimony.html"><i class="fas ri-megaphone-line"></i>Testimonals</a>
                         </div>
                     </li>
                     <li class="dropdown">
@@ -1089,14 +1081,14 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="sort-dropdown">
-                        
+
                         <a href="#">Recommended</a>
-  <a href="#">Price: Low to High</a>
-  <a href="#">Price: High to Low</a>
-  <a href="#">Duration: Short to Long</a>
-  <a href="#">Duration: Long to Short</a>
-  <a href="#">Newest</a>
-  <a href="#">Popularity</a>
+                        <a href="#">Price: Low to High</a>
+                        <a href="#">Price: High to Low</a>
+                        <a href="#">Duration: Short to Long</a>
+                        <a href="#">Duration: Long to Short</a>
+                        <a href="#">Newest</a>
+                        <a href="#">Popularity</a>
                     </div>
                 </div>
             </div>
@@ -1443,7 +1435,7 @@
     </div>
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <section class="testimonials-section" style="display: none;">
         <div class="container">
             <div class="section-header">
                 <h2>What Our <span>Students</span> Say</h2>
@@ -1462,7 +1454,7 @@
                             </p>
                             <div class="testimonial-author">
                                 <div class="author-avatar">
-                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Mwangi">
+                                    <img src="assets/images/user (1).png" alt="John Mwangi">
                                 </div>
                                 <div class="author-info">
                                     <h4>John Mwangi</h4>
@@ -1489,7 +1481,7 @@
                             </p>
                             <div class="testimonial-author">
                                 <div class="author-avatar">
-                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Kariuki">
+                                    <img src="assets/images/user (1).png" alt="Sarah Kariuki">
                                 </div>
                                 <div class="author-info">
                                     <h4>Sarah Kariuki</h4>
@@ -1516,7 +1508,7 @@
                             </p>
                             <div class="testimonial-author">
                                 <div class="author-avatar">
-                                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="David Omondi">
+                                    <img src="assets/images/user (1).png" alt="David Omondi">
                                 </div>
                                 <div class="author-info">
                                     <h4>David Omondi</h4>
@@ -1543,7 +1535,7 @@
                             </p>
                             <div class="testimonial-author">
                                 <div class="author-avatar">
-                                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Grace Wambui">
+                                    <img src="assets/images/user (1).png" alt="Grace Wambui">
                                 </div>
                                 <div class="author-info">
                                     <h4>Grace Wambui</h4>
@@ -1683,7 +1675,7 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <img src="assets/images/Verita Campus Logo 1.2.png" alt="Verita Logo">
+                    <img src="assets/images/Verita_Campus_Logo_1.2.png" alt="Verita Logo">
                     <p>Professional education for career advancement and personal growth.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1791,7 +1783,7 @@
         function updateSlider() {
             const cardWidth = testimonialCards[0].offsetWidth;
             testimonialTrack.style.transform = `translateX(-${currentIndex * (cardWidth + 30)}px)`;
-            
+
             // Update dots
             sliderDots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentIndex);
@@ -1816,7 +1808,7 @@
 
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
-            
+
             question.addEventListener('click', () => {
                 // Close all other items
                 faqItems.forEach(otherItem => {
@@ -1824,7 +1816,7 @@
                         otherItem.classList.remove('active');
                     }
                 });
-                
+
                 // Toggle current item
                 item.classList.toggle('active');
             });
@@ -1853,257 +1845,274 @@
 
         // ========== COURSE FILTER & SEARCH FUNCTIONALITY ==========
 
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInputs = document.querySelectorAll('.course-search input, .search-box input');
-    const courseCards = document.querySelectorAll('.package-card');
-    const applyFilterBtn = document.querySelector('.filter-apply');
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInputs = document.querySelectorAll('.course-search input, .search-box input');
+            const courseCards = document.querySelectorAll('.package-card');
+            const applyFilterBtn = document.querySelector('.filter-apply');
 
-    const getSelectedFilters = () => {
-        const selected = {
-            categories: [],
-            durations: [],
-            levels: [],
-            price: parseInt(document.querySelector('.price-range').value, 10)
-        };
+            const getSelectedFilters = () => {
+                const selected = {
+                    categories: [],
+                    durations: [],
+                    levels: [],
+                    price: parseInt(document.querySelector('.price-range').value, 10)
+                };
 
-        // Categories
-        document.querySelectorAll('.filter-section:nth-of-type(1) input:checked').forEach(input => {
-            selected.categories.push(input.parentElement.textContent.trim());
+                // Categories
+                document.querySelectorAll('.filter-section:nth-of-type(1) input:checked').forEach(input => {
+                    selected.categories.push(input.parentElement.textContent.trim());
+                });
+
+                // Duration
+                document.querySelectorAll('.filter-section:nth-of-type(2) input:checked').forEach(input => {
+                    selected.durations.push(input.parentElement.textContent.trim());
+                });
+
+                // Skill Level
+                document.querySelectorAll('.filter-section:nth-of-type(4) input:checked').forEach(input => {
+                    selected.levels.push(input.parentElement.textContent.trim());
+                });
+
+                return selected;
+            };
+
+            const filterCourses = () => {
+                const {
+                    categories,
+                    durations,
+                    levels,
+                    price
+                } = getSelectedFilters();
+                const keyword = searchInputs[0].value.trim().toLowerCase();
+
+                courseCards.forEach(card => {
+                    const title = card.querySelector('.package-title').textContent.toLowerCase();
+                    const description = card.querySelector('.package-description').textContent.toLowerCase();
+                    const durationText = card.querySelector('.course-meta span:nth-child(2)').textContent.toLowerCase();
+                    const priceValue = parseFloat(card.querySelector('.package-price').textContent.replace(/[^0-9.]/g, '')) || 0;
+
+                    let visible = true;
+
+                    // Keyword search
+                    if (keyword && !(title.includes(keyword) || description.includes(keyword))) {
+                        visible = false;
+                    }
+
+                    // Category match
+                    if (!categories.includes("All Categories")) {
+                        visible = categories.some(cat => title.includes(cat.toLowerCase())) ? visible : false;
+                    }
+
+                    // Duration match
+                    if (!durations.includes("Any Duration")) {
+                        visible = durations.some(dur => durationText.includes(dur.split(' ')[0])) ? visible : false;
+                    }
+
+                    // Skill level match (optional — not present in DOM yet unless you add it)
+                    // if (!levels.includes("All Levels")) {
+                    //     visible = levels.some(level => card.textContent.toLowerCase().includes(level.toLowerCase())) ? visible : false;
+                    // }
+
+                    // Price range
+                    if (priceValue > price) visible = false;
+
+                    card.style.display = visible ? 'block' : 'none';
+                });
+            };
+
+            // Apply filters on button click
+            applyFilterBtn.addEventListener('click', filterCourses);
+
+            // Live search on typing
+            searchInputs.forEach(input => {
+                input.addEventListener('input', filterCourses);
+            });
         });
-
-        // Duration
-        document.querySelectorAll('.filter-section:nth-of-type(2) input:checked').forEach(input => {
-            selected.durations.push(input.parentElement.textContent.trim());
-        });
-
-        // Skill Level
-        document.querySelectorAll('.filter-section:nth-of-type(4) input:checked').forEach(input => {
-            selected.levels.push(input.parentElement.textContent.trim());
-        });
-
-        return selected;
-    };
-
-    const filterCourses = () => {
-        const { categories, durations, levels, price } = getSelectedFilters();
-        const keyword = searchInputs[0].value.trim().toLowerCase();
-
-        courseCards.forEach(card => {
-            const title = card.querySelector('.package-title')?.textContent.toLowerCase();
-            const description = card.querySelector('.package-description')?.textContent.toLowerCase();
-            const durationText = card.querySelector('.course-meta span:nth-child(2)')?.textContent.toLowerCase();
-            const priceValue = parseFloat(card.querySelector('.package-price')?.textContent.replace(/[^0-9.]/g, '')) || 0;
-
-            let visible = true;
-
-            // Keyword search
-            if (keyword && !(title.includes(keyword) || description.includes(keyword))) {
-                visible = false;
-            }
-
-            // Category match
-            if (!categories.includes("All Categories")) {
-                visible = categories.some(cat => title.includes(cat.toLowerCase())) ? visible : false;
-            }
-
-            // Duration match
-            if (!durations.includes("Any Duration")) {
-                visible = durations.some(dur => durationText.includes(dur.split(' ')[0])) ? visible : false;
-            }
-
-            // Skill level match (optional — not present in DOM yet unless you add it)
-            // if (!levels.includes("All Levels")) {
-            //     visible = levels.some(level => card.textContent.toLowerCase().includes(level.toLowerCase())) ? visible : false;
-            // }
-
-            // Price range
-            if (priceValue > price) visible = false;
-
-            card.style.display = visible ? 'block' : 'none';
-        });
-    };
-
-    // Apply filters on button click
-    applyFilterBtn?.addEventListener('click', filterCourses);
-
-    // Live search on typing
-    searchInputs.forEach(input => {
-        input.addEventListener('input', filterCourses);
-    });
-});
-
     </script>
 
     <script>
-       document.addEventListener("DOMContentLoaded", function () {
-    const searchInputs = document.querySelectorAll('.course-search input, .search-box input');
-    const courseCards = document.querySelectorAll('.package-card');
-    const applyFilterBtn = document.querySelector('.filter-apply');
-    const priceRange = document.querySelector('.price-range');
-    const priceDisplay = document.querySelector('.price-values span:last-child');
-    const sortToggle = document.querySelector('.sort-toggle');
-    const sortDropdown = document.querySelector('.sort-dropdown');
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInputs = document.querySelectorAll('.course-search input, .search-box input');
+            const courseCards = document.querySelectorAll('.package-card');
+            const applyFilterBtn = document.querySelector('.filter-apply');
+            const priceRange = document.querySelector('.price-range');
+            const priceDisplay = document.querySelector('.price-values span:last-child');
+            const sortToggle = document.querySelector('.sort-toggle');
+            const sortDropdown = document.querySelector('.sort-dropdown');
 
-    function setupSmartFilterBehavior() {
-        const filterGroups = [
-            { sectionIndex: 0, label: "All Categories" },
-            { sectionIndex: 1, label: "Any Duration" },
-            { sectionIndex: 3, label: "All Levels" },
-        ];
+            function setupSmartFilterBehavior() {
+                const filterGroups = [{
+                    sectionIndex: 0,
+                    label: "All Categories"
+                }, {
+                    sectionIndex: 1,
+                    label: "Any Duration"
+                }, {
+                    sectionIndex: 3,
+                    label: "All Levels"
+                }, ];
 
-        filterGroups.forEach(({ sectionIndex, label }) => {
-            const section = document.querySelectorAll('.filter-section')[sectionIndex];
-            const allOption = Array.from(section.querySelectorAll('input')).find(input => input.parentElement.textContent.trim() === label);
-            const specificOptions = Array.from(section.querySelectorAll('input')).filter(i => i !== allOption);
+                filterGroups.forEach(({
+                    sectionIndex,
+                    label
+                }) => {
+                    const section = document.querySelectorAll('.filter-section')[sectionIndex];
+                    const allOption = Array.from(section.querySelectorAll('input')).find(input => input.parentElement.textContent.trim() === label);
+                    const specificOptions = Array.from(section.querySelectorAll('input')).filter(i => i !== allOption);
 
-            specificOptions.forEach(input => {
-                input.addEventListener('change', () => {
-                    if (input.checked) {
-                        allOption.checked = false;
-                    } else if (!specificOptions.some(i => i.checked)) {
-                        allOption.checked = true;
+                    specificOptions.forEach(input => {
+                        input.addEventListener('change', () => {
+                            if (input.checked) {
+                                allOption.checked = false;
+                            } else if (!specificOptions.some(i => i.checked)) {
+                                allOption.checked = true;
+                            }
+                            filterAndSortCourses();
+                        });
+                    });
+
+                    allOption.addEventListener('change', () => {
+                        if (allOption.checked) {
+                            specificOptions.forEach(i => (i.checked = false));
+                            filterAndSortCourses();
+                        }
+                    });
+                });
+            }
+
+            function getFilters() {
+                const selected = {
+                    keyword: searchInputs[0].value.trim().toLowerCase(),
+                    categories: [],
+                    durations: [],
+                    levels: [],
+                    price: parseInt(priceRange.value, 10),
+                    sort: sortToggle.textContent.trim().replace("Sort by:", "").trim(),
+                };
+
+                document.querySelectorAll('.filter-section:nth-of-type(1) input:checked').forEach(input => {
+                    selected.categories.push(input.parentElement.textContent.trim());
+                });
+
+                document.querySelectorAll('.filter-section:nth-of-type(2) input:checked').forEach(input => {
+                    selected.durations.push(input.parentElement.textContent.trim());
+                });
+
+                document.querySelectorAll('.filter-section:nth-of-type(4) input:checked').forEach(input => {
+                    selected.levels.push(input.parentElement.textContent.trim());
+                });
+
+                return selected;
+            }
+
+            function filterAndSortCourses() {
+                const {
+                    keyword,
+                    categories,
+                    durations,
+                    levels,
+                    price,
+                    sort
+                } = getFilters();
+
+                const filteredCards = Array.from(courseCards).filter(card => {
+                    const title = card.querySelector('.package-title').textContent.toLowerCase() || "";
+                    const description = card.querySelector('.package-description').textContent.toLowerCase() || "";
+                    const durationText = card.querySelector('.course-meta span:nth-child(2)').textContent.toLowerCase() || "";
+                    const priceValue = parseFloat(card.querySelector('.package-price').textContent.replace(/[^0-9.]/g, '')) || 0;
+
+                    let visible = true;
+
+                    if (keyword && !(title.includes(keyword) || description.includes(keyword))) visible = false;
+
+                    if (!categories.includes("All Categories")) {
+                        visible = categories.some(cat => title.includes(cat.toLowerCase())) ? visible : false;
                     }
+
+                    if (!durations.includes("Any Duration")) {
+                        visible = durations.some(dur => durationText.includes(dur.split(' ')[0])) ? visible : false;
+                    }
+
+                    if (!levels.includes("All Levels")) {
+                        visible = levels.some(level => title.includes(level.toLowerCase())) ? visible : false;
+                    }
+
+                    if (priceValue > price) visible = false;
+
+                    return visible;
+                });
+
+                const sortedCards = filteredCards.sort((a, b) => {
+                    const priceA = parseFloat(a.dataset.price || 0);
+                    const priceB = parseFloat(b.dataset.price || 0);
+                    const durationA = parseInt(a.dataset.duration || 0);
+                    const durationB = parseInt(b.dataset.duration || 0);
+                    const dateA = new Date(a.dataset.date || "2000-01-01");
+                    const dateB = new Date(b.dataset.date || "2000-01-01");
+                    const popA = parseInt(a.dataset.popularity || 0);
+                    const popB = parseInt(b.dataset.popularity || 0);
+
+                    switch (sort) {
+                        case "Price: Low to High":
+                            return priceA - priceB;
+                        case "Price: High to Low":
+                            return priceB - priceA;
+                        case "Duration: Short to Long":
+                            return durationA - durationB;
+                        case "Duration: Long to Short":
+                            return durationB - durationA;
+                        case "Newest":
+                        case "Newest to Oldest":
+                            return dateB - dateA;
+                        case "Popularity":
+                            return popB - popA;
+                        case "Recommended":
+                        default:
+                            return 0; // no sort; keeps HTML order
+                    }
+                });
+
+
+                // Hide all cards
+                courseCards.forEach(card => card.style.display = 'none');
+
+                // Show filtered + sorted cards
+                sortedCards.forEach(card => card.style.display = 'block');
+            }
+
+            // Update price display live
+            priceRange.addEventListener('input', () => {
+                priceDisplay.textContent = `Kshs ${priceRange.value}`;
+                filterAndSortCourses();
+            });
+
+            // Apply button and search inputs
+            applyFilterBtn.addEventListener('click', filterAndSortCourses);
+            searchInputs.forEach(input => input.addEventListener('input', filterAndSortCourses));
+
+            // Sort dropdown toggle
+            sortToggle.addEventListener('click', () => {
+                sortDropdown.classList.toggle('active');
+            });
+
+            sortToggle.addEventListener('click', () => {
+                console.log('Sort clicked');
+                sortDropdown.classList.toggle('active');
+            });
+
+            // Handle sort selection
+            sortDropdown.querySelectorAll('a').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    sortToggle.innerHTML = `Sort by: ${option.textContent} <i class="fas fa-chevron-down"></i>`;
+                    sortDropdown.classList.remove('active');
                     filterAndSortCourses();
                 });
             });
 
-            allOption?.addEventListener('change', () => {
-                if (allOption.checked) {
-                    specificOptions.forEach(i => (i.checked = false));
-                    filterAndSortCourses();
-                }
-            });
+            setupSmartFilterBehavior();
+            filterAndSortCourses(); // Initial run
         });
-    }
-
-    function getFilters() {
-        const selected = {
-            keyword: searchInputs[0].value.trim().toLowerCase(),
-            categories: [],
-            durations: [],
-            levels: [],
-            price: parseInt(priceRange.value, 10),
-            sort: sortToggle.textContent.trim().replace("Sort by:", "").trim(),
-        };
-
-        document.querySelectorAll('.filter-section:nth-of-type(1) input:checked').forEach(input => {
-            selected.categories.push(input.parentElement.textContent.trim());
-        });
-
-        document.querySelectorAll('.filter-section:nth-of-type(2) input:checked').forEach(input => {
-            selected.durations.push(input.parentElement.textContent.trim());
-        });
-
-        document.querySelectorAll('.filter-section:nth-of-type(4) input:checked').forEach(input => {
-            selected.levels.push(input.parentElement.textContent.trim());
-        });
-
-        return selected;
-    }
-
-    function filterAndSortCourses() {
-        const { keyword, categories, durations, levels, price, sort } = getFilters();
-
-        const filteredCards = Array.from(courseCards).filter(card => {
-            const title = card.querySelector('.package-title')?.textContent.toLowerCase() || "";
-            const description = card.querySelector('.package-description')?.textContent.toLowerCase() || "";
-            const durationText = card.querySelector('.course-meta span:nth-child(2)')?.textContent.toLowerCase() || "";
-            const priceValue = parseFloat(card.querySelector('.package-price')?.textContent.replace(/[^0-9.]/g, '')) || 0;
-
-            let visible = true;
-
-            if (keyword && !(title.includes(keyword) || description.includes(keyword))) visible = false;
-
-            if (!categories.includes("All Categories")) {
-                visible = categories.some(cat => title.includes(cat.toLowerCase())) ? visible : false;
-            }
-
-            if (!durations.includes("Any Duration")) {
-                visible = durations.some(dur => durationText.includes(dur.split(' ')[0])) ? visible : false;
-            }
-
-            if (!levels.includes("All Levels")) {
-                visible = levels.some(level => title.includes(level.toLowerCase())) ? visible : false;
-            }
-
-            if (priceValue > price) visible = false;
-
-            return visible;
-        });
-
-        const sortedCards = filteredCards.sort((a, b) => {
-    const priceA = parseFloat(a.dataset.price || 0);
-    const priceB = parseFloat(b.dataset.price || 0);
-    const durationA = parseInt(a.dataset.duration || 0);
-    const durationB = parseInt(b.dataset.duration || 0);
-    const dateA = new Date(a.dataset.date || "2000-01-01");
-    const dateB = new Date(b.dataset.date || "2000-01-01");
-    const popA = parseInt(a.dataset.popularity || 0);
-    const popB = parseInt(b.dataset.popularity || 0);
-
-    switch (sort) {
-        case "Price: Low to High":
-            return priceA - priceB;
-        case "Price: High to Low":
-            return priceB - priceA;
-        case "Duration: Short to Long":
-            return durationA - durationB;
-        case "Duration: Long to Short":
-            return durationB - durationA;
-        case "Newest":
-        case "Newest to Oldest":
-            return dateB - dateA;
-        case "Popularity":
-            return popB - popA;
-        case "Recommended":
-        default:
-            return 0; // no sort; keeps HTML order
-    }
-});
-
-
-        // Hide all cards
-        courseCards.forEach(card => card.style.display = 'none');
-
-        // Show filtered + sorted cards
-        sortedCards.forEach(card => card.style.display = 'block');
-    }
-
-    // Update price display live
-    priceRange?.addEventListener('input', () => {
-        priceDisplay.textContent = `Kshs ${priceRange.value}`;
-        filterAndSortCourses();
-    });
-
-    // Apply button and search inputs
-    applyFilterBtn?.addEventListener('click', filterAndSortCourses);
-    searchInputs.forEach(input => input.addEventListener('input', filterAndSortCourses));
-
-    // Sort dropdown toggle
-    sortToggle?.addEventListener('click', () => {
-        sortDropdown.classList.toggle('active');
-    });
-
-    sortToggle?.addEventListener('click', () => {
-    console.log('Sort clicked');
-    sortDropdown.classList.toggle('active');
-});
-
-    // Handle sort selection
-    sortDropdown?.querySelectorAll('a').forEach(option => {
-        option.addEventListener('click', (e) => {
-            e.preventDefault();
-            sortToggle.innerHTML = `Sort by: ${option.textContent} <i class="fas fa-chevron-down"></i>`;
-            sortDropdown.classList.remove('active');
-            filterAndSortCourses();
-        });
-    });
-
-    setupSmartFilterBehavior();
-    filterAndSortCourses(); // Initial run
-});
-
-
     </script>
 </body>
 

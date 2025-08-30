@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verita Campus - Testimonials</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
+    <link rel="shortcut icon" type="image/png" href="assets/images/Verita Logo Symbol.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
         /* Navigation Bar */
+        
         .navbar {
             position: fixed;
             top: 0;
@@ -19,17 +21,17 @@
             z-index: 1000;
             transition: var(--transition);
         }
-
+        
         .navbar.transparent {
             background: transparent;
             box-shadow: none;
         }
-
+        
         .navbar.solid {
             background: var(--gradient);
             box-shadow: var(--shadow);
         }
-
+        
         .nav-container {
             display: flex;
             justify-content: space-between;
@@ -37,9 +39,9 @@
             max-width: 1600px;
             margin: 0 auto;
             padding: 0 90px;
-            margin-right:-90px;
+            margin-right: -90px;
         }
-
+        
         .nav-logo {
             height: 60px;
             transition: var(--transition);
@@ -50,12 +52,12 @@
             cursor: pointer;
             margin-right: 50px;
         }
-
+        
         .nav-links ul {
             display: flex;
             gap: 20px;
         }
-
+        
         .nav-links ul li a {
             color: var(--text-light);
             font-weight: 600;
@@ -64,20 +66,20 @@
             transition: var(--transition);
             position: relative;
         }
-
+        
         .nav-links ul li a:hover {
             color: var(--secondary-color);
         }
-
-        .nav-links ul li a .fa-chevron-down{
+        
+        .nav-links ul li a .fa-chevron-down {
             transition: 0.3s;
         }
-
-        .nav-links ul li a:hover .fa-chevron-down{
+        
+        .nav-links ul li a:hover .fa-chevron-down {
             transform: rotate(180deg);
             transition: 0.3s;
         }
-
+        
         .nav-links ul li a::after {
             content: '';
             position: absolute;
@@ -89,15 +91,15 @@
             background: var(--secondary-color);
             transition: var(--transition);
         }
-
+        
         .nav-links ul li a:hover::after {
             width: 70%;
         }
-
+        
         .dropdown {
             position: relative;
         }
-
+        
         .dropdown-content {
             position: absolute;
             top: 100%;
@@ -114,51 +116,51 @@
             z-index: 100;
             width: fit-content;
         }
-
+        
         .dropdown:hover .dropdown-content {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
-
+        
         .dropdown-content a {
             color: var(--text-dark);
             display: block;
             padding: 10px 15px;
             transition: var(--transition);
         }
-
+        
         .dropdown-content a:last-child {
             border-bottom: none;
         }
-
+        
         .dropdown-content a:hover {
             background: var(--dark-color);
             color: white;
             padding-left: 20px;
         }
-
+        
         .dropdown-content a i {
             margin-right: 10px;
             width: 20px;
             text-align: center;
         }
-
+        
         .dropdown .fas {
             color: var(--secondary-color);
         }
-
+        
         .dropdown .fa-solid {
             color: var(--secondary-color);
         }
-
         /* Search Container */
+        
         .search-container {
             position: relative;
             margin-right: -20px;
-            left:70px;
+            left: 70px;
         }
-
+        
         .search-btn {
             background: transparent;
             color: white;
@@ -168,14 +170,14 @@
             padding: 8px;
             border-radius: 50%;
             transition: var(--transition);
-            margin-right:20px;
+            margin-right: 20px;
         }
-
+        
         .search-btn:hover {
             background: rgba(255, 255, 255, 0.1);
             transform: scale(1.1);
         }
-
+        
         .search-box {
             position: absolute;
             top: 100%;
@@ -193,14 +195,14 @@
             transition: var(--transition);
             z-index: 1000;
         }
-
+        
         .search-box.active {
             opacity: 3;
             visibility: visible;
             transform: translateY(0);
             z-index: 100;
         }
-
+        
         .search-box input {
             flex: 1;
             border: none;
@@ -209,7 +211,7 @@
             outline: none;
             font-size: 0.9rem;
         }
-
+        
         .search-submit {
             background: var(--primary-color);
             color: white;
@@ -223,12 +225,12 @@
             cursor: pointer;
             transition: var(--transition);
         }
-
+        
         .search-submit:hover {
             background: var(--dark-color);
         }
-
         /* Responsive adjustments */
+        
         @media (max-width: 768px) {
             .search-container {
                 margin-right: 10px;
@@ -241,14 +243,14 @@
                 width: auto;
             }
         }
-
+        
         .auth-buttons {
             display: flex;
             gap: 12px;
             transform: translateX(10%);
             margin-right: -30px;
         }
-
+        
         .login-btn,
         .signup-btn {
             padding: 8px 20px;
@@ -256,48 +258,48 @@
             font-weight: 600;
             transition: var(--transition);
         }
-
+        
         .login-btn i {
             color: var(--prime-color);
         }
-
+        
         .signup-btn i {
             color: var(--primary-color-2);
         }
-
+        
         .login-btn {
             background: transparent;
             color: white;
             border: 2px solid white;
         }
-
+        
         .login-btn:hover {
             background: var(--primary-color-2);
             color: var(--primary-color);
             scale: 1.05;
         }
-
+        
         .signup-btn {
             background: var(--secondary-color);
             color: var(--text-dark);
             border: 1px solid var(--secondary-color);
         }
-
+        
         .signup-btn:hover {
             background: var(--dark-color);
             color: white;
             scale: 1.05;
             border: 1px solid var(--primary-color-2)
         }
-
+        
         .mobile-menu-btn {
             display: none;
             font-size: 1.5rem;
             color: white;
             cursor: pointer;
         }
-
         /* Testimony Header */
+        
         .testimony-header {
             height: 60vh;
             position: relative;
@@ -347,8 +349,8 @@
             margin-bottom: 30px;
             text-shadow: var(--text-shadow-md);
         }
-
         /* Testimony Filters */
+        
         .testimony-filters {
             display: flex;
             flex-wrap: wrap;
@@ -400,21 +402,22 @@
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .filter-btn:hover {
             background: rgb(241, 241, 241);
         }
-
-        .filter-btn .fa-chevron-down{
-            transition:0.3s;
+        
+        .filter-btn .fa-chevron-down {
+            transition: 0.3s;
         }
-        .filter-btn:hover .fa-chevron-down{
+        
+        .filter-btn:hover .fa-chevron-down {
             transform: rotate(180deg);
             transition: 0.3s;
             color: var(--primary-color);
         }
-
-        .filter-btn::before .fa-chevron-down.active{
+        
+        .filter-btn::before .fa-chevron-down.active {
             display: block;
             transform: rotate(180deg);
             transition: 0.3s;
@@ -450,8 +453,8 @@
             background: #f5f5f5;
             color: var(--primary-color);
         }
-
         /* Testimony Grid */
+        
         .testimony-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -582,8 +585,8 @@
             font-size: 0.8rem;
             margin-top: 3px;
         }
-
         /* Pagination */
+        
         .pagination {
             display: flex;
             justify-content: center;
@@ -617,31 +620,32 @@
             border: 1px solid var(--primary-color);
         }
         
-        .page-prev, .page-next {
+        .page-prev,
+        .page-next {
             padding: 0 20px;
             border-radius: 30px;
             transition: 0.3s;
         }
-
+        
         .page-prev i {
             transition: 0.4s;
         }
-
+        
         .page-prev:hover i {
             transform: translateX(-50%);
             transition: 0.4s;
         }
-
+        
         .page-next i {
             transition: 0.4s;
         }
-
+        
         .page-next:hover i {
             transform: translateX(50%);
             transition: 0.4s;
         }
-
         /* CTA Section */
+        
         .cta-section {
             background: var(--gradient);
             padding: 80px 0;
@@ -701,30 +705,30 @@
             background: rgba(255, 255, 255, 0.1);
             transform: translateY(-3px);
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
         
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
         /* Responsive adjustments */
+        
         @media (max-width: 768px) {
             .testimony-header-content h1 {
                 font-size: 2.5rem;
             }
-            
             .testimony-header-content p {
                 font-size: 1.1rem;
             }
-            
             .testimony-filters {
                 flex-direction: column;
             }
-            
             .filter-dropdown {
                 width: 100%;
             }
-            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -732,6 +736,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar transparent">
@@ -760,11 +765,11 @@
                             <a href="benefit-networking.html"><i class="fas fa-network-wired"></i>Networking Opportunities</a>
                             <a href="benefit-global.html"><i class="fas fa-globe" ></i>Global community & Global platforms</a>
                             <a href="benefit-Portfolio-Revamp-&-Professional-Branding.html"><i class="fas ri-attachment-line"></i>Portfolio Revamp & Professional Branding</a>
-                            
-                            
+
+
                         </div>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="#">Community <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
@@ -801,7 +806,7 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- Testimony Header -->
     <section class="testimony-header">
         <img src="assets/images/Packages/testimony1.jpg" alt="Testimonials Header" class="testimony-header-image">
@@ -819,7 +824,7 @@
             <i class="fas fa-search search-icon"></i>
             <div class="search-results" style="display:none;"></div>
         </div>
-        
+
         <div class="filter-dropdown">
             <button class="filter-btn">All Courses <i class="fas fa-chevron-down"></i></button>
             <div class="filter-content">
@@ -832,7 +837,7 @@
                 <a href="#">Graphic Design</a>
             </div>
         </div>
-        
+
         <div class="filter-dropdown">
             <button class="filter-btn">All Ratings <i class="fas fa-chevron-down"></i></button>
             <div class="filter-content">
@@ -844,7 +849,7 @@
                 <a href="#">1 Star</a>
             </div>
         </div>
-        
+
         <div class="filter-dropdown">
             <button class="filter-btn">All Dates <i class="fas fa-chevron-down"></i></button>
             <div class="filter-content">
@@ -857,323 +862,323 @@
         </div>
 
         <div class="filter-dropdown">
-    <button class="filter-btn">All Types <i class="fas fa-chevron-down"></i></button>
-    <div class="filter-content">
-        <a href="#">All Types</a>
-        <a href="#">Video Testimonials</a>
-        <a href="#">Written Testimonials</a>
-    </div>
-</div>
+            <button class="filter-btn">All Types <i class="fas fa-chevron-down"></i></button>
+            <div class="filter-content">
+                <a href="#">All Types</a>
+                <a href="#">Video Testimonials</a>
+                <a href="#">Written Testimonials</a>
+            </div>
+        </div>
     </div>
 
     <!-- Video Testimonials Section -->
-<div class="testimony-grid" style="margin-bottom: 20px;">
-    <h2 style="grid-column: 1 / -1; text-align: center; font-size: 2rem; margin-bottom: 30px; color: var(--dark-color);">Video Testimonials</h2>
-    
-    <!-- Video Testimony Card 1 -->
-    <div class="testimony-card">
-        <div class="testimony-image">
-            <video controls poster="assets/images/testimonials/video-thumbnail1.jpg" style="width:100%; height:100%; object-fit:cover;">
+    <div class="testimony-grid" style="margin-bottom: 20px;">
+        <h2 style="grid-column: 1 / -1; text-align: center; font-size: 2rem; margin-bottom: 30px; color: var(--dark-color);">Video Testimonials</h2>
+
+        <!-- Video Testimony Card 1 -->
+        <div class="testimony-card">
+            <div class="testimony-image">
+                <video controls poster="assets/images/testimonials/video-thumbnail1.jpg" style="width:100%; height:100%; object-fit:cover;">
                 <source src="assets/images/testimonials-20250725T190538Z-1-001/testimonials/tt4.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="testimony-date">
-                <span>20</span>
-                <span>Jun</span>
-            </div>
-        </div>
-        <div class="testimony-content">
-            <span class="testimony-course">Data Science</span>
-            <h3>Career Transformation Story</h3>
-            <div class="testimony-author">
-                <div class="author-avatar">
-                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Lisa M.">
+                <div class="testimony-date">
+                    <span>20</span>
+                    <span>Jun</span>
                 </div>
-                <div class="author-info">
-                    <h4>Lisa M.</h4>
-                    <span>Data Analyst</span>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            </div>
+            <div class="testimony-content">
+                <span class="testimony-course">Data Science</span>
+                <h3>Career Transformation Story</h3>
+                <div class="testimony-author">
+                    <div class="author-avatar">
+                        <img src="assets/images/user (1).png" alt="Lisa M.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Lisa M.</h4>
+                        <span>Data Analyst</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Video Testimony Card 2 -->
-    <div class="testimony-card">
-        <div class="testimony-image">
-            <video controls poster="assets/images/testimonials/video-thumbnail2.jpg" style="width:100%; height:100%; object-fit:cover;">
+
+        <!-- Video Testimony Card 2 -->
+        <div class="testimony-card">
+            <div class="testimony-image">
+                <video controls poster="assets/images/testimonials/video-thumbnail2.jpg" style="width:100%; height:100%; object-fit:cover;">
                 <source src="assets/images/testimonials-20250725T190538Z-1-001/testimonials/VOICES OF THE VERITA ALUMNI.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="testimony-date">
-                <span>18</span>
-                <span>Jun</span>
-            </div>
-        </div>
-        <div class="testimony-content">
-            <span class="testimony-course">Digital Marketing</span>
-            <h3>From Student to Agency Owner</h3>
-            <div class="testimony-author">
-                <div class="author-avatar">
-                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Robert K.">
+                <div class="testimony-date">
+                    <span>18</span>
+                    <span>Jun</span>
                 </div>
-                <div class="author-info">
-                    <h4>Robert K.</h4>
-                    <span>Marketing Director</span>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="testimony-content">
+                <span class="testimony-course">Digital Marketing</span>
+                <h3>From Student to Agency Owner</h3>
+                <div class="testimony-author">
+                    <div class="author-avatar">
+                        <img src="assets/images/user (1).png" alt="Robert K.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Robert K.</h4>
+                        <span>Marketing Director</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Video Testimony Card 3 -->
-    <div class="testimony-card">
-        <div class="testimony-image">
-            <video controls poster="assets/images/testimonials/video-thumbnail3.jpg" style="width:100%; height:100%; object-fit:cover;">
+
+        <!-- Video Testimony Card 3 -->
+        <div class="testimony-card">
+            <div class="testimony-image">
+                <video controls poster="assets/images/testimonials/video-thumbnail3.jpg" style="width:100%; height:100%; object-fit:cover;">
                 <source src="assets/images/testimonials-20250725T190538Z-1-001/testimonials/SUCCESS.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="testimony-date">
-                <span>15</span>
-                <span>Jun</span>
-            </div>
-        </div>
-        <div class="testimony-content">
-            <span class="testimony-course">Software Development</span>
-            <h3>Career Change Success</h3>
-            <div class="testimony-author">
-                <div class="author-avatar">
-                    <img src="https://randomuser.me/api/portraits/women/35.jpg" alt="Sarah J.">
+                <div class="testimony-date">
+                    <span>15</span>
+                    <span>Jun</span>
                 </div>
-                <div class="author-info">
-                    <h4>Sarah J.</h4>
-                    <span>Software Engineer</span>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            </div>
+            <div class="testimony-content">
+                <span class="testimony-course">Software Development</span>
+                <h3>Career Change Success</h3>
+                <div class="testimony-author">
+                    <div class="author-avatar">
+                        <img src="assets/images/user (1).png" alt="Sarah J.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah J.</h4>
+                        <span>Software Engineer</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Video Testimony Card 4 -->
-    <div class="testimony-card">
-        <div class="testimony-image">
-            <video controls poster="assets/images/testimonials/video-thumbnail1.jpg" style="width:100%; height:100%; object-fit:cover;">
+        <!-- Video Testimony Card 4 -->
+        <div class="testimony-card">
+            <div class="testimony-image">
+                <video controls poster="assets/images/testimonials/video-thumbnail1.jpg" style="width:100%; height:100%; object-fit:cover;">
                 <source src="assets/images/testimonials-20250725T190538Z-1-001/testimonials/SUCCESS-2.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="testimony-date">
-                <span>20</span>
-                <span>Jun</span>
-            </div>
-        </div>
-        <div class="testimony-content">
-            <span class="testimony-course">Data Science</span>
-            <h3>Career Transformation Story</h3>
-            <div class="testimony-author">
-                <div class="author-avatar">
-                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Lisa M.">
+                <div class="testimony-date">
+                    <span>20</span>
+                    <span>Jun</span>
                 </div>
-                <div class="author-info">
-                    <h4>Lisa M.</h4>
-                    <span>Data Analyst</span>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            </div>
+            <div class="testimony-content">
+                <span class="testimony-course">Data Science</span>
+                <h3>Career Transformation Story</h3>
+                <div class="testimony-author">
+                    <div class="author-avatar">
+                        <img src="assets/images/user (1).png" alt="Lisa M.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Lisa M.</h4>
+                        <span>Data Analyst</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Video Testimony Card 5 -->
-    <div class="testimony-card">
-        <div class="testimony-image">
-            <video controls poster="assets/images/testimonials/video-thumbnail2.jpg" style="width:100%; height:100%; object-fit:cover;">
+
+        <!-- Video Testimony Card 5 -->
+        <div class="testimony-card">
+            <div class="testimony-image">
+                <video controls poster="assets/images/testimonials/video-thumbnail2.jpg" style="width:100%; height:100%; object-fit:cover;">
                 <source src="assets/images/testimonials-20250725T190538Z-1-001/testimonials/SUCCESS-1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="testimony-date">
-                <span>18</span>
-                <span>Jun</span>
-            </div>
-        </div>
-        <div class="testimony-content">
-            <span class="testimony-course">Digital Marketing</span>
-            <h3>From Student to Agency Owner</h3>
-            <div class="testimony-author">
-                <div class="author-avatar">
-                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Robert K.">
+                <div class="testimony-date">
+                    <span>18</span>
+                    <span>Jun</span>
                 </div>
-                <div class="author-info">
-                    <h4>Robert K.</h4>
-                    <span>Marketing Director</span>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="testimony-content">
+                <span class="testimony-course">Digital Marketing</span>
+                <h3>From Student to Agency Owner</h3>
+                <div class="testimony-author">
+                    <div class="author-avatar">
+                        <img src="assets/images/user (1).png" alt="Robert K.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Robert K.</h4>
+                        <span>Marketing Director</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Video Testimony Card 6 -->
-    <div class="testimony-card">
-        <div class="testimony-image">
-            <video controls poster="assets/images/testimonials/video-thumbnail3.jpg" style="width:100%; height:100%; object-fit:cover;">
+
+        <!-- Video Testimony Card 6 -->
+        <div class="testimony-card">
+            <div class="testimony-image">
+                <video controls poster="assets/images/testimonials/video-thumbnail3.jpg" style="width:100%; height:100%; object-fit:cover;">
                 <source src="assets/images/testimonials-20250725T190538Z-1-001/testimonials/Patricia Opiyo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="testimony-date">
-                <span>15</span>
-                <span>Jun</span>
-            </div>
-        </div>
-        <div class="testimony-content">
-            <span class="testimony-course">Software Development</span>
-            <h3>Career Change Success</h3>
-            <div class="testimony-author">
-                <div class="author-avatar">
-                    <img src="https://randomuser.me/api/portraits/women/35.jpg" alt="Patricia Opiyo">
+                <div class="testimony-date">
+                    <span>15</span>
+                    <span>Jun</span>
                 </div>
-                <div class="author-info">
-                    <h4>Patricia Opiyo.</h4>
-                    <span>Software Engineer</span>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            </div>
+            <div class="testimony-content">
+                <span class="testimony-course">Software Development</span>
+                <h3>Career Change Success</h3>
+                <div class="testimony-author">
+                    <div class="author-avatar">
+                        <img src="assets/images/user (1).png" alt="Patricia Opiyo">
+                    </div>
+                    <div class="author-info">
+                        <h4>Patricia Opiyo.</h4>
+                        <span>Software Engineer</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Video Testimony Card 7 -->
-    <div class="testimony-card">
-        <div class="testimony-image">
-            <video controls poster="assets/images/testimonials/video-thumbnail1.jpg" style="width:100%; height:100%; object-fit:cover;">
+        <!-- Video Testimony Card 7 -->
+        <div class="testimony-card">
+            <div class="testimony-image">
+                <video controls poster="assets/images/testimonials/video-thumbnail1.jpg" style="width:100%; height:100%; object-fit:cover;">
                 <source src="assets/images/testimonials-20250725T190538Z-1-001/testimonials/naznjui.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="testimony-date">
-                <span>20</span>
-                <span>Jun</span>
-            </div>
-        </div>
-        <div class="testimony-content">
-            <span class="testimony-course">Data Science</span>
-            <h3>Career Transformation Story</h3>
-            <div class="testimony-author">
-                <div class="author-avatar">
-                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="naznjui">
+                <div class="testimony-date">
+                    <span>20</span>
+                    <span>Jun</span>
                 </div>
-                <div class="author-info">
-                    <h4>Naznjui.</h4>
-                    <span>Data Analyst</span>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            </div>
+            <div class="testimony-content">
+                <span class="testimony-course">Data Science</span>
+                <h3>Career Transformation Story</h3>
+                <div class="testimony-author">
+                    <div class="author-avatar">
+                        <img src="assets/images/user (1).png" alt="naznjui">
+                    </div>
+                    <div class="author-info">
+                        <h4>Naznjui.</h4>
+                        <span>Data Analyst</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Video Testimony Card 8 -->
-    <div class="testimony-card">
-        <div class="testimony-image">
-            <video controls poster="assets/images/testimonials/video-thumbnail2.jpg" style="width:100%; height:100%; object-fit:cover;">
+
+        <!-- Video Testimony Card 8 -->
+        <div class="testimony-card">
+            <div class="testimony-image">
+                <video controls poster="assets/images/testimonials/video-thumbnail2.jpg" style="width:100%; height:100%; object-fit:cover;">
                 <source src="assets/images/testimonials-20250725T190538Z-1-001/testimonials/Charless Ikwedu.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="testimony-date">
-                <span>18</span>
-                <span>Jun</span>
-            </div>
-        </div>
-        <div class="testimony-content">
-            <span class="testimony-course">Digital Marketing</span>
-            <h3>From Student to Agency Owner</h3>
-            <div class="testimony-author">
-                <div class="author-avatar">
-                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Charless Ikwedu">
+                <div class="testimony-date">
+                    <span>18</span>
+                    <span>Jun</span>
                 </div>
-                <div class="author-info">
-                    <h4>Charless Ikwedu</h4>
-                    <span>Marketing Director</span>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="testimony-content">
+                <span class="testimony-course">Digital Marketing</span>
+                <h3>From Student to Agency Owner</h3>
+                <div class="testimony-author">
+                    <div class="author-avatar">
+                        <img src="assets/images/user (1).png" alt="Charless Ikwedu">
+                    </div>
+                    <div class="author-info">
+                        <h4>Charless Ikwedu</h4>
+                        <span>Marketing Director</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Video Testimony Card 9 -->
-    <div class="testimony-card">
-        <div class="testimony-image">
-            <video controls poster="assets/images/testimonials-20250725T190538Z-1-001/testimonials/Brenda Nakirija Verita Alumnus.mp4" style="width:100%; height:100%; object-fit:cover;">
+
+        <!-- Video Testimony Card 9 -->
+        <div class="testimony-card">
+            <div class="testimony-image">
+                <video controls poster="assets/images/testimonials-20250725T190538Z-1-001/testimonials/Brenda Nakirija Verita Alumnus.mp4" style="width:100%; height:100%; object-fit:cover;">
                 <source src="assets/images/testimonials-20250725T190538Z-1-001/testimonials/Brenda Nakirija Verita Alumnus.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="testimony-date">
-                <span>15</span>
-                <span>Jun</span>
-            </div>
-        </div>
-        <div class="testimony-content">
-            <span class="testimony-course">Software Development</span>
-            <h3>Career Change Success</h3>
-            <div class="testimony-author">
-                <div class="author-avatar">
-                    <img src="https://randomuser.me/api/portraits/women/35.jpg" alt="Sarah J.">
+                <div class="testimony-date">
+                    <span>15</span>
+                    <span>Jun</span>
                 </div>
-                <div class="author-info">
-                    <h4>Brenda Nakirija Verita </h4>
-                    <span>Software Engineer</span>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            </div>
+            <div class="testimony-content">
+                <span class="testimony-course">Software Development</span>
+                <h3>Career Change Success</h3>
+                <div class="testimony-author">
+                    <div class="author-avatar">
+                        <img src="assets/images/user (1).png" alt="Sarah J.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Brenda Nakirija Verita </h4>
+                        <span>Software Engineer</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- Testimony Grid -->
     <div class="testimony-grid">
@@ -1192,7 +1197,7 @@
                 <p>"The Data Science course at Verita completely transformed my career. Within 3 months of completing the program, I landed a job as a junior data analyst. The practical projects were invaluable!"</p>
                 <div class="testimony-author">
                     <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah K.">
+                        <img src="assets/images/user (1).png" alt="Sarah K.">
                     </div>
                     <div class="author-info">
                         <h4>Sarah K.</h4>
@@ -1208,7 +1213,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Testimony Card 2 -->
         <div class="testimony-card">
             <div class="testimony-image">
@@ -1224,7 +1229,7 @@
                 <p>"Verita's Digital Marketing program gave me all the tools I needed to start my own agency. The instructors were incredibly knowledgeable and supportive. I now have 5 steady clients!"</p>
                 <div class="testimony-author">
                     <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James L.">
+                        <img src="assets/images/user (1).png" alt="James L.">
                     </div>
                     <div class="author-info">
                         <h4>James L.</h4>
@@ -1240,7 +1245,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Testimony Card 3 -->
         <div class="testimony-card">
             <div class="testimony-image">
@@ -1256,7 +1261,7 @@
                 <p>"I came in with zero design experience and left with a professional portfolio. The hands-on approach and real client projects prepared me perfectly for my current design role."</p>
                 <div class="testimony-author">
                     <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya M.">
+                        <img src="assets/images/user (1).png" alt="Priya M.">
                     </div>
                     <div class="author-info">
                         <h4>Priya M.</h4>
@@ -1272,7 +1277,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Testimony Card 4 -->
         <div class="testimony-card">
             <div class="testimony-image">
@@ -1288,7 +1293,7 @@
                 <p>"The business management course helped me systemize my small business. I've increased revenue by 40% and now have processes that allow me to focus on growth instead of daily operations."</p>
                 <div class="testimony-author">
                     <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David T.">
+                        <img src="assets/images/user (1).png" alt="David T.">
                     </div>
                     <div class="author-info">
                         <h4>David T.</h4>
@@ -1304,7 +1309,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Testimony Card 5 -->
         <div class="testimony-card">
             <div class="testimony-image">
@@ -1320,7 +1325,7 @@
                 <p>"After 10 years in a completely different field, I was able to transition to software development thanks to Verita. The career support team helped me craft my resume and prepare for interviews."</p>
                 <div class="testimony-author">
                     <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Michael B.">
+                        <img src="assets/images/user (1).png" alt="Michael B.">
                     </div>
                     <div class="author-info">
                         <h4>Michael B.</h4>
@@ -1336,7 +1341,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Testimony Card 6 -->
         <div class="testimony-card">
             <div class="testimony-image">
@@ -1352,7 +1357,7 @@
                 <p>"The financial modeling skills I learned helped me get promoted to senior analyst. My manager was impressed with how quickly I could analyze data and create reports after the course."</p>
                 <div class="testimony-author">
                     <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Grace W.">
+                        <img src="assets/images/user (1).png" alt="Grace W.">
                     </div>
                     <div class="author-info">
                         <h4>Grace W.</h4>
@@ -1368,7 +1373,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Testimony Card 7 -->
         <div class="testimony-card">
             <div class="testimony-image">
@@ -1384,7 +1389,7 @@
                 <p>"With no technical background, I was nervous about data science. The instructors broke concepts down so clearly. Now I'm working on machine learning models for a tech startup!"</p>
                 <div class="testimony-author">
                     <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Fatima A.">
+                        <img src="assets/images/user (1).png" alt="Fatima A.">
                     </div>
                     <div class="author-info">
                         <h4>Fatima A.</h4>
@@ -1400,7 +1405,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Testimony Card 8 -->
         <div class="testimony-card">
             <div class="testimony-image">
@@ -1416,7 +1421,7 @@
                 <p>"After taking the digital marketing course, I was able to offer more services to clients. My income has tripled and I now have a waiting list of businesses wanting to work with me."</p>
                 <div class="testimony-author">
                     <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Kwame O.">
+                        <img src="assets/images/user (1).png" alt="Kwame O.">
                     </div>
                     <div class="author-info">
                         <h4>Kwame O.</h4>
@@ -1432,7 +1437,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Testimony Card 9 -->
         <div class="testimony-card">
             <div class="testimony-image">
@@ -1448,7 +1453,7 @@
                 <p>"The business frameworks I learned helped me systemize my startup. We've grown from 5 to 15 employees and are expanding to new markets thanks to the strategic planning skills I gained."</p>
                 <div class="testimony-author">
                     <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="Amina K.">
+                        <img src="assets/images/user (1).png" alt="Amina K.">
                     </div>
                     <div class="author-info">
                         <h4>Amina K.</h4>
@@ -1464,7 +1469,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Testimony Card 10 -->
         <div class="testimony-card">
             <div class="testimony-image">
@@ -1480,7 +1485,7 @@
                 <p>"The coding skills I learned allowed me to transition to remote work. I now work for a US-based company earning 4x my previous salary while having the flexibility to travel."</p>
                 <div class="testimony-author">
                     <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="John D.">
+                        <img src="assets/images/user (1).png" alt="John D.">
                     </div>
                     <div class="author-info">
                         <h4>John D.</h4>
@@ -1558,7 +1563,7 @@
                     <h3>Contact Us</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt" style="display:none;"></i></li>
-                        <li style="display:none;"><i class="fas fa-phone-alt" ></i> +254 712 345 678</li>
+                        <li style="display:none;"><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
                         <li><i class="fas fa-envelope" style="color:var(--secondary-color);"></i> veritalearning@gmail.com </li>
                         <li><i class="fas fa-envelope"></i> info@veritacampus.com </li>
                     </ul>
@@ -1587,12 +1592,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Filter dropdown functionality
             const filterBtns = document.querySelectorAll('.filter-btn');
-            
+
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const content = this.nextElementSibling;
                     content.classList.toggle('active');
-                    
+
                     // Close other open dropdowns
                     document.querySelectorAll('.filter-content').forEach(item => {
                         if (item !== content && item.classList.contains('active')) {
@@ -1616,7 +1621,7 @@
                     navbar.classList.remove('solid');
                 }
             });
-            
+
             // Close dropdowns when clicking outside
             document.addEventListener('click', function(e) {
                 if (!e.target.closest('.filter-dropdown')) {
@@ -1625,15 +1630,15 @@
                     });
                 }
             });
-            
+
             // Search functionality
             const searchInput = document.querySelector('.search-input');
             const searchIcon = document.querySelector('.search-icon');
-            
+
             searchIcon.addEventListener('click', function() {
                 performSearch();
             });
-            
+
             searchInput.addEventListener('keyup', function(e) {
                 if (e.key === 'Enter') {
                     performSearch();
@@ -1641,7 +1646,7 @@
                     // Live search suggestions could be implemented here
                 }
             });
-            
+
             function performSearch() {
                 const searchTerm = searchInput.value.trim();
                 if (searchTerm) {
@@ -1649,10 +1654,10 @@
                     alert('Searching for: ' + searchTerm);
                 }
             }
-            
+
             // Pagination functionality
             const pageBtns = document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)');
-            
+
             pageBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelector('.page-btn.active').classList.remove('active');
@@ -1664,122 +1669,125 @@
     </script>
     <script>
         // Pagination functionality
-function setupPagination(cardSelector, itemsPerPage = 9) {
-    const cards = document.querySelectorAll(cardSelector);
-    const totalItems = cards.length;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
-    const paginationContainer = document.querySelector('.pagination');
-    
-    // Hide all cards initially
-    cards.forEach(card => card.style.display = 'none');
-    
-    // If only one page, hide pagination except active page 1
-    if (totalPages <= 1) {
-        const pageBtns = document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)');
-        pageBtns.forEach((btn, index) => {
-            if (index > 0) btn.style.display = 'none';
-        });
-        showPage(1, cardSelector, itemsPerPage);
-        return;
-    }
-    
-    // Show first page by default
-    showPage(1, cardSelector, itemsPerPage);
-    
-    // Handle page button clicks
-    document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const pageNum = parseInt(this.textContent);
-            document.querySelector('.page-btn.active').classList.remove('active');
-            this.classList.add('active');
-            showPage(pageNum, cardSelector, itemsPerPage);
-        });
-    });
-    
-    // Previous button
-    document.querySelector('.page-prev').addEventListener('click', function() {
-        const activeBtn = document.querySelector('.page-btn.active');
-        const prevBtn = activeBtn.previousElementSibling;
-        
-        if (prevBtn && prevBtn.classList.contains('page-btn') && !prevBtn.classList.contains('page-prev')) {
-            activeBtn.classList.remove('active');
-            prevBtn.classList.add('active');
-            showPage(parseInt(prevBtn.textContent), cardSelector, itemsPerPage);
-        }
-    });
-    
-    // Next button
-    document.querySelector('.page-next').addEventListener('click', function() {
-        const activeBtn = document.querySelector('.page-btn.active');
-        const nextBtn = activeBtn.nextElementSibling;
-        
-        if (nextBtn && nextBtn.classList.contains('page-btn') && !nextBtn.classList.contains('page-next')) {
-            activeBtn.classList.remove('active');
-            nextBtn.classList.add('active');
-            showPage(parseInt(nextBtn.textContent), cardSelector, itemsPerPage);
-        }
-    });
-}
+        function setupPagination(cardSelector, itemsPerPage = 9) {
+            const cards = document.querySelectorAll(cardSelector);
+            const totalItems = cards.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const paginationContainer = document.querySelector('.pagination');
 
-function showPage(pageNum, cardSelector, itemsPerPage) {
-    const cards = document.querySelectorAll(cardSelector);
-    const startIndex = (pageNum - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    
-    // Hide all cards
-    cards.forEach(card => card.style.display = 'none');
-    
-    // Show cards for current page
-    for (let i = startIndex; i < endIndex && i < cards.length; i++) {
-        cards[i].style.display = '';
-    }
-    
-    // Scroll to top of grid
-    document.querySelector(cardSelector).parentElement.scrollIntoView({ behavior: 'smooth' });
-}
+            // Hide all cards initially
+            cards.forEach(card => card.style.display = 'none');
 
-// Initialize pagination when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // For testimony.html
-    if (document.querySelector('.testimony-grid')) {
-        setupPagination('.testimony-card', 9);
-    }
-});
+            // If only one page, hide pagination except active page 1
+            if (totalPages <= 1) {
+                const pageBtns = document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)');
+                pageBtns.forEach((btn, index) => {
+                    if (index > 0) btn.style.display = 'none';
+                });
+                showPage(1, cardSelector, itemsPerPage);
+                return;
+            }
+
+            // Show first page by default
+            showPage(1, cardSelector, itemsPerPage);
+
+            // Handle page button clicks
+            document.querySelectorAll('.page-btn:not(.page-prev):not(.page-next)').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const pageNum = parseInt(this.textContent);
+                    document.querySelector('.page-btn.active').classList.remove('active');
+                    this.classList.add('active');
+                    showPage(pageNum, cardSelector, itemsPerPage);
+                });
+            });
+
+            // Previous button
+            document.querySelector('.page-prev').addEventListener('click', function() {
+                const activeBtn = document.querySelector('.page-btn.active');
+                const prevBtn = activeBtn.previousElementSibling;
+
+                if (prevBtn && prevBtn.classList.contains('page-btn') && !prevBtn.classList.contains('page-prev')) {
+                    activeBtn.classList.remove('active');
+                    prevBtn.classList.add('active');
+                    showPage(parseInt(prevBtn.textContent), cardSelector, itemsPerPage);
+                }
+            });
+
+            // Next button
+            document.querySelector('.page-next').addEventListener('click', function() {
+                const activeBtn = document.querySelector('.page-btn.active');
+                const nextBtn = activeBtn.nextElementSibling;
+
+                if (nextBtn && nextBtn.classList.contains('page-btn') && !nextBtn.classList.contains('page-next')) {
+                    activeBtn.classList.remove('active');
+                    nextBtn.classList.add('active');
+                    showPage(parseInt(nextBtn.textContent), cardSelector, itemsPerPage);
+                }
+            });
+        }
+
+        function showPage(pageNum, cardSelector, itemsPerPage) {
+            const cards = document.querySelectorAll(cardSelector);
+            const startIndex = (pageNum - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            // Hide all cards
+            cards.forEach(card => card.style.display = 'none');
+
+            // Show cards for current page
+            for (let i = startIndex; i < endIndex && i < cards.length; i++) {
+                cards[i].style.display = '';
+            }
+
+            // Scroll to top of grid
+            document.querySelector(cardSelector).parentElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize pagination when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // For testimony.html
+            if (document.querySelector('.testimony-grid')) {
+                setupPagination('.testimony-card', 9);
+            }
+        });
     </script>
     <script>
         // Testimonial type filter
-document.addEventListener('DOMContentLoaded', function() {
-    const typeFilter = document.querySelector('.filter-content a[href="#"]:nth-child(2)'); // Video filter
-    const typeFilter2 = document.querySelector('.filter-content a[href="#"]:nth-child(3)'); // Written filter
-    
-    if (typeFilter && typeFilter2) {
-        typeFilter.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelectorAll('.testimony-card').forEach(card => {
-                if (card.querySelector('video')) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            // Reset pagination
-            setupPagination('.testimony-card', 9);
+        document.addEventListener('DOMContentLoaded', function() {
+            const typeFilter = document.querySelector('.filter-content a[href="#"]:nth-child(2)'); // Video filter
+            const typeFilter2 = document.querySelector('.filter-content a[href="#"]:nth-child(3)'); // Written filter
+
+            if (typeFilter && typeFilter2) {
+                typeFilter.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.testimony-card').forEach(card => {
+                        if (card.querySelector('video')) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    // Reset pagination
+                    setupPagination('.testimony-card', 9);
+                });
+
+                typeFilter2.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.testimony-card').forEach(card => {
+                        if (card.querySelector('video')) {
+                            card.style.display = 'none';
+                        } else {
+                            card.style.display = '';
+                        }
+                    });
+                    // Reset pagination
+                    setupPagination('.testimony-card', 9);
+                });
+            }
         });
-        
-        typeFilter2.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelectorAll('.testimony-card').forEach(card => {
-                if (card.querySelector('video')) {
-                    card.style.display = 'none';
-                } else {
-                    card.style.display = '';
-                }
-            });
-            // Reset pagination
-            setupPagination('.testimony-card', 9);
-        });
-    }
-});
     </script>
 </body>
+
 </html>
